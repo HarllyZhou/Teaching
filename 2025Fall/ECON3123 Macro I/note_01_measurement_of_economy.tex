@@ -83,5 +83,122 @@ There are 3 definitions of GDP, each corresponding to a way to calculate it.
     Pete the Pizza Man produced \$87,000 worth of pizzas in the past year. He paid \$39,000 to employees, paid \$11,000 for vegetables and other ingredients, and paid \$5000 in taxes. He began the year with ingredient inventories valued at \$1000, and ended the year with inventories valued at \$2000. What was Pete's (and his employees') total contribution to GDP this year?
 \end{exercise}
 
+\begin{exercise}
+    In the country of Kwaki, people produce canoes, fish for salmon, and grow corn. In one year they produced 5000 canoes using labor and natural materials only, but sold only 4000, as the economy entered a recession. The cost of producing each canoe was \$1000, but the ones that sold were priced at \$1250. They fished \$30 million worth of salmon. They used \$3 million of the salmon as fertilizer for corn. They grew and ate \$55 million of corn. What was Kwaki's GDP for the year?
+\end{exercise}
 
+\begin{example}
+    Suppose there are only two firms in the economy:
+    \begin{itemize}
+        \item Farm A grows strawberry. In 2016, it sold \$10,000 worth of strawberry to customers, \$20000 worth of strawberry to Japan, and \$30,000 worth of strawberry to Cafe B. It also pays \$5,000 wages to its employees and \$10,000 rent to the landlord.
+        \item Cafe B makes and sells strawberry cakes. In 2016, it sold \$60,000 worth of strawberry cakes to customers and stored away \$20,000 worth of strawberry cakes. It pays \$15,000 wages to its employees, \$4,000 rent for its shop and \$2,000 interest payment to its loans. The stored cakes are sold in 2017.
+    \end{itemize}
+    Profit tax is 10\% and Wage tax is 10\%. What is the GDP of this economy?
+\end{example}
+
+\vspace{36pt}
+
+\paragraph{Nominal and Real GDP}
+\textbf{Nominal GDP} reflects both current quantities and current prices, while \textbf{real GDP} sums up the quantities with constant prices at base year. 
+\begin{align*}
+    Y_{\text{Nominal, }\, t} &= \sum^N_{i=1} P_{i,t}Q_{i,t}\\
+    Y_{\text{Real, }\, t} &= \sum^N_{i=1} P_{i,t_0}Q_{i,t}, \text{where } t_0 \text{ is the base year.}
+\end{align*}
+To reflect changes in relative prices over time, we use \textbf{real GDP in chained dollars}. The growth rate is
+\begin{align*}
+    \bar{g}_{\text{RGDP}, t} = \sqrt{\frac{\sum^N_{i=1} P_{i,t-1}Q_{i,t}}{\sum^N_{i=1} P_{i,t-1}Q_{i,t-1}} \frac{\sum^N_{i=1} P_{i,t}Q_{i,t}}{\sum^N_{i=1} P_{i,t}Q_{i,t-1}}}-1.
+\end{align*}
+\begin{exercise}
+    (Multiple choice) A disadvantage of chain-weighting is that
+    \begin{enumerate}[label=\Alph*.]
+        \item past inflation rates change whenever the base year changes.
+        \item past growth rates of real GDP change whenever the base year changes.
+        \item it causes output growth to slow.
+        \item the components of real GDP don't sum to real GDP.
+    \end{enumerate}
+\end{exercise}
+
+
+\begin{example}
+    Nominal GDP in 1970 was \$1035.6 billion, and in 1980 it was \$2784.2 billion. The GDP price index was 30.6 for 1970 and 60.4 for 1980, where 1992 was the base year. Calculate the percent change in real GDP in the decade from 1970 to 1980. Round off to the nearest percentage point.
+\end{example}
+
+\vspace{36pt}
+
+\subsection*{Employment}
+\paragraph{Unemployment Rate}
+Labour force can be divided into two part: employed people and unemployed people. Unemployed workers are people who do not have a job \textbf{but are looking for one}. Discouraged workers, i.e., those who do not want to look for a job, are not included. Mathematically, the labour force ($L$), employment ($N$) and unemployment ($U$) have the following relationship.
+\begin{align*}
+    L = N + U,
+\end{align*}
+The unemployment rate is
+\begin{align*}
+    u=\frac{U}{L}
+\end{align*}
+\begin{remark}
+    The denominator is labour force, not total population.
+\end{remark}
+
+\paragraph{Participation Rate}
+Labour force participation rate is defined as the ratio between total labour force and total population of working age.
+\begin{align*}
+    \text{Participation rate} = \frac{\text{Labour force}}{\text{Total population of working age}}.
+\end{align*}
+
+\begin{exercise}
+    If a city has 3293 unemployed people and 69,884 employed people, then what is the city's unemployment rate?
+\end{exercise}
+
+\subsection*{Price}
+\paragraph{Inflation}
+Inflation rate reflects the chage of price level during a period. Let the price level be denoted by $P_t$. The inflation rate during period $t$ is
+\begin{align*}
+    \pi_t=\frac{P_t-P_{t-1}}{P_{t-1}}.
+\end{align*}
+When $\pi_t>0$, the economy has inflation. When $\pi_t<0$, the economy has deflation.
+
+\paragraph{Price Indices}
+\begin{enumerate}[label=(\arabic*)]
+    \item GDP Deflator: The ratio between the nominal GDP and Real GDP.
+    \begin{align*}
+        P_t = \frac{Y_{\text{Nominal, }\, t}}{Y_{\text{Real, }\, t}}.
+    \end{align*}
+    \item Consumer Price Index (CPI): The ratio between the cost of market basket in current year and the base year.
+    \begin{align*}
+        P_t = \frac{\text{Price of basket in year } t}{\text{Price of basket in the base year}}.
+    \end{align*}
+\end{enumerate}
+
+\begin{exercise}
+    Chapter 2, Question 7 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\begin{exercise}
+    The CPI may overstate inflation for all the following reasons except
+    \begin{enumerate}[label=\Alph*.]
+        \item problems measuring changes in the quality of goods.
+        \item substitution by consumers towards cheaper goods.
+        \item problems measuring the quality of services.
+        \item changes in Social Security benefits.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    Nominal GDP in a country was \$8759.9 billion in 2024 and \$9254.6 billion in 2025. The GDP deflator was 1.0286 for 2024 and 1.0437 for 2025.
+    \begin{enumerate}[label=(\roman*)]
+        \item What is the growth rate of nominal GDP between 2024 and 2025?
+        \item What is the inflation rate from 2014 to 2015?
+        \item What is the growth rate of real GDP from 2014 to 2015?
+    \end{enumerate}
+\end{exercise}
+
+\begin{example}
+    The consumer price index (CPI) was 180 for 2009 when using 1995 as the base year (1995 = 100). Now suppose we switch and use 2009 as the base year (2009 = 100). What is the CPI for 1995 with the new base year?
+\end{example}
+
+\vspace{36pt}
+
+\begin{example}
+    Two years ago, the GDP deflator for Old York was 300, and today it is 330.75. Based on this information, what is the annual average inflation rate for the two years?
+\end{example}
 \end{document}
