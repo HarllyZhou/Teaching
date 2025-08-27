@@ -50,7 +50,6 @@
 \newtheorem*{remark}{Remark}
 \newtheorem{example}{Example}
 \newtheorem{exercise}{Exercise}
-\numberwithin{equation}{section}
 \newtheorem{assumption}{Assumption}[section] % number within sections
 
 
@@ -120,9 +119,9 @@ Assume that investment value is exogenously given as
 and that $NX=0$. 
 The demand for goods is
 \begin{align}\label{eq:demand_v1}
-    Z &\equiv C + I + G + NX\\
-    &= C + \bar{I} + G\\
-    &= [c_0 + c_1(Y-T)] + \bar{I} + G\\
+    Z &\equiv C + I + G + NX \notag \\
+    &= C + \bar{I} + G \notag \\
+    &= [c_0 + c_1(Y-T)] + \bar{I} + G \notag \\
     &= (c_0 + \bar{I} + G - c_1T) + c_1Y.
 \end{align}
 Given \textbf{income} $Y$, people want to purchase $Z$ amount of goods and services.
@@ -213,5 +212,67 @@ Algebraically, when $c_1$ increases, $\frac{1}{1-c_1}$ also increases.
     Chapter 3, Question 5 (c) and Question 6 (c)(d) in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
 \end{exercise}
 
+\subsection*{Savings}
+\paragraph{Private Saving and Public Saving}
+\textbf{Private saving} equals disposable income minus consumption:
+\begin{align}\label{eq:def_priv_s}
+    S = Y_D - C = Y - T - C.
+\end{align}
+\textbf{Public saving} equals taxes (net of transfers) minus government spending:
+\begin{align*}
+    T - G
+\end{align*}
 
+\paragraph{Goods Market Equilibrium and IS relation}
+By \eqref{eq:demand_v1} and \eqref{eq:eqm_cond}, the equilibrium condition can be rewritten as
+\begin{align}\label{eq:eqm_cond_v2}
+    Y = C + I + G.
+\end{align}
+Rewriting the condition, we get
+\begin{align*}
+    Y - T - C = I + G - T.
+\end{align*}
+Note that that left-hand side (LHS) of the equation is private savings $S$. Rearranging the temrs, we get the IS relation:
+\begin{align*}
+    I = S + (T-G),
+\end{align*}
+\textbf{I}nvestment equals \textbf{S}avings. More specifically, IS relation implies that at goods market equilibrium, the amount that firms want to invest must equal the amount that people and the government want to save.
+
+As we have just shown, we can alternatively think about goods-market equilibrium as the condition that investment equals savings.
+
+\paragraph{The Paradox of Saving}
+Substituting the consumption function into \eqref{eq:def_priv_s}, we obtain
+\begin{align*}
+    S = -c_0 + (1-c_1)(Y-T).
+\end{align*}
+$1-c_1$ is called the \textbf{marginal propensity to save} (MPS).
+
+What happens if we decrease saving by increasing $c_0$? You will deal with this in Problem Set.
+
+\begin{exercise}
+    When a person gets an increase in current income, what is likely to happen to consumption and saving?
+    \begin{enumerate}[label=\Alph*.]
+        \item Consumption increases and saving increases.
+        \item Consumption increases and saving decreases.
+        \item Consumption decreases and saving increases.
+        \item Consumption decreases and saving decreases.
+    \end{enumerate}
+\end{exercise}
+
+\begin{example}
+    Consider an economy characterized by the following behavioral equations:
+    \begin{align*}
+        C &= c_0 + c_1 Y_D\\
+        Y_D &= Y - T\\
+        T &= t_1 Y + t_2 C
+    \end{align*}
+    where $t_1, t_2 \in (0,1)$. $G$ and $I$ are given. This is case when we tax both income and consumption. The economy is now at its equilibrium.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Solve for the equilibrium output.
+        \item What is the multiplier? Does this form of tax stabilizes output changes when there is a change in $c_0$, comparing with exogenous tax? Discuss cases where it does and it does not based on the equilibrium in part (1).
+        \item Suppose that $c_0$ increases by 1 unit. In the new equibrlium, will consumption also increase by 1 unit? Discuss cases where it will and it will not based on the equilibrium in part (1).
+        \item Write equilibrium saving as a function of $Y$.
+        \item What is the MPS? Show that when $c_0$ increases by 1 unit, if $t_1+t_2=1$, the new equilibrium saving will decrease by 1 unit.
+    \end{enumerate} 
+\end{example}
 \end{document}
