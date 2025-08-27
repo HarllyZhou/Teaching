@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\numberwithin{equation}{section}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 2: Consumption and Goods Market}}\\
+    Solution to Exercises\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+\paragraph{Exercise 1}
+(1) D. It is investment. (2) C. Government transfer is not counted into $G$.
+
+\paragraph{Exercise 2}
+\begin{enumerate}[label=\alph*.]
+    \item $Y=480+(0.5)(Y-70)+110+250=1610\text{billion}$.
+    \item $Y_D = 1610 - 70 = 1540\text{billion}$.
+    \item $C = 480 + 0.5(1540) = 1250 \text{billion}$.
+\end{enumerate}
+
+\paragraph{Exercise 3}
+\begin{itemize}
+    \item Q5(c): Because of the automatic effect of taxes on the economy, the economy responds less to changes in autonomous spending than in the case where taxes are independent of income. Since output tends to vary less (to be more stable), fiscal policy is called an automatic stabilizer.
+    \item Q6(c): Both Y and T decrease.
+    \item Q6(d): If $G$ is cut, $Y$ decreases even more. A balanced budget requirement amplifies the effect of the decline in $c_0$. Therefore, such a requirement is destabilizing.
+\end{itemize}
+\end{document}

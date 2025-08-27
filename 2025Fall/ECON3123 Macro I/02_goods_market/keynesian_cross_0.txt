@@ -1,0 +1,37 @@
+\documentclass[10pt]{article}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+\definecolor{wwwwww}{rgb}{0.4,0.4,0.4}
+\definecolor{ccqqqq}{rgb}{0.8,0,0}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\begin{axis}[
+x=1cm,y=1cm,
+axis lines=middle,
+xmin=-0.5277788719507501,
+xmax=13.424934856539622,
+ymin=-0.49717345504821475,
+ymax=10.736617921407491,
+xtick={0,1,...,13},
+ytick={0,1,...,10},]
+\clip(-0.5277788719507501,-0.49717345504821475) rectangle (13.424934856539622,10.736617921407491);
+\draw[line width=2pt,color=qqqqff,smooth,samples=100,domain=-0.5277788719507501:13.424934856539622] plot(\x,{(\x)*((\x)*>*0)-200*((\x)*<*0)});
+\draw [color=qqqqff](7.430042646199652,7.208650381694129) node[anchor=north west] {Supply (Production)};
+\draw[line width=2pt,color=ccqqqq,smooth,samples=100,domain=-0.5277788719507501:13.424934856539622] plot(\x,{3+0.3*(\x)*((\x)*>*0)-200*((\x)*<*0)});
+\draw [color=ccqqqq](7.25762317997306,6.26697483537966) node[anchor=north west] {Demand (Expenditure)};
+\draw [line width=2pt,dash pattern=on 1pt off 1pt,color=wwwwww] (4.285714285714286,4.285714285714286)-- (0,4.285714285714286);
+\draw [line width=2pt,dash pattern=on 1pt off 1pt,color=wwwwww] (4.285714285714286,4.285714285714286)-- (4.285714285714286,0);
+\draw (0.14863595709203403,10.577461491044483) node[anchor=north west] {\parbox{2.59156430363008 cm}{Production (Y) \textbackslash \textbackslash  Expenditure (Z)}};
+\draw (12.032316090863302,0.43123905540267) node[anchor=north west] {Income (Y)};
+\draw (4.53870082793834,4.304045527569218) node[anchor=north west] {Equilibrium};
+\draw (4.67133118657418,4.131626061342625) node[anchor=north west] {$Y=Z$};
+\begin{scriptsize}
+\draw [fill=wwwwww] (4.285714285714286,4.285714285714286) circle (2pt);
+\end{scriptsize}
+\end{axis}
+\end{tikzpicture}
+\end{document}
