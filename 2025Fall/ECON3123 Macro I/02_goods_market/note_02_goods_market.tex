@@ -278,25 +278,52 @@ What happens if we decrease saving by increasing $c_0$? You will deal with this 
 
 \subsection*{Government and Fiscal Policy: Financial Stimulus}
 Recall that at equilibrium, we have
-\begin{align*}
-    Y = \frac{1}{1-c_1}(c_0 + \bar{I} + G - c_1T).
-\end{align*}
+\begin{align}
+    Y &= Z = C + I + G \label{eq:eqm_fina_sti} \\
+    &= \frac{1}{1-c_1}(c_0 + \bar{I} + G - c_1T),\label{eq:y_fina_sti}
+\end{align}
+where consumption satisfies the following behavioral equation:
+\begin{align}\label{eq:c_fina_sti}
+    C = c_0 + c_1(Y-T).
+\end{align}
 In the previous two examples, we have seen some ways to stabilize business cycles. Government can actually use financial stimulus to stabilize business cycle. Consider the following three alternatives:
 \begin{enumerate}[label=(\arabic*)]
     \item Increase government spending by 1 unit while holding other accounts constant.
     
-    Recall that we are in the equilibrium, so
-    \begin{align*}
-        Y = Z = C + I + G.
-    \end{align*}
-    We also have the following behavioral equation:
-    \begin{align*}
-        C = c_0 + c_1(Y-T).
-    \end{align*}
-    If $G$ increases by 1 unit, then $Y$ increases by 1 unit, so $C$ increases by $c_1$ unit. This takes effect again in the equilibrium condition, which lets $Y$ increase by $c_1$ more unit, thus $C$ increase by $c_1 \times c_1 = c_1^2$ unit. Continue with the process, the \textbf{spending multiplier} will be
+    If $G$ increases by 1 unit, then $Y$ increases by 1 unit via \eqref{eq:eqm_fina_sti}, so $C$ increases by $c_1$ unit via \eqref{eq:c_fina_sti}. This takes effect again in the equilibrium condition, which lets $Y$ increase by $c_1$ more unit via \eqref{eq:eqm_fina_sti}, thus $C$ increase by $c_1 \times c_1 = c_1^2$ unit via \eqref{eq:c_fina_sti}. Continued with the process, we get the \textbf{spending multiplier}:
     \begin{align*}
         \frac{\Delta Y}{\Delta G} = \frac{\sum_{i=0}^{+\infty}c_1^i}{1} = \frac{1}{1-c_1}.
     \end{align*}
+
     \item Decrease tax by 1 unit while holding other accounts constant.
+    
+    If $T$ decreases by 1 unit, then $C$ increases by $c_1$ unit via \eqref{eq:c_fina_sti}, so that $Y$ increases by $c_1$ unit via \eqref{eq:eqm_fina_sti}. This takes effect on $C$ which lets $C$ increase by $c_1\times c_1 = c_1^2$ unit via \eqref{eq:c_fina_sti} thus increasing $Y$ by $c_1^2$ more unit via \eqref{eq:eqm_fina_sti}. Continuing with this process, we get the \textbf{tax multiplier}:
+    \begin{align*}
+        \frac{\Delta Y}{\Delta T} = \frac{\sum_{{\color{red} i=1}}^{+\infty}c_1^i}{-1} = -\frac{c_1}{1-c_1}.
+    \end{align*}
+
+    \item Increase both government spending and tax by 1 unit while holding other accounts constant.
+    
+    This will give you the \textbf{balanced budget multiplier}. Try to derive this by yourself as a review of the class note.
 \end{enumerate}
+
+\begin{exercise}
+    In this exercise, we consider tax ($T$) and transfers ($R$) as two variables in the economy. Consider an economy characterized by the following behavioral equations:
+    \begin{align*}
+        C &= c_0 + c_1 Y_D\\
+        Y_D &= Y - T + R\\
+        R &= r_1 - r_2 Y.
+    \end{align*}
+    $G$, $T$ and $I$ are constants. $r_1, r_2$ are between 0 and 1.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Explain the intuition for the negative coefficient of $Y$ in the transfer equation.
+        \item Consider a balanced budget where $G$ and $T$ increases by 1 unit at the same time. What is the balanced budget multiplier? 
+        \item Can this economy be characterized by the following system of behavioral equations? Explain the correspondence between them.
+        \begin{align*}
+            C &= c_0 + c_1 Y_D\\
+            Y_D &= Y - T\\
+            T &= t_0 + t_1 Y.
+        \end{align*}
+    \end{enumerate}
+\end{exercise}
 \end{document}
