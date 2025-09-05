@@ -141,7 +141,7 @@ Money is liquid, and can be directly used for transaction, while other financial
 \end{exercise}
 
 \paragraph{Money Demand}
-\subparagraph{Interest Rate} Consider ta one-year zero-coupon risk-free bond with face value \$100. Suppose you invest $\$ P_B$ now. The rate of return of this bond is the interest rate:
+Consider a one-year zero-coupon risk-free bond with face value \$100. Suppose you invest $\$ P_B$ now. The rate of return of this bond is the interest rate:
 \begin{align*}
 	i = \frac{100 - P_B}{P_B} \iff P_B = \frac{100}{1 + i}.
 \end{align*}
@@ -151,7 +151,7 @@ Suppose the interest rate increases. Then the demand for money decreases (why?).
 \begin{align*}
 	M^D = \$ Y L(i)
 \end{align*}
-where $L(i)$ is a \textbf{decreasing} function of interest rate $i$. 
+where $Y$ denotes the nominal \textbf{income} (we will see why I emphasize this) and $L(i)$ is a \textbf{decreasing} function of interest rate $i$. 
 
 One unit of money travels many times across different people. The nominal GDP should be exactly the amount of money times the number of times it travels. Here is the \textbf{quantity theory of money}:
 \begin{align*}
@@ -160,8 +160,65 @@ One unit of money travels many times across different people. The nominal GDP sh
 where $V$ is the \textbf{velocity} of money, characterizing how fast money should travel across people.
 
 \begin{example}
-	Consider a zero-coupon bond with 3-year time-to-maturity with face value \$ 1000. If the bond price is \$ 850, what is the interest rate?
+	Chapter 4, Question 5 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+
+	Suppose that a person's wealth is \$50,000 and that her yearly income is \$60,000. Also suppose that her money demand function is given by
+	\[M^d = \$ Y (0.35 - i).\]
+
+	\begin{enumerate}[label=(\alph*)]
+		\item Derive the demand for bonds. Suppose that the interest rate increases by 10 percentage points. What is the effect on her demand for bonds?
+		\vspace{36pt}
+		\item What are the effects of an increase in wealth on her demand for money and her demand for bonds? Explain in words.
+		\vspace{36pt}
+		\item What are the effects of an increase in income on her demand for money and her demand for bonds? Explain in words.
+		\vspace{36pt}
+		\item Consider the statement "When people earn more money, they obviously will hold more bonds." What is wrong with this statement?
+		\vspace{36pt}
+	\end{enumerate}
 \end{example}
+
+\subsection*{Equilibrium}
+The equilibrium in the money market is such that 
+\[M^S = M^d,\]
+where money supply is determined by the central bank and money demand is the relationship between money, nominal income, and interest rate. 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{money_eqm_01.png}
+    \caption{Equilibrium in Money Market}
+    \label{fig:money_eqm_01}
+\end{figure}
+Figure \ref{fig:money_eqm_01} shows the equilibrium interest rate in the money market. Since the central bank determines money supply, it is a vertical line. As was discussed, $M^d$ is decreasing in $i$.
+
+\paragraph{Contractionary Monetary Policy}
+\begin{itemize}
+	\item In the money market, the money supply decreases. Figure \ref{fig:money_eqm_02} shows that, we will have a higher equilibrium interest rate.
+	\item In the bond market, the central bank sells bond in the open market. The supply of bond increases, so that the bond price decreases. Recall the bond price formula:
+	\[P_B = \frac{\text{Face Value}}{1 + i}.\]
+	The interest rate increases.
+\end{itemize}
+The change of the equilibrium interest rate matches in the two markets.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{money_eqm_02.png}
+    \caption{Contractionary Monetary Policy}
+    \label{fig:money_eqm_02}
+\end{figure}
+
+\paragraph{Lower Income}
+\begin{itemize}
+	\item In the money market, the money demand decreases. Figure \ref{fig:money_eqm_03} shows that, we will have a lower equilibrium interest rate.
+	\item In the bond market, the demand for bond increases due to the substitutability between money and bond. Therefore, the bond price increases. The interest rate, as a result, decreases. 
+\end{itemize}
+The change of the equilibrium interest rate matches in the two markets.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{money_eqm_03.png}
+    \caption{Lower Income}
+    \label{fig:money_eqm_03}
+\end{figure}
 
 \begin{exercise}
 	
