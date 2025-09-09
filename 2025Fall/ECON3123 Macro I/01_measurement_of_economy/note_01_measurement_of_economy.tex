@@ -57,7 +57,7 @@
 
 \begin{center}
     ECON 3123: Macroeconomic Theory I\\
-    {\large \textbf{Tutorial Note 1: Measurement of Macroeconomy}}\\
+    {\large \textbf{Tutorial Note 1: Measurement of the Macroeconomy}}\\
     Teaching Assistant: Harlly Zhou
 \end{center}
 
@@ -89,16 +89,16 @@ There are 3 definitions of GDP, each corresponding to a way to calculate it.
 
 
 \paragraph{Decomposition of GDP}
-GDP is the sum of consumption, investment, government spending, net export, and inverntory investment, which we always ignored due to its relatively tiny size.
+GDP is the sum of consumption, investment, government spending, net exports, and inventory investment, which we always ignored due to its relatively tiny size.
 \begin{align*}
     Y = C + I + G + NX,\,\,\,\, \text{where } NX = EX - IM.
 \end{align*}
 \begin{enumerate}[label=(\arabic*)]
     \item Consumption ($C$) is the purchase of goods and services by consumers. It is the largest component of GDP.
     \item Investment ($I$) is the sum of nonresidential investment (\textit{e.g.,} a new machine bought by firm) and residential investment (\textit{e.g., }purchase of a new house). 
-    \item Government sepnding ($G$) is the purchase of goods and services by different layers of government. Note that government transfer is not government spending.
-    \item Exports ($EX$) are purchase of domestic goods by foreigners. Imports ($IM$) are purvchases of foreign goods by domestic consumers, firms and government. Net exports ($NX$) is the difference between exports and imports. It can be negative. 
-    \item Invertory investment is the difference betwee nproduction and purchases. It can be negative.
+    \item Government spending ($G$) is the purchase of goods and services by different layers of government. Note that government transfer is not government spending.
+    \item Exports ($EX$) are purchase of domestic goods by foreigners. Imports ($IM$) are purchases of foreign goods by domestic consumers, firms and government. Net exports ($NX$) is the difference between exports and imports. It can be negative. 
+    \item Invertory investment is the difference between production and sales. It can be negative.
 \end{enumerate}
 
 This decomposition provides us with another approach to calculate GDP: expenditure approach, by adding all the expenditures up.
@@ -117,7 +117,7 @@ This decomposition provides us with another approach to calculate GDP: expenditu
             \item Government payments for goods produced by foreign firms
             \item Government payments for goods produced by firms owned by state or local governments
             \item Government payments for welfare 
-            \item All government payments are included in GDP.Housing purchases
+            \item All government payments are included in GDP.
         \end{enumerate}
     \end{enumerate}
 \end{exercise}
@@ -163,7 +163,7 @@ To reflect changes in relative prices over time, we use \textbf{real GDP in chai
 
 \subsection*{Employment}
 \paragraph{Unemployment Rate}
-Labour force can be divided into two part: employed people and unemployed people. Unemployed workers are people who do not have a job \textbf{but are looking for one}. Discouraged workers, i.e., those who do not want to look for a job, are not included. Mathematically, the labour force ($L$), employment ($N$) and unemployment ($U$) have the following relationship.
+Labour force can be divided into two parts: employed people and unemployed people. Unemployed workers are people who do not have a job \textbf{but are looking for one}. Discouraged workers, i.e., those who do not want to look for a job, are not included. Mathematically, the labour force ($L$), employment ($N$) and unemployment ($U$) have the following relationship.
 \begin{align*}
     L = N + U,
 \end{align*}
@@ -187,7 +187,7 @@ Labour force participation rate is defined as the ratio between total labour for
 
 \subsection*{Price}
 \paragraph{Inflation}
-Inflation rate reflects the chage of price level during a period. Let the price level be denoted by $P_t$. The inflation rate during period $t$ is
+Inflation rate reflects the change of price level during a period. Let the price level be denoted by $P_t$. The inflation rate during period $t$ is
 \begin{align*}
     \pi_t=\frac{P_t-P_{t-1}}{P_{t-1}}.
 \end{align*}
@@ -198,11 +198,15 @@ Price index can be understood as a \textbf{weighted average} of different produc
 \begin{enumerate}[label=(\arabic*)]
     \item GDP Deflator: The ratio between the nominal GDP and Real GDP.
     \begin{align*}
-        P_t = \frac{Y_{\text{Nominal, }\, t}}{Y_{\text{Real, }\, t}} = \sum_{i=1}^N \left[P_{i,t}\, \frac{Q_{i,t}}{\sum_{i=1}^N P_{i,t_0}Q_{i,t}}\right].
+        P_t = \frac{Y_{\text{Nominal, }\, t}}{Y_{\text{Real, }\, t}} 
+        = \frac{\sum_{i=1}^N P_{i,t}Q_{i,t}}{\sum_{i=1}^N P_{i,t_0}Q_{i,t}} 
+        = \sum_{i=1}^N \left[P_{i,t}\, \underbrace{\frac{Q_{i,t}}{\sum_{i=1}^N P_{i,t_0}Q_{i,t}}}_{\text{weight of good } i}\right].
     \end{align*}
     \item Consumer Price Index (CPI): The ratio between the cost of market basket in current year and the base year.
     \begin{align*}
-        P_t = \frac{\text{Price of basket in year } t}{\text{Price of basket in the base year}} = \sum_{i=1}^N \left[P_{i,t}\, \frac{C_{i,t}}{\sum_{i=1}^N P_{i,t_0}C_{i,t}}\right],
+        P_t = \frac{\text{Price of basket in year } t}{\text{Price of basket in the base year}} 
+        = \frac{\sum_{i=1}^N P_{i,t}C_{i,t_0}}{\sum_{i=1}^N P_{i,t_0}C_{i,t_0}} 
+        = \sum_{i=1}^N \left[P_{i,t}\, \underbrace{\frac{C_{i,t_0}}{\sum_{i=1}^N P_{i,t_0}C_{i,t_0}}}_{\text{weight of good } i}\right],
     \end{align*}
     where $C$ represents consumption.
 \end{enumerate}
@@ -225,8 +229,8 @@ Price index can be understood as a \textbf{weighted average} of different produc
     Nominal GDP in a country was \$8759.9 billion in 2024 and \$9254.6 billion in 2025. The GDP deflator was 1.0286 for 2024 and 1.0437 for 2025.
     \begin{enumerate}[label=(\roman*)]
         \item What is the growth rate of nominal GDP between 2024 and 2025?
-        \item What is the inflation rate from 2014 to 2015?
-        \item What is the growth rate of real GDP from 2014 to 2015?
+        \item What is the inflation rate from 2024 to 2025?
+        \item What is the growth rate of real GDP from 2024 to 2025?
     \end{enumerate}
 \end{exercise}
 
