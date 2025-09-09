@@ -87,6 +87,42 @@ There are 3 definitions of GDP, each corresponding to a way to calculate it.
     In the country of Kwaki, people produce canoes, fish for salmon, and grow corn. In one year they produced 5000 canoes using labor and natural materials only, but sold only 4000, as the economy entered a recession. The cost of producing each canoe was \$1000, but the ones that sold were priced at \$1250. They fished \$30 million worth of salmon. They used \$3 million of the salmon as fertilizer for corn. They grew and ate \$55 million of corn. What was Kwaki's GDP for the year?
 \end{exercise}
 
+
+\paragraph{Decomposition of GDP}
+GDP is the sum of consumption, investment, government spending, net export, and inverntory investment, which we always ignored due to its relatively tiny size.
+\begin{align*}
+    Y = C + I + G + NX,\,\,\,\, \text{where } NX = EX - IM.
+\end{align*}
+\begin{enumerate}[label=(\arabic*)]
+    \item Consumption ($C$) is the purchase of goods and services by consumers. It is the largest component of GDP.
+    \item Investment ($I$) is the sum of nonresidential investment (\textit{e.g.,} a new machine bought by firm) and residential investment (\textit{e.g., }purchase of a new house). 
+    \item Government sepnding ($G$) is the purchase of goods and services by different layers of government. Note that government transfer is not government spending.
+    \item Exports ($EX$) are purchase of domestic goods by foreigners. Imports ($IM$) are purvchases of foreign goods by domestic consumers, firms and government. Net exports ($NX$) is the difference between exports and imports. It can be negative. 
+    \item Invertory investment is the difference betwee nproduction and purchases. It can be negative.
+\end{enumerate}
+
+This decomposition provides us with another approach to calculate GDP: expenditure approach, by adding all the expenditures up.
+
+\begin{exercise}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Which of the following is not a category of consumption spending in the national income accounts?
+        \begin{enumerate}[label=\Alph*.]
+            \item Consumer durables
+            \item Nondurable goods
+            \item Services
+            \item Housing purchases
+        \end{enumerate}
+        \item In the expenditure approach to GDP, which of the following would be excluded from measurements of GDP?
+        \begin{enumerate}[label=\Alph*.]
+            \item Government payments for goods produced by foreign firms
+            \item Government payments for goods produced by firms owned by state or local governments
+            \item Government payments for welfare 
+            \item All government payments are included in GDP.Housing purchases
+        \end{enumerate}
+    \end{enumerate}
+\end{exercise}
+
+
 \begin{example}
     Suppose there are only two firms in the economy:
     \begin{itemize}
@@ -109,7 +145,7 @@ To reflect changes in relative prices over time, we use \textbf{real GDP in chai
     \bar{g}_{\text{RGDP}, t} = \sqrt{\frac{\sum^N_{i=1} P_{i,t-1}Q_{i,t}}{\sum^N_{i=1} P_{i,t-1}Q_{i,t-1}} \frac{\sum^N_{i=1} P_{i,t}Q_{i,t}}{\sum^N_{i=1} P_{i,t}Q_{i,t-1}}}-1.
 \end{align*}
 \begin{exercise}
-    (Multiple choice) A disadvantage of chain-weighting is that
+    A disadvantage of chain-weighting is that
     \begin{enumerate}[label=\Alph*.]
         \item past inflation rates change whenever the base year changes.
         \item past growth rates of real GDP change whenever the base year changes.
@@ -120,7 +156,7 @@ To reflect changes in relative prices over time, we use \textbf{real GDP in chai
 
 
 \begin{example}
-    Nominal GDP in 1970 was \$1035.6 billion, and in 1980 it was \$2784.2 billion. The GDP price index was 30.6 for 1970 and 60.4 for 1980, where 1992 was the base year. Calculate the percent change in real GDP in the decade from 1970 to 1980. Round off to the nearest percentage point.
+    Class example by spreadsheet.
 \end{example}
 
 \vspace{36pt}
@@ -158,15 +194,17 @@ Inflation rate reflects the chage of price level during a period. Let the price 
 When $\pi_t>0$, the economy has inflation. When $\pi_t<0$, the economy has deflation.
 
 \paragraph{Price Indices}
+Price index can be understood as a \textbf{weighted average} of different production goods/consumption goods.
 \begin{enumerate}[label=(\arabic*)]
     \item GDP Deflator: The ratio between the nominal GDP and Real GDP.
     \begin{align*}
-        P_t = \frac{Y_{\text{Nominal, }\, t}}{Y_{\text{Real, }\, t}}.
+        P_t = \frac{Y_{\text{Nominal, }\, t}}{Y_{\text{Real, }\, t}} = \sum_{i=1}^N \left[P_{i,t}\, \frac{Q_{i,t}}{\sum_{i=1}^N P_{i,t_0}Q_{i,t}}\right].
     \end{align*}
     \item Consumer Price Index (CPI): The ratio between the cost of market basket in current year and the base year.
     \begin{align*}
-        P_t = \frac{\text{Price of basket in year } t}{\text{Price of basket in the base year}}.
+        P_t = \frac{\text{Price of basket in year } t}{\text{Price of basket in the base year}} = \sum_{i=1}^N \left[P_{i,t}\, \frac{C_{i,t}}{\sum_{i=1}^N P_{i,t_0}C_{i,t}}\right],
     \end{align*}
+    where $C$ represents consumption.
 \end{enumerate}
 
 \begin{exercise}
