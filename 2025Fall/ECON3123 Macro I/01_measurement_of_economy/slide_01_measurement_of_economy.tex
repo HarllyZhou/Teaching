@@ -1,0 +1,123 @@
+\documentclass[xcolor=dvipsnames, aspectratio=1610]{beamer}
+
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\usepackage{tgtermes}
+\usefonttheme{default}
+\renewcommand{\familydefault}{\rmdefault}
+\usetheme{Madrid}
+\usepackage{lmodern}
+
+% --- Autumn + Ethereum palette (keep your structure/names) ---
+\definecolor{autumnyellow}{HTML}{FFB000} % golden yellow (primary accent)
+\definecolor{maplered}{HTML}{C1121F}   % maple red
+\definecolor{chestnutbrown}{HTML}{8B5E3C}     % chestnutbrown
+\definecolor{canvasbg}{HTML}{FAF4E6}    % warm paper background
+\definecolor{graphite}{HTML}{3C3C3D}    % neutral text
+\colorlet{autumndark}{autumnyellow!80!black}
+\colorlet{canvasdark}{canvasbg!80!black}
+
+% --- Beamer colors (same structure as yours) ---
+\setbeamercolor{structure}{fg=autumnyellow}
+\setbeamercolor{background canvas}{bg=canvasbg}
+\setbeamercolor{frametitle}{bg=autumnyellow, fg=white}
+\setbeamercolor{title}{bg=autumnyellow, fg=white}
+\setbeamercolor{item}{fg=autumnyellow}
+\setbeamercolor{section in toc}{fg=maplered}
+\setbeamercolor{subsection in toc}{fg=autumnyellow}
+
+% Optional: readable body text color
+\setbeamercolor{normal text}{fg=graphite,bg=canvasbg}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\usepackage{graphicx} % For \resizebox
+
+% --- TikZ styles (same names; colors mapped to autumn/ETH) ---
+\tikzset{
+  block/.style = {rectangle, draw, fill=autumnyellow!40, text width=4cm, align=center, rounded corners, minimum height=2.0em},
+  sideblock/.style = {rectangle, draw, fill=chestnutbrown!40, text width=4cm, align=center, rounded corners, minimum height=2.0em},
+  decision/.style = {diamond, draw, fill=canvasbg!40, text width=5cm, align=center, aspect=2, inner sep=1pt},
+  arrow/.style = {thick, ->, >=Stealth},
+  mechanismblock/.style = {rectangle, draw, fill=maplered!40, text width=4cm, align=center, minimum height=2.5em},
+  greydashedarrow/.style = {thick, dashed, ->, >=Stealth, draw=gray},
+  blusharrow/.style = {thick, ->, >=Latex, draw=maplered},
+  blank/.style = {rectangle, fill=maplered!20, text width=4cm, align=center, minimum height=2.0em}
+}
+
+%<---- do not use enumitem, does not work well with Beamer
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{booktabs, array, dcolumn}
+\usepackage{graphicx, subfig}
+\usepackage{epstopdf}
+\def\pdfshellescape{1}
+
+% Icons/bullets
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{itemize subitem}[triangle]
+
+% Theorems
+\usepackage{amsthm}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{quiz}{Quiz}
+\newtheorem{claim}[proposition]{Claim}
+\newtheorem{exercise}[proposition]{Exercise}
+\newtheorem{remark}[proposition]{Remark}
+
+% Links: use Ethereum blue
+\definecolor{links}{HTML}{627EEA}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\setbeamertemplate{navigation symbols}{}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+\DeclareMathOperator*{\plim}{plim}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\E}{E}
+\DeclareMathOperator*{\Var}{Var}
+\DeclareMathOperator*{\Cov}{Cov}
+\DeclareMathOperator*{\Corr}{Corr}
+\DeclareMathOperator*{\supp}{supp}
+
+\newcommand{\ind}{\mathrel{\perp \! \! \! \perp}}
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\title[Measurment of Macroeconomy]{Tutorial 1: Measurement of Macroeconomy}
+\subtitle{ECON 3123: Macroeconomic Theory I}
+\author[Harlly Zhou]{Harlly Zhou}
+\institute[HKUST]{Department of Economics\\
+HKUST Business School}
+\date{}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Example 1: Calculation of GDP}
+    Suppose there are only two firms in the economy:
+    \begin{itemize}
+        \item Farm A grows strawberries. In 2016, it sold \$10,000 worth of strawberries to customers, \$20000 worth of strawberries to Japan, and \$30,000 worth of strawberries to Cafe B. It also pays \$5,000 wages to its employees and \$10,000 rent to the landlord.
+        \item Cafe B makes and sells strawberry cakes. In 2016, it sold \$60,000 worth of strawberry cakes to customers and stored away \$20,000 worth of strawberry cakes. It pays \$15,000 wages to its employees, \$4,000 rent for its shop and \$2,000 interest payment on its loans. The stored cakes are sold in 2017.
+    \end{itemize}
+    Profit tax is 10\% and Wage tax is 10\%. What is the GDP of this economy?
+\end{frame}
+
+\begin{frame}{Example 2: Chain RGDP}
+    Class Spreadsheet.
+\end{frame}
+
+\begin{frame}{Example 3 and 4: Inflation}
+    \begin{itemize}
+        \item The consumer price index (CPI) was 180 for 2009 when using 1995 as the base year (1995 = 100). Now suppose we switch and use 2009 as the base year (2009 = 100). What is the CPI for 1995 with the new base year?
+        \vspace{36pt}
+        \item Two years ago, the GDP deflator for Old York was 300, and today it is 330.75. Based on this information, what is the annual average inflation rate for the two years?
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
