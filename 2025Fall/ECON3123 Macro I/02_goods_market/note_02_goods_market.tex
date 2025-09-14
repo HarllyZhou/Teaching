@@ -286,23 +286,30 @@ In the previous two examples, we have seen some ways to stabilize business cycle
     This will give you the \textbf{balanced budget multiplier}. Try to derive this by yourself as a review of the class note.
 \end{enumerate}
 
-\begin{exercise}
-    In this exercise, we consider tax ($T$) and transfers ($R$) as two variables in the economy. Consider an economy characterized by the following behavioral equations:
+\begin{exercise}[Difficult]
+    We now extend the model by introducing \textbf{transfers}. Suppose the economy is characterized by the following behavioral equations:
     \begin{align*}
         C &= c_0 + c_1 Y_D\\
         Y_D &= Y - T + R\\
         R &= r_1 - r_2 Y.
     \end{align*}
-    $G$, $T$ and $I$ are constants. $r_1, r_2$ are between 0 and 1.
+    $G$, $T$ and $I$ are constants. $r_1, r_2 \in (0,1)$.
     \begin{enumerate}[label=(\arabic*)]
-        \item Explain the intuition for the negative coefficient of $Y$ in the transfer equation.
-        \item Consider a balanced budget where $G$ and $T$ increases by 1 unit at the same time. What is the balanced budget multiplier? 
-        \item Can this economy be characterized by the following system of behavioral equations? Explain the correspondence between them.
+        \item Explain the economic meaning of the negative coefficient of $Y$ in the transfer equation. (Hint: think about how transfers such as unemployment benefits change when output/income rises or falls.)
+        \item \begin{enumerate}[label=\alph*.]
+            \item Solve for the equilibrium $Y$.
+            \item Consider a balanced budget where $G$ and $T$ increases by 1 unit at the same time. What is the balanced budget multiplier? 
+        \end{enumerate}
+        \item Consider the following system:
         \begin{align*}
             C &= c_0 + c_1 Y_D\\
             Y_D &= Y - T\\
             T &= t_0 + t_1 Y.
         \end{align*}
+        \begin{enumerate}[label=\alph*.]
+            \item Show how this system can be seen as an alternative representation of fiscal policy with automatic stabilizers.
+            \item Explain the correspondence between parameters $(t_0, t_1)$ and $(r_1, r_2)$.
+        \end{enumerate}
     \end{enumerate}
 \end{exercise}
 \end{document}

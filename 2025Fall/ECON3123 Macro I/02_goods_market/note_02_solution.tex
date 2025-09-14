@@ -76,9 +76,19 @@
     \item A. Simple by definition.
     \item (1) Transfers will increase during recessions when output $Y$ decreases. For example, in recessions, the unemployment rate will increase. The government pays parts of workers' original earnings for a specified amount of time. This would help the unemployed workers and reduce the negative effects of recession on consumption.
 
-    (2) Do the iteration as we did. $\frac{1-c_1}{1-c_1(1-r_2)}$.
+    (2) a. $Y = \frac{1}{1-c_1(1-r_2)}[(c_0+c_1r_1) - c_1 T + I + G]$.
+
+    b. $Y$ first increases by $\frac{1-c_1}{1-c_1(1-r_2)}$ by the equilibrium output. Then the consumption increases by $\frac{c_1(1-c_1)}{1-c_1(1-r_2)}$ via the behavioral equation. The equilibrium condition implies that $Y$ further increases by $\frac{c_1(1-c_1)}{1-c_1(1-r_2)}$. The iteration implies that the multiplier will be
+    \[\frac{1-c_1}{1-c_1(1-r_2)} \sum_{i=0}^{+\infty} c_1^i = \frac{1}{1-c_1(1-r_2)}.\]
     
-    (3) Yes. $t_0$ is the combination of $r_1$ and the fixed tax. $t_1 = -r_2<0$.
+    (3) a. With constant $\bar{T}$, the disposable income is
+    \[Y_D = Y - \bar{T} + (r_1 - r_2 Y) = (1-r_2)Y - (\bar{T} - r_1).\]
+    In the alternative system, the dispoable income is
+    \[Y_D = Y - (t_0 + t_1 Y) = (1 - t_1)Y - t_0.\]
+    Equating the coefficients yields the correspondence:
+    \[t_1 = r_2, \qquad \qquad t_0 = \bar{T} - r_1.\]
+    
+    b. $r_2>0$ and $t_1>0$ are both autonomous stabilizers that flattens the slope of $Y_D$ w.r.t. $Y$. Increasing $t_0$ is the same as either increasing the fixed tax $\bar{T}$ or lower the transfer $r_1$.
 \end{enumerate}
 
 \end{document}
