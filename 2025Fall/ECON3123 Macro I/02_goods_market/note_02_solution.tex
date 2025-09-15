@@ -78,8 +78,12 @@
 
     (2) a. $Y = \frac{1}{1-c_1(1-r_2)}[(c_0+c_1r_1) - c_1 T + I + G]$.
 
-    b. $Y$ first increases by $\frac{1-c_1}{1-c_1(1-r_2)}$ by the equilibrium output. Then the consumption increases by $\frac{c_1(1-c_1)}{1-c_1(1-r_2)}$ via the behavioral equation. The equilibrium condition implies that $Y$ further increases by $\frac{c_1(1-c_1)}{1-c_1(1-r_2)}$. The iteration implies that the multiplier will be
-    \[\frac{1-c_1}{1-c_1(1-r_2)} \sum_{i=0}^{+\infty} c_1^i = \frac{1}{1-c_1(1-r_2)}.\]
+    b. We have
+    \[Z = (c_0 + c_1 r_1) + c_1(1-r_2) Y - c_1\bar{T} + \bar{I} + \bar{G}.\]
+    Increasing both $\bar{G}$ and $\bar{T}$ by 1 unit will cause $Z$ to increase by $1-c_1$ unit. Then $Y$ increases by $1-c_1$ unit. Since
+    \[C = c_0 + c_1(Y - T + R) = [c_0 + c_1(r_1 - \bar{T})] + c_1(1 - r_2) Y,\]
+    $C$ increases by $(1-c_1)(1-r_2)$ unit. Then $Z$ increases by $(1-c_1)c_1(1-r_2)$ unit, $Y$ increases by $(1-c_1)c_1(1-r_2)$ unit, and $C$ increases by $(1-c_1)c_1^2(1-r_2)^2$ unit. In the end, the multiplier is
+    \[\sum_{i=0}^{+\infty} (1-c_1)[c_1(1-r_2)]^i = \frac{1-c_1}{1-c_1(1-r_2)}.\]
     
     (3) a. With constant $\bar{T}$, the disposable income is
     \[Y_D = Y - \bar{T} + (r_1 - r_2 Y) = (1-r_2)Y - (\bar{T} - r_1).\]
