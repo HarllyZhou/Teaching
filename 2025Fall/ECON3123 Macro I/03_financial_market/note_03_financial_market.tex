@@ -177,7 +177,7 @@ where $V$ is the \textbf{velocity} of money, characterizing how fast money shoul
 	\end{enumerate}
 \end{example}
 
-\subsection*{Equilibrium}
+\subsection*{Determination of Interest Rate}
 The equilibrium in the money market is such that 
 \[M^S = M^d,\]
 where money supply is determined by the central bank and money demand is the relationship between money, nominal income, and interest rate. 
@@ -226,8 +226,53 @@ The change of the equilibrium interest rate matches in the two markets.
 	Chapter 4, Question 9 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
 \end{exercise}
 
+\paragraph{Central Bank Money}
+In the real world, we not only have currency but also checkable deposits, which are supplied by private banks, while currencies are supplied by central banks.
+
+The demand for central bank money has two components: currency by people and \textbf{reserves} by banks. On the other hand, people's demands for money consist of two parts: currency ($CU$) and checkable deposits ($D$):
+\begin{align*}
+	CU^d &= c M^d\\
+    D^d &= (1-c)M^d.
+\end{align*}
+Meanwhile, banks' demands for reserves ($R$) is
+\begin{align*}
+	R^d = \theta D^d = \theta (1-c)M^d.
+\end{align*}
+Then the demand for central bank money is
+\begin{align*}
+	H^d = CU^d + R^d.
+\end{align*}
+Recall the $M^d = \$ Y L(i)$ for some decreasing function $L(i)$ of (nominal) interest rate, the demand for central bank money can be rewritten as
+\begin{align*}
+	H^d = [c + \theta (1-c)]\$ Y L(i).
+\end{align*}
+
+In equilibrium, the supply of central bank money ($H$) is equal to the demand for central bank money. So we have
+\begin{align*}
+	H = [c + \theta (1-c)]\$ Y L(i).
+\end{align*}
+Rearrange the equilibrium central money equation. We have
+\begin{align*}
+	\frac{1}{c+\theta (1-c)} H = \$ Y L(i).
+\end{align*}
+The multiplier to central bank money is called the \textbf{money multiplier}. 
+
+\paragraph{Federal Funds Market}
+We have two rates: discount rate and federal fund rate. The discount rate is a \textit{price ceiling}, and the federal fund rate is determined by money. By no-arbitrage condition, the federal fund rate is determined by the market. Figure \ref{fig:ff_rate} illustrates all of these: the horizontal part of reserve supply represents the price ceiling. The cutoff $R_n$ is the quantity of reserves from open market operations.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{ff_rate.png}
+    \caption{Federal Funds Market}
+    \label{fig:ff_rate}
+\end{figure}
+
+\newpage
+
 \subsection*{Liquidity Trap}
 The central bank can choose the interest rate by changing $M^S$ as long as $i\geq 0$. However, when the \textbf{zero lower bound} (ZLB) is touched, as in \ref{fig:zlb}, increasing $M^S$ cannot lower nominal interest rate any more. Unconventional monetary policy will be used, such as quantitative easing.
+
+Unconventional tools will be used when the short-term rate is close to zero: quantitative easing.
 
 \begin{figure}[htp]
     \centering
