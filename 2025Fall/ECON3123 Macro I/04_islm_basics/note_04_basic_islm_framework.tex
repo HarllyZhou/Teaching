@@ -181,5 +181,21 @@ They together yield the \textbf{general equilibrium} interest rate and output, $
 \end{example}
 
 \subsection*{Introducing Financial Sector}
+\paragraph{The Fisher Equation}
+By no-arbitrage condition, we have
+\[ 1 + r_t = \frac{(1 + i_t) P_t}{P^e_{t+1}}.\]
+Since
+\[\pi^e_{t+1} = \frac{P^e_{t+1}-P_t}{P_t},\]
+we obtain
+\[1 + r_t = \frac{1 + i_t}{1 + \pi^e_{t+1}}.\]
+By an approximation, we obtain the \textbf{Fisher Equation}:
+\[r_t \approx i_t = \pi^e_{t+1}.\]
 
+\paragraph{Risk Premium}
+To hedge the default risk, the bank always charge a risk premium $x$ other than the real rate for firm financing. Therefore, instead of having $I = I(Y,i)$, we have
+\[ I = I (Y, r+x) = I(Y, i-\pi^e+x).\]
+
+\begin{exercise}[No-arbitrage condition]
+    David wants to borrow \$1,000 from Chris, and he says that the market rate is 5\%. Since David and Chris are friends, Chris would like to say yes to him. Victoria tells Chris to wait. She knows that David borrowed money from different people in the past for \$10,000 in total but only returned \$8,000 together with the interest. Chris are now hesitate on how much interest rate to charge him. What rate should Chris charge David to hedge for the default risk?
+\end{exercise}
 \end{document}
