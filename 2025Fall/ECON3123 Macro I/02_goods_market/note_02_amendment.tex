@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.77}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 2 Amendment}}\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+Consider an economy characterized by the following behavioral equations:
+    \begin{align*}
+        C &= c_0 + c_1 Y_D\\
+        Y_D &= Y - T\\
+        T &= t_1 Y + t_2 C
+    \end{align*}
+    where $t_1, t_2 \in (0,1)$. $G$ and $I$ are given. This is case when both income and consumption are taxed. The economy is now at its equilibrium.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Solve for the equilibrium output.
+        \item What is the multiplier? Does this form of tax stabilizes output changes when there is a change in $c_0$, comparing with exogenous tax? {\color{red} DELETE: Discuss cases where it does and it does not based on the equilibrium in part (1).}
+        \item Suppose that $c_0$ increases by 1 unit. In the new equilibrium, will consumption also increase by 1 unit? Discuss cases where it will and it will not based on the equilibrium in part (1).
+        \item Write equilibrium saving as a function of $Y$.
+        
+        \underline{Solution}: The national saving is
+        \[S = Y - C - G = \frac{1 - c_1 + (t_1 + t_2)c_1}{1+c_1t_2}Y - \frac{c_0}{1+c_1t_2} - \bar{G}.\]
+
+        \item What is the MPS? {\color{red} Show that national saving does not change when there is an increase in $c_0$.}
+        
+        \underline{Solution}: The private saving is
+        \[S_{\text{priv}} = Y - T - C = \frac{(1-c_1)(1-t_1)}{1+c_1t_2}Y - \frac{1+t_2}{1+c_1t_2}c_0.\]
+        So $MPS = \frac{(1-c_1)(1-t_1)}{1+c_1t_2}$.
+
+        National savings does not change due to the IS relation.
+    \end{enumerate} 
+
+Several comments on this example:
+\begin{itemize}
+    \item The math is complicated, but they are just calculation. Math is important for you to get a correct answer, but the most important thing is that you should get the logic behind. The key takeaway of this example is that when you start the process of deriving demand $\rightarrow$ imposing equilibrium condition $\rightarrow$ solving the equation, you should make sure that you can write $C$, $I$ and $G$ as either simply constants or a function of $Y$ and constants. If you directly start the process in part (1), then it is hard to derive something. 
+    \item Here are two mathematical calculation for part (5). First method is to directly approach the national saving expression. By part (4), $\Delta S = \frac{1 - c_1 + (t_1 + t_2)c_1}{1+c_1t_2} \Delta Y - \frac{\Delta c_0}{1+c_1t_2}$. Also, according to part (1), $\Delta Y = \frac{\Delta c_0}{1 - c_1 + (t_1 + t_2)c_1}$. Therefore $\Delta S = 0$.
+    \item Another perspective is to discuss private and public savings. As long as we have positive multipliers, a change in $c_0$ will not lead to any change in national savings. This is somewhat surprising. So what is changing? When there is a change in $c_0$, $\Delta Y = \frac{\Delta c_0}{1-c_1 + (t_1+t_2)c_1}$, and $\Delta C = \frac{\Delta c_0}{1+c_1t_2} + \frac{c_1(1-t_1)}{1+c_1t_2}\Delta Y = \frac{\Delta c_0}{1-c_1 + (t_1+t_2)c_1}$. Therefore, $\Delta S_{\text{priv}} = -\Delta T$. Since $\Delta S_{\text{pub}} = \Delta T$, the change of national saving should always be zero. 
+    \item Then what is the intuition? Why we always have $\Delta Y = \Delta C$? Think about the change of national saving. It is zero due to the IS relation, or more intuitively, since the tax system recycles exactly the change of tax amount. Since $\Delta S = \Delta Y - \Delta C$, to maintain an equilibrium, we must have $\Delta Y = \Delta C$.
+    \item Then what are the roles of $t_1$ and $t_2$? Recall that \(C = \frac{c_1(1-t_1)}{1+c_1t_2}Y + \frac{c_0}{1+c_1t_2}\). If $t_1$ increases, then one has less disposable income; if $t_2$ increases, then consumption is costlier for people. Increase in either of the parameter leads to a decrease in the MPC. There is also a role of $t_1+t_2$. First, it appears in the multiplier. A higher $t_1+t_2$ leads to a smaller effect of $c_0$ change on output. Why? Since $\Delta Y = \Delta C$, we have $\Delta T = (t_1+t_2)\Delta C$. If $t_1+t_2$ is higher, the marginal cost of consumption is higher, which leads to less change in consumption and output.
+\end{itemize}
+\end{document}
