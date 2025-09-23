@@ -140,46 +140,6 @@ They together yield the \textbf{general equilibrium} interest rate and output, $
     \end{enumerate}
 \end{exercise}
 
-\begin{example}
-    Suppose that the consumption behavior of people follows:
-    \begin{align*}
-        C = 0.8 (Y-300)
-    \end{align*}
-    and the investment follows:
-    \begin{align*}
-        I= aY + 510 - 200 i,
-    \end{align*}
-    where $a$ is a constant. Suppose that government spending is 300, total export is 200, total import is 400, and the price level is 10.
-
-    Suppose that the nominal money demand is
-    \begin{align*}
-        M^d = \$ Y (0.25 - i),
-    \end{align*}
-    and the government is targeting a nominal interest rate of $5\%$.
-
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $a=0.1$. Derive the IS relation and the LM relation. Use the IS-LM framework to derive the equilibirum output.
-        \item Keep $a=0.1$. Instead of targeting a nominal interest rate of $5\%$, the central bank starts to target $4\%$. How will the equilibrium consumption change?
-        \item Can we have $a=0.2$? Explain. 
-    \end{enumerate}
-\end{example}
-
-\paragraph{Policy Analyses Exercises}
-\begin{example}
-    Consider an economy like Argentina in 2001. Due to rampant corruption from the government, massive tax evasion, and money laundering activities, both consumers and investors become very pessimistic about the Argentine economy. Suppose initially, the economy is in an equilibrium. Use figures to answer the questions together with concise explanation.
-    \begin{enumerate}[label=(\arabic*)]
-        \item Explain what happens to the economy in the short run when people become pessimistic about the economy. What will happen to output and the real interest rate?
-        \item If you are the government of Argentina, what would you do with government spending in order to offset the effects of the pessimism? What will happen to output, the real interest rate, price level, investment, and the consumption as the result of the government's action?
-        \item If you are the central bank of Argentina, what kind of monetary policy that you can implement in order to offset the effects of the pessimism? What will happen to output, the real interest rate, price level, investment, and the consumption as the result of the central ban's action?
-        \item Suppose the Argentine government has very limited fiscal space, and it is already running very high budget deficit so that the government is very likely to default on its debt, and simultaneously, the nominal interest rate in Argentina is very close to zero, or the zero lower bound (ZLB). 
-        \begin{enumerate}[label=\alph*.]
-            \item Is it still appropriate to use the policy suggested in part (2)? Why?
-            \item Is it still appropriate to use the policy suggested in part (3)? Why?
-            \item What kind of policies can be implemented in order to offset the effects of the pessimism? Please suggest at least 1 policy and explain why it works.
-        \end{enumerate}
-    \end{enumerate}
-\end{example}
-
 \subsection*{Introducing Financial Sector}
 \paragraph{The Fisher Equation}
 By no-arbitrage condition, we have
@@ -191,11 +151,68 @@ we obtain
 By an approximation, we obtain the \textbf{Fisher Equation}:
 \[r_t \approx i_t = \pi^e_{t+1}.\]
 
+\begin{example}[No-arbitrage condition]
+    Consider a one-year risk-free bond with face value \$1,000. Suppose the risk-free interest rate is 5\%. The bond is sold at \$980 today.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Is there any arbitrage opportunity? Describe how to make a profit. Assume that you are allowed to lend and borrow at the risk-free interest rate.
+        \item To avoid arbitrage, the issuer would like to provide some coupon. Coupon is some reward to the investors in addition to the interests which is distributed at the end of each period (annually, semi-annually, etc., depending on the specified rule. Assume that coupon is distributed annually here). Then what should be the coupon rate, i.e., the ratio of the amount of coupon to the face value?
+    \end{enumerate}
+\end{example}
+
+
 \paragraph{Risk Premium}
 To hedge the default risk, the bank always charge a risk premium $x$ other than the real rate for firm financing. Therefore, instead of having $I = I(Y,i)$, we have
 \[ I = I (Y, r+x) = I(Y, i-\pi^e+x).\]
 
-\begin{exercise}[No-arbitrage condition]
-    David wants to borrow \$1,000 from Chris, and he says that the market rate is 5\%. Since David and Chris are friends, Chris would like to say yes to him. Victoria tells Chris to wait. She knows that David borrowed money from different people in the past for \$10,000 in total but only returned \$8,000 together with the interest. Chris are now hesitate on how much interest rate to charge him. What rate should Chris charge David to hedge for the default risk?
+\begin{example}[No-arbitrage condition]
+    Consider a zero-coupon one-year bond with face value \$1,000. The risk-free interest rate is 5\%. However, there is default risk on this bond. It has probability of 20\% to pay only \$800 back to the investor and 80\% probability to pay \$1,000 back. 
+    \begin{enumerate}[label=(\arabic*)]
+        \item If the risky bond has its bond rate equal to the risk-free rate, then what should be the bond price?
+        \item If the risky bond has the same price as the risk-free bond today, what will be the risk premium?
+    \end{enumerate}
+\end{example}
+
+\paragraph{Solvency, Liquidity, and Bank Runs}
+\textbf{Solvency} measures a financial intermediary's ability to pay its liabilities. At a simplified level, you can just compare the cash it owns and the liabilities it owes. \textbf{Liquidity} measures how easy an asset can be transformed into cash. They are related in the following sense:
+\begin{itemize}
+    \item If the assets are illiquid, \textit{i.e.,} hard to be transformed into cash, then the financial intermediary is likely to be more insolvent and to have more risk of going bankrupt.
+    \item If the liabilities are liquid, \textit{i.e.,} easy to be asked to pay in cash, then the financial intermediary is likely to be more insolvent and to have more risk of going bankrupt.
+\end{itemize}
+
+\begin{exercise}
+    Chapter 6, Question 4 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\subsection*{Extended IS-LM Framework}
+To understand financial shocks using the IS-LM framework, we need two main modifications:
+\begin{itemize}
+    \item Distinguish nominal interest rate from the real interest rate;
+    \item Incorporate risks into the model.
+\end{itemize}
+Then we have the following IS relation and LM relation:
+\begin{align*}
+    \text{IS relation}: &\, Y = C(Y-T) + I(Y, r+x) + G\\
+    \text{LM relation}: &\, r = \bar{r}.
+\end{align*}
+By the Fisher equation, there is a lower bound for the real interest rate: $r \geq -\pi^e$.
+
+
+\subsection*{Policy Analyses Exercises}
+\begin{example}\label{eg:arg}
+    Consider an economy like Argentina in 2001. Due to rampant corruption from the government, massive tax evasion, and money laundering activities, both consumers and investors become very pessimistic about the Argentine economy. Suppose initially, the economy is in an equilibrium. 
+    \begin{enumerate}[label=(\arabic*)]
+        \item Explain what happens to the economy in the short run when people become pessimistic about the economy. What will happen to output and the real interest rate?
+        \item If you are the government of Argentina, what would you do with government spending in order to offset the effects of the pessimism? What will happen to output, the real interest rate, investment, and the consumption as the result of the government's action?
+        \item If you are the central bank of Argentina, what kind of monetary policy that you can implement in order to offset the effects of the pessimism? What will happen to output, the real interest rate, investment, and the consumption as the result of the central bank's action?
+    \end{enumerate}
+\end{example}
+
+\begin{exercise}
+    Continue with Example \ref{eg:arg}. Suppose the Argentine government has very limited fiscal space, and it is already running very high budget deficit so that the government is very likely to default on its debt, and simultaneously, the nominal interest rate in Argentina is very close to zero, or the zero lower bound (ZLB). 
+    \begin{enumerate}[label=(\arabic*)]
+        \item Is it still appropriate to use the policy suggested in part (2)? Why?
+        \item Is it still appropriate to use the policy suggested in part (3)? Why?
+        \item What kind of policies can be implemented in order to offset the effects of the pessimism? Please suggest at least 1 policy and explain why it works.
+    \end{enumerate}
 \end{exercise}
 \end{document}
