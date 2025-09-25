@@ -103,4 +103,18 @@ If we consider the default risk, then we need to add risk premium to the two-yea
 What if you are pricing a bond with coupon given the annual yield? You add up two streams of future cash flows: the periodic coupon and the lump-sum face value in the end.
 
 \subsection*{Stock Pricing}
+Instead of the no-arbitrage argument we had in class, a simpler way is to look at stock pricing from the perspective of discounted cash flow. Since firms pay dividends to the investors infinitely, we simply add up the discounted values of dividends each period:
+\[ \$Q_t = \$D_t + \sum_{j=1}^{+\infty} \$D_{t+j} \frac{1}{\prod_{k=1}^j(1+r_{t+k} + x)}. \]
+
+Theoretically, as long as there is no shock to the market, the stock price should be constant. However, stock prices always fluctuate in reality. This is because of arbitrage.
+
+\begin{exercise}
+    Chapter 14, Question 6 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\begin{example}
+    Chapter 14, Question 7 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+
+    Suppose that an investor has a choice between buying a 3-year bond with a face value of \$60 and a stock paying a constant dividend of \$20 per year, which the investor plans to hold for three tears. The real interest rate on the stock and the bond is the same, 5\%. in addition, hte risk premium on the stock is constant at 1-\%, while on the bond, it is 5\%.
+\end{example}
 \end{document}
