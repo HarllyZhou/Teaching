@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 5: Asset Pricing}}\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+\subsection*{Discounted Cash Flow}
+The key concept is the \textbf{time value of money}. In words, it says that one dollar today does not equal one dollar tomorrow. Based on the interest rate in each time period, we can \textbf{discount} the future cash flow into \textbf{present value}. Why we need to do this? Suppose we have a 2-year bond with 2\% coupon and a 3 year bond with 2.1\% coupon. If we would like to compare the price of the two bonds, it is not clear which one has a higher price. Therefore, discounting allows us to compare values of assets that have different rate, time to maturity, and other factors influencing cash flow.
+
+Suppose that in year $t+j$, the cash flow is $\$z_{t+j}$. Then the value of the asset with maturity $t+\tau$ at $t$ will be
+\[\$V_t = \$ z_t + \frac{1}{1+i_t}\$ z_{t+1} + \frac{1}{(1+i_t)(1+i_{t+1})}\$ z_{t+2} + \cdots.\]
+This complicated formula simply says that the present value of an asset is the sum of total \textbf{discount cash flow} in the future.
+
+Now we restrict our discussion on constant interest rate $i$ and same payment each period $\$z$.
+
+\paragraph{Annuity and Perpetuity} \textbf{Annuity} is a contract or financial product that provides a stream of periodic payments over time. \textbf{Perpetuity} is a special type of annuity that is \textit{without maturity date}, that is, makes payments forever. The formula of pricing an annuity with maturity $t+\tau$ is
+\[\$ V_t = \$z \sum_{j=0}^{\tau-1} \frac{1}{(1+i)^j} = \$z \frac{1-\frac{1}{(1+i)^\tau}}{1-\frac{1}{1+i}}.\]
+To price a perpetuity, we take $\tau \rightarrow +\infty$, and we have
+\[\$ V_t = \frac{\$z}{i}\]
+
+When there is uncertainty, we make everything in expectation. When the payments are real, we discount using real interest rates.
+
+\begin{example}
+    Suppose there is an asset that pays you \$1,000 at the end of each year from 2026 to 2030. The one year nominal interest rate is 3\% from 2025 to 2026, while it is expected that the nominal interest rate will be reduced to 2\% from the end of 2026 (2026 to 2027 and onwards). What will be a no-arbitrage price of the asset at the end of 2025?
+\end{example}
+
+\subsection*{Bond Pricing and Bond Yield}
+Given a one-year zero coupon risk-free bond and a two-year zero coupon risk-free bond, no-arbitrage condition implies that
+\[\$P_{2,t} (1 + i_{1,t}) = \$P_{1, t+1}^e,\]
+meaning that the value of the 2-year bond after year should equal the value of a 1-year bond in the next year. Then we have the following relation:
+\[(1 + i_{2,t})^2 = (1 + i_{1,t})(1 + i_{1, t+1}^e),\]
+which can be approximated by
+\[ i_{2,t} \approx \frac{1}{2}(i_{1,t} + i_{1, t+1}^e).\]
+
+If we consider the default risk, then we need to add risk premium to the two-year rate:
+\[ i_{2,t} \approx \frac{1}{2}(i_{1,t} + i_{1, t+1}^e + x).\]
+
+\begin{exercise}
+    Derive the formula for the bond yield of a three-year zero-coupon risk-free bond using only one-year zero-coupon risk-free bond.
+\end{exercise}
+
+\begin{example}
+    True or false: A prediction of recession is consistent with a downward-sloping yield curve.
+\end{example}
+
+What if you are pricing a bond with coupon given the annual yield? You add up two streams of future cash flows: the periodic coupon and the lump-sum face value in the end.
+
+\subsection*{Stock Pricing}
+\end{document}
