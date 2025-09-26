@@ -97,7 +97,7 @@ If we consider the default risk, then we need to add risk premium to the two-yea
 \end{exercise}
 
 \begin{example}
-    True or false: A prediction of recession is consistent with a downward-sloping yield curve.
+    True or false: A prediction of recession is consistent with an upward-sloping yield curve.
 \end{example}
 
 What if you are pricing a bond with coupon given the annual yield? You add up two streams of future cash flows: the periodic coupon and the lump-sum face value in the end.
@@ -106,7 +106,7 @@ What if you are pricing a bond with coupon given the annual yield? You add up tw
 Instead of the no-arbitrage argument we had in class, a simpler way is to look at stock pricing from the perspective of discounted cash flow. Since firms pay dividends to the investors infinitely, we simply add up the discounted values of dividends each period:
 \[ \$Q_t = \$D_t + \sum_{j=1}^{+\infty} \$D_{t+j} \frac{1}{\prod_{k=1}^j(1+r_{t+k} + x)}. \]
 
-Theoretically, as long as there is no shock to the market, the stock price should be constant. However, stock prices always fluctuate in reality. This is because of arbitrage.
+Theoretically, as long as there is no new information in the market, the stock price should be constant. However, stock prices always fluctuate in reality. 
 
 \begin{exercise}
     Chapter 14, Question 6 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
@@ -116,5 +116,19 @@ Theoretically, as long as there is no shock to the market, the stock price shoul
     Chapter 14, Question 7 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
 
     Suppose that an investor has a choice between buying a 3-year bond with a face value of \$60 and a stock paying a constant dividend of \$20 per year, which the investor plans to hold for three tears. The real interest rate on the stock and the bond is the same, 5\%. in addition, hte risk premium on the stock is constant at 1-\%, while on the bond, it is 5\%.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Compare the present values of the two investments. Which one should the investor choose?
+        \item Imagine that the risk premia on the stock and the bond were to be equalized at 5\%. How would that affect the choice made in part (1)?
+        \item Suppose now that risk premium returns to its initial value, which is 10\% for the stock and 5\% for the bond. The interest rate changes each year for bothsecurities: 5\% in the first year, 8\% in the second, and 12\% in the third. HOw would that affect the investor's valuation of the two investments? HOw would you explain your result?
+    \end{enumerate}
 \end{example}
+
+\subsection*{Risks, Bubbles, and the Asset Market}
+\paragraph{Risks} People's perception of risk changes across periods. In reality, we do not have a constant $x$ but $x_{t+j}$ changing with time. We saw this in the Argentina example in the previous note.
+
+\paragraph{Mispricing} Mispricing can happen in different scenarios. Two of examples are rational speculative bubbles and irrational expectations.
+
+\begin{exercise}
+    Chapter 14, Question 8 (a) to (d) in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson. Note that (e) is a data question. You can do it if you are interested.
+\end{exercise}
 \end{document}
