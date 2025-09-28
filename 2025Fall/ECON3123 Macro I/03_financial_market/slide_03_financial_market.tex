@@ -1,0 +1,128 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\usepackage{tgtermes}
+\usefonttheme{default}
+\renewcommand{\familydefault}{\rmdefault}
+\usetheme{Madrid}
+\usepackage{lmodern}
+
+% --- Autumn + Ethereum palette (keep your structure/names) ---
+\definecolor{autumnyellow}{HTML}{FFB000} % golden yellow (primary accent)
+\definecolor{maplered}{HTML}{C1121F}   % maple red
+\definecolor{chestnutbrown}{HTML}{8B5E3C}     % chestnutbrown
+\definecolor{canvasbg}{HTML}{FAF4E6}    % warm paper background
+\definecolor{graphite}{HTML}{3C3C3D}    % neutral text
+\colorlet{autumndark}{autumnyellow!80!black}
+\colorlet{canvasdark}{canvasbg!80!black}
+
+% --- Beamer colors (same structure as yours) ---
+\setbeamercolor{structure}{fg=autumnyellow}
+\setbeamercolor{background canvas}{bg=canvasbg}
+\setbeamercolor{frametitle}{bg=autumnyellow, fg=white}
+\setbeamercolor{title}{bg=autumnyellow, fg=white}
+\setbeamercolor{item}{fg=autumnyellow}
+\setbeamercolor{section in toc}{fg=maplered}
+\setbeamercolor{subsection in toc}{fg=autumnyellow}
+
+% Optional: readable body text color
+\setbeamercolor{normal text}{fg=graphite,bg=canvasbg}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\usepackage{graphicx} % For \resizebox
+
+% --- TikZ styles (same names; colors mapped to autumn/ETH) ---
+\tikzset{
+  block/.style = {rectangle, draw, fill=autumnyellow!40, text width=4cm, align=center, rounded corners, minimum height=2.0em},
+  sideblock/.style = {rectangle, draw, fill=chestnutbrown!40, text width=4cm, align=center, rounded corners, minimum height=2.0em},
+  decision/.style = {diamond, draw, fill=canvasbg!40, text width=5cm, align=center, aspect=2, inner sep=1pt},
+  arrow/.style = {thick, ->, >=Stealth},
+  mechanismblock/.style = {rectangle, draw, fill=maplered!40, text width=4cm, align=center, minimum height=2.5em},
+  greydashedarrow/.style = {thick, dashed, ->, >=Stealth, draw=gray},
+  blusharrow/.style = {thick, ->, >=Latex, draw=maplered},
+  blank/.style = {rectangle, fill=maplered!20, text width=4cm, align=center, minimum height=2.0em}
+}
+
+%<---- do not use enumitem, does not work well with Beamer
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{booktabs, array, dcolumn}
+\usepackage{graphicx, subfig}
+\usepackage{epstopdf}
+\def\pdfshellescape{1}
+
+% Icons/bullets
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{itemize subitem}[triangle]
+
+% Theorems
+\usepackage{amsthm}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{quiz}{Quiz}
+\newtheorem{claim}[proposition]{Claim}
+\newtheorem{exercise}[proposition]{Exercise}
+\newtheorem{remark}[proposition]{Remark}
+
+% Links: use Ethereum blue
+\definecolor{links}{HTML}{627EEA}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\setbeamertemplate{navigation symbols}{}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+\DeclareMathOperator*{\plim}{plim}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\E}{E}
+\DeclareMathOperator*{\Var}{Var}
+\DeclareMathOperator*{\Cov}{Cov}
+\DeclareMathOperator*{\Corr}{Corr}
+\DeclareMathOperator*{\supp}{supp}
+
+\newcommand{\ind}{\mathrel{\perp \! \! \! \perp}}
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\title[Measurment of Macroeconomy]{Tutorial 3: Investment and Financial Market}
+\subtitle{ECON 3123: Macroeconomic Theory I}
+\author[Harlly Zhou]{Harlly Zhou}
+\institute[HKUST]{Department of Economics\\
+HKUST Business School}
+\date{}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Example 1: Wealth vs Income}
+    Suppose that a person's wealth is \$50,000 and that her yearly income is \$60,000. Also suppose that her money demand function is given by
+	\[M^d = \$ Y (0.35 - i).\]
+
+	\begin{enumerate}
+		\item Derive the demand for bonds. Suppose that the interest rate increases by 10 percentage points. What is the effect on her demand for bonds?
+		\item What are the effects of an increase in wealth on her demand for money and her demand for bonds? Explain in words.
+		\item What are the effects of an increase in income on her demand for money and her demand for bonds? Explain in words.
+		\item Consider the statement ``When people earn more money, they obviously will hold more bonds.'' What is wrong with this statement?
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Example 2: Zero Lower Bound}
+    Consider the following money demand function where $Y$ is the nominal income:
+	\begin{align*}
+		M^d = Y (0.91-5i).
+	\end{align*}
+	
+	\begin{enumerate}
+		\item Suppose that $Y=100$. If the central bank would like to target an interest rate of $2.2\%$, then what should be the money supply?
+		\item If the nominal income increases to $Y=120$, then how should the central bank change its money supply to maintain the target interest rate?
+		\item Keep $Y=100$. What is the largest value of the money supply at which the interest rate is positive?
+		\item Once the interest rate is zero, can the central bank continue increasing the money supply?
+	\end{enumerate}
+\end{frame}
+
+
+\end{document}

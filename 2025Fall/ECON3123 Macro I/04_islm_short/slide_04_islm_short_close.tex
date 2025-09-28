@@ -1,0 +1,152 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\usepackage{tgtermes}
+\usefonttheme{default}
+\renewcommand{\familydefault}{\rmdefault}
+\usetheme{Madrid}
+\usepackage{lmodern}
+
+% --- Autumn + Ethereum palette (keep your structure/names) ---
+\definecolor{autumnyellow}{HTML}{FFB000} % golden yellow (primary accent)
+\definecolor{maplered}{HTML}{C1121F}   % maple red
+\definecolor{chestnutbrown}{HTML}{8B5E3C}     % chestnutbrown
+\definecolor{canvasbg}{HTML}{FAF4E6}    % warm paper background
+\definecolor{graphite}{HTML}{3C3C3D}    % neutral text
+\colorlet{autumndark}{autumnyellow!80!black}
+\colorlet{canvasdark}{canvasbg!80!black}
+
+% --- Beamer colors (same structure as yours) ---
+\setbeamercolor{structure}{fg=autumnyellow}
+\setbeamercolor{background canvas}{bg=canvasbg}
+\setbeamercolor{frametitle}{bg=autumnyellow, fg=white}
+\setbeamercolor{title}{bg=autumnyellow, fg=white}
+\setbeamercolor{item}{fg=autumnyellow}
+\setbeamercolor{section in toc}{fg=maplered}
+\setbeamercolor{subsection in toc}{fg=autumnyellow}
+
+% Optional: readable body text color
+\setbeamercolor{normal text}{fg=graphite,bg=canvasbg}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\usepackage{graphicx} % For \resizebox
+
+% --- TikZ styles (same names; colors mapped to autumn/ETH) ---
+\tikzset{
+  block/.style = {rectangle, draw, fill=autumnyellow!40, text width=4cm, align=center, rounded corners, minimum height=2.0em},
+  sideblock/.style = {rectangle, draw, fill=chestnutbrown!40, text width=4cm, align=center, rounded corners, minimum height=2.0em},
+  decision/.style = {diamond, draw, fill=canvasbg!40, text width=5cm, align=center, aspect=2, inner sep=1pt},
+  arrow/.style = {thick, ->, >=Stealth},
+  mechanismblock/.style = {rectangle, draw, fill=maplered!40, text width=4cm, align=center, minimum height=2.5em},
+  greydashedarrow/.style = {thick, dashed, ->, >=Stealth, draw=gray},
+  blusharrow/.style = {thick, ->, >=Latex, draw=maplered},
+  blank/.style = {rectangle, fill=maplered!20, text width=4cm, align=center, minimum height=2.0em}
+}
+
+%<---- do not use enumitem, does not work well with Beamer
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{booktabs, array, dcolumn}
+\usepackage{graphicx, subfig}
+\usepackage{epstopdf}
+\def\pdfshellescape{1}
+
+% Icons/bullets
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{itemize subitem}[triangle]
+
+% Theorems
+\usepackage{amsthm}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{quiz}{Quiz}
+\newtheorem{claim}[proposition]{Claim}
+\newtheorem{exercise}[proposition]{Exercise}
+\newtheorem{remark}[proposition]{Remark}
+
+% Links: use Ethereum blue
+\definecolor{links}{HTML}{627EEA}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\setbeamertemplate{navigation symbols}{}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+\DeclareMathOperator*{\plim}{plim}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\E}{E}
+\DeclareMathOperator*{\Var}{Var}
+\DeclareMathOperator*{\Cov}{Cov}
+\DeclareMathOperator*{\Corr}{Corr}
+\DeclareMathOperator*{\supp}{supp}
+
+\newcommand{\ind}{\mathrel{\perp \! \! \! \perp}}
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\title[Measurment of Macroeconomy]{Tutorial 4: IS-LM Framework}
+\subtitle{ECON 3123: Macroeconomic Theory I}
+\author[Harlly Zhou]{Harlly Zhou}
+\institute[HKUST]{Department of Economics\\
+HKUST Business School}
+\date{}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Example 1: No-arbitrage}
+    Consider a one-year risk-free bond with face value \$1,000. Suppose the risk-free interest rate is 5\%. The bond is sold at \$980 today.
+    \begin{enumerate}
+        \item Is there any arbitrage opportunity? Describe how to make a profit. Assume that you are allowed to lend and borrow at the risk-free interest rate.
+        \item To avoid arbitrage, the issuer would like to provide some coupon. A coupon is an additional payment to investors, distributed at the end of each period Assume that coupon is distributed annually. Then what should be the coupon rate, i.e., the ratio of the amount of coupon to the face value?
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Example 2: No-arbitrage}
+    Consider a zero-coupon one-year bond with face value \$1,000. The risk-free interest rate is 5\%. However, there is default risk on this bond. It has probability of 20\% to pay only \$800 back to the investor and 80\% probability to pay \$1,000 back. 
+    \begin{enumerate}
+        \item What is the risk premium for this risky bond?
+        \item Describe how to make a profit using only the risk-free and risky asset.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Example 3: Numerical IS-LM}
+    Consider the following behavioral equations:
+    \begin{align*}
+        C &= 200 + 0.5(Y-T)\\
+        I &= 500 - 2000(r+x) + 0.3Y
+    \end{align*}
+    and the real money demand:
+    \begin{align*}
+        \frac{M^d}{P} = Y(0.8-5i).
+    \end{align*}
+    Suppose that $G = 100$ and $T = 200$. The price level is 10, and the nominal money supply is 13000. The expected inflation is $2\%$, and the risk premium is $5\%$.
+\end{frame}
+
+\begin{frame}{Example 3: Numerical IS-LM}
+    \begin{enumerate}
+        \item Solve for the equilibrium output. What is the target nominal interest rate?
+        \item Can the central bank expand the money supply to 21,000? What nominal interest rate is it targeting?
+        \item What is the lower bound for real interest rate target? What is the upper bound for nominal money supply?
+        \item Keep the target rate as in part (1). Find the upper bound of tax such that there exists a positive equilibrium output.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Example 4: Policy Analysis}
+    Consider an economy like Argentina in 2001. Due to rampant corruption from the government, massive tax evasion, and money laundering activities, both consumers and investors become very pessimistic about the Argentine economy. Suppose initially, the economy is in an equilibrium. 
+\end{frame}
+
+\begin{frame}{Example 4: Policy Analysis}
+    \begin{enumerate}
+        \item Explain what happens to the economy in the short run when people become pessimistic about the economy. What will happen to output and the real interest rate?
+        \item If you are the government of Argentina, what would you do with government spending in order to offset the effects of the pessimism? What will happen to output, the real interest rate, investment, and the consumption as the result of the government's action?
+        \item If you are the central bank of Argentina, what kind of monetary policy that you can implement in order to offset the effects of the pessimism? What will happen to output, the real interest rate, investment, and the consumption as the result of the central bank's action?
+    \end{enumerate}
+\end{frame}
+
+
+\end{document}
