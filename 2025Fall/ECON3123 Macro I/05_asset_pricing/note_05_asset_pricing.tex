@@ -92,12 +92,12 @@ which can be approximated by
 If we consider the default risk, then we need to add risk premium to the two-year rate:
 \[ i_{2,t} \approx \frac{1}{2}(i_{1,t} + i_{1, t+1}^e + x).\]
 
-The bond pricing formula is
-\[ P_{\tau,t} = \frac{\text{Face Value}}{(1+i_{1,t})\prod_{j = 1}^{\tau-1}(1+i_{1,t+j}^e+x)}.\]
-
-\begin{exercise}
-    Derive the formula for the bond yield of a three-year zero-coupon risk-free bond using only one-year zero-coupon risk-free bond.
-\end{exercise}
+Reconsider the no-arbitrage condition:
+\[\$ P_{2,t} = \frac{\$ P_{1, t+1}^e}{1 + i_{1,t} + x}.\]
+Why is the risk premium here? Because we do not know what will exactly be $\$ P_{1, t+1}^e$. On the other hand,
+\[\$ P_{1,t+1}^e = \frac{\text{Face Value}}{1 + i_{1,t+1}^e}.\]
+Why is the risk premium not here? Though there is uncertainty, but the uncertainty is on the price, not the face value. Therefore, we do not have risk premium here. The pricing formula is
+\[ \$ P_{2,t} = = \frac{\text{Face Value}}{(1 + i_{1,t+1}^e)(1 + i_{1,t} + x)}.\]
 
 \begin{exercise}
     True or false: A prediction of recession is consistent with an upward-sloping yield curve.
