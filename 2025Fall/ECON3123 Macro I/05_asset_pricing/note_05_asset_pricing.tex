@@ -77,9 +77,9 @@ To price a perpetuity, we take $\tau \rightarrow +\infty$, and we have
 
 When there is uncertainty, we make everything in expectation. When the payments are real, we discount using real interest rates.
 
-\begin{example}
+\begin{exercise}
     Suppose there is an asset that pays you \$1,000 at the end of each year from 2026 to 2030. The one year nominal interest rate is 3\% from 2025 to 2026, while it is expected that the nominal interest rate will be reduced to 2\% from the end of 2026 (2026 to 2027 and onwards). What will be a no-arbitrage price of the asset at the end of 2025?
-\end{example}
+\end{exercise}
 
 \subsection*{Bond Pricing and Bond Yield}
 Given a one-year zero coupon risk-free bond and a two-year zero coupon risk-free bond, no-arbitrage condition implies that
@@ -92,19 +92,24 @@ which can be approximated by
 If we consider the default risk, then we need to add risk premium to the two-year rate:
 \[ i_{2,t} \approx \frac{1}{2}(i_{1,t} + i_{1, t+1}^e + x).\]
 
+The bond pricing formula is
+\[ P_{\tau,t} = \frac{\text{Face Value}}{(1+i_{1,t})\prod_{j = 1}^{\tau-1}(1+i_{1,t+j}^e+x)}.\]
+
 \begin{exercise}
     Derive the formula for the bond yield of a three-year zero-coupon risk-free bond using only one-year zero-coupon risk-free bond.
 \end{exercise}
 
-\begin{example}
+\begin{exercise}
     True or false: A prediction of recession is consistent with an upward-sloping yield curve.
-\end{example}
+\end{exercise}
 
 What if you are pricing a bond with coupon given the annual yield? You add up two streams of future cash flows: the periodic coupon and the lump-sum face value in the end.
 
 \subsection*{Stock Pricing}
 Instead of the no-arbitrage argument we had in class, a simpler way is to look at stock pricing from the perspective of discounted cash flow. Since firms pay dividends to the investors infinitely, we simply add up the discounted values of dividends each period:
 \[ \$Q_t = \$D_t + \sum_{j=1}^{+\infty} \$D_{t+j} \frac{1}{\prod_{k=1}^j(1+r_{t+k} + x)}. \]
+With constant rates and constant dividend, we have
+\[ \$Q_t = \frac{\$D}{r+x}. \]
 
 Theoretically, as long as there is no new information in the market, the stock price should be constant. However, stock prices always fluctuate in reality. 
 
@@ -115,11 +120,14 @@ Theoretically, as long as there is no new information in the market, the stock p
 \begin{example}
     Chapter 14, Question 7 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
 
-    Suppose that an investor has a choice between buying a 3-year bond with a face value of \$60 and a stock paying a constant dividend of \$20 per year, which the investor plans to hold for three tears. The real interest rate on the stock and the bond is the same, 5\%. in addition, hte risk premium on the stock is constant at 1-\%, while on the bond, it is 5\%.
+    Suppose that an investor has a choice between buying a 3-year bond with a face value of \$60 and a stock paying a constant dividend of \$20 per year, which the investor plans to hold for three years. The real interest rate on the stock and the bond is the same, 5\%. in addition, the risk premium on the stock is constant at 10\%, while on the bond, it is 5\%.
     \begin{enumerate}[label=(\arabic*)]
         \item Compare the present values of the two investments. Which one should the investor choose?
+        \vspace{60pt}
         \item Imagine that the risk premia on the stock and the bond were to be equalized at 5\%. How would that affect the choice made in part (1)?
-        \item Suppose now that risk premium returns to its initial value, which is 10\% for the stock and 5\% for the bond. The interest rate changes each year for bothsecurities: 5\% in the first year, 8\% in the second, and 12\% in the third. HOw would that affect the investor's valuation of the two investments? HOw would you explain your result?
+        \vspace{60pt}
+        \item Suppose now that risk premium returns to its initial value, which is 10\% for the stock and 5\% for the bond. The interest rate changes each year for bothsecurities: 5\% in the first year, 8\% in the second, and 12\% in the third. How would that affect the investor's valuation of the two investments? How would you explain your result?
+        \vspace{60pt}
     \end{enumerate}
 \end{example}
 
