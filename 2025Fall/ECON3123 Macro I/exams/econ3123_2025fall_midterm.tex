@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+    THE HONG KONG UNIVERSITY OF SCIENCE AND TECHNOLOGY\\
+    {\large \textbf{ECON 3123 Midterm Exam}}\\
+    Date: Oct 10, 2025\\
+    Time allowed: 80 minutes
+\end{center}
+
+\vspace{12pt}
+\paragraph{Not to be taken away.}
+\paragraph{Instructions:}
+\begin{itemize}
+    \item Answer ALL the questions. Write your answers on the answer book. Anything written on the question book will NOT be graded.
+    \item Write your answer to all the multiple choice questions on one page together. Use one separate page for each short-answer question, and separate subquestions within one question by 1 to 2 blank lines. 
+    \item Make sure that all your handweritngs are legible. Anything that cannot be understood by the grader will not be graded.
+    \item Please submit BOTH the question book and the answer book after the exam.
+\end{itemize}
+
+\vspace{36pt}
+\begin{center}
+    \Large
+    \textbf{DO NOT OPEN UNTIL INSTRUCTED!}
+\end{center}
+
+\vspace{36pt}
+\subsection*{Name:}
+\subsection*{Student ID: }
+
+\clearpage
+\setcounter{page}{1}
+\subsection*{Multiple Choice Questions (20 points)}
+4 points each. Choose the one alternative that best answers the question.
+\begin{enumerate}[label=\arabic*.]
+    \item  Suppose a country has 10 million people, of whom 8 million are working age. Of these 8 million, 5 million have jobs. Of the remainder: 1 million are actively searching for jobs; 1 million would like jobs but are not searching; and 1 million do not want jobs at all. The official unemployment rate is
+    \begin{enumerate}[label=\Alph*.]
+        \item 0.1
+        \item 0.125
+        \item 0.143
+        \item 0.167
+        \item 0.28
+    \end{enumerate}
+    \item A firm's value added equals
+    \begin{enumerate}[label=\Alph*.]
+        \item its revenue minus all of its costs.
+        \item its revenue minus its wages.
+        \item its revenue minus its wages and profit.
+        \item its revenue minus its cost of intermediate goods.
+        \item none of the above
+    \end{enumerate}
+    \item Suppose all the nominal variables are the same, if the expected inflation rate rises, the real PDV will
+    \begin{enumerate}[label=\Alph*.]
+        \item fall.
+        \item rise.
+        \item remain unchanged.
+        \item none of the above
+    \end{enumerate}
+    \item Suppose that the recent fall of Silicon Valley Bank makes bank managers in all the other banks want to hold a higher fraction of deposit as reserve. This will cause:
+    \begin{enumerate}[label=\Alph*.]
+        \item an increase in the monetary base ($H$)
+        \item a reduction in $H$ and a reduction in the money multiplier
+        \item an increase in the money multiplier
+        \item a reduction in the money multiplier
+    \end{enumerate}
+    \item If the central bank wants to cut the federal funds rate, it can:
+    \begin{enumerate}[label=\Alph*.]
+        \item increase the reserve requirement for banks.
+        \item sell bonds in the market for bonds.
+        \item buy bonds in the market for bonds. 
+        \item increase the discount rate.
+        \item none of the above.
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+\subsection*{Short-Answer Questions (80 points)}
+Wrtie your calculation and explanation to get full scores. Partially correct steps earn partial credits.
+
+
+\textbf{Question 6: Goods Market and Fiscal Policy (20 points)}
+
+\textit{Consider an economy with the following behavior equations:}
+\begin{align*}
+    C &= c_0 + c_1Y_D\\
+    I &= b_0 + b_1Y- b_2i\\
+    T &= t_0 + t_1Y\\
+    Y_D &= Y- T.
+\end{align*}
+\textit{$i$ is the nominal interest rate set by the central bank and $G$ is government spending.}
+
+\textit{Assume that $t_1$ is between 0 and 1, and $c_1+b_1<0.5$.}
+
+\begin{enumerate}[label=\alph*.]
+    \item (5 points) Solve for equilibrium output and taxes.
+\end{enumerate}
+
+\textit{Suppose that the government starts with a balanced budget ($G=T$) and that there is a drop in $b_0$.}
+
+\begin{enumerate}[label=\alph*., resume]
+    \item (10 points) How should the government adjust its spending $G$ in order to keep the budget balanced? Does this government spending adjustment counteract or reinforce the effect of the drop in $b_0$ on output? \textbf{Explain your answers in words}.
+    \item (5 points) After the adjustment of government spending $G$ that rebalances the budget, what happens to the equilibrium private saving?
+\end{enumerate}
+
+\newpage
+\textbf{Question 7: Bank Crisis and Monetary Policy (30 points)}
+
+\textit{Suppose that an economy is described by the following equations}
+\begin{align*}
+    C &= 0.5 + 0.2(Y-T) \\
+    I &= 0.2 + 0.3Y -2.5(i+x) \\
+    Z &= C + I + G\\
+    G &= 1,\,\,\,\,\, T = 1\\
+    i &= \bar{i}\\
+    x &= 5\%\\
+    \frac{M^d}{P} &= Y \times (0.7 - 4i)
+\end{align*}
+\textit{The current GDP deflator is 2. The public holds 20\% of the money in currency and the rest in checkable deposits. The average reserve ratio of the commercial banks is 25\%. }
+\begin{enumerate}[label=\alph*.]
+    \item (10 points) Derive the equilibrium output as a function of the nominal interest rate ($IS$ relation).
+
+	\item (10 points) Suppose the nominal interest rate target $\bar{i}$ is 5\%. Compute the monetary base that can achieve the interest rate target. 
+\end{enumerate}
+
+\textit{Suppose there is a banking crisis which makes the average reserve ratio of the commercial banks increase from 25\% to 30\%. }
+\begin{enumerate}[label=\alph*., resume]
+    \item (5 points) Suppose that the central bank wants to restore the equilibrium nominal interest rate back to its target 5\%, how much should the new monetary base be?
+\end{enumerate}
+
+\textit{Suppose due to the same banking crisis, the risk premium x also increases from 5\% to 15\%. }
+\begin{enumerate}[label=\alph*., resume]
+    \item (5 points) Calculate the new monetary base that is necessary for the central bank to keep the nominal interest rate unchanged from its 5\% target.
+\end{enumerate}
+
+\newpage
+\textbf{Question 8: Bond price and yield (30 points)}
+
+\textit{Consider two types of bonds: a 2-year bond and a 3-year bond.  Both types have face value equal to \$100. }
+
+\textit{The current risk free one-year interest rate is 4\% and the risk premium is 5\%. }
+
+\textit{The market expects the central bank to cut risk-free one-year interest rate to 3\% next year and 2\% the year after.}
+
+\begin{enumerate}[label=\alph*.]
+    \item (10 points) What should be the current price for the 2-year bond? 
+    \item (10 points) What should be the current price for the 3-year bond? 
+    \item (10 points) What is the current yield to the 3-year bond?
+\end{enumerate}
+
+\vspace{300pt}
+\begin{center}
+    \textbf{\Large ******** END OF THE EXAM ********}
+\end{center}
+
+\end{document}
