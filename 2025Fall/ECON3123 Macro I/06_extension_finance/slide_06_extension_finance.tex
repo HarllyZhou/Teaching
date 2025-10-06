@@ -1,0 +1,104 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\usepackage{tgtermes}
+\usefonttheme{default}
+\renewcommand{\familydefault}{\rmdefault}
+\usetheme{Madrid}
+\usepackage{lmodern}
+
+% --- Red family palette (parallel to Autumn+Ethereum) ---
+\definecolor{crimsonred}{HTML}{D72638}    % primary accent red
+\definecolor{burgundy}{HTML}{800020}      % deep accent red
+\definecolor{rosewood}{HTML}{A52A2A}      % supporting warm red/brown
+\definecolor{canvasbg}{HTML}{FFF5F5}      % light rose background
+\definecolor{graphite}{HTML}{2E2E2E}      % neutral dark text
+\colorlet{crimsondark}{crimsonred!80!black}
+\colorlet{canvasdark}{canvasbg!80!black}
+
+% --- Beamer colors (mirroring your structure) ---
+\setbeamercolor{structure}{fg=crimsonred}
+\setbeamercolor{background canvas}{bg=canvasbg}
+\setbeamercolor{frametitle}{bg=crimsonred, fg=white}
+\setbeamercolor{title}{bg=crimsonred, fg=white}
+\setbeamercolor{item}{fg=crimsonred}
+\setbeamercolor{section in toc}{fg=burgundy}
+\setbeamercolor{subsection in toc}{fg=crimsonred}
+
+% Optional: readable body text color
+\setbeamercolor{normal text}{fg=graphite,bg=canvasbg}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\usepackage{graphicx} % For \resizebox
+
+% --- TikZ styles (mapped to red family) ---
+\tikzset{
+  block/.style = {rectangle, draw, fill=crimsonred!40, text width=4cm, align=center, rounded corners, minimum height=2.0em},
+  sideblock/.style = {rectangle, draw, fill=rosewood!40, text width=4cm, align=center, rounded corners, minimum height=2.0em},
+  decision/.style = {diamond, draw, fill=canvasbg!40, text width=5cm, align=center, aspect=2, inner sep=1pt},
+  arrow/.style = {thick, ->, >=Stealth},
+  mechanismblock/.style = {rectangle, draw, fill=burgundy!40, text width=4cm, align=center, minimum height=2.5em},
+  greydashedarrow/.style = {thick, dashed, ->, >=Stealth, draw=gray},
+  blusharrow/.style = {thick, ->, >=Latex, draw=burgundy},
+  blank/.style = {rectangle, fill=burgundy!20, text width=4cm, align=center, minimum height=2.0em}
+}
+
+
+%<---- do not use enumitem, does not work well with Beamer
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{booktabs, array, dcolumn}
+\usepackage{graphicx, subfig}
+\usepackage{epstopdf}
+\def\pdfshellescape{1}
+
+% Icons/bullets
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{itemize subitem}[triangle]
+
+% Theorems
+\usepackage{amsthm}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{quiz}{Quiz}
+\newtheorem{claim}[proposition]{Claim}
+\newtheorem{exercise}[proposition]{Exercise}
+\newtheorem{remark}[proposition]{Remark}
+
+% Links: use Ethereum blue
+\definecolor{links}{HTML}{627EEA}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\setbeamertemplate{navigation symbols}{}
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+\DeclareMathOperator*{\plim}{plim}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\E}{E}
+\DeclareMathOperator*{\Var}{Var}
+\DeclareMathOperator*{\Cov}{Cov}
+\DeclareMathOperator*{\Corr}{Corr}
+\DeclareMathOperator*{\supp}{supp}
+
+\newcommand{\ind}{\mathrel{\perp \! \! \! \perp}}
+\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}
+
+\title[Measurment of Macroeconomy]{Tutorial 6: More on Risk}
+\subtitle{ECON 3123: Macroeconomic Theory I}
+\author[Harlly Zhou]{Harlly Zhou}
+\institute[HKUST]{Department of Economics\\
+HKUST Business School}
+\date{}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+\end{document}
