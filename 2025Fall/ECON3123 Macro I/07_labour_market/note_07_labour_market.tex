@@ -73,9 +73,9 @@ where $A$ is the MPL, $P^e$ is the expected price level, and $F$ is a function d
 
 \paragraph{Natural Rate of Unemployment} From the price determination equation, we have
 \[\frac{W}{P} = \frac{A}{1+m}.\]
-From the wage determination equation, we have
+From the wage determination equation, \textbf{since $P^e=P$ in the medium run}, we have
 \[\frac{W}{P} = AF(u,z).\]
-In a $\left(u, \frac{W}{P}\right)$ diagram, the pricing curve is a horizontal line, and the wage curve is a downward-sloping curve, as is shown in Figure \ref{fig:wu_01}.
+In a $\left(u, \frac{W}{P}\right)$ diagram, the pricing curve is a horizontal line, and the wage curve is a downward-sloping curve, as is shown in Figure \ref{fig:wu_01}. The equilibrium unemployment rate that is reached by the two curves is called the \textbf{natural rate of unemployment}.
 
 \begin{figure}[htp]
     \centering
@@ -83,5 +83,134 @@ In a $\left(u, \frac{W}{P}\right)$ diagram, the pricing curve is a horizontal li
     \caption{Natural Rate of Unemployment}
     \label{fig:wu_01}
 \end{figure}
+
+\begin{example}
+    Consider a linear production function
+    \[Y = AN.\]
+    Let the wage setting equation be
+    \[\frac{W}{P^e} = A F(u,z),\]
+    where $z$ is the union power and
+    \[F(u,z) = 1 - \alpha u_t + \phi z_t.\]
+    Suppose that the union can bargain for a real minimum wage at
+    \[\frac{W}{P}\geq\underline{w}_t = \omega z_t\]
+    \begin{enumerate}[label=(\arabic*)]
+        \item When the minimum wage is not hit, find out the equilibrium real wage and write the natural rate of unemployment (not by log approximation) as a function of $z_t$ and parameters.
+        \vspace{60pt}
+        \item Suppose that the constraint binds. Find the natural rate of unemployment as a function of $z_t$ and parameters.
+        \vspace{60pt}
+        \item Find the threshold for $z_t$ where the minimum wage constraint binds. Denote it as $\bar{z}$.
+        \vspace{60pt}
+        \item When the constraint binds, how does the natural rate of unemployment change with union power? Explain the economic intuition.
+        \vspace{60pt}
+    \end{enumerate}
+\end{example}
+
+
+\begin{example}
+    Consider the following production function
+    \[Y = A \log N.\]
+    The wage determination equation, in the medium run equilibrium, is
+    \[\frac{W}{P} = AF(u,z)\equiv A(1-\alpha u_t + z).\]
+    \begin{enumerate}[label=(\arabic*)]
+        \item Let $m$ be the markup. Write the price setting equation, \textit{i.e.,} write $P$ as a function of $N$.
+        \vspace{60pt}
+        \item Let the population $L$ be normalized to 1 and assume that it is constant. Find a quadratic equation characterizing the natural rate of unemployment. Which solution to the equation you should keep? Why?
+        \vspace{60pt}
+        \item Suppose that the labour productivity $A$ increases. Using a diagram, explain what happens to the new equilibrium real wage and the new natural rate of unemployment.
+        \vspace{60pt}
+    \end{enumerate}
+\end{example}
+\begin{exercise}
+    Chapter 7, Question 5 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\subsection*{Deriving the Phillips Curve}
+Recall that the labour market equilibrium is the intersection of
+\begin{align*}
+    \text{Wage setting: }\,\,&\frac{W}{P^e} = AF(u,z)\\
+    \text{Price setting: }\,\,&P = (1+m)\frac{W}{A}.
+\end{align*}
+Combining the two curves, we obtain
+\[P = P^e(1+m) F(u,z).\]
+Assume that
+\[F(u,z) = 1-\alpha u +z.\]
+Then
+\[P_t = P^e_t(1+m) (1-\alpha u_t +z).\]
+Dividing both sides by $P_{t-1}$, we obtain
+\[\log\frac{P_t}{P_{t-1}} = \log\frac{P^e_t}{P_{t-1}} + \log (1+m) + \log (1-\alpha u_t +z).\]
+By approximation, we have the \textbf{Phillips curve}:
+\[\pi_t = \pi^e_t + (m+z) - \alpha u_t.\]
+
+\paragraph{Original Phillips Curve}
+Assume that inflation does not persist: $\pi^e = \bar{\pi}$,meaning that past inflation rates are not informative to predict new inflation. Then the Phillips curve becomes
+\[\pi_t = (\bar{\pi}+m+z) - \alpha u_t.\]
+Denote $\beta := \bar{\pi}+m+z$. Then we have
+\[\pi_t = \beta - \alpha u_t.\]
+However, there are periods when this original Phillips curve is not supported by the data.
+
+\paragraph{Accelerationist Phillips Curve}
+Assume that inflation persists: $\pi^e = \pi_{t-1}$, meaning that people use the inflation from the past period as the indicator of expected inflation. Then the Phillips curve becomes
+\[\pi_t = \pi_{t-1} + (m+z) - \alpha u_t.\]
+Denote $\gamma := m+z$. Then we have
+\[\Delta \pi_t = \gamma - \alpha u_t.\]
+The period now fits.
+
+\paragraph{Inflation Expectations}
+As in the previous two versions of PC, we have different methods to form expectations for inflation. Combining the two methods, we can assume that
+\[\pi_t = (1-\theta)\bar{\pi} + \theta\pi_{t-1}.\]
+
+\begin{example}
+    Continue with Example 1.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Derive the Phillips curve.
+        \vspace{60pt}
+        \item Write the accelerationist version of the Phillips curve. Compare it with
+        \[\Delta \pi_t = \gamma - \alpha u_t.\]
+        What is the difference? Where does it come from? How do they differ economically?
+        \vspace{60pt}
+    \end{enumerate}
+\end{example}
+
+\begin{exercise}
+    Chapter 8, Question 5 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\subsection*{Natural Rate of Unemployment Revisited}
+Recall the the natural rate of unemployment is the rate at which $P=P^e$, \textit{i.e.}, the labour market is at medium-run equilibrium. Since $P=P^e$, we also have $\pi=\pi^e$ in medium-run equilibrium. Then the PC becomes
+\[0 = (m+z)-\alpha u_n,\]
+which yields
+\[u_n = \frac{m+z}{\alpha}.\]
+Then the PC (not at equilibrium) can be rewritten as
+\[\pi_t - \pi_t^e = -\alpha (u_t - u_n).\]
+
+\paragraph{Wage Indexation}
+\textbf{Wage indexation} is a provision that automatically increases wages in line with inflation. Suppose that there is a $\lambda$ proportion of indexed contracts. Then we have two types of wage settings:
+\begin{align*}
+    \text{Indexed Wage: }\, & W_1 = A P_t F(u_t,z)\\
+    \text{Normal Wage: }\, & W_2 = A P^e_t F(u_t,z).
+\end{align*}
+Then the price setting becomes
+\[P_t = (1+m)\frac{\lambda W_1 + (1-\lambda) W_2}{A} = [\lambda P_t + (1-\lambda)P_t^e] F(u,z)(1+m),\]
+which yields the following PC curve:
+\[\pi_t = [\lambda\pi_t + (1-\lambda)\pi_t^e]-\alpha(u_t-u_n).\]
+Rearranging the terms, we get
+\[\pi_t-\pi_t^e = -\frac{\alpha}{1-\lambda}(u_t-u_n).\]
+
+\begin{example}
+    Continue with example 1 and 2.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Find the natural rate of unemployment using the Phillips curve. Check your answer with Example 1 part (2). Do they match? Rewrite the Phillips curve using the natural rate of unemployment.
+        \vspace{60pt}
+        \item Suppose that now half of the contracts are indexed. Write the Phillips curve equation.
+        \vspace{60pt}
+        \item What is the effect of wage indexation on the relation between inflation and unemployment?
+        \vspace{60pt}
+    \end{enumerate}
+\end{example}
+
+\begin{exercise}
+    Chapter 8, Question 6 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
 
 \end{document}
