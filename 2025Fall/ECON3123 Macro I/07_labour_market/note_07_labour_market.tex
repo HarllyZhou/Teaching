@@ -106,20 +106,7 @@ In a $\left(u, \frac{W}{P}\right)$ diagram, the pricing curve is a horizontal li
 \end{example}
 
 
-\begin{example}
-    Consider the following production function
-    \[Y = A \log N.\]
-    The wage determination equation, in the medium run equilibrium, is
-    \[\frac{W}{P} = AF(u,z)\equiv A(1-\alpha u_t + z).\]
-    \begin{enumerate}[label=(\arabic*)]
-        \item Let $m$ be the markup. Write the price setting equation, \textit{i.e.,} write $P$ as a function of $N$.
-        \vspace{60pt}
-        \item Let the population $L$ be normalized to 1 and assume that it is constant. Find a quadratic equation characterizing the natural rate of unemployment. Which solution to the equation you should keep? Why?
-        \vspace{60pt}
-        \item Suppose that the labour productivity $A$ increases. Using a diagram, explain what happens to the new equilibrium real wage and the new natural rate of unemployment.
-        \vspace{60pt}
-    \end{enumerate}
-\end{example}
+
 \begin{exercise}
     Chapter 7, Question 5 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
 \end{exercise}
@@ -159,17 +146,9 @@ The period now fits.
 As in the previous two versions of PC, we have different methods to form expectations for inflation. Combining the two methods, we can assume that
 \[\pi_t = (1-\theta)\bar{\pi} + \theta\pi_{t-1}.\]
 
-\begin{example}
-    Continue with Example 1.
-    \begin{enumerate}[label=(\arabic*)]
-        \item Derive the Phillips curve.
-        \vspace{60pt}
-        \item Write the accelerationist version of the Phillips curve. Compare it with
-        \[\Delta \pi_t = \gamma - \alpha u_t.\]
-        What is the difference? Where does it come from? How do they differ economically?
-        \vspace{60pt}
-    \end{enumerate}
-\end{example}
+\paragraph{Implications from Phillips Curve}
+Disinflation can be costless. Suppose the central bank would like to decrease the inflation rate. Then it can announce a lower targeted inflation in period $t-1$ so that $\pi_t^e$ is lowered. However, it does not change any policy when it reaches period $t$. By doing so, the government can decrease the inflation costlessly. However, the problem is that the central bank announcement will have less credibility, which makes it harder to implement committed monetary policy (\textit{i.e., } a monetary policy path).
+
 
 \begin{exercise}
     Chapter 8, Question 5 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
@@ -196,21 +175,67 @@ which yields the following PC curve:
 Rearranging the terms, we get
 \[\pi_t-\pi_t^e = -\frac{\alpha}{1-\lambda}(u_t-u_n).\]
 
-\begin{example}
-    Continue with example 1 and 2.
-    \begin{enumerate}[label=(\arabic*)]
-        \item Find the natural rate of unemployment using the Phillips curve. Check your answer with Example 1 part (2). Do they match? Rewrite the Phillips curve using the natural rate of unemployment.
-        \vspace{60pt}
-        \item Suppose that now half of the contracts are indexed. Write the Phillips curve equation.
-        \vspace{60pt}
-        \item What is the effect of wage indexation on the relation between inflation and unemployment?
-        \vspace{60pt}
-    \end{enumerate}
-\end{example}
-
 \begin{exercise}
     Chapter 8, Question 6 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
 \end{exercise}
 
+
+\begin{example}[New Keynesian Phillips Curve]
+    Consider a production function
+    \[Y_t = A N_t\]
+    where $Y_t$ is the output, $A$ is labour productivity, and $N_t$ is the labour. Let $P_t$ be the price level and $W_t$ be the nominal wage. Denote $p_t = \log P_t$ and $w_t = \log W_t$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Find the price setting equation in log terms.
+        \vspace{60pt}
+    \end{enumerate}
+    Normalize the price setting equation so that $p_t = w_t$. Suppose that we have two types of workers. Type 1 workers sign contracts in odd years and type 2 workers sign contracts in even years. The contract is valid for two years, within which the nominal wage is fixed. Each type of workers consists of half of the total labour. At year $t$, denote the wage of workers who get contract renewed by $x_t$. Hence, those who get contract renewed in the year before $t$, that is, $t-1$, have wage $x_{t-1}$. All terms are in log.
+    \begin{enumerate}[label=(\arabic*),resume]
+        \item Find the expected nominal log wage of year $t+1$ at year $t$.
+        \vspace{36pt}
+        \item Find the avergae log price level in year $t$.
+        \vspace{36pt}
+        \item Assume that the discount factor is 1. Find the average real log wage over the period of a constract renewed from year $t$, denoted by $\omega_t$.
+        \vspace{60pt}
+    \end{enumerate}
+    Denote the log output by $y_t$. Assume that $\omega_t = k y_t$ ($0<k<1$).
+    \begin{enumerate}[label=(\arabic*),resume]
+        \item Show that
+        \[p_t = \frac{1}{4}(2p_t + \mathbb{E}_t p_{t+1} + p_{t-1} + \eta_t) + \frac{k}{2}(y_t + y_{t-1}),\]
+        where $\eta_t = \mathbb{E}_{t-1} p_t - p_t$.
+        \vspace{80pt}
+        \item Derive the New Keynesian Phillips Curve (NKPC):
+        \[\pi_t = \mathbb{E}_t \pi_{t+1} + \eta_t + 2k(y_t + y_{t-1}).\]
+        \vspace{60pt}
+        \item Can the central bank decrease inflation costlessly? How?
+        \vspace{24pt}
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Consider the following production function
+    \[Y = A \log N.\]
+    The wage determination equation, in the medium run equilibrium, is
+    \[\frac{W}{P} = AF(u,z)\equiv A(1-\alpha u_t + z).\]
+    \begin{enumerate}[label=(\arabic*)]
+        \item Let $m$ be the markup. Write the price setting equation, \textit{i.e.,} write $P$ as a function of $N$.
+        \vspace{24pt}
+        \item Let the population $L$ be normalized to 1 and assume that it is constant. Find a quadratic equation characterizing the natural rate of unemployment. Which solution to the equation you should keep? Why?
+        \vspace{24pt}
+        \item Suppose that the labour productivity $A$ increases. Using a diagram, explain what happens to the new equilibrium real wage and the new natural rate of unemployment.
+        \vspace{48pt}
+        \item Derive the Phillips curve.
+        \vspace{24pt}
+        \item Write the accelerationist version of the Phillips curve. Compare it with
+        \[\Delta \pi_t = \gamma - \alpha u_t.\]
+        What is the difference? Where does it come from? Explain with economic intuition.
+        \vspace{24pt}
+        \item Find the natural rate of unemployment using the Phillips curve. Check your answer with part (2). Do they match? Rewrite the Phillips curve using the natural rate of unemployment.
+        \vspace{48pt}
+        \item Suppose that now half of the contracts are indexed. Write the Phillips curve equation.
+        \vspace{48pt}
+        \item What is the effect of wage indexation on the relation between inflation and unemployment?
+        \vspace{24pt}
+    \end{enumerate}
+\end{example}
 
 \end{document}
