@@ -6,7 +6,7 @@
 \linespread{1.5}
 \usepackage{graphicx} 
 \usepackage{float} 
-\usepackage{subfig} 
+\usepackage{subcaption} 
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath}
@@ -89,4 +89,43 @@ Figure \ref{fig:pc01} demonstrates how a PC curve looks like in a $(Y, \pi-\pi^e
     \caption{PC Relation}
     \label{fig:pc01}
 \end{figure}
+
+\subsection*{Neutrality of Money}
+With the medium run framework to be introduced, we are able to find the role of money in an economy. In short, in the medium run, real variables are \textit{not} affected by the monetary policy (money supply), but only the inflation and nominal interest rate. 
+
+\paragraph{IS-LM-PC Framework}
+The IS-LM framework is one for short run, and the labour market will be at the equilibrium in the medium run. Therefore, the key point is to make out how the economy changes in the process from short run to the long run.
+
+The following figure \ref{fig:is-lm-pc} illustrates how the equilibrium moves from the short run to the medium run. Initially, in the short run ($IS$-$LM$), we have equilibrium $(Y^*, r)$. Assume that the central bank does not change the interest rate. Then the labour market ($PC$) indicates that the inflation is higher than the targeted rate. Therefore, the central bank will, at some point, adjusts the monetary policy (say, cutting money supply) so that the real interest rate increases. It will reach a point where the equilibrium output in the $IS$-$LM$ diagram matches the natural level of output derived in the labour market equilibrium. The corresponding real interest rate is thus called the \textbf{natural/neutral/Wicksellian rate of interest}.
+
+  \begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.6\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{islmpc01.png}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.6\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{islmpc02.png}
+    \end{subfigure}
+    \caption{IS-LM-PC Framework}
+    \label{fig:is-lm-pc}
+  \end{figure}
+
+\paragraph{Money Market Equilibrium}
+Recall that the money demand function is
+\[\frac{M^d_t}{P_t} = Y_t L(r_t+\pi^e_{t+1})\]
+where $L$ is a decreasing function of $i_t = r_t + \pi^e_{t+1}$.
+At medium-run equilibrium,
+\begin{align*}
+    M &= M^d = M^s,\\
+    Y &= Y_n,\\
+    r &= r_n, \text{and }\\
+    \pi&= \pi^e = \bar{\pi}.
+\end{align*}
+Therefore, the equilibrium money supply is
+\[\frac{M}{P} = Y_n L(r_n + \bar{\pi}).\]
+Note that the RHS is just a constant. Hence, the real equilibrium money supply is a number. Therefore, money and price must grow at the same rate, \textit{i.e.},
+\[\pi = g_M.\]
+Then we know that any monetary policy (changing money supply) can only affect the inflation, and thus the nominal interest rate in the medium run. Real variables are not affected. This is called the \textbf{neutrality of money}. In PhD Macroeconomics, you will know that if we bring labour-leisure tradeoff into the system, money will not be neutral any more.
 \end{document}
