@@ -114,8 +114,8 @@ The following figure \ref{fig:is-lm-pc} illustrates how the equilibrium moves fr
 
 \paragraph{Money Market Equilibrium}
 Recall that the money demand function is
-\[\frac{M^d_t}{P_t} = Y_t L(r_t+\pi^e_{t+1})\]
-where $L$ is a decreasing function of $i_t = r_t + \pi^e_{t+1}$.
+\[\frac{M^d_t}{P_t} = Y_t \mathcal{L}(r_t+\pi^e_{t+1})\]
+where $\mathcal{L}$ is a decreasing function of $i_t = r_t + \pi^e_{t+1}$.
 At medium-run equilibrium,
 \begin{align*}
     M &= M^d = M^s,\\
@@ -124,8 +124,43 @@ At medium-run equilibrium,
     \pi&= \pi^e = \bar{\pi}.
 \end{align*}
 Therefore, the equilibrium money supply is
-\[\frac{M}{P} = Y_n L(r_n + \bar{\pi}).\]
+\[\frac{M}{P} = Y_n \mathcal{L}(r_n + \bar{\pi}).\]
 Note that the RHS is just a constant. Hence, the real equilibrium money supply is a number. Therefore, money and price must grow at the same rate, \textit{i.e.},
 \[\pi = g_M.\]
 Then we know that any monetary policy (changing money supply) can only affect the inflation, and thus the nominal interest rate in the medium run. Real variables are not affected. This is called the \textbf{neutrality of money}. In PhD Macroeconomics, you will know that if we bring labour-leisure tradeoff into the system, money will not be neutral any more.
+
+\subsection*{Complications and Applications}
+Although mathematically, moving from $r$ to $r_n$ is a direct way to gey $Y_n$, in reality, there is no clear clue to compute a $r_n$ for central banks since the economy is much much more complicated than the PC curve. Moreover, after the central bank's policy, the economy takes time to respond. As a result, the central bank and government should react in a modest way, neither too quickly or too slowly.
+
+\begin{example}
+  Consider an economy at short-run equilibrium with output $Y^*>Y_n$, the natural level of output, and real interest rate $r^*$. The current inflation is $\pi_t>\bar{\pi}$, the targeted inflation. Now the central bank and the government want to induce the economy to a medium run.
+  \begin{enumerate}[label=(\arabic*)]
+    \item Suppose that $\pi^e = \bar{\pi}$. If the government decreases government spending (contractionary fiscal policy) so that the short-run equilibrium output is at $Y_n$. How will the IS-LM diagram change? How will the PC curve change? 
+    \vspace{80pt}
+    \item Suppose that $\pi^e = \pi_{t-1} > \bar{\pi}$. Will a contractionary fiscal policy that pushed output down to $Y_n$ work well?
+    \vspace{80pt}
+    \item Suppose that we are at the initial short-run equilibrium with initial $\pi^e = \bar{\pi}$, and the central bank and government do not respond quickly, but very slowly. How will inflation expectation change? Will the slow reaction make it harder for the central bank to conduct a monetary policy?
+    \vspace{80pt}
+  \end{enumerate}
+\end{example}
+
+\begin{exercise}
+  Chapter 9, Question 10 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\begin{exercise}
+  Chapter 9, Question 3 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\begin{exercise}
+  Chapter 9, Question 4 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\begin{exercise}
+  Chapter 9, Question 5 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\begin{exercise}
+  Chapter 9, Question 7 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
 \end{document}
