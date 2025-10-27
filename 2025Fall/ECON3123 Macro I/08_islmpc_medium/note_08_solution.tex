@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 8: IS-LM-PC Framework}}\\
+    Solution to Exercises\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+I left example 3 as an exercise to you. So the answer is attached here.
+\paragraph{Example 3 Solution}
+\begin{enumerate}[label=(\arabic*)]
+
+    \item A higher gold price raises wealth for the $\omega$ fraction of gold holders and relaxes collateral constraints, lowering the external finance premium. Hence $C\uparrow$ and $I\uparrow$, so the \emph{IS} curve shifts right. With a policy rate target, the central bank accommodates money demand, so the \emph{LM} (horizontal at the target rate) does not shift. Short-run outcome: $Y\uparrow$, $C\uparrow$, $I\uparrow$, and the real interest rate is unchanged on impact.
+    
+    \item A larger $\omega$ amplifies the aggregate wealth and collateral effects, producing a larger rightward shift of \emph{IS} and a larger increase in $Y$.
+    
+    \item With $Y>Y_n$, inflation rises gradually per the expectations-augmented PC. Unemployment falls below its natural rate. The nominal wage increases with unemployment falling. The price level also increases due to higher inflation. The real wage will stay at $\frac{A}{1+m}$ level with linear production function.
+    
+    \item
+      \begin{enumerate}[label=\alph*.]
+        \item $Y_n$ is pinned down by productivity, markups, and labor-market factors (e.g., institutions $z$). The gold-price boom is a demand/financial shock; hence $Y_n$ is unchanged.
+        \item Raise the policy rate sufficiently to close the positive output gap (a standard Taylor-type tightening). Reserves/endogenous money adjust to implement the higher rate.
+        \item Let $t=0$ be the gold-price shock and $t=t_1$ the policy action.
+          \begin{itemize}
+            \item $\Delta Y$: jumps up at $t=0$; with decisive tightening at $t_1$, jumps back to $0$ (gap closed).
+            \item $\Delta \pi$: increases gradually after $t=0$ while $Y>Y_n$; after $t_1$ (with $Y=Y_n$), stops changing (flattens). Unless the bank engineers a temporary negative gap, the price level is permanently higher.
+            \item $\Delta(W/P)$: It will stay constant.
+          \end{itemize}
+      \end{enumerate}
+    
+    \item
+      \begin{enumerate}[label=\alph*.]
+        \item Implement a contractionary fiscal stance (e.g., lower $G$ or raise taxes) to shift \emph{IS} left to $Y_n$.
+        \item Lower $G$ reduces aggregate demand. Under a rate target, the central bank accommodates to keep the policy rate at target, so the adjustment operates through the leftward \emph{IS} shift that closes the output gap.
+      \end{enumerate}
+    
+\end{enumerate}
+    
+\paragraph{Exercises}
+\begin{enumerate}[label=\arabic*.]
+    \item \begin{enumerate}[label=(\alph*)]
+        \item Expected inflation will not change since in the medium run equilibrium actual inflation equals expected inflation. In this characterization of equilibrium, the expected rate of inflation is the anchored rate of inflation and since the anchored rate of inflation is actual inflation, there is no reasons for households or firms to revise their expectations of inflation.
+        \item The central bank must lower the natural policy rate by 2 percentage points. The level of aggregate demand associated with the $IS$ curve is determined by $r_n + x$. The value of aggregate demand and income must remain at $Y^*$ for the actual rate of inflation to be the anchored rate of inflation. Thus, if x increases by 2 percentage points, rn must decrease by two percentage points.
+        \item The central bank must increase $r_n$. The level of aggregate demand associated with the $IS$ curve is determined by $G$ and $r_n + x$. The value of aggregate demand and income must remain at $Y^*$ for the actual rate of inflation to be the anchored rate of inflation. Thus, if $G$ increases, $r_n$ must increase so that $r_n + x$ increases to reduce aggregate demand and leave it equal to $Y^*$.
+        \item The central bank must increase $r_n$. The level of aggregate demand associated with the $IS$ curve is determined by $T$ and $r_n + x$. The value of aggregate demand and income must remain at $Y^*$ for the actual rate of inflation to be the anchored rate of inflation. Thus, if $T$ decreases, $r_n$ must increase so that $r_n + x$ increases to reduce aggregate demand and leave it equal to $Y^*$.
+        \item The increase in $G$ or the decrease in $T$ in parts d and e constitute a fiscal expansion and in increase in aggregate demand. To leave demand equal to output unchanged at potential output $Y^*$, the central bank must act to raise the borrowing rate by raising the policy rate because the fiscal changes imply an increase in the natural policy rate.
+    \end{enumerate}
+    \item \begin{enumerate}[label=(\alph*)]
+        \item Output increases in the short run as the $IS$ shifts up when $c_0$ increases. Inflation rises beyond expected inflation as the economy moves up the $PC$ curve. Output and inflation is higher than 2\%, its value in period $t$.
+        \item Total aggregate demand and output is determined by the intersection of the $IS$ curve and the $LM$ curve. Since the question states that the central bank will leave the real policy rate constant, that intersection occurs at the same values of output and the real interest rate in period $(t+1)$ and $(t+2)$. Inflation will be the same value in period $(t+1)$ and $(t+2)$ since the $PC$ line does not move. Note: To leave the real policy rate unchanged, the central bank must raise the nominal policy rate by an amount equal to the increase in expected inflation.
+        \item If the central bank leaves the real policy rate unchanged, then the upward shift in the $IS$ curve will increase output beyond the natural rate. The inflation rate, read off the unchanged $PC$ line, will exceed 2\% and will remain above 2\% forever. The issue for the central bank will be that inflation and expected inflation exceeds the target rate of inflation in every period. So, the policy to target inflation will eventually fall apart.
+        \item Output increases in the short run as the $IS$ shifts up. Inflation rises beyond the target rate of inflation as the economy moves up the $PC$ curve. Output and inflation are higher in period $(t+1)$ than in period $t$.
+        \item In period $(t+2)$ the central bank leaves the real policy rate unchanged since expected inflation remains anchored at $\bar{\pi}$. So, in period $(t+2)$ output remains above potential, its initial value, and actual inflation is higher than $\bar{\pi}$.
+        \item This policy is not sustainable because in every period actual inflation exceeds both the target rate of inflation and the rate of expected inflation. It is unrealistic to expect expected inflation to remain at the anchored rate forever when the anchored rate is never achieved.
+        \item The difference between the two assumptions about expected inflation is subtle. In both parts b and c, output remains above potential. Because the $PC$ curve in this model is not responsive to changes in expected inflation, the increase in output leads to actual inflation higher than the 2\% target. In parts (a), (b) and (c), expected inflation rises to be equal to actual inflation. In parts (d), (e) and (f) actual inflation exceeds expected inflation in every period. In both scenarios, the central bank is left announcing a target inflation they never achieve.
+        \item Neither scenario seems completely realistic. In part b, the central bank accepts a level of inflation that is always greater than its target. In part c, expected inflation remains anchored at a target rate of inflation that is never achieved.
+    \end{enumerate}
+    \item \begin{enumerate}[label=(\alph*)]
+        \item  The $PC$ curve will shift up. In period $(t+1)$ output remains at the period $t$ level since the components of demand are not changed when there is no change in the real interest rate and inflation increases. The level of potential output decreases. In period $(t+1)$ inflation would increase beyond the target rate of inflation and output remains at the initial level that it was in period $t$.
+        \item The period $(t+2)$ equilibrium when $\pi^e_{t+2}=\pi_{t+1}$ and when the central bank leaves the real policy rate of interest unchanged will have the same level of output as in period $(t+1)$ and period $t$. Since the $PC$ curve has shifted up, inflation will exceed 2\% by the same amount as in period $(t+1)$.
+        \item The maintenance of the real policy rate at its initial value is not sustainable. Inflation will exceed the target rate of inflation forever. So, the target rate of inflation policy will eventually fall apart.
+        \item Output will remain the same as in period $t$. The real interest rate has not changed and no factors that shift the $IS$ curve are in play. Since the $PC$ curve shifted up, the same level of output is associated with a higher inflation rate.
+        \item In period $(t+2)$ if the central bank does not change the real policy interest, the output remains higher than the natural rate, at the level of output in period $t$ and $(t+1)$. Inflation remains at its higher than 2\% value since the $PC$ curve has shifted up.
+        \item This policy is not sustainable because in every period actual inflation exceeds target inflation. It is unrealistic to expect expected inflation to remain at the anchored rate forever when the anchored rate is never achieved.
+        \item In both cases output remains higher than the new lower level of potential output. In the cases discussed in (a) and (b) inflation and expected inflation stay at the value higher than 2\% forever. In the (d) and (e) case, actual inflation simply remains higher than the target rate of inflation forever.
+        \item Neither situation is realistic in term of a supply shock. The large permanent increase in the price of oil would almost certainly be noticed and be expected by participants in the economy to affect both the inflation rate (at least temporarily) and the natural level of output (permanently).
+    \end{enumerate}
+    \item \begin{enumerate}[label=(\alph*)]
+        \item Your sketch would show the $IS$ in period $t$ curve crossing potential output where the real policy rate of interest is $-\bar{\pi}$ . This would mean that the nominal policy interest rate is zero. Note the real borrowing rate for firms would be $0 - \bar{\pi} + x$ and could be positive. Inflation is equal to $\bar{\pi}$ and $\pi-\bar{\pi}=0$. In period $t+1$ the $IS$ curve would shift to the left (or down) with the cut in $G$ and the increase in $T$ and equilibrium output falls. Actual inflation will be less than the anchored expected rate of inflation.
+        \item Actual inflation could become negative if the level of income is a great deal lower than potential. If inflation is persistently less than the target rate of inflation, the expected rate of inflation will eventually fall.
+        \item If the nominal policy interest rate is already at zero, the fall in expected inflation would increase the real policy rate of interest. This would then cause a movement up the IS curve and a further decline in income and inflation. The rate of inflation could become negative in income falls far enough. The negative expected rate of inflation is a higher real rate of interest. The cycle would continue. The fiscal consolidation could lead to a deflationary spiral as outlined above.
+    \end{enumerate}
+    \item \begin{enumerate}[label=(\alph*)]
+        \item Every European country is severely hurt by the U.S. recession (Germany more than the other two countries), with a collapse in growth and an explosion in unemployment.
+        \item The movement of production, price, and unemployment were similar for Germany and the UK. France had increased inflation with decreased growth. The recovery was unequal. The UK seemed more flexible and Germany’s economic growth was the result of the war economy.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
