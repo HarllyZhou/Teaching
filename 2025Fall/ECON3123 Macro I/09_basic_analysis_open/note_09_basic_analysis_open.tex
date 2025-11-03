@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subcaption} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 9: Financial Market and Goods Market in Open Economy}}\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+\subsection*{Exchange Rate}
+The \textbf{nominal exchange rate} is the price of domestic currency in terms of foreign currency, denoted by $E$. An \textbf{appreciation} of the domestic currency means that the domestic currency becomes more expensive relative to the foreign currency, i.e., $E$ increases. A \textbf{depreciation} of the domestic currency means that the domestic currency becomes cheaper relative to the foreign currency, i.e., $E$ decreases.
+\begin{example}[Cross rates and triangular arbitrage]
+    Suppose that the nominal exchange rate is 2.5 USD/GBP in year 0. One year later, this rate becomes 2.0 USD/GBP. In year 0, the nominal exchange rate between GBP and EUR is 1.25 EUR/GBP, and EUR appreciated by 10\% against USD in 1 year.
+    \begin{enumerate}[label=(\arabic*)]
+        \item What is the appreciation/depreciation rate of USD against GBP? What about GBP against USD?
+        \vspace{60pt}
+        \item What must the exchange rate between EUR and USD be to avoid arbitrage in year 0? Denote it as the price of EUR in terms of USD.
+        \vspace{60pt}
+        \item Suppose that the exchange rate between EUR and GBP is 1.1 \text{EUR/GBP} in year 1. Is there any arbitrage opportunity? Suppose that you are holding 1,000,000 GBP in year 1.
+        \vspace{60pt} 
+    \end{enumerate}
+\end{example}
+
+\begin{exercise}
+    Assume you are a trader with Deutsche Bank. From the quote screen on your computer terminal, you notice that Dresdner Bank is quoting 0.7627 EUR/USD and Credit Suisse is offering 1.1806 CHF/USD. You learn that UBS is making a direct market between the Swiss franc and the euro, with a current EUR/CHF quote of 0.6395. Show how you can make a triangular arbitrage profit by trading at these prices. Assume you have \$5,000,000 with which to conduct the arbitrage. What happens if you initially sell dollars for Swiss francs (CHF)? What EUR/CHF exchange rate will eliminate triangular arbitrage?
+\end{exercise}
+
+\paragraph{International Parity Conditions}
+No-arbitrage condition leads to a set of conditions that must be satisfied between currencies. These conditions are called \textbf{international parity conditions}.
+
+We learnt in class the following \textbf{uncovered interest parity relation} (UIP):
+\[1 + i_t = (1 + i^*_t) \frac{E_t}{E^e_{t+1}}.\]
+Consider a \textbf{forward contract} which is an agreement to buy and sell foreign currencies in the future ($t+k$) at prices agreed upon today ($t$) denoted by $F_{t,t+k}$. Then we can predict $E^e_{t+1}$ by $F_{t,t+1}$. This leads to the \textbf{covered interest parity relation} (CIP):
+\[1 + i_t = (1 + i^*_t) \frac{E_t}{F_{t,t+1}}.\]
+What is \textit{covered} here? The exchange rate risk. By using a forward contract, the agent already locks the future exchange rate, which avoids uncertainty. However, in the UIP relation, this term is only one expectation, which essentially has no hedging effect.
+
+\begin{example}
+    Suppose that the 1-year interest rate is 1\% in USD and 3\% in GBP. The exchange rate is 1.5 USD/GBP. Suppose you want to buy or sell 1,000,000 GBP now. 
+    \begin{enumerate}[label=(\arabic*)]
+        \item What should be the 1-year forward rate to avoid arbitrage?
+        \vspace{60pt}
+        \item You predict that the actual exchange rate will be 1.5 USD/GBP in 1 year. What should you do?
+        \vspace{60pt}
+        \item You predict that the actual exchagne rate will be 1.4 USD/GBP in 1 year. What should you do?
+        \vspace{60pt}
+    \end{enumerate}
+\end{example}
+
+\paragraph{Real Exchange Rate} 
+The \textbf{real exchange rate} is the price of domestic goods in terms of foreign goods, denoted by $\epsilon$:
+\[\epsilon = E \frac{P}{P^*}.\]
+The real exchange rate can be very different from the nominal exchange rate depending on the inflation rate in each country. Think about the following case: 
+\begin{example}
+    Consider the exchange rate $E = 7.8$ HKD/USD. Suppose that iPhone 20 is sold at 1,500 USD and 10,000 HKD. 
+    \begin{enumerate}[label=(\arabic*)]
+        \item What is the real exchange rate?
+        \vspace{60pt}
+        \item Where will you prefer to buy the iPhone 20? Can you make a profit? Assume that the phone does not depreciate.
+        \vspace{60pt}
+        \item At what real exchange rate will you be indifferent between buying it in the US and in Hong Kong?
+        \vspace{60pt}
+    \end{enumerate}
+\end{example}
+You can see that there will be arbitrage opportunity if the real exchange rate is not 1. This motivates another international parity condition: \textbf{purchsing power parity} (PPP). 
+
+There are two versions of purchasing power parity. The first version is called the \textbf{absolute PPP}, which is directly from the concept of real interest rate:
+\[\epsilon = 1,\,\,\,\text{or equivalently, }\,\,\, E = \frac{P^*}{P}.\]
+The second version is called the \textbf{relative PPP}:
+\[\frac{E^e_{t+1}}{E_t} = \frac{1+\pi^{*e}_{t+1}}{1+\pi^e_{t+1}}.\]
+It is a good exercise to show this by yourself and it is not hard.
+
+\begin{exercise}
+    Show the relative PPP relation.
+\end{exercise}
+
+Recall that we have the Fisher equation:
+\[1 + i_t = (1 + r_t)(1 + \pi^e_{t+1}).\]
+If $r_t = r^*_t$, then we get the \textbf{international Fisher equation} (IFE):
+\[\frac{1 + i^*_t}{1+i_t} = \frac{1+\pi^{*e}_{t+1}}{1+\pi^e_{t+1}}.\]
+
+Combining PPP, IFE, and CIP, we have
+\[\frac{E^e_{t+1}}{E_t} = \frac{1+\pi^{*e}_{t+1}}{1+\pi^e_{t+1}} = \frac{1 + i^*_t}{1+i_t} = \frac{F_{t,t+1}}{E_t}.\]
+The resulting parity
+\[\frac{E^e_{t+1}}{E_t} = \frac{F_{t,t+1}}{E_t}\]
+is called the \textbf{forward expectation parity} (FEP).
+
+\begin{exercise}
+    Suppose that when you trade foreign currencies, there will be a transaction fee $T = \tau X$, where $X$ is your transaction amount. Which of the above relation(s) (\textit{i.e.,} UIP, CIP, PPP, IFE, FEP) cannot hold? Show your proof.
+\end{exercise}
+\end{document}
