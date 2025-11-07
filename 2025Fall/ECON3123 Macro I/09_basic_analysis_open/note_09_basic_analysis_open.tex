@@ -141,4 +141,69 @@ is called the \textbf{forward expectation parity} (FEP).
 \begin{exercise}
     Suppose that when you trade foreign currencies, there will be a transaction fee $T = \tau X$, where $X$ is your transaction amount. Which of the above relation(s) (\textit{i.e.,} UIP, CIP, PPP, IFE, FEP) cannot hold? Show your proof.
 \end{exercise}
+
+\subsection*{Goods Market Equilibrium and Trade Balance}
+\paragraph{Demand for Domestic Goods}
+In an open economy, the demand for domestic goods, $Z$, is given by
+\[Z = C + I + G - \frac{IM}{\epsilon} + X,\]
+where
+\begin{itemize}
+    \item $C$ is domestic consumption, a function of disposable income $Y-T$, where $T$ is tax minus transfer, denoted by $C(Y-T)$;
+    \item $I$ is domestic investment, a function increasing in output $Y$ and decreasing in borrowing rate $r+x$ where $r$ is the real interest rate and $x$ is the risk premium, denoted by $I(Y, r+x)$;
+    \item $G$ is government spending, subject to any specification, typically as constant, denoted by $\bar{G}$;
+    \item $IM$ is the imports, a function increasing in domestic income $Y$ and increasing in the real exchagne rate $\epsilon$ (price of domestic goods in terms of foreign goods), denoted by $IM(Y,\epsilon)$;
+    \item $X$ is the exports, a function increasing in foreign income $Y^*$ and decreasing in the real exchange rate $\epsilon$, denoted by $X(Y^*, \epsilon)$.
+\end{itemize}
+We say that there is a \textbf{trade surplus} if $X - \frac{IM}{\epsilon} > 0$ or a \textbf{trade deficit} if $X - \frac{IM}{\epsilon} < 0$.
+
+The following diagrams illustrates how to construct the demand for domestic goods and how to determine trade balance.
+\begin{enumerate}[label=(\arabic*)]
+    \item The first step is to draw the \textbf{domestic demand} $DD$, which is the sum of consumption $C$, investment $I$, and government spending $G$. Figure \ref{fig:dd} displays domestic demand. 
+\end{enumerate}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.45\textwidth]{dd.png}
+    \caption{Step 1: Domestic demand}
+    \label{fig:dd}
+\end{figure}
+\begin{enumerate}[label=(\arabic*),resume]
+    \item The second step is to subtract import from the domestic demand $DD$. Note that $\frac{IM}{\epsilon}$ is an increasing function in $Y$, so when $Y$ becomes larger, the subtraction amount increases, which yields a flatter $AA$ curve. Figure \ref{fig:aa} displays this step. 
+\end{enumerate}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.45\textwidth]{aa.png}
+    \caption{Step 2: Subtracting imports}
+    \label{fig:aa}
+\end{figure}
+
+\begin{enumerate}[label=(\arabic*),resume]
+    \item The last step is to add exports to $AA$ curve. Since exports does not depend on domestic income $Y$, the resulting $ZZ$ curve is parallel shift of $AA$. The upper panel of figure \ref{fig:zztb} displays this step.
+    \item After calculating $X - \frac{IM}{\epsilon}$, we get the net exports, drawn in the lower panel of figure \ref{fig:zztb}.
+\end{enumerate}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{zz.png}
+    \end{subfigure}
+    \\[0.01cm]
+    \begin{subfigure}[c]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{tbab.png}
+    \end{subfigure}
+    \caption{Step 3: Adding exports; Trade balance}
+    \label{fig:zztb}
+  \end{figure}
+Figure \ref{fig:zztb} shows a quite clear correspondence between demand for domestic goods and net exports. 
+\begin{itemize}
+    \item At output level $Y$, the net export is positive so that the total demand for domestic goods is larger than total domestic demand. This is shown as the $a-b$ segment in the upper panel. This corresponds to a trade surplus $ab$ in the lower panel. 
+    \item At output level $Y_{TB}$, the net export is zero so that the total demand for domestic goods is equal to the total domestic demand. This is shown as the intersection of $DD$ curve and the $ZZ$ curve. In the lower trade balance panel, this corresponds to the point where the solid black line crosses the horizontal axis, indicating zero net export.
+\end{itemize}
+From the graph, it is clear that any output level above $Y_{TB}$ leads to a trade deficit and that any output level below $Y_{TB}$ leads to a trade surplus.
+
+\paragraph{Equilibrium in Goods Market}
+
+
+
+
 \end{document}
