@@ -182,12 +182,12 @@ The following diagrams illustrates how to construct the demand for domestic good
 \end{enumerate}
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}[c]{0.45\textwidth}
+    \begin{subfigure}[c]{0.4\textwidth}
       \centering
       \includegraphics[width=\linewidth]{zz.png}
     \end{subfigure}
     \\[0.01cm]
-    \begin{subfigure}[c]{0.45\textwidth}
+    \begin{subfigure}[c]{0.4\textwidth}
       \centering
       \includegraphics[width=\linewidth]{tbab.png}
     \end{subfigure}
@@ -202,6 +202,102 @@ Figure \ref{fig:zztb} shows a quite clear correspondence between demand for dome
 From the graph, it is clear that any output level above $Y_{TB}$ leads to a trade deficit and that any output level below $Y_{TB}$ leads to a trade surplus.
 
 \paragraph{Equilibrium in Goods Market}
+Same as in the closed economy, the equilibrium condition is such that supply equals demand, \textit{i.e.,}
+\[Z = Y.\]
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[c]{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{eqm_open.png}
+    \end{subfigure}
+    \\[0.01cm]
+    \begin{subfigure}[c]{0.4\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{eqm_tb.png}
+    \end{subfigure}
+    \caption{Goods Market Equilibrium: Not necessarily be trade balance}
+    \label{fig:eqmtb}
+\end{figure}
+
+Graphically, this is to intersect the $ZZ$ curve with the 45-degree line. \textbf{It is important not to mix this goods market equilibrium condition and trade balance condition where $ZZ$ intersects $DD$.}
+
+Figure \ref{fig:eqmtb} illustrates the goods market equilibrium together with the trade balance condition. When $ZZ$ intersects $DD$, there is trade balance, at which the output lebel is $Y = Y_{TB}$. However, the goods market equilibrium output $Y_{\text{eqm}}$ \footnote{This is denoted by $Y^*$ in the graph. This is my fault because I forgot the use of $Y^*$ as foreign output, and I am super lazy to change the graph... QAQ} is on the right side of $Y_{TB}$, which means that there is a trade deficit when the goods market is in its equilibrium.
+
+The point $S$ in the upper panel where the 45-degree line intersects the $DD$ line is the closed-economy equilibrium.
+
+\begin{exercise}
+    Consider the following behavioral equation characterizing an open economy:
+    \begin{align*}
+        Y &= C + I + G - \frac{IM}{\epsilon} + X\\
+        C &= c_0 + c_1 (Y- T)\,\,\, (c_0 > 0, 0 < c_1 < 1)\\
+        I &= b_0 + b_1 Y\,\,\, (b_1 > 0)\\
+        G &= \bar{G},\,\,\,\, T = \bar{T}\\
+        IM &= m_1 Y \epsilon\,\,\, (0 < m_1 < 1)\\
+        X &= x_1 Y^*\,\,\, (0 < x_1 < 1)\\
+        Y^* &= \bar{Y^*},\,\,\,\, \epsilon = \bar{\epsilon}.
+    \end{align*}
+   Derive the condition for $m_1$ such that at goods market equilibrium the domestic output leads to a trade surplus.
+\end{exercise}
+
+\paragraph{Savings under open economy}
+Consider the equilibrium demand:
+\[Y = C + I + G - \frac{IM}{\epsilon} + X.\]
+Subtracting $C$ and $T$ on both sides, we obtain
+\[Y - T - C = I + (G - T) + NX.\]
+Adding net income from abroad, $NI$ on both sides, we obtain
+\[(Y + NI -T) - C = I + (G - T) + (NX + NI).\]
+$NX+NI$ is the current account $CA$, and $(Y+NI-T)-C$ is the private saving. Then we get the $IS$ relation in an open economy:
+\[CA = S + (T-G) - I.\]
+
+The following are some textbook questions that may be useful for your review.
+\begin{exercise}
+    Chapter 18, Question 5 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+  \end{exercise}
+
+  \begin{exercise}
+    Chapter 18, Question 6 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+  \end{exercise}
+
+
+  \begin{exercise}
+    Chapter 18, Question 7 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+  \end{exercise}
+
+
+  \begin{exercise}
+    Chapter 18, Question 8 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+  \end{exercise}
+
+\subsection*{Effect of Real Exchange Rate}
+Recall that we assume that $IM = IM(Y,\epsilon)$ increases with $\epsilon$ and that $X = X(Y^*, \epsilon)$ decreases with $\epsilon$. With an increase in $\epsilon$, that is, an appreciation, $IM$ increases and $X$ decreases. However, when we consider the $ZZ$ curve, the effect is ambiguous, since $\frac{IM}{\epsilon}$ has both of its numerator and denominator increasing in $\epsilon$. Therefore, it is important to distinguish the condition that leads to different results.
+
+\paragraph{Marshall-Lerner condition}
+The \textbf{Marshall-Lerner condition} says that if the condition holds, then an \textit{depreciation} ($\epsilon$ decreases) should lead to an \textit{increase} in net export ($X - \frac{IM}{\epsilon}$). The following example helps you understand the derivation of Marshall-Lerner condition. Meanwhile, the appendix of the chapter in the textbook provides a special case where the initial net export is zero. If you find the example too difficult, then it should be okay if you can understand the appendix.
+
+\begin{example}
+    Consider
+\end{example}
+
+\begin{example}
+    Consider the world economy with only two open economies. Both of them are characterized by the same set of behavioral equations. Due to comparative advantage, each of them produces some goods that the other cannot produce, thus leading to trade. Consider the following set of behavioral equations:
+    \begin{align*}
+        Y &= C + I + G - \frac{IM}{\epsilon} + X\\
+        C &= c_0 + c_1 (Y- T)\,\,\, (c_0 > 0, 0 < c_1 < 1)\\
+        I &= b_0 + b_1 Y\,\,\, (b_1 > 0)\\
+        G &= T = G^* = T^* =  1\\
+        IM &= m_1 Y + m_2 \epsilon\,\,\, (0 < m_1 < 1, m_2 > 0)\\
+        X &= x_1 \frac{Y^*}{\epsilon}\,\,\, (0 < x_1 < 1).
+    \end{align*}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Derive the equilibrium output $Y_{\text{eqm}}$ as a function of $\epsilon$. Note that you need to eliminate $Y^*$. 
+        \vspace{80pt}
+        \item Derive the Marshall-Lerner condition for this economy. You should be albe to write it as a lower bound for $NX$. Interpret this result.
+        \vspace{80pt}
+        \item Show that under certain parametric restriction, if $m_1 < x_1$, then a depreciation induces an increase in equilibrium output. Interpret this result.
+        \vspace{80pt}
+    \end{enumerate}
+\end{example}
 
 
 
