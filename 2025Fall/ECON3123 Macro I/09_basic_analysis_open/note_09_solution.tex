@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 9: Financial Market and Goods Market in Open Economy}}\\
+    Solution to Exercises\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+\begin{enumerate}[label = \arabic*.]
+    \item The spot rate is $E_{\text{EUR/USD}} = 0.7627$. The cross rate is $\tilde{E}_{\text{EUR/USD}} = E_{\text{EUR/CHF}} \times E_{\text{CHF/USD}} = 0.7550$. Therefore, we should sell USD via the spot rate first.
+    
+    Step 1: Change USD for EUR.
+    \[5,000,000 \text{ USD} \times 0.7627 \text{EUR/USD } = 3,813,500 \text{EUR}.\]
+    Step 2: Change EUR for CHF.
+    \[3,813,500 \text{ EUR} \div 0.6395 \text{EUR/CHF } = 5,963,252.54 \text{CHF}.\]
+    Step 3: Change CHF for USD.
+    \[5,963,252.54 \text{ CHF} \div 1.1806 \text{CHF/USD } = 5,051,035.53 \text{USD}.\]
+
+    By this arbitrage, we can make a profit of \$51,035.53.
+
+    If we initially sell for CHF, then we will finally get
+    \[5,000,000 \text{ USD} \times \frac{1.1806 \text{ CHF/USD} \times 0.6395 \text{ EUR/CHF}}{\,0.7627 \text{ EUR/USD}} = 4,949,480.14 \text{ USD}.\]
+    We lose \$ 50,519.86.
+
+    To avoid arbitrage, the EUR/CHF rate should be
+    \[E^{\text{no-arbitrage}}_{\text{EUR/CHF}} = \frac{E_{\text{EUR/USD}}}{E_{\text{CHF/USD}}} = 0.6460 \text{EUR/CHF}.\]
+
+    \item The absolute PPP in time $t$ is
+    \[E_t = \frac{P_t^*}{P_t},\]
+    and that in time $t+1$ in expectation is
+    \[E_{t+1}^e = \frac{P^{*e}_{t+1}}{P_{t+1}^e}.\]
+    Taking ratio between the two equations, we obtain
+    \[\frac{E_{t+1}^e}{E_t} = \frac{\frac{P^{*e}_{t+1}}{P_{t+1}^e}}{\frac{P_t^*}{P_t}} = \frac{\frac{P^{*e}_{t+1}}{P_t^*}}{\frac{P_{t+1}^e}{P_t}} = \frac{1+\pi_{t+1}^{*e}}{1+\pi_{t+1}^e}.\]
+
+    \item The answer is that only IFE and relative PPP do not change.
+    \begin{enumerate}[label=(\alph*)]
+        \item UIP/CIP: If you buy a domestic bond, you get $1+i_t$ in one year. If you buy a foreign bond, you first exchange to the foreign currency with fee and get $(1-\tau)E_t$ foreign currency, after 1 year you get $(1-\tau)E_t(1+i_t^*)$, and you exchange the foreign currencies back to the domestic currency with fee and you get $(1-\tau)^2\frac{E_t}{E_{t+1}^e}(1+i_t^*)$, or $(1-\tau)^2\frac{E_t}{F_{t,t+1}}(1+i_t^*)$ with a forward. Neither UIP nor CIP holds any more.
+        \item PPP: You buy a unit of goods which costs $P$ domestic currency. You sell it in the foreign country, which earns you $P^*$ foreign currency. Then you exchange the foreign currency back to the domestic curreny and get $(1-\tau)\frac{P^*}{E}$. No-arbitrage implies that $E = \frac{P^*}{P}(1-\tau)$. However, if you take the ratio, with constant $\tau$, you still get the relative PPP relation.
+        \item IFE: The derivation of IFE theoretically does not depend on converting currencies. So there is no effect.
+        \item FEP: Since CIP does not hold any more, FEP cannot hold.
+    \end{enumerate}
+
+    \item The trade surplus condition is that
+    \[Y_{\text{eqm}} < Y_{\text{TB}}.\]
+    In equilibrium, $Z=Y$. We obtain
+    \[Y_{\text{eqm}} = \frac{1}{1-c_1-b_1+m_1}(c_0 + b_0 - c_1\bar{T} + \bar{G} + x_1\bar{Y}^*).\]
+    At trade balance, $NX=0$. We obtain
+    \[Y_{\text{TB}} = \frac{x_1 \bar{Y}^*}{m_1}.\]
+    Then $Y_{\text{eqm}} < Y_{\text{TB}}$ implies that
+    \[m_1 < \frac{(1-c_1-b_1)x_1 \bar{Y}^*}{c_0+b_0-c_1\bar{T}+\bar{G}}.\]
+    A smaller $m_1$ reduces the import leakage in the multiplier, which raises equilibrium output $Y$. At the same time, because imports are $IM = m_1 Y\epsilon$, lowering $m_1$ reduces equilibrium imports even though income is higher. When $m_1$ is sufficiently small, the resulting import leakage is too weak to offset the export term $x_1\bar{Y}^*$, so the home country runs a trade surplus.
+
+    \item \begin{enumerate}[label=(\alph*)]
+        \item The $ZZ$ and $NX$ lines shift up. Domestic output and domestic net exports increase.
+        \item Domestic investment will increase because output increases. Assuming taxes are fixed and do not respond to income, there is no effect on the deficit.
+        \item $NX = S - I + T - G$. Since the budget deficit is unchanged, and $I$ and $NX$ increase, $S$ must increase.
+        \item Except for $G$ and (for our purposes) $T$, the variables in equation (18.5) (in the textbook) are endogenous. An exogenous shock such as an increase in foreign output can affect all of the endogenous variables simultaneously.
+    \end{enumerate}
+
+    \item \begin{enumerate}[label=(\alph*)]
+        \item There must be a real depreciation.
+        \item $Y = C + I + G + NX$. If $NX$ increases while $Y$ remains, $C+I+G$ must fall. The government can reduce G or increase T, which will reduce C.
+    \end{enumerate}
+    
+    \item \begin{enumerate}[label=(\alph*)]
+        \item \begin{align*}
+            Y &= C + I + G + X - IM\\
+            Y &= c_0 + c_1(Y - T) + d_0 + d_1Y + G + x_1Y^*- m_1Y\\
+            Y &= \frac{1}{1 - c_1 - d_1 + m_1} [c_0 - c_1T + d_0 + G + x_1Y^*].
+        \end{align*}
+        \item Output increases by the multiplier, which equals $\frac{1}{1-c_1-d_1+m_1}$. The condition $0 < m_1 < c_1 + d_1 < 1$ ensures that the multiplier is defined, positive, and greater than one. As compared to the original multiplier, $\frac{1}{1+c_1}$, there are two additional parameters: $d_1$, which captures the effect of an additional unit of income on investment, and m1, which captures the effect of an additional unit of income on imports. The investment effect tends to increase the multiplier; the import effect tends to reduce the multiplier.
+        \item When government purchases increase by one unit, net exports fall by $m_1\Delta Y = \frac{m_1}{1-c_1-d_1+m_1}$. Note that the change in output is simply the multiplier.
+        \item The larger economy will likely have the smaller value of $m_1$. Larger economies tend to produce a wider variety of goods, and therefore to spend more of an additional unit of income on domestic goods than smaller economies do.
+        \item Small economy: $\Delta Y = 1.1$, $\Delta NX = 0.6$. Large economy: $\Delta Y = 2$, $\Delta NX = 0.2$. 
+        \item Fiscal policy has a larger effect on output in the large economy, but a larger effect on net exports in the small economy.
+    \end{enumerate}
+
+    \item \begin{enumerate}[label=(\alph*)]
+        \item It is convenient to wait to substitute for G until the last step.
+        \begin{align*}
+            Y &= C + I + G + X - IM = 10 + 0.8(Y - 10) + 10 + G + 0.3Y^*- 0.3Y\\
+            Y &= [1/(1 - .8 + 0.3)](12 + G + 0.3Y*) = 2(12 + G + 0.3Y^*) = 44 + 0.6Y^*
+        \end{align*}
+        When foreign output is fixed, the multiplier is 2 (=1/(1-0.8+0.3)). The closed economy multiplier is 5 (=1/(1-0.8)). In the open economy, some of an increase in autonomous expenditure falls on foreign goods, so the multiplier is smaller.
+        \item Since the countries are identical,$Y = Y^* = 110$. Taking into account the endogeneity of foreign income, the multiplier equals $\frac{1}{1 - 0.8 - 0.3 \times 0.6 + 0.3} = 3.125$. The multiplier is higher than the open economy multiplier in part (a) because it takes into account the fact that an increase in domestic income leads to an increase in foreign income (as a result of an increase in domestic imports of foreign goods). The increase in foreign income leads to an increase in domestic exports.
+        \item If $Y = 125$, then $Y^* = 44 + 0.6(125) = 119$. Using these two facts and the equation
+        
+        $Y = 2(12 + G + 0.3Y^*)$ yields $125 = 24 + 2G + 0.6(119)$, which implies $G = 14.8$. In the domestic economy, $NX = 0.3(119) - 0.3(125) = 1.8$ and $T - G = 10 - 14.8 = -4.8$ In the foreign economy, $NX^* = 1.8$ and $T^* - G^* = 0$.
+        \item If $Y=Y^*=125$,then $125=24+2G+0.6(125)$,which implies $G=G^*=13$.In both countries, net exports are zero, but the budget deficit is 3.
+        \item In part, fiscal coordination is difficult to achieve because of the benefits of doing nothing and waiting for another economy to undertake a fiscal expansion, as indicated from part (c).
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
