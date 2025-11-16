@@ -1,0 +1,1943 @@
+\documentclass{book}
+\usepackage{graphicx} % Required for inserting images
+\linespread{1.5}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\usepackage{graphicx} %插入图片的宏包
+\usepackage{float} %设置图片浮动位置的宏包
+\usepackage{subfigure} %插入多图时用子图显示的宏包
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage{dsfont}
+\usepackage{amssymb}
+\usepackage{centernot}
+\usepackage{amstext}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{titletoc}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[OL]{\rightmark}
+\fancyhead[OR]{\thepage}
+\fancyhead[EL]{\thepage}
+\fancyhead[ER]{\leftmark}
+
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}{Proposition}[theorem]
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}[chapter]
+\numberwithin{equation}{chapter}
+
+\title{Economic Growth}
+\author{Harlly Zhou, HKUST\\
+Based on \textit{The Economics of Growth} by Philippe Aghion and Peter Howitt}
+
+\begin{document}
+
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\definecolor{qqqqff}{rgb}{0,0,1}
+
+\maketitle
+\tableofcontents
+\newpage
+\chapter*{Disclaimer}
+This material is totally prepared by myself based on the book. Anyone who uses and spreads this material MUST get prior permission from me. I can be reached out at \href{harllyzhou@gmail.com}{my email} (click the link). Additionally, all the footnotes are written according to my own understanding and my own thoughts. There is no guarantee that those are correct or appropriately express the authors' original meaning.
+
+\newpage
+\chapter{Neoclassical Growth Theory}
+\section{The Solow-Swan Model}
+Consider an economy with a given supply of labour and a given state of technological knowledge, both of which we suppose initially to be constant over time. Suppose labour works with an aggregate capital stock $K$. The maximum amount of output $Y$ that can be produced depends on $K$ according to the production function
+\begin{equation}
+    Y=F(K).\nonumber
+\end{equation}
+
+Assume that the marginal product of capital is positive but strictly decreasing in the stock of capital:
+\begin{equation}
+    F'(K)>0\ \text{and}\ F''(K)<0\ \text{for all}\ K.\nonumber
+\end{equation}
+and imposing the \textit{Inada consitions}:
+\begin{equation}
+    \displaystyle \lim_{K\rightarrow \infty}F'(K)=0\ \text{and}\ \lim_{K\rightarrow 0}F'(K)=\infty.\label{Inada}
+\end{equation}
+
+Assume that people save a constant fraction $s$ of their gross income $Y$ and that the constant fraction $\delta$ of the capital stock disappears each year as a result of depreciation. The net investment is
+\begin{equation}
+    I=sY-\delta K.\nonumber
+\end{equation}
+Note that the investment is just the net rate of increase of the capital stock per unit of time. Assume that time is continuous, then
+\begin{equation}
+    \dot{K}=sF(K)-\delta K.\label{lom}
+\end{equation}
+
+\begin{figure}
+\centering
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+    \begin{axis}[
+x=2cm,y=2cm,
+axis lines=middle,
+xmin=-0.5,
+xmax=4,
+ymin=-0.5,
+ymax=3,
+xtick={0},
+ytick={0},]
+\clip(-0.978077874958557,-0.7448459531615856) rectangle (3.603267531708629,4.203871490832682);
+\draw[line width=2pt,color=qqqqff,smooth,samples=100,domain=0.0000027186016334050816:3.603267531708629] plot(\x,{1.8*(\x)^(0.35)});
+\draw [line width=2pt,color=ffqqqq,domain=0:3.603267531708629] plot(\x,{(-0--3.5*\x)/3});
+\draw [line width=0.5pt,dash pattern=on 1pt off 2pt] (1.9486411523858262,0)-- (1.9486411523858262,2.273414677783464);
+\draw [line width=0.5pt,dash pattern=on 1pt off 2pt] (0.6570878598110206,1.553963129810056)-- (0.6570878598110205,0.7666025031128573);
+\draw [line width=0.5pt,dash pattern=on 1pt off 2pt] (0.6570878598110205,0.7666025031128573)-- (0.6570878598110206,0);
+\draw [->,line width=0.5pt] (0.6570878598110206,0) -- (1.0964936299473387,0);
+\draw [->,line width=0.5pt] (1.0964936299473387,0) -- (1.5,0);
+\draw [->,line width=0.5pt] (1.5,0) -- (1.9486411523858262,0);
+\begin{scriptsize}
+\draw[color=qqqqff] (2.8, 2.1) node {Depreciation = $\delta K$};
+\draw[color=ffqqqq] (1.45, 2.5) node {Saving = $sF(K)$};
+\draw [fill=uuuuuu] (1.9486411523858262,2.273414677783464) circle (2pt);
+\draw [fill=uuuuuu] (1.9486411523858262,0) circle (2pt);
+\draw[color=uuuuuu] (1.9464916770962817,-0.1294067123803211) node {$K^*$};
+\draw [fill=xdxdff] (0.6570878598110206,1.553963129810056) circle (2.5pt);
+\draw [fill=uuuuuu] (0.6570878598110206,0) circle (2pt);
+\draw[color=uuuuuu] (0.6570878598110205,-0.1294067123803214) node {$K_0$};
+\draw [fill=uuuuuu] (0.6570878598110205,0.7666025031128573) circle (2pt);
+\draw[color=black] (0.8104767635427224,1.2612935055755377) node {$\frac{dK}{dt}$};
+\end{scriptsize}
+\end{axis}
+\end{tikzpicture}
+\caption{Convergence of Solow-Swan Model: Aggregate Version}
+\label{SolowSwan01}
+\end{figure}
+
+Figure \ref{SolowSwan01} shows how equation \ref{lom} works. Given any initial stock of capital, $K_0$, the rate of increase of that stock is the vertical distance between the saving curve and the depreciation line. The capital will keep increasing and converge to $K^*$ in the long run. Note that there is another steady state at which $K=0$. However, only $K^*$ is stable.
+
+Note that any attempt to boost economic growth by encouraging saving will ultimately fail. An increase in the saving rate $s$ will \textit{temporarily} raise the rate of capital accumulation by shifting the saving curve up. However, there will be no \textit{long-run} effect on growth rate as it goes to zero in the end. However, leveraging the saving rate will increase the long run levels of output and capital.
+
+\subsection{Population Growth}
+Write the production function to be 
+\begin{equation}
+    Y=F(K, L).\nonumber
+\end{equation}
+where $L$ is total labour. Suppose that his production function is concave, that is, mathematically,
+\begin{equation}
+    \displaystyle\frac{\partial^2 F}{\partial K^2}<0, \frac{\partial^2 F}{\partial L^2}<0,\ \text{and}\ \frac{\partial^2 F}{\partial K^2}\frac{\partial^2 F}{\partial L^2}\geq\left(\frac{\partial^2 F}{\partial K\partial L}\right)^2<0
+\end{equation}
+Suppose also that the production function exhibits constant return to scale, that is, $F$ is homogeneous of degree 1 in both $K$ and $L$:
+\begin{equation}
+    F(\lambda K, \lambda L)=\lambda F(K, L)\ \text{for all}\ \lambda, K, L>0.
+\end{equation}
+
+Now consider the per capita case. Define $y\equiv\frac{Y}{L}$ and $k\equiv\frac{K}{L}$. Letting $\lambda=\frac{1}{L}$ yields 
+\begin{equation}
+    y=f(k)\nonumber
+\end{equation}
+where $f(k)=F(k,1)$.
+
+By simple calculus, the law of motion will be
+\begin{equation}
+    \dot{k}=sf(k)-(n+\delta)k
+\end{equation}
+where $n$ is the rate of labour increase. The intuition behind is that each additional person reduces the amount of capital per person, given the aggregate amount $K$.
+
+\begin{figure}[htp]
+\centering
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+    \begin{axis}[
+x=2cm,y=2cm,
+axis lines=middle,
+xmin=-0.5,
+xmax=4.5,
+ymin=-0.5,
+ymax=3,
+xtick={0},
+ytick={0},]
+\clip(-0.978077874958557,-0.7448459531615856) rectangle (5.603267531708629,4.203871490832682);
+\draw[line width=2pt,color=qqqqff,smooth,samples=100,domain=0.0000027186016334050816:3.603267531708629] plot(\x,{1.8*(\x)^(0.35)});
+\draw [line width=2pt,color=ffqqqq,domain=0:3.603267531708629] plot(\x,{(-0--3.5*\x)/3});
+\draw [line width=0.5pt,dash pattern=on 1pt off 2pt] (1.9486411523858262,0)-- (1.9486411523858262,2.273414677783464);
+\draw [line width=0.5pt,dash pattern=on 1pt off 2pt] (0.6570878598110206,1.553963129810056)-- (0.6570878598110205,0.7666025031128573);
+\draw [line width=0.5pt,dash pattern=on 1pt off 2pt] (0.6570878598110205,0.7666025031128573)-- (0.6570878598110206,0);
+\draw [->,line width=0.5pt] (0.6570878598110206,0) -- (1.0964936299473387,0);
+\draw [->,line width=0.5pt] (1.0964936299473387,0) -- (1.5,0);
+\draw [->,line width=0.5pt] (1.5,0) -- (1.9486411523858262,0);
+\begin{scriptsize}
+\draw[color=qqqqff] (3.4, 2) node [text width=5cm,align=left] {Depreciation + dilution\\ per capita = $(n+\delta) k$};
+\draw[color=ffqqqq] (1.45, 2.5) node [text width=3cm,align=left] {Saving per capita \\ = $sf(k)$};
+\draw [fill=uuuuuu] (1.9486411523858262,2.273414677783464) circle (2pt);
+\draw [fill=uuuuuu] (1.9486411523858262,0) circle (2pt);
+\draw[color=uuuuuu] (1.9464916770962817,-0.1294067123803211) node {$k^*$};
+\draw [fill=xdxdff] (0.6570878598110206,1.553963129810056) circle (2.5pt);
+\draw [fill=uuuuuu] (0.6570878598110206,0) circle (2pt);
+\draw[color=uuuuuu] (0.6570878598110205,-0.1294067123803214) node {$k_0$};
+\draw [fill=uuuuuu] (0.6570878598110205,0.7666025031128573) circle (2pt);
+\draw[color=black] (0.8104767635427224,1.2612935055755377) node {$\frac{dk}{dt}$};
+\end{scriptsize}
+\end{axis}
+\end{tikzpicture}
+\caption{Convergence of Solow-Swan Model: per Capita Version}
+\label{SolowSwan02}
+\end{figure}
+
+From figure \ref{SolowSwan02}, we know that the steady state capital per capita will be $k^*$ such that $sf(k^*)=(n+\delta)k^*$. The steady state output per capita will be $y^*=f(k^*)$.
+
+\subsection{Exogenous Technological Change}
+Assume a production with Cobb-Douglas form:
+\begin{equation}
+    Y=(AL)^{1-\alpha}K^{\alpha}\nonumber
+\end{equation}
+where $AL$ is the effective supply of labour. Its rate of change is the sum of labour growth rate and productivity growth rate. Define $\kappa\equiv\frac{K}{AL}$ to be capital per efficiency unit and output per efficiency unit $\phi\equiv\frac{Y}{AL}=\kappa^{\alpha}$. The law of motion is hence
+\begin{equation}
+    \dot{\kappa}=s\kappa^{\alpha}-(n+g+\delta)\kappa.
+\end{equation}
+
+Although output per efficiency unit does not grow in the long run, this is no longer true of output per capita:
+\begin{equation}
+    y=A\phi=A\kappa^{\alpha}
+\end{equation}
+The growth rate of $y$, $G$, can be written as
+\begin{equation}
+    G=\frac{\dot{A}}{A}+\alpha\frac{\dot{\kappa}}{\kappa}=g+\alpha\frac{\dot{\kappa}}{\kappa}.
+\end{equation}
+As $\kappa$ converges to $\kappa^*$, $G\rightarrow g$. Intuitively, $G$ does not fall to zero because as capital accumulates, the tendency for output/capital ratio to fall due to diminishing returns and technological progress exactly offset each other and the ratio is constant.
+
+\section{The Ramsey-Cass-Koopman Model}
+Suppose the time is discrete. In each period, the household derives utility from its current consumption. Assume that the utility function is $u(c)$ with diminishing marginal utility:
+\begin{equation}
+    u'(c)>0\ \text{and}\ u''(c)<0\ \text{for all}\ c>0.\nonumber
+\end{equation}
+Also impose the Inada condition:
+\begin{equation}
+    \displaystyle \lim_{c\rightarrow 0}u'(c)=\infty.
+\end{equation}
+The lifetime utility is evaluated by the lifetime plan for consumption $\{c_t\}^T_{t=0}$:
+\begin{equation}
+    W=\sum^T_{t=0}\beta^tu(c_t)\nonumber
+\end{equation}
+where $\beta$ is the \textit{discount factor}.
+
+The law of motion is
+\begin{equation}
+    K_{t+1}=F(K_t)+(1-\delta)K_t-c_t.\label{lomrck}
+\end{equation}
+The household chooses the sequence of consumption and capital $\left\{c_t, K_{t+1}\right\}^T_{t=0}$ that maximizes its lifetime utility $W$ subject to equation \ref{lomrck}, taking the initial stock of capital $K_0$ as given.
+
+Set up the Lagrangian
+\begin{equation}
+    \mathcal{L}=\sum^T_{t=0}\beta^tu(c_t)+\sum^T_{t=0}\mu_t\left(F(K_t)+(1-\delta)K_t-c_t-K_{t+1}\right)
+\end{equation}
+The Kuhn-Tucker necessary conditions are
+\begin{equation}
+    \displaystyle\frac{\partial\mathcal{L}}{\partial K_{T+1}}=-\mu_{T+1}\leq 0, K_{T+1}\geq 0,\ \text{and}\ \mu_{T+1}K_{T+1}=0.
+\end{equation}
+
+Taking first-order conditions yields
+\begin{equation}
+    \left\{\begin{aligned}
+        &\ \mu_t=\beta^tu'(c_t)\\
+        &\ \mu_t=\mu_{t+1}\left[F'(K_{t+1})+(1-\delta)\right]
+    \end{aligned}\right.\label{eulersystrck}
+\end{equation}
+Define the current \textit{shadow value} to be $\lambda_t=\beta^{-t+1}\mu_t$. Then system \ref{eulersystrck} becomes
+\begin{equation}
+    \left\{\begin{aligned}
+        &\ u'(c_t)-\lambda_{t+1}=0\\
+        &\ \beta\left[F'(K_{t+1})+(1-\delta)\right]-\frac{\lambda_t}{\lambda_{t+1}}=0
+    \end{aligned}\right.\label{focrck1}
+\end{equation}
+We also impose the \textit{transversality condition}
+\begin{equation}
+    \beta^{T+1}\lambda_{T+1}K_{T+1}=0.\label{tsvrck1}
+\end{equation}
+
+In system \ref{focrck1}, the first equation states that the marginal utility of consumption in the current period is equal to the shadow value $\lambda_{t+1}$ of a unit of capital next period. This optimality is reached by the equal marginal values of the two alternatives.
+
+Define the rate of return to capital to be
+\begin{equation}
+    r(K)=\frac{\partial}{\partial K}\left[F(K)-\delta K\right]=F'(K)-\delta.\label{defr}
+\end{equation}
+Then the second equation, which is the \textit{Euler equation}, becomes
+\begin{equation}
+    1+r(K_{t+1})=\frac{u'(c_t)}{\beta u'(c_{t+1})}.
+\end{equation}
+This is a familiar condition for optimal consumption smoothing over time, namely, that the marginal rate of substitution between consumption this period and next must equal the marginal rate of transformation $1+r(K_{t+1})$.
+
+The transversality condition \ref{tsvrck1} states that either the terminal capital stock must be of zero current value or it must be valueless, \textit{i.e.}, $\lambda_{T+1}\equiv 0$. That is, you must not plan to die leacing anything valuable unconsumed so as to maximize the utility of the lifetime.
+
+\subsection{Continuous Time with Infinite Horizon}
+First define the \textit{rate of time preference} $\rho$ by 
+\begin{equation}
+    \beta=\frac{1}{1+\rho}.\nonumber
+\end{equation}
+Rewrite the sum of utility into integral
+\begin{equation}
+    U=\int^{\infty}_0 e^{-\rho t}u\left[c(t)\right]dt.\nonumber
+\end{equation}
+The law of motion is
+\begin{equation}
+    \dot{K}=F(K)-\delta K-c.\label{lomrck3}
+\end{equation}
+The maximization problem is
+\begin{equation}
+    \begin{aligned}
+        \displaystyle \max_{c,K}\ & U=\int^{\infty}_0 e^{-\rho t}u\left[c(t)\right]dt\\
+        & \text{s.t.}\ \dot{K}=F(K)-\delta K-c.
+    \end{aligned}
+\end{equation}
+Write the \textit{Hamiltonian function}
+\begin{equation}
+    \mathcal{H}=u\left[c(t)\right]+\lambda\left[F(K)-\delta K-c\right].
+\end{equation}
+
+
+The first order condition with respect to consumption for maximizing Hamiltonian is
+\begin{equation}
+    u'(c)=\lambda.\label{focham1}
+\end{equation}
+
+The shadow price $\lambda$ is itself determined as the present value of the stream of extra utils that would be created by a marginal unit of capital
+\begin{equation}
+    \rho \lambda=\lambda[F'(K)-\delta]+\dot{\lambda}.\label{eulerrck2}
+\end{equation}
+
+The transversality condition is
+\begin{equation}
+    \displaystyle\lim_{t\rightarrow \infty}e^{\rho t}\lambda K=0.\label{tsvrck2}
+\end{equation}
+
+We can rewrite equation \ref{eulerrck2}
+\begin{equation}
+    \rho=[F'(K)-\delta]+\frac{\dot{\lambda}}{\lambda}.\label{asset}
+\end{equation}
+Equation \ref{asset} can be interpreted as an equilibrium asset-pricing condition in a world where the numeraire is current utils and everyone is risk-neutral. The right-hand side of equation \ref{asset} shows the incremental flow of income, including capital gain, that can rationally be anticipated by an individual who holds an incremental unit of $K$. the ratio of this income flow to the "asset price" $\lambda$ must equal the "competitive rate of interest" $\rho$. The transversality condition \ref{tsvrck2} is the condition that rules out the kind of inefficiency involved in accumulating capital forever without consuming it. 
+
+Substituting \ref{focham1} into \ref{asset} delivers the Euler equation, namely,
+\begin{equation}
+    \displaystyle\frac{u''(c)}{u'(c)}\dot{c}=\rho-\left[F'(K)-\delta\right].\label{eulerrck3}
+\end{equation}
+
+\subsection{The Canonical Euler Equation}
+Suppose that the utility function is of \textit{isoelastic} form
+\begin{equation}
+    u(c)=\frac{c^{1-\sigma}-1}{1-\sigma}.
+\end{equation}
+The parameter $\sigma$ is called \textit{elasticity of intertemporal substitution}. Individuals have the same elasticity of substitution $\frac{1}{\sigma}$ between present and future consumption no matter the level of consumption.
+Combining \ref{defr} and \ref{eulerrck3} yields
+\begin{equation}
+    -\sigma\frac{\dot{c}}{c}=\rho-r\label{eulerrck4}
+\end{equation}
+or equivalently, if consumption is growing at the rate $g$
+\begin{equation}
+    r=\rho+\sigma g\label{eulerrck5}
+\end{equation}
+
+Equation \ref{eulerrck5} tells us what the equilibrium rate of interest must be in a steady state where the representative household's consumption and capital are growing at the rate $g$. 
+\begin{enumerate}
+    \item Consider that $g=0$. Then in a steady state the representative household must have a constant capital stock. So it must be neither borrowing nor saving. But this household is impatient ($\beta<1$), so if there were no cost of borrowing it would prefer to borrow. Therefore, the rate of interest, which is the cost of borrowing, must be high enough to persuade the household not to borrow. According to equation \ref{eulerrck5} that steady-state interest rate is the rate of time preference $\rho$.
+    \item Consider that $g>0$. Then in a steady state the representative household must be saving each period by enough to make its capital stock grow at the rate $g$. It takes a bigger interest rate to persuade the household to save than it does just to persuade it not to borrow. Specifically, equation \ref{eulerrck5} shows us that for every percentage point rise in the growth rate $g$, the equilibrium interest rate must rise by $\sigma$ percentage points.
+\end{enumerate}
+
+\subsection{Steady State Analysis}
+Equation \ref{eulerrck3} and \ref{lomrck3} together consist of a dynamic system
+\begin{equation}
+    \left\{\begin{aligned}
+        &\ \dot{c}=\frac{F'(K)-\rho-\delta}{\theta}\\
+        &\ \dot{K}=F(K)-c-\delta K
+    \end{aligned}\right.\label{dynrck1}
+\end{equation}
+where $\theta\equiv -\frac{u''(c)}{u'(c)}$.
+At steady state, $\dot{c}=\dot{K}=0$. Therefore, we have
+\begin{equation}
+    \left\{\begin{aligned}
+        &\ F'(K)=\rho+\delta\\
+        &\ F(K)=c+\delta K
+    \end{aligned}\right.\label{dynrck2}
+\end{equation}
+
+
+Figure \ref{rck01} shows the phase portrait of system \ref{dynrck1}. The nullclines are drawn according to system \ref{dynrck2} and they spilt the plane into four "quadrants". In different quadrants, the time derivatives of consumption and capital stock have different signs. Whether the consumption-capital combination converges to the steady state or how it may evolve depends on where the initial combination falls in the phase portrait.
+
+For example, in the third quadrant, $\dot{c}>0$ and $\dot{K}>0$. Therefore, if the initial stock of capital $K_0$ is less than the steady state stock of capital $K_{ss}$ and the initial consumption $c_0$ is less than the steady state consumption $c_{ss}$ as is shown in figure \ref{rck01}, then $(c,K)$ will first move along the orange dashed trajectory to the upper-right direction until hitting the $\dot{c}=0$ nullcline and then move along the trajectory to the lower-right direction. Once it reaches $c=0$, however, $\dot{c}<0$. Therefore, the consumption will continue decreasing to a negative number. 
+
+There are two paths passing through the saddle point. The one from the third quadrant to the first is the stable one converging to the steady state. The other one from the second quadrant to the fourth is unstable, therefore forcing the consumption-capital combination to deviate from the steady state.
+
+\newpage
+\chapter{The $AK$ Model}
+\section{The Harrod-Domar Model}
+In the Harrod-Domar mode, it is assumed that the aggregate production function has fixed technological coefficients:
+\begin{equation}
+    Y=F(K,L)=\min\{AK, BL\}\nonumber
+\end{equation}
+where $A$ and $B$ are the fixed coefficients. When $AK<BL$, capital is the limiting factor, and we have $Y=AK$. The law of motion is
+\begin{equation}
+    \dot{K}=sY-\delta K=sAK-\delta K.\label{aklom}
+\end{equation}
+Therefore, the growth rate of capital will be
+\begin{equation}
+    g=\frac{\dot{K}}{K}=sA-\delta.
+\end{equation}
+Since capital is proportional to output, $g$ is also the output growth rate. 
+
+When considering population growth, the per capita growth rate will be $g-n$. If this rate is positive, then $k$ will continue increasing until a point when capital is no longer the limiting factor. Then $Y=BL$, and the output per capital will cease to grow.
+
+To account for the sustained growth, we consider a neoclassical version of Harrod-Domar, first established in M. Frankel (1962). He recognized that because individual firms contribute to the accumulation of technological knowledge when they accumulate capital, the $AK$ structure of the Harood-Domar model does not require fixed coefficients. Instead, he assumed that each firm $j\in\{1, 2, \cdots, N\}$ has a production function of the form
+\begin{equation}
+    y_j=\Bar{A}k_j^{\alpha}L_j^{1-\alpha}\nonumber
+\end{equation}
+where $k_j$ and $L_j$ are the firm's own employment of capital and labour, and $\Bar{A}$ is aggregate productivity. The aggregate productivity depends upon the total amount of capital that has been accumulated by all firms, namely,
+\begin{equation}
+    \Bar{A}=A_0\left(\sum^N_{j=1}k_j\right)^\eta
+\end{equation}
+where $\eta$ is a positive exponent that reflects the extent of the knowledge externalities generated among firms.
+
+For simplicity, assume that $L_j=1$ for all $j$. Let 
+\begin{equation}
+    K=\sum^N_{j=1}k_j,\ \text{and}\ Y=\sum^N_{j=1}y_j\nonumber
+\end{equation}
+denote the aggregate capital stock and output. Since all firms face the same technology and the same factor prices, they will hire factors in the same proportions, so that
+\begin{equation}
+    k_j=\frac{K}{N}\ \text{for all}\ j.\nonumber
+\end{equation}
+
+These imply that 
+\begin{equation}
+    \Bar{A}=A_0K^{\eta}, y_j=A_0K^{\eta}\left(\frac{K}{N}\right)^{\alpha},\ \text{and}\ Y=AK^{\alpha+\eta}\nonumber
+\end{equation}
+where $A=A_0N^{1-\alpha}$. The law of motion is
+\begin{equation}
+    \dot{K}=sAK^{\alpha+\eta}-\delta K.\nonumber
+\end{equation}
+At steady state, by setting $\dot{K}=0$ we have
+\begin{equation}
+    K_{ss}=\left(\frac{sA}{\delta}\right)^{\frac{1}{1-(\alpha+\eta)}}.
+\end{equation}
+
+Depending on the sign of $1-(\alpha+\eta)$, three cases are discussed below.
+
+\begin{figure}[htp]
+    \centering
+    \definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+    \definecolor{ffqqqq}{rgb}{1,0,0}
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+    \begin{axis}[
+    x=0.6cm,y=12cm,
+    axis lines=middle,
+    xmin=0,
+    xmax=15,
+    ymin=-0.11512462572163835,
+    ymax=0.2473585961434147,
+    xtick={0},
+    ytick={0},]
+    \clip(-0.9145342723691471,-0.11512462572163835) rectangle (19.345153712390733,0.2473585961434147);
+    \draw[line width=0.8pt,color=ffqqqq,smooth,samples=100,domain=1.9907570459625094e-7:19.345153712390733] plot(\x,{0.2*2.6*(\x)^(0.6+0.3)-0.4*(\x)});
+    \draw [color=ffqqqq](9.0250063977874925,0.21611742117747745) node[anchor=north west] {$\dot{K}=sAK^{\alpha+\eta}-\delta K$};
+    \draw (12.527730189001952,-0.005560461133078257) node[anchor=north west] {$K_{ss}$};
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Steady State when $\alpha+\eta<1$}
+    \label{akss01}
+\end{figure}
+
+
+Figure \ref{akss01} shows the case when $\alpha+\eta<1$. In this case the extent of knowledge spillovers $\eta$ is not sufficiently strong to counteract the effect $1-\alpha$ of decreasing returns to individual capital accumulation, and the long-run growth rate is zero.
+
+\begin{figure}[htp]
+    \centering
+    \definecolor{qqqqff}{rgb}{0,0,1}
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+    \begin{axis}[
+    x=2cm,y=2cm,
+    axis lines=middle,
+    xmin=0,
+    xmax=4.5,
+    ymin=-0.6026334767475972,
+    ymax=1.2914603348698415,
+    xtick={0},
+    ytick={0},]
+    \clip(-0.6588316780461156,-0.6026334767475972) rectangle (4.601621004000554,1.2914603348698415);
+    \draw [color=qqqqff](2.096208119024609,0.7207508457798709) node[anchor=north west] {$\dot{K}=sAK^{\alpha+\eta}-\delta K$};
+    \draw (1.47512554202942,-0.015381683626033189) node[anchor=north west] {$K_{ss}$};
+    \draw[line width=0.8pt,color=qqqqff,smooth,samples=100,domain=0.000003197211455298547:4.601621004000554] plot(\x,{0.2*2.6*(\x)^(0.6+1.8)-0.9*(\x)});
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Steady State when $\alpha+\eta>1$}
+    \label{akss02}
+\end{figure}
+Figure \ref{akss02} shows the case when $\alpha+\eta>1$. In this case, learning externalities are so strong that the aggregate economy experiences an ever-increasing growth rate. Note that
+\begin{equation}
+    g_{ss}=\frac{\dot{K}}{K}=sAK^{\alpha+\eta-1}-\delta
+\end{equation}
+is an increasing function with respect to $K$. Therefore, if $K$ were to increase above $K_{ss}$, then it would keep rising. This case is called the explosive growth case.
+
+When $\alpha+\eta=1$, this model will be exactly the $AK$ model. The knowledge automatically increases by just the right amount. Unlike the Harrod-Domar model, here an increase in the saving propensity $s$ will increase the growth rate permanently.\footnote{Recall that in the H-D model, as $s$ in crease, $K$ will continue increasing such that the production function turns from $AK$ to $BL$, at which point, per capita output growth will cease. However, in this version, there is no such turning point. Therefore, the output growth will be permanently positive.}
+
+\section{Intertemporal Utility Maximization}
+Suppose the labour supply per firm is equal to unity and the rate of capital depreciation was zero ($\delta=0$). The dynamic optimization problem is
+\begin{equation}
+\begin{aligned}
+    \displaystyle\max_{c,k}&\int^{\infty}_0u(c)e^{-\rho t}dt\\
+    &\text{s.t.}\ \dot{k}=\Bar{A}k^{\alpha}-c
+\end{aligned}
+\end{equation}
+where $\Bar{A}=A_0K^{\eta}$ and $K=\sum^N_{j=1}k_j$. Assume the CES utility function:
+\begin{equation}
+    u(c)=\displaystyle\frac{c^{1-\sigma}-1}{1-\sigma}.\nonumber
+\end{equation}
+The Euler equation is thus
+\begin{equation}
+    -\sigma\frac{\dot{c}}{c}=\rho-\alpha\Bar{A} k^{\alpha-1}.\label{akeu01}
+\end{equation}
+With rational expectation, we have $k_j=k=\frac{K}{N}$. Then equation \ref{akeu01} can be rewritten as 
+\begin{equation}
+    -\sigma\frac{\dot{c}}{c}=\rho-\alpha A_0N^{\eta}k^{\alpha+\eta-1}.\label{akeu02}
+\end{equation}
+
+Note that $y=\Bar{A}k^{\alpha}$. Then $Y=Ny=NA_0K^{\eta}\left(\frac{K}{N}\right)^{\alpha}=AK^{\alpha+\eta}$.
+
+
+When $\alpha+\eta<1$, the growth will vanish asymptotically as in the neoclassical model without technological progress as is shown figure \ref{ak01}. To see this point, assume, on the contrary, that the growth rate is bounded above zero. Positive growth implies that the capital stock $k$ will converge to infinity over time., implying that the right-hand side of equation \ref{akeu02} must converge to $\rho$, which in turn implies that the growth rate $\frac{\dot{c}}{c}$ is negative, and we reach a contradiction.
+
+
+When $\alpha+\eta>1$, there will be explosive growth. From equation \ref{akeu02}, if $g$ is positive in the long run, then the capital stock $k$ converges to infinity over time. Since $\alpha+\eta>1$, the right-hand side converges to negative infinity, which in turn implies the growth rate converging to positive infinity.
+
+When $\alpha+\eta=1$, in a steady state, consumption and output will grow at the same rate, so this case implies
+\begin{equation}
+    g=\frac{\dot{c}}{c}=\frac{\alpha A_0N^{\eta}-\rho}{\sigma}.\nonumber
+\end{equation}
+
+What has been discussed is the competitive steady state. However, from a social planner's perspective, the story is totally different. The dynamic programme is
+\begin{equation}
+\begin{aligned}
+    \displaystyle\max_{c,k}&\int^{\infty}_0 u(c)dt\\
+    &\text{s.t.}\ \dot{k}=A_0(Nk)^{\eta}k^{\alpha}-c.\nonumber
+\end{aligned}
+\end{equation}
+
+Note that we should internalize the fact that $\Bar{A}=A_0(Nk)^{\eta}$ when choosing $k$. When we have the CES utility function, we obtain the Euler equation
+\begin{equation}
+    -\sigma\frac{\dot{c}}{c}=\rho-(\alpha+\eta)A_0N^{\eta}k^{\alpha+\eta-1}.\nonumber
+\end{equation}
+With constant social returns to capital, that is, $\alpha+\eta=1$, this yields the socially optimal rate of growth
+\begin{equation}
+    g^*=\frac{N^{\eta}A_0-\rho}{\sigma}>g=\frac{\alpha N^{\eta} A_0-\rho}{\sigma}.\nonumber
+\end{equation}
+
+\section{An Open-Economy AK Model with Convergence}
+\subsection{A Two-Sector Closed Economy}
+The final good $Y$ and the intermediate good $X$ are both produced under perfect competition. The final good is produced with capital $K$ and intermediates according to
+\begin{equation}
+    Y=K^{\alpha}X^{1-\alpha}
+\end{equation}
+and the intermediate is produced with the final good one for one.
+
+Assume that the unit price of good $Y$ is equal to one, and this is also the unit cost of producing the intermediate good. Since markets are perfectly competitive, the price of intermediate good $X$ is equal to its unit cost; thus it is also equal to one. Given these assumptions, the demand for the intermediate good $X$ is determined by profit maximization in the final sector, that is, the optimal $X$ maximizes final-sector profits:
+\begin{equation}
+    \Pi=K^{\alpha}X^{1-\alpha}-X\nonumber
+\end{equation}
+and the first-order condition implies
+\begin{equation}
+    X=(1-\alpha)^{\frac{1}{\alpha}}K\nonumber
+\end{equation}
+Therefore, the production function can be substituted by
+\begin{equation}
+    Y=(1-\alpha)^{\frac{1-\alpha}{\alpha}}K.\nonumber
+\end{equation}
+
+It turns out that this is still a function of the $AK$ form. Then by equation \ref{aklom},
+\begin{equation}
+    g=\frac{\dot{K}}{K}=sA-\delta=s(1-\alpha)^{\frac{1-\alpha}{\alpha}}-\delta.\nonumber
+\end{equation}
+
+\subsection{Open Economy Model}
+Now suppose that producing the $Y$ good requires not just $X$ but also a foreign produced intermediate product $X_f$ according to the production function:
+\begin{equation}
+    Y=K^{\alpha} X^{\frac{1-\alpha}{2}} X_f^{\frac{1-\alpha}{2}}.\nonumber
+\end{equation}
+Both $X$ and $X_f$are tradable goods while capital is not tradable. The domestic producer of $Y$ will choose $X$ and $X_f$ to solve the problem
+\begin{equation}
+    \displaystyle\max_{X,X_f}\ K^{\alpha} X^{\frac{1-\alpha}{2}} X_f^{\frac{1-\alpha}{2}}-X-p_fX_f\nonumber
+\end{equation}
+which yields
+\begin{equation}
+    X=\left(\frac{1-\alpha}{2}\right)Y
+\end{equation}
+\begin{equation}
+    p_fX_f=\left(\frac{1-\alpha}{2}\right)Y.\label{ak11}
+\end{equation}
+Hence, 
+\begin{equation}
+    Y=\left(\frac{1-\alpha}{2}\right)^{\frac{1-\alpha}{\alpha}}p_f^{-\frac{1-\alpha}{2\alpha}}K \label{ak12}
+\end{equation}
+and we again have an $AK$ form. The growth rate is
+\begin{equation}
+    g=\frac{\dot{K}}{K}=sA-\delta=s\left(\frac{1-\alpha}{2}\right)^{\frac{1-\alpha}{\alpha}}p_f^{-\frac{1-\alpha}{2\alpha}}-\delta.
+\end{equation}
+
+Suppose that the rest of the world consists of a single country, just like the domestic country, except possibly with a different saving rate $s_f$. This foreign country will produce its final good using the same technology as used in the domestic country, so that its output of final product and its use of its own intermediate product and this country's will be determined as before except that from the foreign country's point of view the price of imported intermediate products is $\frac{1}{p_f}$ instead of $p_f$.
+
+Proceeding as before, we see that the foreign country will import the amount $F_X$ of the domestic country's intermediate good, where $F_X$ is given by
+\begin{equation}
+    \frac{1}{p_f}F_X=\left(\frac{1-\alpha}{2}\right)Y_f.\nonumber
+\end{equation}
+Then
+\begin{equation}
+    Y_f=\left(\frac{1-\alpha}{2}\right)^{\frac{1-\alpha}{\alpha}}p_f^{\frac{1-\alpha}{2\alpha}}K_f\nonumber
+\end{equation}
+where $K_f$ is the foreign capital stock. We can solve and get
+\begin{equation}
+    F_X=\left(\frac{1-\alpha}{2}\right)^{\frac{1}{\alpha}}p_f^{\frac{1+\alpha}{2\alpha}}K_f.\nonumber
+\end{equation}
+Note that $F_X$ is not just the foreign country's imports; it is also the domestic country's exports. Trade balance imposes that this figure in turn be equal to the value of the domestic country's imports, namely, $p_fX_f$, because exports are what we use to buy imports. Therefore, by equation \ref{ak11} and \ref{ak12}, we got
+\begin{equation}
+    p_f=k_R^{\alpha}
+\end{equation}
+where $k_R$ is the relative capital stock $k_R\equiv\frac{K}{K_f}$.
+
+Note that we have the dynamic system of $K$ and $K_f$
+\begin{equation}
+    \left\{\begin{aligned}
+        &\frac{\dot{K}}{K}=s\left(\frac{1-\alpha}{2}\right)^{\frac{1-\alpha}{\alpha}}k_R^{-\frac{1-\alpha}{2}}-\delta\\
+        &\frac{\dot{K}}{K}=s_f\left(\frac{1-\alpha}{2}\right)^{\frac{1-\alpha}{\alpha}}k_R^{\frac{1-\alpha}{2}}-\delta
+    \end{aligned}\right.
+\end{equation}
+
+Figure \ref{ak03} shows the direction field of this ODE system. We can observe that as $K$ and $K_f$ increase, the ratio $k_R$ converges to a fixed value.
+
+Since the growth rate of the relative stock $k_R$ is just the differential growth rate $\frac{\dot{K}}{K}-\frac{\dot{K_f}}{K_f}$,
+\begin{equation}
+    \frac{\dot{k_R}}{k_R}=\left(\frac{1-\alpha}{2}\right)^{\frac{1-\alpha}{\alpha}}\left[sk_R^{-\frac{1-\alpha}{2}}-s_fk_R^{\frac{1-\alpha}{2}}\right].\nonumber
+\end{equation}
+The unique stable solution is
+\begin{equation}
+    k_{R,ss}=\left(\frac{s}{s_f}\right)^{\frac{1}{1-\alpha}}.\nonumber
+\end{equation}
+The steady state is asymptotically stable because the right-hand side of the differential equation is decreasing in $k_R$. So the growth rate of $k_R$ will approach zero, implying that the growth rate of $K$ and $K_f$ will approach each other, that is, convergence.
+
+\newpage
+\chapter{Product Variety}
+\section{Endogenizing Technological Change}
+The model in this chapter builds on the idea that productivity growth comes from an expanding variety of specialized intermediate products. It formalizes the idea of A. A. Young (1928), namely, that growth is induced and sustained by increased specialization, and was established based on Romer (1990). Note that by variety expansion, innovation causes productivity growth by creating new, but not necessarily improved, variety of products.
+
+For each new product, there is a sunk cost of product innovation that must be incurred just once when the product is first introduced. It is also true that fixed costs make product markets monopolistically competitive. Imperfect competition create positive profits, and these profits act as a reward for the creation of new products. 
+
+\subsection{A Simple Variant of the Product-Variety Model}
+There is a fixed number $L$ of people, each of whom lives forever and has a constant flow of one unit of labour that can be used in manufacturing. Assume that each person offers her one unit of labour for sale inelastically. Suppose the CES utility function:
+\begin{equation}
+    u(c)=\frac{c^{1-\sigma}}{1-\sigma}, \sigma>0\nonumber
+\end{equation}
+and she discounts the utlity using a constant rate of time preference $\rho$. Let the interest rate be $r$. Then the growth rate is
+\begin{equation}
+    g=\frac{r-\rho}{\sigma}.\label{gpvm}
+\end{equation}
+
+Final out put is produced under perfect competition, using labour and a range of intermediate inputs, indexed by $i\in [0, M_t]$, where $M_t$ is the measure of product variety. The final-good production function at each date $t$ is
+\begin{equation}
+    Y_t=L^{1-\alpha}\int^{M_t}_0 x_i^{\alpha}di, \alpha\in(0,1)\label{pvpf}
+\end{equation}
+where $Y_t$ is output, and each $x_i$ is the amount of intermediate product $i$ used as input. Labour input is always equal to the fixed supply $L$. Each intermediate product is produced using the final good as input, one for one. 
+
+According to \ref{pvpf}, product variety enhances overall productivity in the economy. Let $X_t$ be the total amount of final good used in producing intermediate products. According to the one-for-one technology, $X_t$ must equal total intermediate output:
+\begin{equation}
+    X_t=\int^{M_t}_0x_idi.\nonumber
+\end{equation}
+Suppose for simplicity that each intermediate product is produced in the same amount $x$. Substituting $x=\frac{X_t}{M_t}$ into the production function \ref{pvpf} yields
+\begin{equation}
+    Y_t=M_t^{1-\alpha}L^{1-\alpha}X_t^{\alpha}\label{pvpf01}
+\end{equation}
+which means that $Y_t$ is increasing in $M_t$, fixing $X_t$ and $L$. 
+
+Since the final output is only used for consumption and investment, the gross domestic product (GDP) is the final output $Y_t$ minus the amount used in intermediate production:
+\begin{equation}
+    GDP_t=Y_t-X_t.
+\end{equation}
+Each intermediate product is monopolized by the person who created it. The monopolist seeks to maximize the flow of profit at each date, measured in units of final good:
+\begin{equation}
+    \Pi_i=p_ix_i-x_i\nonumber
+\end{equation}
+where $p_i$ is the price in units of final good. Since final output is produced in perfectly competitive market, 
+\begin{equation}
+    p_i=\frac{\partial Y_t}{\partial x_i}=\alpha L^{1-\alpha}x_i^{\alpha-1}.
+\end{equation}
+Therefore, the monopolist's profit depends on her output according to
+\begin{equation}
+    \Pi_i=\alpha L^{1-\alpha}x_i^{\alpha}-x_i.\nonumber
+\end{equation}
+To maximize the profit, the first order condition leads to the result that
+\begin{equation}
+    x=L\alpha^{\frac{2}{1-\alpha}}\label{pvm02}
+\end{equation}
+together with the equilibrium profit flow
+\begin{equation}
+    \Pi=\frac{1-\alpha}{\alpha}L\alpha^{\frac{2}{1-\alpha}}.\label{pvm03}
+\end{equation}
+
+Substituting $X_t=M_tx$ into \ref{pvpf01} yields
+\begin{equation}
+    Y_t=M_tL^{1-\alpha}x^{\alpha}.\nonumber
+\end{equation}
+The GDP is 
+\begin{equation}
+    GDP_t=M_t\left(L^{1-\alpha}x^{\alpha}-x\right)\nonumber
+\end{equation}
+and the growth rate is
+\begin{equation}
+    g=\frac{1}{M_t}\frac{dM_t}{dt}.\label{pvm01}
+\end{equation}
+
+Product variety grows at a rate that depends on the amount $R_i$ of final output that is used in research. That is, the output of research each period is the flow of new blueprints, each of which allows a new product to be developed. So we have
+\begin{equation}
+    \frac{dM_t}{dt}=\lambda R_t
+\end{equation}
+where $\lambda>0$ is a parameter indicating the productivity of the research sector. Assume that the research sector of the economy is perfectly competitive, with free entry. Then the flow of profit in the research sector must be zero. Each blueprint is worth $\frac{\Pi}{r}$ to its inventor\footnote{This seems a perpetuity. Note that after the new product is invented, the producer can use it to make $\Pi$ profit each year.}, which is the present value of the profit flow $\Pi$ discounted at the market interest rate $r$. Hence the flow of profit in research is
+\begin{equation}
+    \left(\frac{\Pi}{r}\right)\lambda R_t-R_i\nonumber
+\end{equation}
+which is the flow of revenue (output $\lambda R_t$ time price $\frac{\Pi}{r}$) minus cost $R_i$. For this to be zero we need a rate of interest that satisfies the \textit{"research-arbitrage equation"}:
+\begin{equation}
+    r=\lambda\Pi.
+\end{equation}
+That is, the rate of interest must equal the flow of profit that an entrepreneur can receive per unit invested in research.\footnote{The entrepreneur can either invest this as financial asset or invest this into research. In this expression, $\lambda$ is the productivity of research, we can perceive this as the "reciprocal" of the amount of research done. The whole expression is then profit divided by the amount of research, which is profit received per unit invested in research.}
+
+Substituting from the research-arbitrage equation into the Euler equation \ref{gpvm} we have
+\begin{equation}
+    g=\frac{\lambda\Pi-\rho}{\sigma}.\nonumber
+\end{equation}
+Substituting expression \ref{pvm03} for $\Pi$ in this equation yields the following expression for the equilibrium growth rate as a function of the primitive parameters of the model:
+\begin{equation}
+    g=\displaystyle\frac{\lambda\frac{1-\alpha}{\alpha}L\alpha^{\frac{2}{1-\alpha}}-\rho}{\sigma}.\nonumber
+\end{equation}
+
+We notice that the growth rate increases with the productivity of research, the size of economy measured by $L$, and decreases with the time preference. Note that the prediction that $g$ increases with $L$ is counterfactual given the US fact that the number of researchers has substantially increased in the US over the period since 1950 whereas the growth rate has remained on average at 2 percent over the period. This will be further discussed in chapter 4.
+
+\subsection{The Romer Model with Labour as R\&D Input}
+Now suppose that labour can be used either in manufacturing the final good $(L_1)$ or alternatively in research $(L_2)$ such that
+\begin{equation}
+    L=L_1+L_2.\nonumber
+\end{equation}
+Final output is produced by labour and intermediates according to the same production function as before
+\begin{equation}
+    Y_t=L_1^{1-\alpha}\int^{M_t}_0x_i^{\alpha}di.
+\end{equation}
+Then we have an analogue to equations \ref{pvm02} and \ref{pvm03}:
+\begin{equation}
+    x=L_1\alpha^{\frac{2}{1-\alpha}}\label{pvm04}
+\end{equation}
+and the profit
+\begin{equation}
+   \Pi=\frac{1-\alpha}{\alpha}L_1\alpha^{\frac{2}{1-\alpha}}. \label{pvm05}
+\end{equation}
+
+The measure of product variety $M_t$ now grows at a rate that depends upon the amount $L_2$ of labour devoted to research, according to
+\begin{equation}
+    \frac{dM_t}{dt}=\lambda M_t L_2.\nonumber
+\end{equation}
+The equation reflects the existence of spillovers in research activities; that is, all researchers can make use of the accumulated knowledge $M_t$ embodied in existing designs. Note that $M_t$ contributes to increasing returns from two perspectives. First, the increase of $M_t$ brings specialization; and second, $M_t$ itself creates research spillover. 
+
+The flow of profit in research is now
+\begin{equation}
+    \left(\frac{\Pi}{r}\right)\lambda M_tL_2-w_tL_2\nonumber
+\end{equation}
+where $w_t$ is the equilibrium wage rate that must be paid to researchers. Setting this flow equal to zero yields the research-arbitrage equation for this version of the model:
+\begin{equation}
+    r=\lambda M_t\frac{\Pi}{w_t}\nonumber
+\end{equation}
+which again states that the rate of interest must equal the flow of profit that the entrepreneur can receive from investing one unit of final good into research, that is, from using the services of $\frac{1}{w_t}$ units of research labour and thereby producing $\frac{\lambda M_t}{w_t}$ blueprints each worth $\Pi$ per period.\footnote{If we move $w_t$ to the left hand side, then the arbitrage intuition may be clearer. We can either invest $w_t$ in some financial asset with market interest rate, or invest $w_t$ in research. The returns should be equal.}
+
+What is the equilibrium wage rate? The first-order condition of the production function implies that
+\begin{equation}
+    w_t=\frac{\partial Y_t}{\partial L_1}=(1-\alpha)M_tL_1^{-\alpha}x^{\alpha}.\nonumber
+\end{equation}
+Substituting using \ref{pvm04}, we get
+\begin{equation}
+    w_t=(1-\alpha)\alpha^{\frac{2\alpha}{1-\alpha}}M_t.\nonumber
+\end{equation}
+Then 
+\begin{equation}
+    r=\lambda\alpha L_1.\nonumber
+\end{equation}
+Since by \ref{pvm01}, 
+\begin{equation}
+    g=\frac{1}{M_t}\frac{dM_t}{dt}=\lambda L_2=\lambda (L-L_1),\nonumber
+\end{equation}
+we have
+\begin{equation}
+    r=\alpha(\lambda L-g).\nonumber
+\end{equation}
+Substituting this into \ref{gpvm} yields
+\begin{equation}
+    g=\frac{\alpha\lambda L-\rho}{\alpha+\sigma}.
+\end{equation}
+
+Other than the similarities, note that both because intermediate firms do not internalize their contribution to the division of labour and because researchers do not internalize research spillovers, the preceding equilibrium growth rate is always less than the social optimum.
+
+\section{Estimating the Effect of Variety on Productivity}
+This part is based on Broda, Greenfield, and Weinstein (2006), hence BGW. BGW exploits trade data to test for the effects of product variety on productivity levels and growth. First, producers benefit from trade for getting more access to new inputs to raise productivity. Second, the trade and the increasing input variety decreases the cost of innovation, thus more variety. Also note that the elasticity of substitution between different inputs matters. In particular, close substitutes will note improve productivity by a lot. 
+
+Suppose the production function to be in the following form:
+\begin{equation}
+    Y_t=(A_tL_t)^{1-\alpha}\left(\displaystyle\sum^{M_t}_{i=1}x_{it}^{\nu}\right)^{\frac{\alpha}{\nu}}\nonumber
+\end{equation}
+where $\nu\in(0,1)$ measure the elasticity of substitution between varieties of input goods $x_{it}$, with a higher $\nu$ corresponding to more substitutable inputs.
+
+Suppose all the inputs are used with the same intensity $x_t$, we have
+\begin{equation}
+    Y_t=(A_tL_t)^{1-\alpha}M_t^{\frac{\alpha}{\nu}}x_t^{\alpha}.\nonumber
+\end{equation}
+If each input is produced one for one with capital, then
+\begin{equation}
+    Y_t=(A_tL_t)^{1-\alpha}M_t^{\frac{(1-\nu)\alpha}{\nu}}K_t^{\alpha}\nonumber
+\end{equation}
+where $K_t=M_tx_t$ is the aggregate capital stock. Taking logs, we obtain
+\begin{equation}
+    \ln Y_t=(1-\alpha)(\ln A_t+\ln L_t)+\frac{(1-\nu)\alpha}{\nu}\ln M_t+\alpha\ln K_t.\nonumber
+\end{equation}
+Differentiating both sides with respect to time yields
+\begin{equation}
+    \frac{\dot{Y}_t}{Y_t}=(1-\alpha)\frac{\dot{L}_t}{L_t}+\alpha\frac{\dot{K}_t}{K_t}+\hat{B}_t
+\end{equation}
+where
+\begin{equation}
+    \hat{B}_t=(1-\alpha)\frac{\dot{A}_t}{A_t}+\frac{(1-\nu)\alpha}{\nu}\frac{\dot{M}_t}{M_t}\label{pv07}
+\end{equation}
+is \textit{total factor productivity} (TFP) growth, also known as the Solow residual. This measure of TFP growth has two components: a product-variety component and a quality component.
+
+According to equation \ref{pv07}, a lower $\nu$, that is, a lower degree of substitutability between inputs or a higher share of the intermediate goods $\alpha$ should result in a higher impact of increased variety on TFP.
+
+BGW estimate elasticities separately for each good and importing country and then regress per capita GDP on these elasticities. They find no strong relationship between income per capita and the elasticity of substitution across countries. The relationship between variety and productivity is even lower for developed countries.
+
+\newpage
+\chapter{The Schumpeterian Model}
+This model grew out of modern industrial organization theory, which portrays innovation as an important dimension of industrial competition. It is called Schumpeterian because it embodies the force that Schumpeter (1942) called "creative destruction": the innovations that drive growth by creating new technologies also destroy the results of previous innovations by making them obsolete.
+
+\section{Model}
+\subsection{Model Setup}
+Consumers' only objective is to maximize the expected consumption. Suppose that people only consume the "final" good, which is produced by perfectly competitive firms using two inputs: labour and a single intermediate product with the production function
+\begin{equation}
+    Y_t=(A_tL)^{1-\alpha}x^{\alpha}.\label{sch01}
+\end{equation}
+The intermediate product is produced by a monopolist each period using the final good as all input, one for one. Then 
+\begin{equation}
+    GDP_t=Y_t-x_t.\label{sch02}
+\end{equation}
+
+The monopolists at $t$ maximizes expected consumption by maximizing her profit $\Pi_t$, measured in units of the final good:
+\begin{equation}
+    \Pi_t=p_tx_t-x_t.\nonumber
+\end{equation}
+Recall that \textbf{the equilibrium price of a factor of production used in a perfectly competitive industry equals the value of its marginal product}. Thus the monopolist's price will be the marginal product of her intermediate product in the final sector, which according to \ref{sch01} is
+\begin{equation}
+    p_t=\frac{\partial Y_t}{\partial x_t}=\alpha (A_tL)^{1-\alpha}x_t^{\alpha-1}.\label{sch03}
+\end{equation}
+Plugging \ref{sch03} back to the profit and maximize the profit, we have
+\begin{equation}
+    x_t=\alpha^{\frac{2}{1-\alpha}}A_tL\label{sch04}
+\end{equation}
+and the equilibrium profit
+\begin{equation}
+    \Pi_t=\pi A_tL, \text{where}\ \pi:=(1-\alpha)\alpha^{\frac{1+\alpha}{1-\alpha}} \label{sch05}
+\end{equation}
+which as both proportional to the effective labour.
+
+Substituting \ref{sch04} into \ref{sch01} and \ref{sch02} we have
+\begin{equation}
+    Y_t=\alpha^{2\alpha}{1-\alpha}A_tL,\ \ \ GDP_t=\alpha^{2\alpha}{1-\alpha}\left(1-\alpha^2\right)A_tL,\ \ \ \text{and}\ p=\frac{1}{\alpha}\label{sch06}
+\end{equation}
+
+\subsection{Innovation and Research Arbitrage}
+In each period there is one person (the "entrepreneur") who has an opportunity to attempt an innovation. If she succeeds, then the innovation will create a new version of intermediate product, which is more productive than previous versions. Specifically, the productivity of the intermediate good in use will go from last period's value $A_{t-1}$ up to $A_t=\gamma A_{t-1}$. Otherwise, we have $A_t=A_{t-1}$.
+
+The entrepreneur will use final goods as the only input to conduct research. Note that it may fail to research for innovation. But the more the entrepreneur spends on research, the more likely she is to innovate. Specifically, the probability $\mu_t$ that an innovation occurs in any period $t$ depends positively on the amount $R_t$ of final good spent on research, according to the innovation function
+\begin{equation}
+    \mu_t=\Phi\left(\frac{R_t}{A_t^*}\right)\nonumber
+\end{equation}
+where $A_t^*=\gamma A_{t-1}$ is the productivity of the new version of intermediate good if the innovation is successful. For concreteness, denoting $n=\frac{R_t}{A^*_t}$, assume that the innovation function takes the Cobb-Douglas form
+\begin{equation}
+    \Phi(n)=\lambda n^{\sigma}\label{sch07}
+\end{equation}
+where $\lambda$ is a parameter that reflects the productivity of the research sector and the elasticity $\sigma\in(0,1)$. Note that $\phi'(n)>0$ and $\phi''(n)<0.$ 
+
+If the entrepreneur at $t$ successfully innovates, she will become the intermediate monopolist in that period, because she will be able to produce a better product than anyone else. Otherwise, the monopoly will pass to someone else chosen at random who is able to produce last period's product. If successful, the entrepreneur's innovation will bring a profit of $\Pi^*_t$. The profit is, considering the probability of success
+\begin{equation}
+    \Phi\left(\frac{R_t}{A_t^*}\right)\Pi^*_t-R_t\nonumber
+\end{equation}
+Maximizing this yields
+\begin{equation}
+    \Phi'\left(\frac{R_t}{A_t^*}\right)\frac{\Pi^*_t}{A^*_t}-1=0\nonumber
+\end{equation}
+which can be written as, by equation \ref{sch05}
+\begin{equation}
+    \Phi'(n_t)\pi L-1=0\label{sch09}
+\end{equation}
+referred to as the \textit{research arbitrage equation}.
+
+The right hand side is the marginal cost of research. the left hand side is the marginal benefit of research, which is the marginal probability of success times the value of success innovation. Any parameter change that raises the marginal benefit schedule or lowers the marginal cost will increase the equilibrium research intensity $n_t$. This in turn implies that the intensity $n_t$ will be a constant $n$ and thus the probability of innovation $\mu_t$ a constant $\mu$. Using \ref{sch07}, 
+\begin{equation}
+    n=\left(\sigma\lambda\pi \right)^{\frac{1}{1-\sigma}}, \text{and}\ \mu=\lambda^{\frac{1}{1-\sigma}}\left(\sigma\pi  L\right)^{\frac{\sigma}{1-\sigma}}.\label{sch09}
+\end{equation}
+
+\subsection{Growth and Comparative Statics}
+By \ref{sch06}, the per capita GDP growth is proportional to $A_t$:
+\begin{equation}
+    g_t=\frac{A_t-A_{t-1}}{A_{t-1}}.\nonumber
+\end{equation}
+In each period with probability $\mu$ the entrepreneur will innovate, resulting in $g_t=\gamma-1$, and with probability $1-\mu$ that $g_t=0$. The growth rate will be governed by this probability distribution every period, so by the law of large numbers, the mean of the distribution will be $g=\mu(\gamma-1)$, which will also be the economy's long-run average growth rate. Using equation \ref{sch09}, we have
+\begin{equation}
+    g=\lambda^{\frac{1}{1-\sigma}}\left(\sigma\pi  L\right)^{\frac{\sigma}{1-\sigma}}(\gamma-1)\label{sch10}
+\end{equation}
+which is the \textit{growth equation}.\\
+
+\textbf{Nondrastic Innovations}
+
+Suppose that there is a competitive fringe of firms able to produce a "knockoff" product that is perfectly substitutable for the monopolist's intermediate product but costs $\chi>1$ units of final output to produce. then the incumbent monopolist cannot charge more than $\chi$ in equilibrium. since otherwise the competitive fringe could profitably undercut her price. Thus we have the limit-price constraint $p_t\leq \chi$.
+
+If $\chi>\frac{1}{\alpha}$, then the constraint is redundant by equation \ref{sch06}. Otherwise, it is the nondrastic innovation case, where $\chi<\frac{1}{\alpha}$. Then it must be the case that $p_t=\chi$, which yields, by equation \ref{sch03}
+\begin{equation}
+    x_t=\left(\frac{\alpha}{\chi}\right)^{\frac{1}{1-\alpha}}A_tL\nonumber
+\end{equation}
+and the profit is
+\begin{equation}
+    \Pi_t=\pi A_tL,\ \ \text{where}\ \left(\chi-1\right)\left(\frac{\alpha}{\chi}\right)^{\frac{1}{1-\alpha}}\nonumber
+\end{equation}
+where $pi$ is now an increasing function of the competitive fringe's cost $\chi$.\\
+
+By the \textit{growth equation} \ref{sch10}, we have the following implications.
+\begin{enumerate}
+    \item The growth rate increases with $\lambda$. This implies the importance of higher-education, since better higher education tends to result in higher productivity in research.
+    \item The growth rate increases with $\gamma$, the size of innovation. The echoes with the advantage of backwardness. The further a country lags behind the frontier, the bigger the productivity improvement it will get if it can implement the frontier technology when it innovates, and hence the faster it can grow.
+    \item The growth rate increases with $\chi$, which measures the degree of property-rights protection. The higher $\chi$ is, the more difficult it is to imitate the current technology in the intermediate sector. It reflects stronger patent protection. This leads to more intense research, which in turn results in higher growth.
+    \item The growth rate decreases with the degree of product market competition. A lower $\chi$ may reflect an increase ability of other firms to compete against the incumbent monopolist, which lowers the value of a successful innovation.
+    \item An increase in the size of population should also bring about an increase in growth by raising the supply of labor $L$. However, this "scale effect" has been challenged in the literature. We will see how this questionable comparative-statics result can be eliminated by considering a model with both horizontal and vertical innovations.
+\end{enumerate}
+
+\subsection{A Multisector Model}
+Assume now there is a continuum of intermediate product, indexed over $[0,1]$. Then the production function is
+\begin{equation}
+    Y_t=L^{1-\alpha}\int^1_0A_{it}^{1-\alpha}x_{it}^\alpha di\nonumber
+\end{equation}
+and the final output produced by each intermediate product is determined by the production function
+\begin{equation}
+    Y_{it}=\left(A_{it}L\right)^{1-\alpha}x_{it}^{\alpha}\nonumber
+\end{equation}
+which is identical to equation \ref{sch01}.
+
+Based on this, all the analyses will be the same as in the previous chapters.
+
+\section{Scale Effects}
+Both the innovation-based growth theories we have seen so far, the product-variety model with just horizontal innovations and the Schumpeterian model with just vertical innovations, predict that increased population leads to increased growth. This prediction is implied because increased population raises the size of the market that can be captured by a successful entrepreneur and also because it raises the supply of potential researchers. 
+
+In Schumperterian theory, we try to incorporate A. Young's (1998) insight that as population grows, proliferation of product varieties reduces the effectiveness of research aimed at quality improvement by causing it to be spread more thinly over a larger number of different sectors, thus dissipating the effect on the overall rate of productivity growth.
+
+Suppose that the production function is of the following form:
+\begin{equation}
+    Y_t=\left(\frac{L}{M}\right)^{1-\alpha}\int^M_0 A_{it}^{1-\alpha}x_{it}^{\alpha} di.
+\end{equation}
+Note that this production function
+\begin{enumerate}[(1)]
+    \item allows the intermediate products to be indexed over the interval $[0,M]$ where $M$ is a variable.
+    \item gives each product its own unique productivity parameter $A_{it}$.
+    \item assumes that what matters i not the absolute input $L$ of labour but the input per product $\frac{L}{M}$.
+\end{enumerate}
+Thus the contribution of each intermediate product to final output is now
+\begin{equation}
+    Y_{it}=A_{it}^{1-\alpha}x_{it}^{\alpha}\left(\frac{L}{M}\right)^{1-\alpha}.\nonumber
+\end{equation}
+
+To model the coexistence of horizontal and vertical innovation, suppose that the exogenous fraction $\epsilon$ of products disappears each year and each person has a probability $\psi$ of inventing a new intermediate product, with no expenditure at all on research. Then each year the length $M_t$ of the list of intermediate products will change by the amount
+\begin{equation}
+    \psi L-\epsilon M_t.\nonumber
+\end{equation}
+Then the innovation process will reach a steady state at which
+\begin{equation}
+    M=\frac{\psi}{\epsilon}L.
+\end{equation}
+Then the production function becomes
+\begin{equation}
+    Y_t=\left(\frac{\epsilon}{\psi}\right)^{1-\alpha}\int^M_0 A_{it}^{1-\alpha}x_{it}^{\alpha} di.\nonumber
+\end{equation}
+Analogously deriving the growth rate, we will get rid of the scale effect.
+
+\newpage
+\chapter{Capital, Innovation, and Growth Accounting}
+In neoclassical model and the $AK$ model, capital accumulation is focused, while in the product variety model and the Schumpeterian model, innovations are focused. One way to judge the competing theories is to ask how much of growth is attributable to the accumulation of physical and human capital, and how much is the result of productivity growth. The question can be studied by growth accounting.
+\section{Measuring the Growth of Total Factor Productivity}
+Suppose the output depends on the following Cobb-Douglas production function:
+\begin{equation}
+    Y=BK^{\alpha}L^{1-\alpha}.\label{ga01}
+\end{equation}
+We see that $B$ reflects the state of technology.
+
+Output per worker is 
+\begin{equation}
+    y=Bk^{\alpha},\nonumber
+\end{equation}
+which yields
+\begin{equation}
+    G=\frac{\dot{B}}{B}+\alpha\frac{\dot{k}}{k}.
+\end{equation}
+Note that the growth rate of per capita output depends on two components: the growth of TFP and the "capital-deepening" component. The purpose of growth accounting is to determine the relative size of these two components. 
+
+Challenges are that there is no available data for $B$ and $\alpha$. First, for $\alpha$, we can use the factor price to estimate it. Second, for $B$, we can use a \textit{residual method}s.
+
+Assume that the capital market is perfectly competitive. Under that assumption, the rental price of capital $R_k$ should equal the marginal product of capital. Differentiating the right-hand  side of equation \ref{ga01} to compute the marginal product of capital, we get
+\begin{equation}
+    R_k=\alpha\frac{Y}{K}\nonumber
+\end{equation}
+and then we write
+\begin{equation}
+    \alpha=R_k\frac{k}{Y}.\nonumber
+\end{equation}
+Then we can write
+\begin{equation}
+    \frac{\dot{B}}{B}=G-\alpha\frac{\dot{k}}{k}.\nonumber
+\end{equation}
+This way of measuring TFP growth is known as the \textit{Solow residual}.
+
+\section{Problems with Growth Accounting}
+\subsection{Measuring Capital}
+One problem with growth accounting is that technological progress is often embodied in new capital goods, a fact which makes it hard to separate the influence of capital accumulation from the influence of innovation. Gordon (1990) and Cummins and Violante (2002) have shown that the relative price of capital goods has fallen dramatically for many decades. This is called the price of a "quality-adjusted" unit of capital.
+
+To some extent this problem affects not so much the aggregate productivity numbers as how that productivity is allocated across sectors. Generally speaking, upstream industries are estimated to have higher TFP growth estimates, and downstream  industries tend to have lower TFP growth estimates. In aggregate, hence, the two effects wash out.
+
+A bigger problem for aggregate TFP occurs when a country's national accounts systematically overestimate the increase in capital taking place each year. Such overestimation happens in many countries because of government inefficiency and corruption. Hsieh (2002) challenged A. young's (1995) claim that the Eastern "Tigers" accomplished most of their remarkable growth performance through capital accumulation and the improved efficiency of resource allocation, not through technological progress.
+
+\subsection{Accounting versus Causation}
+Consider this production:
+\begin{equation}
+    Y=\left(AL\right)^{1-\alpha}K^{\alpha}.\nonumber
+\end{equation}
+By derivation,
+\begin{equation}
+    \frac{\dot{B}}{B}=(1-\alpha)\frac{\dot{y}}{y}.\nonumber
+\end{equation}
+
+Recall that the capital-deepening component of growth accounting measures the growth rate that would have been observed if the capital-labour ratio had grown at its observed rate but there had been no technological progress. The problem is that if there had been no technological progress, then the capital-labour ratio would not have grown as much. For example, in the neoclassical model, we saw that technological progress is needed in order to prevent diminishing returns from eventually choking off all growth in the capital labour ratio. In that sense, technological progress is the underlying cause of both the components of economic growth. What we really want to know in order to understand and possibly control the growth progress is nor how much economic growth we would get under the implausible scenario of no technological progress and continual capital deepening but rather how much economic growth we would get if we were to encourage more saving, or more R\& D, or more education, or more competition, and so on. These causal questions can only be answered by constructing and testing economic theories. All growth accounting can do is help us to organize the facts to explained by these theories.
+
+\section{Capital Accumulation and Innovation}
+\subsection{Model Setup}
+Suppose that there is a constant population of $L$ individuals, each endowed with one unit of skilled labour that she supplies inelastically. The final good is produced under perfect competition according to the production function
+\begin{equation}
+    Y_t=L^{1-\alpha}\int^1_0A_{it}^{1-\alpha}x_{it}^\alpha di,\ \ \ \ \ 0<\alpha<1\label{ga03}
+\end{equation}
+where each $x_{it}$ is the flow of intermediate input $i$. For simplicity, set $L=1$.
+
+Each intermediate input is produced according to the production function
+\begin{equation}
+    x_{it}=K_{it}\nonumber
+\end{equation}
+where $K_{it}$ is the amount of capital used as input. So the local monopolist's cost is now $R_kK_{it}=R_kx_{it}$. Her price is again the marginal product
+\begin{equation}
+    p_{it}=\alpha A_{it}^{1-\alpha}x_{it}^{\alpha-1}.\nonumber
+\end{equation}
+She will choose $x_{it}$ to maximize her profit
+\begin{equation}
+    \Pi_{it}=\alpha A_{it}^{1-\alpha}x_{it}^{\alpha}-R_{kt}x_{it}\label{ga04}
+\end{equation}
+where $R_{kt}$ is the rental rate of capital which implies the quantity
+\begin{equation}
+    x_{it}=\left(\frac{\alpha^2}{R_{kt}}\right)^{\frac{1}{1-\alpha}}A_{it}.\label{ga05}
+\end{equation}
+
+The rental rate is determined in the market for capital, where the supply is the historically predetermined capital stock $K_t$ and the demand is the sum of all sectors' demands $\displaystyle\int^1_0K_{it}di=\int^1_0x_{it}di$. Substituting equation \ref{ga05}, we have
+\begin{equation}
+    \int^1_0K_{it}di=\int^1_0\left(\frac{\alpha^2}{R_{kt}}\right)^{\frac{1}{1-\alpha}}A_{it}di=\left(\frac{\alpha^2}{R_{kt}}\right)^{\frac{1}{1-\alpha}}A_t\label{ga06}
+\end{equation}
+where $A_t=\int^1_0A_{it}di$ is the average productivity parameter. Define
+\begin{equation}
+    \kappa_t=\frac{K_t}{A_t}\nonumber
+\end{equation}
+to be the aggregate capital stock per effective worker. Then equation \ref{ga06} solves for
+\begin{equation}
+    R_{kt}=\alpha^2\kappa_t^{\alpha-1}.\label{ga07}
+\end{equation}
+Therefore, the rental rate is a decreasing function of the capital stock per effective worker. Note also that
+\begin{equation}
+    x_{it}=A_{it}\kappa_t.\label{ga08}
+\end{equation}
+
+Substituting \ref{ga07} and \ref{ga08} into \ref{ga04}, we see that
+\begin{equation}
+    \Pi_{it}=\Tilde{\pi}\left(\kappa_t\right)A_{it}\label{ga09}
+\end{equation}
+where the \textit{productivity-adjusted profit function}
+\begin{equation}
+    \Tilde{\pi}\left(\kappa_t\right)=\alpha(1-\alpha)\kappa_t^{\alpha}\nonumber
+\end{equation}
+is increasing in the capital stock per effective worker $\kappa_t$, because an increase in $\kappa_t$ reduces the monopolist's per-unit cost of production $R_{kt}$. This dependency of profits on the capital stock per effective worker plats an important role in the workings of the model. 
+
+Using equation \ref{ga08} to substitute for each $x_{it}$, we can rewrite \ref{ga04} as
+\begin{equation}
+    Y_t=A_t\kappa_t^{\alpha}\label{ga10}
+\end{equation}
+which is the production function used in the neoclassical model. In particular, the average productivity parameter $A_t$ is labour-augmenting productivity.
+
+\subsection{Innovation and Growth}
+In every period $t$ there is an entrepreneur in each sector $i$ who can possibly innovate. If successful, she will become the local monopolist next period, with a productivity parameter $A_{it}=\gamma A_{i,t-1}$, where $\gamma>1$. Her probability of success is $\mu_t=\phi(n_t)=\lambda n_t^{\sigma}$, where $n_t=\frac{R_{it}}{A_{it}^*}$ and $A_{it}^*=\gamma A_{it}$ is the target productivity level. So she will choose her research expenditure $R_{it}$ to maximize her net benefit
+\begin{equation}
+    \Phi\left(\frac{R_{it}}{A_{it}^*}\right)\Pi_{it}^*-R_{it}\nonumber
+\end{equation}
+where $\Pi^*_{it}$ is her profit if she succeeds. The first-order condition implies that
+\begin{equation}
+    \Phi'(n_t)\Tilde{\pi}(\kappa_t)=1\label{ga11}
+\end{equation}
+which is the research arbitrage equation. 
+
+Thus the productivity-adjusted level of research $n_t$ is an increasing function of the capital stock per effective worker $\kappa_t$ because, as we have seen, an increase in $\kappa_t$ increases the monopoly profit that constitutes the reward for innovation. As in chapter 4, the productivity growth rate $g_t$ is the frequency of innovations $\Phi(n_t)$ times the size $\gamma-1$, therefore productivity growth is also an increasing function of the capital stock per effective worker:
+\begin{equation}
+    g_t=\Tilde{g}(\kappa_t),\ \ \ \ \Tilde{g}'>0.\nonumber
+\end{equation}
+Note that we can solve \ref{ga11} to get
+\begin{equation}
+    \Tilde{g}(\kappa_t)=(\gamma-1)\lambda\left[\sigma\lambda\Tilde{pi}(\kappa_t)\right]6{\frac{\sigma}{1-\sigma}}.\nonumber
+\end{equation}
+
+
+As in the neoclassical model, there is a fixed saving rate $s$ and a fixed depreciation rate $\delta$, so the aggregate capital stock $K_t$ will evolve according to
+\begin{equation}
+    K_{t+1}-K_t=sY_t-\delta K_t\label{ga12}
+\end{equation}
+which states that net investment equals gross investment $sY_t$ minus depreciation $\delta K_t$. Considering continuous time, we have
+\begin{equation}
+    \dot{\kappa}=s\kappa^{\alpha}-\left(\delta+\Tilde{g}(\kappa)\right)\kappa.
+\end{equation}
+The steady state, at which $\dot{\kappa}=0$, is characterized by Figure \ref{kgss}.
+
+\newpage
+\chapter{Finance and Growth}
+So far, we have not yet focused the role of financial institutions in an economy. Idealized models do not consider that, while, in this case, frictions should be considered. In the \textit{Handbook of Economic Growth}, Ross Levine (2005, p. 868) summarizes as follows the existing research on this topic:
+
+\textit{Taken as a whole the bulk of existing research suggests that (1) countries with better functioning banks and markets grow faster; (2) simultaneity bias does not seem to drive these conclusion, and (3) better functioning financial systems ease the external financing constraints that impede firm and industrial expansion, suggesting that this is one mechanism through which financial development matters for growth.}
+
+From this chapter, we will start considering adding constraints to an economy.
+
+\section{Schumpeterian Growth Framework: Ex Ante Screening}
+\subsection{Model Setup}
+The model is almost identical to what we have seen in chapter 4, except for two changes. The first is that individuals now live for two periods instead of one. In the first period of life an individual works in the final-good sector. In the second period she may become an entrepreneur and/or an intermediate monopolist, and if she becomes an entrepreneur she may use the wage earned in the first period to finance research.
+
+The economy has a fixed population $L$, which can be normalized to unity. Everyone is endowed with one unit of labour in the first period and none in the second, and is risk-neutral. The production function is
+\begin{equation}
+    Y_t=L^{1-\alpha}\int^1_0 A_{it}^{1-\alpha}x_{it}^{\alpha}di,\ \ 0<\alpha<1\label{fn01}
+\end{equation}
+where $x_{it}$ is the input of the latest version of intermediate good $i$. 
+
+The second different is that we suppose now that the starting technology in any given sector $i$ at date $t$ does not have the productivity parameter $A_{i,t-1}$ of that sector last period; instead it has the average $A_{t-1}=\int^1_0A_{i,t-1}di$ across all sectors last period. So an entrepreneur that succeeds in innovating will have the productivity parameter $A_{it}=\gamma A_{t-1}$ where $\gamma >1$ is the size of innovations, while the monopolist in a noninnovating sector will have $A_{it}=A_{t-1}$.\footnote{Why this assumption? Let's see.}
+
+Let $\mu$ be the probability that an innovation occurs in any sector $i$ at time $t$. Then a fraction $\mu$ of sectors will have productivity $\gamma A_{t-1}$ while the remaining fraction will have $A_{t-1}$. The average across all sectors will therefore be
+\begin{equation}
+    A_t=\mu\gamma A_{t-1}+(1-\mu)A_{t-1}\nonumber
+\end{equation}
+implying that the growth rate of average productivity is
+\begin{equation}
+    g=\frac{A_t-A_{t-1}}{A_{t-1}}=\mu(\gamma-1).\label{fn02}
+\end{equation}
+
+Each monopoly faces the price
+\begin{equation}
+    p_{it}=\alpha A_{it}^{1-\alpha} x_{it}^{\alpha-1}\nonumber
+\end{equation}
+and the equilibrium profit is
+\begin{equation}
+    \Pi_{it}=\pi A_{it}\nonumber
+\end{equation}
+where $\pi:=(1-\alpha)\alpha^{\frac{1+\alpha}{1-\alpha}}$, and the gross output will be
+\begin{equation}
+    Y_t=\phi A_t,\ \ \ \phi=\alpha^{\frac{2\alpha}{1-\alpha}}\label{fn03}
+\end{equation}
+and the economy's GDP will also be proportional to the average productivity parameter $A_t$ and the growth rate will be $g$.
+
+\subsection{Innovation Technology and Growth without Credit Constraint}
+Assume that 
+\begin{equation}
+    \mu=\Phi\left(\frac{R_t}{A_t^*}\right)=\lambda\left(\frac{R_t}{A_t^*}\right)^{\frac{1}{2}},\ \ \ \lambda>0.\label{fn04}
+\end{equation}
+It follows that the R\&D cost of innovating with probability $\mu$ is equal to 
+\begin{equation}
+    R_t=A_t^*\psi\frac{\mu^2}{2}\label{fn05}
+\end{equation}
+where $\psi=\frac{2}{\lambda^2}$ is a parameter that measures the cost of innovation.
+
+The profit\footnote{I find this problematic as well as in \ref{sch09}. The expected profit is $\mu_t\Pi_t^*+(1-\mu_t)\Pi_t$, which is different, and leads to different equilibria. In that case, $\mu=\frac{\pi(\gamma-1)}{\gamma\psi}$. But this $\mu$ increases with $\gamma$, which is quite counter-intuitive, since as the size of innovation increases, $\mu$ should be smaller.} maximization problem is\footnote{In the original book, the optimization problem is with respect to $\mu$. Although the two problems generate the same solution, I think it is inappropriate to optimize the probability from the perspective of a firm. What it can do is just to optimize the research input. The coincidentally, we note that $\mu$ is a constant, but note by optimization.}
+\begin{equation}
+    \max_{R_t}\mu\pi A_t^*-R_t.\label{fn06}
+\end{equation}
+The equilibrium research investment should be \footnote{I figured it out why there is no such $(1-\mu)$ term. As long as one does not successfully innovate, she will not be the monopolist in that period. This means that, in the monopoly context, she will not produce anything, therefore the expected profit is $\mu\left(\Pi^*-R_t\right)+(1-\mu)(-R_t)=\mu\Pi^*-R_t$. An alternative explanation is that if no innovation is achieved, then the monopoly will not hold, and the market will become perfectly competitive. In a perfectly competitive market, all the firms have zero profit.}
+\begin{equation}
+    R_t=\frac{1}{4}\lambda^2\pi^2A_t^*\nonumber
+\end{equation}
+which results into the probability being a constant
+\begin{equation}
+    \mu=\frac{\pi}{\psi}.\label{fn07}
+\end{equation}
+Hence, by equation \ref{fn02}, the equilibrium growth rate is
+\begin{equation}
+    g=\frac{\pi}{\psi}(\gamma-1)\nonumber
+\end{equation}
+which is identical to the equilibrium growth rate of the model in chapter 4.
+
+\subsection{Credit Constraints: A Model with Ex Ante Screening}
+Each innovator at date $t$ is a young person with access to the wage income $w_{t-1}$. thus to invest $R_t$ in an R\&D project she must borrow $B=R_t-w_{t-1}$, which we suppose is strictly positive, from a lender. We now introduce a cost of borrowing. Suppose (following King and Levine 1993) that in addition to the entrepreneurs in our model there are other people seeking to finance projects that are in fact not feasible under any circumstances. Then the bank must pay a cost to screen loan applications, since a loan to someone with an infeasible project will not be repaid.
+
+Let $\theta$ be yhe probability that a borrower coming to a bank is capable (has a feasible project), while $1-\theta$ is the probability that the borrower's project will yield no payoff at all. A bank can determine whether or not a given project is feasible by paying a cost equal to $fR_t$ units of the final good. Then it will require a repayment of $\frac{fR_t}{\theta}$ from each feasible project in order to break even, and the combined payoff to an entrepreneur and her bank\footnote{Here, my understanding is that the bank is kind of an "exogenous" agent. By the break-even condition, the bank is in its own equilibrium.} will be the expected profit of a successful innovation minus the $R\&D$ cost and the screening cost:
+\begin{equation}
+    \mu\pi A_t^*-R_t-\frac{fR_t}{\theta}.\nonumber
+\end{equation}
+This maximization problem solves as
+\begin{equation}
+    \mu=\frac{\pi}{\left(1+\frac{f}{\theta}\psi\right)}.\nonumber
+\end{equation}
+Then the growth rate is
+\begin{equation}
+    g=\frac{\pi}{\left(1+\frac{f}{\theta}\psi\right)}(\gamma-1).\nonumber
+\end{equation}
+Note that the higher the screening cost $f$, the lower will be the frequency of innovations and the lower will be the equilibrium growth rate. Countries with more efficient banks should have a lower $f$ and hence a higher growth rate.
+
+\section{Schumpeterian Growth Framework: Ex Post Screening}
+\subsection{Credit Multiplier and R\&D Investment}
+Suppose now that what makes it difficult to borrow is that the borrower might default. The monitor from the bank will make default more costly, but it is still possible. Specifically, by paying a cost $hR_t$, where $0<h<1$, the entrepreneur can hide the result of a successful innovation and thereby avoid repaying. The cost parameter $h$ is an indicator of the bank's effectiveness in monitoring; a well-functioning bank makes fraud very difficult, which makes $h$ higher. It also reflects the effectiveness of legal institutions in protecting creditors' rights.
+
+The entrepreneur must pay the hiding cost at the beginning of the period, when she decides whether or not to be dishonest. She will hide if the following \textit{incentive-compatibility constraint} is violated
+\begin{equation}
+    hR_t\geq \mu_t(R_t)\Gamma(R_t-w_{t-1})\label{fn08}
+\end{equation}
+where $\Gamma>1$ is the interest factor on the loan. The right hand side of equation \ref{hn08} is the expected saving from deciding to be dishonest, that is, by being dishonest you can avoid making the repayment, which is the interest factor $\Gamma$ times the loan amount, in the event the project succeeds, which happens with probability $\mu$.
+
+The only possible lender in this OLG model are other young people, who will lend only if the expected repayment equals the loan amount. Thus, even though there is no time cost to the project, there will be a positive interest factor on the loan, given by the arbitrage condition
+\begin{equation}
+    \mu_t(R_t)\Gamma =1\nonumber
+\end{equation}
+which states that for every dollar lent out, the expected repayment must equal one. Using this arbitrage condition to substitute for $\Gamma$, by equation \ref{fn08},
+\begin{equation}
+    R_t\leq \frac{1}{1-h}w_{t-1}=vw_{t-1}=\hat{R}_t.\label{fn09}
+\end{equation}
+The parameter $v$ is referred to as the \textit{credit multiplier}. A higher cost of hiding, $h$, implies a larger credit multiplier.\footnote{This makes sense. A higher $h$ implies that it is harder to hide the innovation. Therefore, the probability of repayment is higher so that it is easier to borrow more money. Then the upper bound of the research investment goes up. Hence, we can interpret the credit multiplier as the measure of the credit of the borrower. If it is higher, then it is more unlikely for the borrower to default.}
+
+\subsection{Innovation and Growth under Binding Credit Constraint}
+The constraint \ref{fn09} will be binding if $\hat{R}_t$ is less than the R\& D cost of achieving the innovation probability \ref{fn07} that would be undertaken in the absence of financial constraints, given the cost function \ref{fn05};
+\begin{equation}
+    vw_{t-1}<\gamma A_{t-1}\frac{\pi^2}{2\psi}.\label{fn10}
+\end{equation}
+Note that $w_{t-1}$ is the MPL at time $t-1$:
+\begin{equation}
+    w_{t-1}=\omega A_{t-1}\nonumber
+\end{equation}
+where $\omega=(1-\alpha)\phi$. Thus we can rewrite condition \ref{fn10} as
+\begin{equation}
+     v<\frac{\gamma\pi^2}{2\psi\omega}.\label{fn11}
+\end{equation}
+It follows that entrepreneurs are less likely to face a credit constraint when either financial development is higher, as measured by $v$, or entrepreneurs' initial wealth $\omega$ as a fraction of aggregate output is higher.
+
+Whenever \ref{fn11} holds, we can only implement $\hat{R}_t=vw_{t-1}=v\omega A_{t-1}$. Substituting this to equations \ref{fn04} and using the definition \ref{fn02}, we have
+\begin{equation}
+    g^h=(\gamma-1)\sqrt{\frac{2v\omega}{\gamma\psi}}.\nonumber
+\end{equation}
+Note that the growth rate is monotonically increasing in the financial development measured by $v$ and in entrepreneur's wealth measured by $\omega$.
+
+Note that with the credit constraint, $\pi$ does not enter the growth rate. Although a higher profit rate would make entrepreneurs want to do more research, but this does not affect the incentive-compatibility constraint \ref{fn08}, thus does not make the lenders more willing to lend money.
+
+
+\section{Credit Constraints, Wealth Inequality, and Growth}
+One important role of finance is to change the relationship between inequality and growth, and this effect can go to either direction.
+\subsection{Diminishing MPK: Benabou Model}
+The credit market allows the separation between the ownership and the employment of the capital. Those who own little capital can borrow from those who own a lot. Credit constraints impede this process and are thus detrimental to growth. In this Benabou (1996) model, credit constraints generate a negative relationship between wealth inequality and growth. 
+
+Assume that there are $N$ individuals in the economy, each of whom owns $e_j$ units of capital. So the aggregate capital is $K_t=\displaystyle \sum^N_{j=1}e_j$. Each produces final output according to the following production function
+\begin{equation}
+    y_j=\bar{A}k_j^{\alpha},\ \ \ 0<\alpha<1\nonumber
+\end{equation}
+where $k_j$ is how much capital one individual employs. Hence an individual can either borrow $k_j-e_j$ or employ less than or equal to her ownership of capital.
+
+Because of knowledge spillovers, the productivity parameter $\bar{A}$ that each producer takes as given depends on the aggregate capital stock according to
+\begin{equation}
+    \bar{A}=A_0K_t^{1-\alpha}.\nonumber
+\end{equation}
+The growth in capital is
+\begin{equation}
+    K_{t+1}-K_t=sY_t+\delta K_t.\nonumber
+\end{equation}
+
+Assume that there is an unequal wealth distribution, that is, $e_j$ varies across individuals. Due to diminishing MPK, there is an incentive for those with more capital to lend to the others. Given the aggregate production function:
+\begin{equation}
+    Y_t=\bar{A}\sum^N_{j=1}k_j^{\alpha}\label{fn12}
+\end{equation}
+$k_j=\frac{K_t}{N}$ maximizes the aggregate output subject to the constraint $K_t=\displaystyle \sum^N_{j=1}k_j$.
+
+To introduce the credit transfer, assume that each individual $j$ cannot employ more than $\bar{k}_j=ve_j$, where $v>1$ is the credit multiplier. When $v=\infty$, the market is perfect and the individual faces no credit constraint. On the contrary, when $v=1$, borrowing is not available.\\
+
+\textbf{No constraint: $v=\infty$}
+
+In this case, there will be a common interest rate $r$ at which people can borrow or lend all the capital they want. An individual's income will be the amount produced minus the cost of borrowing or plus the interest income from lending
+\begin{equation}
+    \bar{A}k_j^{\alpha}-r(k_j-e_j)\nonumber
+\end{equation}
+which gives the FOC:
+\begin{equation}
+    \alpha\bar{A}k_j^{\alpha-1}-r=0.\nonumber
+\end{equation}
+Therefore, all the producers will produce the same amount\footnote{Recall that in the maximization problem \ref{fn12}, if we assume that the Lagrange multiplier is $\lambda$, then the FOC will give
+\begin{equation}
+    k_j=\left(\frac{\alpha\bar{A}}{\lambda}\right)^{\frac{1}{1-\alpha}}.\nonumber
+\end{equation}
+We can thus interpret the Lagrange multiplier as the interest rate. } with
+\begin{equation}
+    k_j=\left(\frac{\alpha\bar{A}}{r}\right)^{\frac{1}{1-\alpha}}.\nonumber
+\end{equation}
+This equality across individuals echos with the previous conclusion that $k_j=\frac{K_t}{N}$.
+
+The aggregate output is given by
+\begin{equation}
+    Y_t=\bar{A}N\left(\frac{K_t}{N}\right)^{\alpha}=AK_t\nonumber
+\end{equation}
+where $A=A_0N^{1-\alpha}$, and the growth rate of capital and output will both equal 
+\begin{equation}
+    g=sA-\delta.\nonumber
+\end{equation}
+
+\textbf{No borrowing: $v=1$}
+As in our analysis, if $k_j=e_j$, then
+\begin{equation}
+    Y_t<AK_t\nonumber
+\end{equation}
+and the growth rate will be
+\begin{equation}
+    g=\frac{sY_t-\delta K_t}{K_t}<sA-\delta.\nonumber
+\end{equation}
+
+It turns out that when capital markets are perfect, policies that redistribute wealth have no direct effect on growth, because the employment of capital is always equalized in the marketplace even if ownership is not. But when credit constraints are so severe as to eliminate borrowing, wealth redistribution that reduces inequality of ownership will raise growth by reducing the inequality of employment.
+
+\subsection{Productivity Differences: Kunieda Model}
+More realistically, people have different productivity. In this case, the more productive individuals want to borrow from the less productive ones. This idea is based on Kunieda (2008). In this model, consider $\alpha=1$, i.e., no diminishing MPK.
+
+The production function is given by
+\begin{equation}
+    y_j=\tau_jk_j\nonumber
+\end{equation}
+where the individual productivity parameters $\tau_j$ vary across individuals, with
+\begin{equation}
+    \tau_1>\tau_2>\cdots>\tau_N.\nonumber
+\end{equation}
+The producers will choose to employ the amount $k_j$ that maximize his profit
+\begin{equation}
+    \tau_jk_j-r(k_j-e_j)\label{fn13}
+\end{equation}
+subject to the credit constraint
+\begin{equation}
+    k_j\leq ve_j.\nonumber
+\end{equation}
+
+The solution to this constrained problem is described as such
+\begin{enumerate}[(1)]
+    \item If $\tau_j>r$, then borrow as much as she can, that is, choose $k_j=ve_j$.
+    \item If $\tau_j<r$, then do not borrow, that is, choose $k_j=0$.
+    \item If $\tau_j=r$, then the individual will be indifferent.
+\end{enumerate}
+
+Equilibrium in the capital market requires total employment to equal the aggregate stock of capital $K_t$. this is achieved by an equilibrium rate of interest that equals the productivity parameter $\tau_m$ of some marginal producer $m$. All individuals $j<m$ will fall into case 1 and all individuals $j>m$ will fall into case 2. Aggregate employment will equal the marginal producer;s employment plus the maximal amount that all those in case 1 can employ, so the equilibrium condition is\footnote{Define $e_0=0$ so that the summation makes sense when $m=1$.}
+\begin{equation}
+    k_m+v\sum^{m-1}_0 e_j=K_t.\label{fn14}
+\end{equation}
+
+Since the marginal producer is in case 3, we need 
+\begin{equation}
+    0\leq k_m\leq ve_m.\label{fn15}
+\end{equation}
+Therefore, the market equilibrium\footnote{In my opinion, the interest rate $r$ should not be treated as given. It is endogenously determined by the borrowing and lending in the capital market such that what all the case 1 individuals borrow in total is just the aggregate endowment case 2 individuals can lend. This may be part of the micro foundation for this model. Maybe the following content can answer this problem.} requires
+\begin{equation}
+    \sum^{m-1}_0e_j\leq \frac{K_t}{v}\leq \sum^m_o E_j.\label{fn16}
+\end{equation}
+Condition \ref{fn16} says that the employment by those individuals more productive than $m$ cannot exceed $K_t$ and that if $m$ were to employ the maximal amount allowed by the credit constraint then employment would be at least $K_t$. The condition determines the identity of the marginal producer $m$ because there is almost always just one value of $m$ for which it can hold. 
+
+Suppose first that the most productive individual has no spare borrowing capacity, which happens if $K_t\geq ve_1$ and $m>1$. In this case, all the producers $j<m$ who are more productive than the marginal producer will have to reduce employment when $v$ falls, while the marginal producer takes up the slack, unless the marginal producer does not have enough wealth to borrow that much extra capital, in which case someone even less productive will become the new marginal producer. By reallocating capital from more productive to less productive individuals, this tightening of credit will reduce total output.
+
+More specifically, total output in this case is
+\begin{equation}
+    Y_t=\tau_mk_m+\sum^{m-1}_0\tau_jk_j=\tau_mk_m+v\sum^{m-1}\tau_je_j\nonumber
+\end{equation}
+which together with the market-clearing condition \ref{fn14} implies
+\begin{equation}
+    y_t=\tau_mK_t+v\sum^{m-1}_0(\tau_j-\tau_m)e_j\nonumber
+\end{equation}
+so we have
+\begin{equation}
+    \frac{\partial Y_t}{\partial v}=\sum^{m-1}(\tau_j-\tau_m)e_j>0.\nonumber
+\end{equation}
+
+Now consider $K_t\leq ve_1$. Then clearly, $Y=\tau_1K_t$. In either case, the growth rate will be
+\begin{equation}
+    g=s\left(\frac{Y_t}{K_t}\right)-\delta\nonumber
+\end{equation}
+so a reduction in the credit multiplier will reduce growth by reducing $Y_t$, except in the case where the most productive individual has spare borrowing capacity, in which case $g=s\tau_1-\delta$, which is independent of the credit multiplier.
+
+
+\newpage
+\chapter{Technology Transfer and Cross-Country Convergence}
+Among the economies in the world, we observe the phenomenon of "club convergence", that is, countries in this club tend to have similar long-run growth rate, while low-income countries which are outside this club have different long-run growth rate. This phenomenon poses question to both the neoclassical theory and the $AK$ model: the former implies that all the countries should be in this club, while the latter implies that there should not exist such a club.
+
+However, the Schumpeterian theory can account for this "club convergence" by taking into account the phenomenon of "technology transfer" and the related idea of "distance to the frontier", and we will focus on these phenomena in this chapter.
+
+\section{A Model of Club Convergence}
+\subsection{Model Setup}
+The model is the same as in Chapter 4 expect for the specification of innovation technology. Assume that the production function is
+\begin{equation}
+    Y_t=L^{1-\alpha}\int^1_0 A_{it}^{1-\alpha}x_{it}^{\alpha} di.\nonumber
+\end{equation}
+Normalize labour to unity. The price of the intermediate good equals its marginal product. Hence,
+\begin{equation}
+    p_{it}=\alpha A_{it}^{1-\alpha}x_{it}^{\alpha-1}.\nonumber
+\end{equation}
+
+The profit is
+\begin{equation}
+    \Pi_{it}=p_{it}x_{it}-x_{it}\nonumber
+\end{equation}
+and profit maximization leads to
+\begin{equation}
+    x_{it}=\alpha^{\frac{2}{1-\alpha}}A_{it},\ \ \ \ \Pi_{it}=A_{it}\pi\nonumber
+\end{equation}
+where $\pi=(1-\alpha)\alpha^{\frac{1+\alpha}{1-\alpha}}$.
+
+The probability of success $\mu$ is an increasing function $\phi(n)$ where $n=\frac{R_{it}}{A_{it}^*}$, $R_{it}$ her R\& D expenditure and $A_{it}^*$ her target productivity level. Her expected payoff is
+\begin{equation}
+    \mu\Pi_{it}-R_{it}=[\mu\pi-\Tilde{n}(\mu)]A_{it}\label{0701}
+\end{equation}
+where $\Tilde{n}(\mu)$ is her productivity-adjusted R\& D cost -- the value of $n$ such that $\phi(n)=\mu$.
+
+\subsection{Innovation}
+Recall that in the original model, we assume that $\phi'(n)$ becomes infinite when no research is done. This is equivalent to say that the marginal cost $\Tilde{n}'(\mu)=0$ when $\mu=0$. \footnote{Just consider then as inverse functions, and this makes sense.} This assumption rules corner solution out. For example, in the previous chapter, in condition \ref{fn05}, we assumed $\Tilde{n}(\mu)=\psi\frac{\mu^2}{2}$ where $\psi=\frac{2}{\lambda^2}$ is a parameter measuring the cost of innovation.
+
+To allow for the possibility that some countries might do no research, we need to drop this assumption by letting
+\begin{equation}
+    \Tilde{n}(\mu)=\eta\mu+\psi\frac{\mu^2}{2}\label{0702}
+\end{equation}
+where both parameters $\eta$ and $\psi$ are strictly positive. The marginal cost is now
+\begin{equation}
+    \Tilde{n}'(\mu)=\eta+\psi\mu\nonumber
+\end{equation}
+which is strictly positive even when $\mu=0$. By maximizing \ref{0701}\footnote{Maximization w.r.t. $\mu$. Therefore, consider the FOC w.r.t. $mu$. This derivative is decreasing with $\mu$, so at $\mu=1$, we must already have negative derivative, otherwise the optimization will happen at some value larger than 1.}, we impose the condition
+\begin{equation}
+    \eta+\psi<\pi\nonumber
+\end{equation}
+so as to ensure that the equilibrium possibility of innovation is less than 1.
+
+Consider two possible cases
+\begin{enumerate}
+    \item If $\eta<\pi$, then the solution is $\mu=\frac{\pi-\eta}{\psi}>0$.
+    \item If $\pi\leq\eta$, then there is no strictly positive solution. In this case, we set $\mu=0$.
+\end{enumerate}
+
+\subsection{Productivity and Distance to Frontier}
+Assume that a successful innovator in any sector gets to implement a technology with a productivity parameter equal to a level $\bar{A}_t$, which represents the world technology frontier and which grows at a rate $g$ determined outside the country. Therefore, each productivity parameter $A_{it}$ will evolve according to 
+\begin{equation}
+    A_{it}=\left\{\begin{array}{ll}
+        \Bar{A}_t & \text{with probability}\ \mu \\
+        A_{i,t-1} & \text{with probability}\ 1-\mu 
+    \end{array}\right.\nonumber
+\end{equation}
+The idea here is that domestic R\&D makes use of ideas developed elsewhere in the world.
+
+It follows that the country's expected productivity parameter $A_t=\int^1_0A_{it}di$ will evolve according to
+\begin{equation}
+    A_t=\mu\Bar{A}_t+(1-\mu)A_{t-1}.\label{0703}
+\end{equation}
+
+The country's distance to the world technology frontier is measured inversely by the ratio of its average productivity parameter to the global frontier:
+\begin{equation}
+    a_t=\frac{A_t}{\bar{A}_t}.\nonumber
+\end{equation}
+This ratio is called the country's \textit{proximity} to the frontier. Dividing both sides of equation \ref{0703} by $\bar{A}_t$, we note that
+\begin{equation}
+    a_t=\mu+\frac{1-\mu}{1+g}a_{t-1}.\label{0704}
+\end{equation}
+The unique steady-state proximity $a^*$ in equation \ref{0704} is
+\begin{equation}
+    a^*=\frac{(1+g)\mu}{g+\mu}\label{0705}
+\end{equation}
+
+\subsection{Convergence and Divergence}
+The results of the model are as follows.\\
+\textbf{Result 1: All countries with $\pi>\eta$ will grow at the same rate in the long run.}
+
+Note that by equation \ref{0703}
+\begin{equation}
+    g_t=\frac{A_t}{A_{t-1}}-1=(1+g)\frac{a_t}{a_{t-1}}-1=\mu\left(\frac{1+g}{a_{t-1}}-1\right)=\mu(\bar{\gamma}-1).\nonumber
+\end{equation}
+Note that smaller $a_{t-1}$ leads to a higher $g_t$, that is, a further-behind country will have higher growth rate. This fact limits how far behind the frontier a country can fall, because eventually it will get so far behind that its growth rate will be just as large as the growth rate of the frontier, at which point the gap will stop increasing.
+
+This result becomes valid since $\mu>0$ so that the steady-state proximity is strictly positive. Note that the long-run growth rate will be the growth rate $g$ of the world productivity frontier:
+\begin{equation}
+    \frac{A_{t+1}}{A_t}=\frac{a^*\bar{A}_{t+1}}{a^*\bar{A}_t}=\frac{\bar{A}_{t+1}}{\bar{A}_t}=1+g.\nonumber
+\end{equation}
+
+However, we also have the following result.\\
+
+\noindent \textbf{Result 2: All countries with $\pi\leq\eta$ will stagnate in the long run.}
+
+This result is because $\mu=0$, thus $a^*=0$. This may be due to poor macroeconomic conditions, legal environment, education system, or credit markets. These countries will not innovate in equilibrium, and therefore they will not benefit from technology transfer, but will instead stagnate.
+
+These two results, together, explain why there is a club convergence and another group falling further and further behind. Note that even countries that are converging to parallel growth paths are not necessarily converging in levels, that is, one country's steady-state proximity to the frontier \ref{0705} can differ from another's if they have different values of the critical parameters $\pi$, $\eta$, and $\psi$.\\
+
+\noindent \textbf{Result 3: For countries with $\pi>\eta$, $a^*$ is increasing in $\pi$ and decreasing in $\eta$ and $\psi$.}
+
+By equation \ref{0705} and the solution to $\mu$, we have
+\begin{equation}
+    a^*=\frac{1+g}{\frac{\psi g}{\pi-\eta}+1}.\nonumber
+\end{equation}
+This is quite intuitive. If $\eta$ and $\psi$ are decreasing, that is, the cost parameters are smaller, then the innovation motivation will be stronger, and the economy will start to grow faster for a while. as it approaches closer to the frontier, the fact that its size of innovations is getting smaller will bring its growth rate back to $g$, but the end result will be that it is now permanently closer to the frontier. This result helps us to account for the fact that there are systematic and persistent differences across countries in the level of productivity, that is, \textit{convergence in levels in not absolute but conditional}.\\
+
+\noindent \textbf{Result 4: For countries with $\pi>\eta$, $a^*$ is decreasing in $g$.}
+
+By equation \ref{0705}, we have
+\begin{equation}
+    \frac{\partial a^*}{\partial g}=\frac{\mu^2-\mu}{(g+\mu)^2}<0.\nonumber
+\end{equation}
+This result says that a speedup of the global frontier will result in a spreading out of the cross country productivity distribution. There may be some time when a speedup in world technology growth associated with the spread of scientific methodology and its application to industrial R\&D. Countries that did not take part directly in this change (those whose parameter values remained the same) eventually benefited from technology transfer at an increased rate, but only after they fell behind further.
+
+
+\section{Credit Constraints as a Source of Divergence}
+Suppose the research aimed at making an innovation in $t$ must be done at period $t-1$. Assume the financial market is imperfect. Then an entrepreneur may face a borrowing constraint that limits her investment to a fixed multiple $v$ of her accumulated net wealth. 
+
+Assume a two-period OLG structure in which the accumulated net wealth of a entrepreneur at $t$ is her wage income $w_{t-1}$. So she cannot spend more than $vw_{t-1}$ in research. With a targeting productivity $\bar{A}_t$ and innovation probability upper bound $\bar{\mu}_t$, where
+\begin{equation}
+    \Tilde{n}\left(\bar{\mu}_t\right)\bar{A}_t=vw_{t-1}.\label{0706}
+\end{equation}
+
+The wage is the marginal product of labour:
+\begin{equation}
+    w_{t-1}=\omega A_{t-1}.\nonumber
+\end{equation}
+Dividing $\bar{A}_t$ on both sides of equation \ref{0706} yields
+\begin{equation}
+    \Tilde{n}\left(\bar{\mu}_t\right)=\bar{\omega}va_{t-1}\label{0707}
+\end{equation}
+where $\bar{\omega}=\frac{\omega}{1+g}$.
+
+Using specification \ref{0702}, we have
+\begin{equation}
+    \bar{mu}_t=\phi(va_{t-1})=\frac{\sqrt{2\psi \bar{\omega}va_{t-1}+\eta^2}-\eta}{\psi}.\nonumber
+\end{equation}
+Note that the function is increasing in both $v$ and $a_{t-1}$, and is zero when $v=0$ or $a_{t-1}=0$.
+
+Recall in the previous section that the equilibrium innovation rate is $\mu=\frac{\pi-\eta}{\psi}$. The credit constraint is binding when $\bar{\mu}_t<\mu$. In this case, 
+\begin{equation}
+    a_t=\phi(va_{t-1})+\frac{1-\phi(va_{t-1})}{1+g}a_{t-1}:=H\left(a_{t-1}\right).\label{0708}
+\end{equation}
+Note that
+\begin{equation}
+    H'<0, H''>0, H(0)=0, \text{and}\ H(1)<1\nonumber
+\end{equation}
+
+If the multiplier is large enough so that $H'(0)>1$, that is, when
+\begin{equation}
+    v\phi'(0)>\frac{g}{1+g}.\label{0709}
+\end{equation}
+
+
+
+
+Let $a^*$ be the non-degenerate steady state. Then the country will converge to a positive steady state $a^*$. Similar to the previous section, it will be part of the convergence club with a long-run growth rate equal to $g$. Moreover, its steady-state proximity is increasing in the credit multiplier $v$ because an increase in $v$ would shift $H$ function upward. The result is shown in Figure \ref{tt0701}.
+
+
+However, if $H'(0)\leq 1$, then the country will converge to the degenerate steady state with $a=0$. In this case the country's growth rate will fall not to zero but to a rate $g^h$ between $0$ and $g$, a rate positively depending on the credit multiplier $v$. The result is shown in Figure \ref{tt0702}.
+
+
+
+
+\newpage
+\chapter{Market Size and Directed Technical Change}
+In previous chapters, we focused on various innovation-based growth settings. In those settings, we assume homogeneous innovation frequency in all intermediate sectors. However, in the real world, this seldom happens. In this chapter, we will investigate one of the reasons, market size. Intuitively, larger sectors are more motivated to innovate because the innovators have a larger market there.
+\section{Market Size in Drugs}
+Consider a small open economy in discrete time. The economy is populated by one-period-lived individuals. Each period, there are two kinds of individuals, indexed by $j\in\{1,2\}$. there are three goods in the economy: a basic good that everyone needs to consume and two types of drugs, also indexed by $j\in\{1,2\}$. Each drug is produced one for one using the basic good. Group $j$ only cares for drug $j$. Let $A_{jt}$ denote the quality of drug $j$ at date $t$, and $x_{jt}$ the quantity of drug $j$ produced at date $t$.
+
+An individual $i$ who belongs to group $j$ derives utility from consuming the final good and the drug, according to
+\begin{equation}
+    U_{it}=c_{it}^{1-\alpha}\left(A_{jt}x_{ijt}\right)^\alpha\nonumber
+\end{equation}
+where $c_{it}$ is individual $i$'s consumption of the basic good and $x_{ijt}$ is her consumption of drug $j$ at date $t$.
+
+Let $y_{it}$ denote individual $i$'s income at date $t$, and let $p_{jt}$ denote the price of drug $j$ at date $t$, both measured in units of final good. Utility maximization under budget constraint 
+\begin{equation}
+    c_{it}+p_{jt}x_{ijt}\leq y_{it}\nonumber
+\end{equation}
+implies that the individual will always spend a fraction $\alpha$ of her income on the drug:
+\begin{equation}
+    x_{ijt}=\alpha\frac{y_{it}}{p_{jt}}.\label{0801}
+\end{equation}
+Summing over all individuals in group $j$ yields the total demand for drug $j$
+\begin{equation}
+    X_{jt}=\alpha\frac{Y_{jt}}{p_{jt}}\label{0802}
+\end{equation}
+where $Y_{it}=\sum_{i\in J}y_{it}$.
+
+Drug producers may invest in R\&D targeted at a particular drug in hopes of capturing the market from potential competitors. Each innovation in drug $j$ increases its quality $A_j$ by a multiplicative factor $\gamma>1$. It takes
+\begin{equation}
+    R_{jt}=\psi_j\frac{\mu_{jt}^2}{2}\nonumber
+\end{equation}
+units of basic good invested in R\&D targeted at drug $j$ at date $t$ to generate an innovation with probability $\mu_{jt}$, where $\psi_j>0$ is an inverse measure of the productivity of the innovation technology in drug $j$.
+
+The profit is
+\begin{equation}
+    \Pi_{jt}=p_{jt}X_{jt}-X_{jt}=(p_{jt}-1)\alpha\frac{Y_{jt}}{p_{jt}}=\frac{\gamma-1}{\gamma}\alpha Y_{jt}.\nonumber
+\end{equation}
+Now we maximize the expected payoff of the innovator
+\begin{equation}
+    \max_{\mu_{jt}}\left\{\mu_{jt}\frac{\gamma-1}{\gamma}\alpha Y_{jt}-\psi_j\frac{\mu_{jt}^2}{2}\right\}\nonumber
+\end{equation}
+which yields
+\begin{equation}
+    \mu_{jt}=\frac{\gamma-1}{\gamma}\alpha\frac{Y_{jt}}{\psi_j}.\nonumber
+\end{equation}
+
+In particular, the higher the relative market size is for drug $j$, as measured by $Y_{jt}$, or the higher the productivity of R\&D on drug $j$, as measured inversely by $\psi_j$, the higher the flow of innovations in that drug at date $t$.
+
+\section{Wage Inequality}
+\subsection{Basics}
+The final output consists of two distinct final goods: a skill-intensive good $X_s$ and a labour-intensive good $X_u$, both produced under perfect competition. the skill-intensive good is produced using \textit{skilled} labour $L_s$ and a continuum of specialized intermediate products $(x_{is})$, while the labour-intensive good is produced using \textit{unskilled} labour $L_u$ and a different continuum specialized intermediate inputs $(x_{iu})$, according to
+\begin{equation}
+    X_s=\int^1_0 A_{is}x_{is}^{\alpha}di\cdot L_s^{1-\alpha};\ \ \ \ X_u=\int^1_0 A_{iu}x_{iu}^{\alpha}di\cdot L_u^{1-\alpha}.\nonumber
+\end{equation}
+
+Assume that the local monopolist in each intermediate sector can produce one unit at no cost, but cannot produce any more than one unit at any cost. So in equilibrium we will have $x_{is}=x_{iu}=1$, which allows us to rewrite the final output production functions as \footnote{Very strange assumption. I guess this assumption comes because the intermediate sectors are not the focus for this model. So we can just "normalize" it.}
+\begin{equation}
+    X_s=A_sL_s^{1-\alpha};\ \ \ \ X_u=A_uL_u^{1-\alpha}\label{0803}
+\end{equation}
+where $A_k=\int A_{ik}di, k\in\{s,u\}$ are the average productivity parameters. 
+
+The equilibrium wages are 
+\begin{equation}
+    w_s=\frac{P_s(1-\alpha)X_s}{L_s};\ \ \ \ w_u=\frac{P_u(1-\alpha)X_u}{L_u}\label{0804}
+\end{equation}
+where $P_s$ and $P_u$ are the two final-good prices.
+\subsection{Immediate Effect of Relative Supply on the Skill Premium}
+Define the \textit{skill premium} to be
+\begin{equation}
+    \frac{w_s}{w_u}=\left(\frac{P_sX_s}{P_uX_u}\right)\left(\frac{L_s}{L_u}\right)^{-1}\label{0805}
+\end{equation}
+
+In equilibrium, the relative price $\frac{P_s}{P_u}$ must equal to the marginal rate of substitution in demand between the two goods, which we suppose depends on the relative quantity $\frac{X_s}{X_u}$ according to\footnote{Recall that $MRS_{xy}=\frac{MU_x}{MU_y}$. Hence, this specification assumes to some degree the functional form of the utility.}
+\begin{equation}
+    \frac{P_s}{P_u}=\left(\frac{X_s}{X_u}\right)^{-v}, v>0\label{0806}
+\end{equation}
+where $v$ is an inverse measure of substitutability between the two goods.
+
+Then we have
+\begin{equation}
+    \frac{w_s}{w_u}=\left(\frac{A_s}{A_u}\right)^{1-v}\left(\frac{L_s}{L_u}\right)^{-1+(1-\alpha)(1-v)}\label{0807}
+\end{equation}
+According to equation \ref{0807}, an increase in education levels that raises the relative supply of skilled labour will always reduce the skill premium by making skilled labour less scarce. However, as time passes, there will be a "market-size" effect because the R\&D effort may be reallocated.
+
+\subsection{The Market-Size Effect on Relative Productivity}
+At the equilibrium of the final output, the monopoly producing the skill-intensive intermediate product will have the profit:\footnote{Note here the marginal product of $x_{is}$ is $\frac{\partial P_sX_s}{\partial x_{is}}$ with the price $P_s$ since in previous models, we were normalizing the prive of the final product to be 1.}
+\begin{equation}
+    \Pi_{is}=p_{is}x_{is}=p_{is}=\frac{\partial P_sX_s}{\partial x_{is}}=\alpha P_sA_sL_s^{1-\alpha}.\nonumber
+\end{equation}
+
+An entrepreneur chooses $n_s$ to maximize her expected payoff:
+\begin{equation}
+    \phi(n_s)\Pi_{is}-n_sA^*_i=A^*_i\left[\phi(n_s)\alpha P_sL_s^{1-\alpha}-n_s\right].\nonumber
+\end{equation}
+The FOC is
+\begin{equation}
+    \phi'(n_s)\alpha P_sL_s^{1-\alpha}=1.\nonumber
+\end{equation}
+Substituting the production function \ref{0803} yields
+\begin{equation}
+    \phi'(n_s)\alpha \frac{P_sX_s}{A_s}=1\label{0808}
+\end{equation}
+and the same analysis applies to the labour-intensive intermediate input
+\begin{equation}
+    \phi'(n_u)\alpha \frac{P_uX_u}{A_u}=1.\label{0809}
+\end{equation}
+
+Note that the expected growth rate of each $A_{is}$ will be
+\begin{equation}
+    g_s=(\gamma-1)\phi(n_s)\nonumber
+\end{equation}
+which by LLN, is also the growth rate of the aggregate productivity $A_s$. Same for $A_u$
+\begin{equation}
+    g_u=(\gamma-1)\phi(n_u).\nonumber
+\end{equation}
+
+The characterization of steady state is such that $\frac{A_s}{A_u}$ is a constant. This requires $g_s=g_u$ and thus $n_s=n_u$. By equation \ref{0808} and equation \ref{0809},
+\begin{equation}
+    \frac{A_s}{A_u}=\frac{P_sX_s}{P_uX_u}.\nonumber
+\end{equation}
+Using equations \ref{0806} and \ref{0803}, we have
+\begin{equation}
+    \frac{A_s}{A_u}=\left(\frac{L_s^{1-\alpha}}{L_u^{1-\alpha}}\right)^{\frac{1-v}{v}}.\label{0810}
+\end{equation}
+
+Therefore, if the two final goods are close substitutes, i.e., $v<1$, then an increase in skilled worker supply will have a long-run effect of raising the relative productivity of skill-intensive input. If this effect is large enough, then it will offset the immediate negative effect on the relative wage of the increase in skilled-worker supply. In particular, as $v\rightarrow 0$, $\left(\frac{L_s^{1-\alpha}}{L_u^{1-\alpha}}\right)^{\frac{1-v}{v}}\rightarrow \infty$.
+
+
+\section{Appropriate Technology and Productivity Differences}
+This section closely follows Gancia and Zilibotti (2005). Consider a world divided into North and South.
+
+\subsection{Basic Setup}
+Time is continuous and at each period the North produces a continuum of measure one of variety goods, under perfect competition. Variety goods are indexed by $i\in[0,1]$, and together they give rise to a composite final output final 
+$Y=e^{\int^1_0 \log y_i di}$, which is taken as a numeraire.
+
+Each variety good $i$ is produced using skilled labour, unskilled labour, and intermediate input used by each type of labour. Namely, intermediate inputs $(L,v)$ with $v$ in the interval $[0, A_L]$ are used by unskilled workers only, whereas intermediate inputs $(H,v)$ with $v$ in the interval $[0, A_H]$ are used by skilled workers only. 
+
+Overall, the production technology for producing variety $i$, is assumed to be
+\begin{equation}
+    y_i=\left[(1-i)l_i\right]^{1-\alpha}\int^{A_L}_0 x^{\alpha}_{l,v,i} dv+\left[ih_i\right]^{1-\alpha}\int^{A_H}_0 x^{\alpha}_{H,v,i} dv\label{0811}
+\end{equation}
+where $l_i$ and $h_i$ are the amounts of unskilled and skilled labour employed in sector $i$, and $x_{z,v,i}$ is the amount of intermediate input $v$ used in that sector.
+
+Note that sectors differ in productivities, $(1-i)$ for the unskilled technology and $i$ for the skilled technology, so that unskilled labour has a comparative advantage in sectors with a low index, whereas skilled labour has a comparative advantage in sectors with a high index.
+
+Producers of good $i$ take the price of their product, $P_i$, the price of intermediate inputs $(p_{L,v},p_{H,v})$ and wages $(w_L,w_H)$ as given. Profit maximization leads to the following demands of intermediate inputs:\footnote{Note that $\Pi_i=P_iy_i-\int^{A_L}_0p_{L,v}x_{L,v,i}dv-\int^{A_H}_0p_{H,v}x_{H,v,i}dv-w_Ll_i-w_Hh_i$. Since the wages and prices are exogenously given, we do not need to derive an equilibrium expression but only need to use them as constants. Profit maximization requires $\frac{\partial \Pi_i}{\partial x_{L,v,i}}=\frac{\partial \Pi_i}{\partial x_{H,v,i}}=0$. We will then have expressions \ref{0812}.}
+\begin{equation}
+    x_{L,v,i}=(1-i)l_i\left[\frac{\alpha P_i}{p_{L,v}}\right]^{\frac{1}{1-\alpha}}\ \ \ \ \text{and}\ \ \ \ ih_i=\left[\frac{\alpha P_i}{p_{H,v}}\right]^{\frac{1}{1-\alpha}}.\label{0812}
+\end{equation}
+
+Intermediate good sectors are monopolistic, and producing one unit of any intermediate input requires spending $\alpha^2$ units of the numeraire good.
+
+
+\subsection{Equilibrium Output and Profits}
+Profit maximization by intermediate monopolists leads to the equilibrium price $p=\alpha$.\footnote{The profit of the monopoly is $\Pi_{L,v,i}=p_{L,v}x_{L,v,i}-\alpha^2 x_{L,v,i}$. Note that here the ingredient of intermediate input is the final numeraire good. Therefore, its price is normalized to 1, so that in the profit expression, there is only the $\alpha^2 x_{L,v,i}$ term without $P_i$ which is the price of the $i-th$ variety. Then using \ref{0812}, we can write $p_{L,v}$ as a function of $x_{L,v,i}$. The FOC then gives the equilibrium price $p_{L,v}=\alpha$. Same for the $(H,v)$ inputs.} Together with equations \ref{0811} and \ref{0812}, we yield the equilibrium output of variety $i$:
+\begin{equation}
+    y_i=P_i^{\frac{\alpha}{1-\alpha}}\left[A_L(1-i)l_i+A_Hih_i\right].\label{0813}
+\end{equation}
+
+In equilibrium, the profits by the intermediate monopolist producing unskilled and skilled inputs are, respectively, given by
+\begin{equation}
+    \pi_{L,v}=\pi_L=(1-\alpha)\alpha\int^1_0 P_i^{\frac{1}{1-\alpha}}(1-i)l_idi\ \ \ \ \text{and}\ \ \ \ \pi_{H,v}=\pi_H=(1-\alpha)\alpha\int^1_0 P_i^{\frac{1}{1-\alpha}}ih_idi.\label{0814}
+\end{equation}
+The wages are\footnote{Note that $w_L=\frac{\partial P_iyi}{\partial x_{L,v,i}}$. We should first take derivatives with respect to $l_i$. In particular, we do not plug in equation \ref{0812} now since we are trying to evaluate the \textbf{partial derivative} at that equilibrium value of $x_{L,v,i}$. If it is plugged in before we take derivatives, then that makes no sense. }
+\begin{equation}
+    w_L=(1-\alpha)P_i^{\frac{1}{1-\alpha}}A_L(1-i)\ \text{for}\ i\leq J\label{0815}
+\end{equation}
+and 
+\begin{equation}
+    w_H=(1-\alpha)P_i^{\frac{1}{1-\alpha}}A_Hi\ \text{for}\ i> J.\label{0816}
+\end{equation}
+Defining $P_L:=P_0$ and $P_H:=P_1$. By equations \ref{0815} and \ref{0816}, we obtain
+\begin{equation}
+    P_i=P_L(1-i)^{-(1-\alpha)},\ \text{for}\ i\leq J\nonumber
+\end{equation}
+\begin{equation}
+    P_i=P_Hi^{-(1-\alpha)},\ \text{for}\ i> J\nonumber
+\end{equation}
+
+Now, to maximize $Y$, expenditures across goods must be equalized\footnote{This is because each of the component contributes identically to the production of $Y$.}, thus
+\begin{equation}
+    P_iy_i=P_Ly_0=P_Hy_1\nonumber
+\end{equation}
+This, together with the full employment of skilled and unskilled labour, implies that labour is evenly distributed among sectors, that is,\footnote{Prices are the same. Input prices are the same. Wages are the same. So the amounts of labour input must be the same.}
+\begin{equation}
+    l_i=\frac{L}{J},\ \ \ \ h_i=\frac{H}{1-J}.\nonumber
+\end{equation}
+
+Finally, in the cut-off sector $i=J$, the skilled and unskilled technologies are equally profitable:
+\begin{equation}
+    P_L(1-J)^{-(1-\alpha)}=P_HJ^{-(1-\alpha)}.\nonumber
+\end{equation}
+
+Together, the preceding equations imply\footnote{By equation \ref{0813} and the equalized expenditure, $\frac{y_1}{y_0}=\frac{P_L}{P_H}=\frac{P_H^{\frac{\alpha}{1-\alpha}}}{P_L^{\frac{\alpha}{1-\alpha}}}\frac{A_H}{A_L}\frac{h_i}{l_i}$. Using the first equation, we can derive the second equation.}
+\begin{equation}
+    \frac{J}{1-J}=\left(\frac{P_H}{P_L}\right)^{\frac{1}{1-\alpha}}=\left(\frac{A_H}{A_L}\frac{H}{L}\right)^{-\frac{1}{2}}.\label{0817}
+\end{equation}
+The higher the relative endowment of skill $\frac{H}{L}$ and the skill-bias of technology $\frac{A_H}{A_L}$, the larger the fraction of sectors using the skill-intensive technology $1-J$.
+
+Finally, integrating $P_iy_i$ over $[0,1]$, using equations \ref{0813} and \ref{0817}, and the fact that $e^{\int^1_0\log P_idi}=1$, we can re-express the aggregate output as\footnote{My math is so poor. I cannot get this result sos.}
+\begin{equation}
+    Y=e^{-\left[(A_LL)^{\frac{1}{2}}+(A_HH)^{\frac{1}{2}}\right]^2}.\label{0818}
+\end{equation}
+
+\subsection{Skill-Biased Technical Change}
+Instead of of treating $A_L$ and $A_H$ as given, we endogenize them by looking at innovation incentives and the resulting equilibrium skill-bias of technology $\left(\frac{A_H}{A_L}\right)$. Assume that increasing one unit of $A_H$ or $A_L$ costs $\mu$ unit of the numeraire. Inventing a new "skilled" or "unskilled" input yields instantaneous profits equal to\footnote{By \ref{0814}, $P_i=P_Hi^{-(1-\alpha)}$, and $h_i=\frac{H}{1-J}$. Note that in \ref{0814}, we can now only integrate from $J$ to 1.} 
+\begin{equation}
+    \pi_H=\alpha(1-\alpha)P_H^{\frac{1}{1-\alpha}}H\ \ \ \text{and}\ \ \ \pi_L=\alpha(1-\alpha)P_L^{\frac{1}{1-\alpha}}L\label{0819}
+\end{equation}
+Note that balanced growth requires that the innovation intensity be the same on both type of inputs, which in turn requires that $\pi_H=\pi_L$ and $A_H$ and $A_L$ grow at the same rate such that $\frac{A_H}{A_L}$ is a constant. Together with \ref{0817},
+\begin{equation}
+    \frac{A_H}{A_L}=\frac{1-J}{J}=\frac{H}{L}.\label{0820}
+\end{equation}
+
+\subsection{Explaining Cross-Country Productivity Differences}
+Now we focus on the South. The South is identical to the North except that
+\begin{equation}
+    \frac{H^S}{L^S}<\frac{H}{L}.\nonumber
+\end{equation}
+
+Suppose that there is no trade between South and North, and the intellectual property rights are not enforced in the South. Producers in the South can copy the new technologies invented in the North at a small bur positive cost, so that they will choose to simply imitate the technologies invented in the North instead of investing in innovation.
+
+Note that for the North, $\frac{A_H}{A_L}=\frac{H}{L}$ is optimal. However, this is not optimal for the South. Therefore, the new technologies developed in the North are inappropriate for the South.
+
+
+\newpage
+\chapter{General-Purpose Technologies}
+
+The most popular explanation for the long swings (Kondratieff waves) relies on the notion of general-purpose technologies (GPTs). Bresnahan and Trajtenberg (1995) define a GPT as a technological innovation that affects production and/or innovation in many sectors of an economy. Well-known examples in economic history include the steam engine, electricity, the laser, turbo reactors, and more recently the information technology revolution. 
+
+Three fundamental features characterize most GPTs. First, GPTs are used in most sectors of an economy and thereby generate oaloable macroeconomic effects, the property referred to as "pervasivenss". Second, GPTs tend to underperform upon being introduced; only later do they fully deliver their potential productivity growth, the property referred to as "scope for improvement". Third, GPTs make it easier to invent new products and processes -- that is, to generate new secondary innovation, the property referred to as "innovation spanning".
+
+Two aspects will be focused in this chapter, namely, the productivity slowdown and the increase in wage inequality, both of which we revisit using the Schumperterian growth model in Chapter 4.
+
+\section{Explaining Productivity Growth}
+\subsection{General-Purpose Technologies in the Neoclassical Model}
+The idea is that the potential magnitude of the downturn or slowdown that might initially caused by the arrival of a new GPT. Consider the following neoclassical model, where the new GPT can reduce growth by inducing obsolescence of existing capital:
+\begin{equation}
+    \dot{k}=sBk^{\alpha}-(\delta+n+g+\beta)k\nonumber
+\end{equation}
+where $k=\frac{K}{Le^{gt}}$ and $y=\frac{Y}{Le^{gt}}=Bk^{\alpha}$ denote, respectively, the capital stock and aggregate output, both per efficiency unit of labour; $s$ is the saving rate; and the parameters $\delta, n, g$ and $\beta$ denote, respectively, the rate of capital depreciation, the rate of population growth, the (exogenous) rate of labour-augmenting technological progress, and the rate of capital obsolescence.
+
+Note that a faster innovation rate leads to a higher obsolescence rate, and the labour-augmenting technological progress rate increases with innovation rate. Therefore, assume both $\beta$ and $g$ are proportional to the innovation rate $\mu$:
+\begin{equation}
+    \beta=\mu(1-\eta)\ \ \ \ \text{and}\ \ \ \ g=\mu\sigma\nonumber
+\end{equation}
+where $\eta$ is the scrap value of each unit of obsolete capital and $\sigma$ denotes the size of innovations. the growth rate of output per person is thus given by 
+\begin{equation}
+    G=\frac{\dot{y}}{y}+g=\alpha\left[sBk^{\alpha-1}-\delta-n\right]+\left[(1-\alpha)\sigma-\alpha(1-\eta)\right]\mu.\label{0901}
+\end{equation}
+
+Suppose that we are now at the steady state such that $G=g$. Then a discovery of GPT increases $\mu$. The immediate effect on $G$ is
+\begin{equation}
+    \frac{\partial G}{\partial \mu}=(1-\alpha)\sigma-\alpha(1-\eta)=\sigma\left(1-\alpha-\frac{\alpha\beta}{g}\right).
+\end{equation}
+Consider the elasticity of growth with respect to $\mu$:
+\begin{equation}
+    \frac{\mu}{g}\frac{\partial G}{\partial \mu}=\frac{1}{\sigma}\frac{\partial G}{\partial \mu}=1-\alpha-\frac{\alpha\beta}{g}.\nonumber
+\end{equation}
+Through calibration, we can know the potential magnitude of the macroeconomic impact of major technological change for reasonable values. 
+
+For example, using calibration $\left\{\alpha=\frac{2}{3}, \beta=0.04, g=0.02, \delta=0.02, n=0.01\right\}$, we have $\frac{\mu}{g}\frac{\partial G}{\partial \mu}=-1$, meaning that a 10 percent increase in $\mu$ will on impact  \textit{reduce} growth by 10 percent.
+
+
+\subsection{Schumpeterian Waves}
+The idea here is that each GPT requires an entirely new set of intermediate goods before it can be implemented. The discovery and development of these intermediate goods is a costly activity, and the economy must wait until some critical mass of intermediate components has been accumulated before it is profitable for firms to switch from the previous GPT. During the period between the discovery of a new GPT and its ultimate implementation, national income will fall as resources are taken out of production and put into R\&D activities aimed at the discovery of new intermediate input components.
+\subsubsection*{The Schumperterian Model with Labour as R\&D Input}
+The final good is produced with a single intermediate product
+\begin{equation}
+    Y_t=A_tx^{\alpha},\ \ \ \ 0<\alpha<1.\nonumber
+\end{equation}
+Since the intermediate good is one to one produced using labour, we can also take $x$ as the labour in manufacturing the intermediate good.
+
+Labour can also be used to do research (innovations). Suppose an innovation arrives each period with probability $\lambda n$, where $n$ is the aggregate amount of research labour. A new innovation increases the productivity $A_{t+1}=\gamma A_t$, where $\gamma>1$, if an innovation occurs in $t+1$. 
+
+The labour-market clearing condition is
+\begin{equation}
+    L=n+x.\nonumber
+\end{equation}
+
+Each period, the entrepreneur who innovates would like to maximize her expected profit
+\begin{equation}
+    \lambda n \Pi_{t+1}-w_tn\label{0903}
+\end{equation}
+and the first-order condition yields
+\begin{equation}
+    w_t=\lambda\Pi_{t+1}.\nonumber
+\end{equation}
+
+Note that the successful innovator will be able to charge a price equal to the marginal product
+\begin{equation}
+    p_{t+1}=\frac{\partial \Pi_{t+1}}{\partial x}=\alpha A_{t+1}x6{\alpha-1}\nonumber
+\end{equation}
+so that
+\begin{equation}
+    \Pi_{t+1}=\max_x\left\{\alpha A_{t+1}x6{\alpha-1}x^\alpha-w_{t+1}x\right\}.\nonumber
+\end{equation}
+The first-order condition is
+\begin{equation}
+    A_{t+1}\alpha^2x^{\alpha-1}=w_{t+1}\nonumber
+\end{equation}
+and the demand for manufacturing labour is thus
+\begin{equation}
+    x=\Tilde{x}(\omega_{t+1})=\alpha^{\frac{2}{1-\alpha}}\omega_{t+1}^{\frac{1}{\alpha-1}}.\nonumber
+\end{equation}
+where $\omega_t=\frac{w_t}{A_t}$ is the productivity-adjusted wage rate. So the equilibrium profit is
+\begin{equation}
+    \Pi_{t+1}=A_{t+1}\Tilde{pi}(\omega_{t+1})\nonumber
+\end{equation}
+where
+\begin{equation}
+    \Tilde{pi}(\omega_{t+1})=(1-\alpha)\alpha^{\frac{1+\alpha}{1-\alpha}}\omega^{\alpha}{\alpha-1}\nonumber
+\end{equation}
+is decreasing in $\omega$.\footnote{The higher the relative wage rate, the less the profit.}
+
+In steady state, the research arbitrage equation will be\footnote{LHS is the marginal cost, and RHS is the marginal benefit. This is by maximizing the expected payoff of the entrepreneur, i.e., \ref{0903}}
+\begin{equation}
+    \omega=\lambda\gamma\Tilde{\pi}(\omega).\nonumber
+\end{equation}
+which pins down the equilibrium-adjusted wage $\omega$. The labour-market-clearing condition is
+\begin{equation}
+    L=n+\Tilde{x}(\omega)\nonumber
+\end{equation}
+which determines the research labour amount. The average growth rate is
+\begin{equation}
+    g=\lambda n(\gamma-1)\nonumber
+\end{equation}
+which is the probability times the growth.
+
+In the preceding model, the log output increases as a random step function. However, it is hard to see a slump. The Helpman-Trajtenberg model helps.
+
+
+\subsubsection*{The Helpman-Trajtenberg Model}
+
+\section{GPT and Wage Inequality}
+\subsection{Explaining the Increase in the Skill Premium}
+
+\subsection{Explaining the Increase in Within-Group Inequality}
+\subsubsection*{Adaptability Premium}
+
+\subsubsection*{Experience Premium}
+
+
+
+\newpage
+\chapter{Stages of Growth}
+
+\newpage
+\chapter{Institutions and Nonconvergence Traps}
+
+\newpage
+\chapter{Fostering Competition and Entry}
+
+\newpage
+\chapter{Investing in Education}
+
+\newpage
+\chapter{Reducing Volatility and Risk}
+
+\newpage
+\chapter{Liberalizing Trade}
+
+\newpage
+\chapter{Preserving the Environment}
+
+\newpage
+\chapter{Promoting Democracy}
+
+\newpage
+\chapter{Culture and Development}
+\end{document}

@@ -61,6 +61,14 @@
     Solution to Exercises\\
     Teaching Assistant: Harlly Zhou
 \end{center}
+\paragraph{Example 3}
+\begin{enumerate}[label=(\arabic*)]
+    \item Note that here the US is the domestic country. So $\epsilon = 7.8\times \frac{1500}{10000} = 1.17 $.
+    \item This real interest rate means that 1 US good is valued at 1.17 HK good. Therefore, US goods are more valuable. Therefore, we would like to buy the iPhone in HK. Then the profit is $1500 - 10000/7.8 = 218 USD$.
+    \item When $\epsilon = 1$, people will be indifferent.
+\end{enumerate}
+
+\paragraph{Exercises}
 
 \begin{enumerate}[label = \arabic*.]
     \item The spot rate is $E_{\text{EUR/USD}} = 0.7627$. The cross rate is $\tilde{E}_{\text{EUR/USD}} = E_{\text{EUR/CHF}} \times E_{\text{CHF/USD}} = 0.7550$. Therefore, we should sell USD via the spot rate first.
@@ -144,6 +152,76 @@
         $Y = 2(12 + G + 0.3Y^*)$ yields $125 = 24 + 2G + 0.6(119)$, which implies $G = 14.8$. In the domestic economy, $NX = 0.3(119) - 0.3(125) = 1.8$ and $T - G = 10 - 14.8 = -4.8$ In the foreign economy, $NX^* = 1.8$ and $T^* - G^* = 0$.
         \item If $Y=Y^*=125$,then $125=24+2G+0.6(125)$,which implies $G=G^*=13$.In both countries, net exports are zero, but the budget deficit is 3.
         \item In part, fiscal coordination is difficult to achieve because of the benefits of doing nothing and waiting for another economy to undertake a fiscal expansion, as indicated from part (c).
+    \end{enumerate}
+\end{enumerate}
+
+\paragraph{Example 5}
+\begin{enumerate}[label=(\arabic*)]
+    \item The steps are standard. However, note that $\epsilon^* = \epsilon^{-1}$. Therefore, we have the following system:
+    \begin{equation*}
+        \left\{
+            \begin{aligned}
+                Y &= \frac{1}{1-c_1-b_1-\frac{m_1}{\epsilon}} \left[c_0 - c_1 + b_0 + 1 - m_2 + x_1\frac{Y^*}{\epsilon}\right]\\
+                Y^* &= \frac{1}{1-c_1-b_1-m_1\epsilon} \left[c_0 - c_1 + b_0 + 1 - m_2 + x_1Y\epsilon\right]
+            \end{aligned}
+        \right.
+    \end{equation*}
+    \item Example 4 part (2) derives the general ML condition:
+    \[\left(\frac{\Delta \epsilon}{\epsilon} - \frac{\Delta IM}{IM}\right) \frac{IM/\epsilon}{X} + \frac{\Delta X}{X} > 0.\]
+    Plugging in the number, we have
+    \[LHS = [-0.5\% - (-2\%)]\times \frac{1}{2} + 3\% = 3.75\% > 0.\]
+    The ML condition holds.
+    \item Note that $\frac{X}{IM/\epsilon} = 2$ and hence $\frac{IM^*/\epsilon^*}{X^*} = \frac{X\cdot \epsilon}{IM} = \frac{X}{IM/\epsilon} = 2$. Therefore, we have the following system:
+    \begin{equation*}
+        \left\{
+            \begin{aligned}
+                x_1 Y^* &= m_1 Y + m_2 \epsilon\\
+                x_1 Y &= m_1 Y^* + m_2 \epsilon^{-1}
+            \end{aligned}
+        \right.
+    \end{equation*}
+    Solving this yields
+    \begin{equation*}
+        \left\{
+            \begin{aligned}
+                Y &= m_2 \left[\frac{\epsilon m_1 - x_1/\epsilon}{x_1^2 - m_1^2}\right]\\
+                Y^* &= m_2 \left[\frac{\epsilon x_1 - m_1/\epsilon}{x_1^2 - m_1^2}\right]
+            \end{aligned}
+        \right.
+    \end{equation*}
+\end{enumerate}
+
+\paragraph{Example 6}
+\begin{enumerate}[label = (\arabic*)]
+    \item The steps are standard. We obtain
+    \begin{equation*}
+        \left\{
+            \begin{aligned}
+                Y &= \frac{1}{1-c_1-b_1-\frac{\lambda^* m_1}{\epsilon}} \left[c_0 - c_1 + b_0 + 1 - m_2 + \lambda x_1\frac{Y^*}{\epsilon}\right]\\
+                Y^* &= \frac{1}{1-c_1-b_1-\lambda m_1\epsilon} \left[c_0 - c_1 + b_0 + 1 - m_2 + \lambda^* x_1 Y\epsilon\right]
+            \end{aligned}
+        \right.
+    \end{equation*}
+    \item By definition, $NX = X - \frac{IM}{\epsilon}$. Substituting this economy, we obtain
+    \[NX = \frac{1}{\epsilon}(\lambda^* x_1 Y^* - \lambda m_1 Y)-m_2.\]
+    Since an decrease in $\epsilon$ leads to an increase in $NX$, it must be such that
+    \[\lambda^* x_1 Y^* - \lambda m_1 Y > 0,\]
+    which is the sufficient and necessary condition shown in the question. 
+
+    On the other hand, this equation is equivalent to say 
+    \[NX > -m_2.\]
+
+    \begin{itemize}
+        \item $\lambda$ (Home tradable share, \emph{export side}): scales the export term $\lambda x_1 Y^*/\epsilon$. Larger $\lambda$ makes (ML) easier to satisfy and raises $NX$ for any $\epsilon$. If $\lambda=0$, exports vanish, (ML) fails, and a depreciation cannot raise $NX$.
+        \item $\lambda^*$ (Foreign tradable share, \emph{import side}): scales the income-driven import term $\lambda^* m_1 Y/\epsilon$. Larger $\lambda^*$ makes (ML) harder to satisfy and lowers $NX$. If $\lambda^*=0$, income-driven imports vanish, (ML) holds trivially, and a depreciation raises $NX$.
+        \item $m_2$ (FX-sensitive autonomous imports): level shifter. It does not enter (ML) and does not affect the sign of $\frac{dNX}{d\epsilon}$ when $Y,Y^*$ are held fixed; it only reduces the level of $NX$ by 1-for-1. Changing $m_2$ never alters whether a depreciation helps $NX$ (it only shifts the $NX(\epsilon)$ schedule vertically).
+    \end{itemize}
+
+    \item \begin{enumerate}[label = (\roman*)]
+        \item $Y = Y^* = 4.29$.
+        \item $NX = 0.16$. $NX > -m_2 = -0.1$, so the ML condition holds.
+        \item $Y = 4.36$, $Y^* = 4.18$. $NX = 0.17$. Home output rises, Foreign falls, and $NX$ increases, consistent with ML.
+        \item $Y = 3.89$, $Y^* = 4.38$. $NX = 0.08$. Lower $\lambda$ (smaller tradable share of Home) tightens export capacity. As a result, $Y$ is lower and net export is weaker. At the same time, Foreign output rises.
     \end{enumerate}
 \end{enumerate}
 
