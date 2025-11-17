@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subcaption} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 9 Supplementary Explanations}}\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+Sorry for rushing through the materials... :(
+
+\paragraph{Speculation under CIP}
+Here I elaborate how to describe a speculation strategy in Example 2. 
+
+Recall that we have $i_{\text{USD}} = 1\%$, $i_{\text{GBP}} = 3\%$, and $F_{\text{USD/GBP}, t,t+1} = 1.47 \text{ USD/GBP}$. You are only allowed to start from 1,000,000 GBP, not using USD.
+
+For part (2), because we are only allowed to start from GBP, so we cannot do the cycle of speculation from USD. Therefore, we simply deposit the 1,000,000 GBP at time 0, and then get 1,030,000 GBP.
+
+For part (3), at time 0, we borrow 1,000,000 GBP, convert it to USD at the spot rate, get 1,500,000 USD, and deposit it. After 1 year, we get 1,515,000 USD, and convert it back using the spot rate to get 1,082,142.86 GBP. We still have to pay 1,030,000 GBP back. Then we get an expected speculation profit of 52,142.86 GBP. 
+
+
+
+\paragraph{Marshall-Lerner Condition}
+Here I go step by step for how to derive the general Marshall-Lerner Condition.
+
+By definition,
+\[NX = X - \frac{IM}{\epsilon}.\]
+Multiplying both sides by $\epsilon$, we get
+\[\epsilon \cdot NX = \epsilon \cdot X - IM.\]
+Using the product rule, we obtain
+\[(\Delta \epsilon) \cdot NX + \epsilon \cdot (\Delta NX) = (\Delta \epsilon) \cdot X + \epsilon \cdot (\Delta X) - \Delta IM.\]
+Combining terms, we get
+\[\epsilon \cdot (\Delta NX) = (\Delta \epsilon) \cdot (X - NX) + \epsilon \cdot (\Delta X) - \Delta IM.\]
+Note that $X - NX = \frac{IM}{\epsilon}$. Dividing both sides by $\epsilon X$, we get
+\[\frac{\Delta NX}{X} = \frac{\Delta \epsilon}{\epsilon}\frac{IM/\epsilon}{X} + \frac{\Delta X}{X} - \frac{\Delta IM}{\epsilon X}.\]
+Rewriting the last term, we have
+\begin{align*}
+    \frac{\Delta NX}{X} &= 
+    \frac{\Delta \epsilon}{\epsilon}\frac{IM/\epsilon}{X} + \frac{\Delta X}{X} - \frac{\Delta IM}{IM}\frac{IM /\epsilon}{X}\\
+    &= 
+    \left(\frac{\Delta \epsilon}{\epsilon} - \frac{\Delta IM}{IM}\right)\frac{IM/\epsilon}{X} + \frac{\Delta X}{X}.
+\end{align*}
+The Marshall-Lerner condition says that, when $\Delta \epsilon<0$, $\Delta NX > 0$. By the equation, we require the right-hand side to be positive, conditional on $\frac{\Delta \epsilon}{\epsilon} < 0$. This gives you the ML condition.
+
+Why do we want to write things like this? Because we want thing to be expressed in percentage of change. You will see it is easy to use in Example 5.
+
+\end{document}
