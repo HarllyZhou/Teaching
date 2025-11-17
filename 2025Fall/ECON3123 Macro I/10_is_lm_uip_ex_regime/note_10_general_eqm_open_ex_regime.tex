@@ -62,5 +62,107 @@
 \end{center}
 
 \subsection*{IS-LM-UIP Framework}
+We are already familiar with the $IS-LM$ model. Therefore, we suppose to have the $IS$ curve:
+\[Y = C(Y-T) + I(Y,r) + G + NX(Y, Y^*, \epsilon).\]
+However, we make 2 simplifications. First, we take prices as given in the short run so that $\frac{P}{P^*} = 1$. Therefore, $\epsilon = E$. Second, as a result, since price is taken as given, there is no inflation, neither inflation expectation (by "no", I mean equal to 0). Therefore, $r = i$. So the $IS$ curve we employ in the $IS-LM-UIP$ model is the following:
+\[Y = C(Y-T) + I(Y,i) + G + NX(Y, Y^*, E).\]
+
+The domestic central bank target nominal interest rate $i = \bar{i}$.
+
+Open-economy financial market implies that the UIP condition should hold:
+\[1 + i_t = (1 + i^*_t)\frac{E_t}{E^e_{t+1}}.\]
+Note that in an $(E_t, i_t)$ diagram, the UIP curve must pass the point $(E^e_{t+1}, i^*_t)$. 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{islm01.png}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{uip01.png}
+    \end{subfigure}
+    \caption{IS-LM-UIP Framework}
+    \label{fig:is-lm-uip}
+\end{figure}
+
+Put them together, we get the $IS-LM-UIP$ framework in Figure \ref{fig:is-lm-uip}.
+
+\subsection*{Flexible Exchange Rate}
+\paragraph{Fiscal Policy} Suppose the domestic government increases its government spending. This moves the $IS$ curve to the right. This leads to a higher equilibrium output, while the nominal interest rate is not changing, so that there is no change in the nominal exchange rate. 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{islm_fp.png}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{uip01.png}
+    \end{subfigure}
+    \caption{Effect of expansionary fiscal policy}
+    \label{fig:is-lm-uip_fp}
+\end{figure}
+
+\paragraph{Monetary Policy} Suppose the domestic cnetral bank implements a contractionary monetary policy. Then the targeted nominal interest rate is higher, leading to a lower equilibrium output. In the UIP diagram, the equilibrium point moves upwards along the UIP curve.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{islm_mp.png}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{uip_mp.png}
+    \end{subfigure}
+    \caption{Effect of contractionary monetary policy}
+    \label{fig:is-lm-uip_mp}
+\end{figure}
+
+\begin{exercise}
+    Chapter 19, Question 5 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+
+\begin{exercise}
+    Chapter 19, Question 8 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+\subsection*{Fixed Exchange Rate Regime}
+Under fixed exchange rate regime, $E_t = \bar{E}$ and people expect that the exchange rate will always be constant $E^e_{t+1} = \bar{E}$. Therefore, the UIP condition implies that
+\[i_t = i^*_t.\]
+Therefore, in the initial state, the $IS-LM_UIP$ diagram will be as below
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{islm01.png}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{uip_fix.png}
+    \end{subfigure}
+    \caption{IS-LM-UIP Framework}
+    \label{fig:is-lm-fix}
+\end{figure}
+
+In the fixed exchange rate regime, the nominal interest rate is fixed. Then the central bank cannot use monetary policy to offset the effect of domestic shock because the exchange rate will change otherwise. In this case, only fiscal policy should be conducted.
+
+However, if there is some shock in the foreign country, monetary policy may be used in case that the UIP curve is changed.
+
+\begin{exercise}
+    Chapter 19, Question 6 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
+Now we may do some medium run analysis:
+
+\begin{exercise}
+    Chapter 20, Question 6 in Blanchard, Olivier (2021), \textit{Macroeconomics}, 8th ed., Pearson.
+\end{exercise}
+
 
 \end{document}
