@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 10: General Equilibrium in Open Economy under Different Exchange Rate Regimes}}\\
+    Solution to Exercises\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+\begin{enumerate}[label=\arabic*.]
+    \item \begin{enumerate}[label=(\alph*)]
+        \item The increase in both $Y^*$ and $i^*$ shifts the $IS$ curve to the right. At the same domestic interest rate, the domestic currency depreciates and net exports rise. The increase in $Y^*$ directly increases net exports. Output will rise for both reasons. The UIP curve will shift left -- at the same domestic interest rate and a higher foreign interest rate, the currency will depreciate.
+        \item If the domestic central bank matches the increase in foreign interest rates then although the UIP curve shifts left, the central bank increases the domestic interest rate so that the exchange rate remains unchanged. However, the effect of $Y^*$ on exports, net exports remains in play. So the IS curve will shift to the right. It is not clear whether domestic output will rise or fall. It will tend to rise as the IS shifts right. Domestic output will tend to fall as you move up the new IS curve with a higher interest rate.
+        \item The required domestic monetary policy change will depend on the effect on domestic output found in part (b). if the net effect of the increase in Y* and the increase in i (and i*) was to increase output, the domestic central bank would have to raise interest rates to leave output unchanged, this would appreciate the exchange rate. This policy might become necessary if domestic output had risen above potential output and there were worries about inflation.
+        
+        However, it could be the case that the combined effect of the increase in Y* and the increase in i and i* reduced domestic output and increased unemployment so output was less than potential. Then the domestic central bank would have to lower interest rates.
+    \end{enumerate}
+    \item \begin{enumerate}[label=(\alph*)]
+        \item $E_t = E_{t+1}^e \frac{1 + i_t + x}{1+i^*_t}$.
+        \item The $IS$ curve slopes down as before, but with the result in part (a) substituted for the nominal exchange rate in the $NX$ function.
+        \item The uncovered interest parity condition states that under risk neutrality and perfect substitutability between home- and foreign-currency denominated assets, the interest rate differential should be equivalent to the expected depreciation (or appreciation) of the exchange rate. If the foreign currency has a higher interest rate its exchange rate will appreciate. If the interest rate increases, the output and the net exports will decrease. The appreciation causes an upward shift on the UIP curve, an upward shift on the LM curve, and a rightward shift on the IS curve.
+        \item The expansionary monetary policy leads to a decrease in the interest rate and thus a decrease in the exchange rate. The lower interest rate increases the demand and the output, while the depreciation of the exchange rate increases the exports. So both effects move in the same direction. However, this policy may cause a level of inflation that will write off these positive impacts.
+        \item An increase in $x$ means that domestic assets are more in demand and tends to push up the exchange rate for the same asset price, thus preventing depreciation. This increase in the exchange rate shifts the equilibrium point on the IS curve to the left.
+    \end{enumerate}
+    \item \begin{enumerate}[label=(\alph*)]
+        \item The follower country must immediately raise interest rates to match the increase in interest rates in the leader country. Output would fall as you move up the IS curve. Assuming the expected exchange rate does not change, there is no change in the current exchange rate as long as increases in $i^*$ are matched exactly by increases in $i$.
+        \item The movement up the $IS$ curve reduces output by reducing investment.
+        \item The follower country could use fiscal policy to shift the $IS$ curve out and increase output back to its original level at the higher rate of interest. It would be desirable if the decline in output due to the leader country's increase in interest rates moved output below potential output.
+        \item The fiscal policy that leaves consumption unchanged would have to leave output at the original level and taxes at their original level. Thus a fiscal policy that only increased government spending would work to leave consumption unchanged. When government spending rises, investment spending falls because the interest rate has increased.
+    \end{enumerate}
+    \item \begin{enumerate}[label=(\alph*)]
+        \item The vertical axis is an index of each country's nominal exchange rate against the German currency. All exchange rates are set to 1 in January 1992. The largest depreciation appears to be Sweden of about 25\%. France had the smallest depreciation - essentially of zero.
+        \item France.
+        \item The group at the bottom -- Sweden, Italy, Finland and Spain -- had the largest depreciations so the question implies they were the most overvalued.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

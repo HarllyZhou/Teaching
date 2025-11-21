@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Problem Set 4 Solution}}\\
+    Total Score: 100 points
+\end{center}
+
+\paragraph{Question 1 (22 points)}
+\begin{enumerate}[label=(\alph*)]
+    \item (4 points) Point $A$, $ZZ$, axis label (2), $Y=Z$, value.
+    \item (8 points) $Y \downarrow, C \downarrow, I \downarrow, NX>0$. $ZZ$ curve down, no change in $NX$ curve. 2 points for notations.
+    \item (10 points) Assume that the Marshall Lerner condition holds. (1 point) Then decreasing $\epsilon$ leads to an increase in $NX$. (1 point) $NX$ moves upwards, $ZZ$ moves back. $Y, I$ the same, $C\downarrow$. $NX \uparrow$. 2 points for notations.
+\end{enumerate}
+
+\paragraph{Question 2 (23 points)}
+\begin{enumerate}[label=(\alph*)]
+    \item (6 points) Point A, $IM-LM$, $UIP$, $(E^e, i^*)$ (1 point), axis label (4, $IS-LM$ must be $i$), value.
+    \item (8 points) $IS$ shifts to the left, $Y, C, I \downarrow$. No change in $UIP$. $E -$, $NX \uparrow$. 2 more points for notation.
+    \item (9 points) Target lower interest rate. $LM$ shifts downwards. $Y-$, $C \downarrow$. $I \uparrow$. Equilibrium point moves downwards along $UIP$. $E\downarrow$, $NX \uparrow$. 2 more points for notation.
+\end{enumerate}
+
+\paragraph{Question 3 (29 points)}
+\begin{enumerate}[label=(\alph*)]
+    \item (8 points) In an open economy,
+    \begin{align*}
+    Y &= C + I + G - \frac{IM}{\epsilon} + X\\
+    &= 10 + 0.8(Y-10) + 10 + G - 0.3Y + 0.3Y^*\\
+    &= 0.5Y + 12 + G + 0.3Y^*.
+    \end{align*}
+    Then $Y = 24 + 2G + 0.6Y^*$. The multiplier is 2. (3 points)
+    
+    In a closed economy,
+    \begin{align*}
+        Y &= C + I + G\\
+        &= 10 + 0.8(Y-10) + 10 + G\\
+        &= 0.8Y + 12 + G.
+    \end{align*}
+    Then $Y = 60 + 5G$. The multiplier is 5. (3 points)
+
+    The difference is from import leakage. (2 points)
+
+    \item (7 points) In the foreign economy, $Y^* = 24 + 2G^* + 0.6Y$. Substitute this into $Y = 24 + 2G + 0.6Y^*$. We get
+    \[Y = 24 + 2G + 0.6(24 + 2G^* + 0.6Y) = 38.4 + 2G + 1.2G^* + 0.36 Y.\]
+    Then $Y = 60 + 3.125 G + 1.875 G^*$. $Y^* = 60 + 3.125 G^* + 1.875 G$. (4 points)
+
+    Plug in the numbers. We get $Y = Y^* = 110$. 
+
+    Import leakage is now somehow returned. (2 points)
+
+    \item (6 points) Solve $125 = 60 + 3.125 G' + 1.875 \times 10$. We get $G'=14.8$. Then
+    \begin{align*}
+        Y^* &= 60 + 3.125 \times 10 + 1.875 \times 14.8 = 119\\
+        NX &= -0.3\times 125 + 0.3 \times 110 = -1.8\\
+        NX^* &= 1.8\\
+        T - G' &= -4.8\\
+        T^* - G^* &= 0.
+    \end{align*}
+
+    \item (4 points) Solving the system. $G'' = G^{*''} = 13$. $NX'' = NX^{*''} = 0$. $T - G'' = T^* - G^{*''} = -3$.
+    \item (4 points) Government can just wait the other country to expand the balance sheet to gain its leakage "for free". 
+\end{enumerate}
+
+\paragraph{Question 4 (26 points)}
+\begin{enumerate}[label=(\alph*)]
+    \item (4 points) Use UIP and do the math.
+    \item 22 free points.
+\end{enumerate}
+\end{document}
