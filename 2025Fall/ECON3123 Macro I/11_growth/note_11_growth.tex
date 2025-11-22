@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subcaption} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 3123: Macroeconomic Theory I\\
+    {\large \textbf{Tutorial Note 11: Growth}}\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+\subsection*{Production Function}
+
+We now turn to the long run. In the long run, capital can be adjusted. Therefore, the production depends on capital input. The production function will be of two variables:
+\[Y_t = F(K_t, A_t N_t).\]
+Here $Y$ is the aggregate output, $K$ is the aggregate capital, $A$ is the productivity, $N$ is the number of workers, and $t$ is the time index.
+
+If for any $m>0$, 
+\[F(m K_t, m A_t N_t) = m F(K_t, A_t N_t),\]
+then we say the production function $F$ is of \textbf{constant return to scale (CRTS)}.
+
+\begin{example}
+    Determine whether the following functions are of constant return to scale.
+    \begin{enumerate}[label=(\arabic*)]
+        \item $F(K, AN) = \sqrt{K} \sqrt{AN}$;
+        \item $F(K, N) = AK^{\frac{2}{3}}N^{\frac{1}{3}}, A>0$;
+        \item $F(K, AN) = \sqrt{K} + \sqrt{AN}$;
+        \item $F(K, AN) = \log K + \log (AN)$;
+        \item $F(K, AN) = K^{\frac{1}{2}} (AN)^{\frac{1}{3}}$;
+        \item $F(K, N_1, N_2) = \left(\frac{1}{3}N_1^{\frac{1}{3}} + \frac{2}{3} N_2^{\frac{1}{3}}\right)^2 K^{\frac{1}{3}}$.
+    \end{enumerate}
+\end{example}
+
+If the production function is CRTS, then we can write the following:
+\[\frac{Y}{AN} = F\left(\frac{K}{AN}, 1\right),\]
+where $\frac{Y}{AN}$ is called \textbf{output per effective labour} and $\frac{K}{AN}$ is called \textbf{capital per effective labour}. 
+
+Write $\hat{x} := \frac{X}{AN}$ for any aggregate variable $X$. Define $f(\hat{k}) = F(\hat{k},1)$. Then we can write:
+\[\hat{y}_t = f(\hat{k}_t).\]
+
+\subsection*{Law of Motion}
+To investigate the growth across time periods, we need to specify how the economy transfers from period $t$ to $t+1$. What connects the two period? the capital. Note that the capital in one period has two parts, the capital left from the previous period, and the new investment. Mathematically, we have the following \textbf{law of motion (LoM)}:
+\[K_{t+1} = (1-\delta)K_t + I_t,\]
+where $\delta\in(0,1)$ is the depreciation rate and $I_t$ is investment.
+
+Recall that at the beginning of the course, we have the following relation:
+\[I_t = S_t.\]
+Assume that $S_t = s Y_t$ where $s\in(0,1)$ is the saving rate. Then the LoM can be rewritten as
+\begin{align}\label{eq:lom_k_sy}
+    K_{t+1} = (1-\delta)K_t + s Y_t.
+\end{align}
+
+\subsection*{Steady State}
+Now we would like to derive the following relation in the lecture note:
+\[\frac{I}{AN} = (\delta + g_A + g_N) \frac{K}{AN},\]
+which is, equivalently,
+\[s \hat{y} = (\delta + g_A + g_N) \hat{k}.\]
+
+Divide the LoM \eqref{eq:lom_k_sy} by $A_tN_t$. We obtain
+\[\frac{K_{t+1}}{A_t N_t} = (1-\delta)\frac{K_t}{A_t N_t} + s \frac{Y_t}{A_t N_t} = (1-\delta) \hat{k}_t + s \hat{y}_t.\]
+Note that the left-hand side is 
+\[\frac{K_{t+1}}{A_t N_t} = \frac{K_{t+1}}{A_{t+1} N_{t+1}}\frac{A_{t+1} N_{t+1}}{A_t N_t} = \hat{k}_{t+1} (1+g_A) (1+g_N).\]
+Define $\Delta \hat{k}_{t+1} = \hat{k}_{t+1} - \hat{k}_t$. Then
+\[\frac{K_{t+1}}{A_t N_t} = \hat{k}_t\left(1 + \frac{\Delta \hat{k}_{t+1}}{\hat{k}_t}\right).\]
+The LoM can be written as
+\[\left(1 + \frac{\Delta \hat{k}_{t+1}}{\hat{k}_t}\right) (1+g_A) (1+g_N) = 1 - \delta + s \frac{\hat{y}_t}{\hat{k}_t}.\]
+Taking logarithm on both sides and taking approximation, we have
+\[\frac{\Delta \hat{k}_{t+1}}{\hat{k}_t} + g_A + g_N = -\delta + s\frac{\hat{y}_t}{\hat{k}_t}.\]
+Rearranging the terms, we get
+\begin{align}\label{eq:lom_delta}
+    \Delta \hat{k}_{t+1} = s \hat{y}_t - (\delta + g_A + g_N)\hat{k}_t.
+\end{align}
+
+We say that an economy is at its \textbf{steady state} if there is no growth in its level of capital per effective labour. Mathematically, this means that $\Delta \hat{k}_{t+1}$. Therefore, at steady state, we have
+\begin{align}\label{eq:ss}
+    s \hat{y}_t = (\delta + g_A + g_N)\hat{k}_t. 
+\end{align}
+
+Recall that $\hat{y}_t = f(\hat{k}_t)$. Therefore, equation \eqref{eq:ss} is essentially an equation w.r.t. $\hat{k}_t$. Solving the equation, we will get the \textbf{steady-state level of capital per effective labour}, denoted by $\hat{k}_{ss}$, and thus the \textbf{steady-state level of output per effective labour}, denoted by $\hat{y}_ss$. We can also derive the \textbf{steady-state level of consumption per effective labour} according to the following relation
+\[\hat{c}_{ss} = (1-s) \hat{y}_{ss},\]
+which says that people consume their income that are not saved. The value of $s$ such that $\hat{c}_{ss}$ is maximized is called the \textbf{golden-rule saving rate}, denoted by $s_{G}$.
+
+\begin{example}
+    Suppose that the production function is
+    \[Y_t = \sqrt{K_t} \sqrt{A_t N_t},\]
+    where $Y$ is the aggregate level of output, $K$ is the aggregate level of capital, $A$ is the aggregate productivity, $N$ is the aggregate labour, and $t$ is the time index. 
+    Capital accumulation follows the following law of motion:
+    \[K_{t+1} = (1-\delta) K_{t} + I_t,\]
+    where $I_t$ is the aggregate level of investment in period $t$.
+    Denote the saving rate in this economy by $s$, the depreciation rate of capital by $\delta$, the rate of labor growth by $g_N$, and the rate of technological progress by $g_A$.
+    For any aggregate variable $X$, denote its corresponding "per effecitve labour" variable to be $\hat{x}$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Derive the steady-state level of capital per effective labour, $\hat{k}_{ss}$.
+        \vspace{180pt}
+        \item Suppose that the saving rate $s = 0.2$, the depreciation rate is $\delta = 0.1$. Technology progresses at a rate of $2\%$ and the number of labour increases by $1\%$. Compute the steady-state level of consumption ($\hat{c}_{ss}$) and output ($\hat{y}_{ss}$) per effective labour in this economy.
+        \vspace{80pt}
+        \item An earthquake hit the economy in year $t+1$, which was in the steady state in year $t$. While some factories are destroyed, fortunately, no causalities are reported (i.e., no one died). Use a diagram to explain what will happen to output and capital in the future graphically.
+        \vspace{300pt}
+        \item Under the scenario of (3), compare the capital-to-output ratio $\frac{K}{Y}$ in year $t+1$ and $t$. 
+        \vspace{120pt}
+    \end{enumerate}
+\end{example}
+
+\newpage
+\subsection*{Balanced Growth Path}
+We derived the steady state. But what does it matter for growth?
+
+At the steady state, capital per effective labour $\frac{K}{AN}$ and output per effective labour $\frac{Y}{AN}$ are constant. This means that \textbf{capital per worker} $\frac{K}{N}$ and \textbf{output per worker} $\frac{Y}{N}$ grow at the rate $g_A$. Or equivalently, the aggregate level of capital $K$ and aggregate level of output $Y$ grow at the rate $g_A + g_N$. Why? The following exercise asks you to show this.
+
+\begin{exercise}
+    Show that at the steadt state, capital per worker $\frac{K}{N}$ and output per worker $\frac{Y}{N}$ grow at the rate $g_A$. And equivalently, the aggregate level of capital $K$ and aggregate level of output $Y$ grow at the rate $g_A + g_N$.
+\end{exercise}
+
+Now we see that at the steady-state, the per worker (capita) variables and the aggregate variables grow at a constant rate. We say that this is the \textbf{balanced growth path} of an economy, which economies will converge to in the long run.
+
+\begin{exercise}
+    Suppose that the aggregate production function is
+    \[Y = A K^{\frac{1}{3}} N^{\frac{2}{3}}.\]
+    where $Y$ is the aggregate level of output, $K$ is the aggregate level of capital, $A$ is the aggregate productivity, $N$ is the aggregate labour. 
+    Capital accumulation follows the following law of motion:
+    \[K_{t+1} = (1-\delta) K_{t} + I_t,\]
+    where $I_t$ is the aggregate level of investment in period $t$.
+    Denote the saving rate in this economy by $s$, the depreciation rate of capital by $\delta$, the rate of labor growth by $g_N$, and the rate of technological progress by $g_A$.
+    For any aggregate variable $X$, denote its corresponding "per worker" variable to be $x$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Define the steady state of the economy as when output and capital grow at the same rate. What is the growth rate of output and capital at the steady state of the economy?
+        \item What is the investment-to-capital ratio that is needed to maintain the steady state? Explain. 
+        \item Suppose initially the economy is at its steady state with $s = 0.3$, $\delta = 5\%$, $g_N = 5\%$, $g_A = 4\%$. Starting from period $t$, the rate of labor growth $g_N$ suddenly decreases permanently from 5\% to 2\%. Calculate the growth rate of capital stock $K$ in period $t+1$ and $t+2$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    Suppose that the aggregate production function is
+    \[Y = K^{1-\alpha} (AN)^{\alpha}.\]
+    where $Y$ is the aggregate level of output, $K$ is the aggregate level of capital, $A$ is the aggregate productivity, $N$ is the aggregate labour. 
+    Capital accumulation follows the following law of motion:
+    \[K_{t+1} = (1-\delta) K_{t} + I_t,\]
+    where $I_t$ is the aggregate level of investment in period $t$.
+    Denote the saving rate in this economy by $s$, the depreciation rate of capital by $\delta$, the rate of labor growth by $g_N$, and the rate of technological progress by $g_A$.
+    For any aggregate variable $X$, denote its corresponding "per effecitve labour" variable to be $\hat{x}$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Derive the steady state level of capital per effective labour $\hat{k}_{ss}$.
+        \item Derive the expression for the golden rate of saving $s_G$.
+        \item Suppose initially the economy is at its balanced growth path with $\alpha = 0.25$, $s = 0.3$, $\delta = 5\%$, $g_N=2\%$, $g_A = 3\%$. Starting from period $t$, the rate of technological progress $g_A$ suddenly increases permanently from 3\% to 8\%.Calculate the growth rate of capital stock $K$ in period $t$, $t+1$, $t+2$ and $t+3$. Is the 30\% saving rate $s$ higher or lower than the golden rate of saving after the change of $g_A$? Explain your answer.
+    \end{enumerate}
+\end{exercise}
+
+
+
+\end{document}
