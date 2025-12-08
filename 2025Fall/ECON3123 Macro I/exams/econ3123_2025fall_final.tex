@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+    THE HONG KONG UNIVERSITY OF SCIENCE AND TECHNOLOGY\\
+    {\large \textbf{ECON 3123 Final Exam (Question Book)}}\\
+    Date: Dec 10, 2025\\
+    Time allowed: 120 minutes
+\end{center}
+
+\vspace{12pt}
+\paragraph{Not to be taken away.}
+\paragraph{Instructions:}
+\begin{itemize}
+    \item Answer ALL the questions. Write your answers on the answer book. Anything written on the question book will NOT be graded.
+    \item Write your answer to all the questions within the provided area. \textbf{Anything outside the provided area will NOT be graded.} 
+    \item Make sure that all your handweritngs are legible. Anything that cannot be understood by the grader will not be graded.
+    \item Please submit BOTH the question book and the answer book after the exam.
+\end{itemize}
+
+\vspace{36pt}
+\begin{center}
+    \Large
+    \textbf{DO NOT OPEN UNTIL INSTRUCTED!}
+\end{center}
+
+\vspace{24pt}
+\subsection*{Name:}
+\subsection*{Student ID: }
+\subsection*{Seat Number: }
+
+\clearpage
+\setcounter{page}{1}
+\subsection*{Multiple Choice Questions (20 points)}
+4 points each. Choose the one alternative that best answers the question.
+\begin{enumerate}[label=\arabic*.]
+    \item Let $E$ be the nominal exchange rate, $P$ be the domestic price level, and $P^*$ be the foreign price level. Which of the following events will cause the \textbf{smallest} change in the real exchange rate ($\epsilon$)?
+    \begin{enumerate}[label=\Alph*.]
+        \item a 6\% drop in $E$ and a 6\% increase in $P^*$
+        \item a 6\% increase in $P$ and a 6\% reduction in $P^*$
+        \item a 6\% drop in $E$ and a 6\% reduction in $P^*$
+        \item a 3\% increase in $E$
+        \item a 2\% increase in $E$ and a 2\% increase in $P$
+    \end{enumerate}
+
+    \item In an open economy, which of the following will cause an increase in the size of the multiplier?
+    \begin{enumerate}[label=\Alph*.]
+        \item a reduction in the marginal propensity to import
+        \item a reduction in foreign output
+        \item an increase in the marginal propensity to save
+        \item all of the above
+        \item none of the above
+    \end{enumerate}
+
+    \item Suppose the U.S. one-year interest rate is 3\% per year, while a foreign country has a one-year interest rate of 5\% per year. Ignoring risk and transaction costs, a U.S. investor should invest in foreign bonds as long as the expected yearly rate of depreciation of the foreign currency is
+    \begin{enumerate}[label=\Alph*.]
+        \item less than 5\%.
+        \item greater than 5\%.
+        \item greater than 2\%.
+        \item less than 2\%.
+        \item less than 1\%.
+    \end{enumerate}
+
+    \item Suppose that the rest of the world experiences an economic boom causing an increase in foreign output ($Y^*$).  This increase in $Y^*$ will \textbf{NOT} cause which of the following to occur?
+    \begin{enumerate}[label=\Alph*.]
+        \item the domestic country's output to increase.
+        \item the domestic country's consumption to increase.
+        \item the domestic country's trade balance to worsen.
+        \item all of tha bove.
+        \item none of the above.
+    \end{enumerate}
+
+    \item Which of the following is always true after an economy reaches a balanced growth equilibrium?
+    \begin{enumerate}[label=\Alph*.]
+        \item The growth rate of output equals the rate of depreciation.
+        \item Population growth is zero.
+        \item The growth rate of capital equals the growth rate of the effective work force.
+        \item The growth rate of capital is equal to the savings rate.
+        \item None of the above.
+    \end{enumerate}
+
+\end{enumerate}
+
+\newpage
+\subsection*{Short-Answer Questions (80 points)}
+Wrtie your calculation and explanation to get full scores. Partially correct steps earn partial credits.
+
+\vspace{12pt}
+
+\noindent\textbf{Question 6: Credibility and Disinflation (15 points)}
+
+\textit{Suppose that the expected inflation and the Phillips curve is given by:}
+\begin{align*}
+    \pi_t^e &= 2.4\% + 0.4\pi_{t-1}\\
+    \pi_t &= 5\% + 0.4\pi_{t-1} - 0.5u_t.
+\end{align*}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item (5 points) What is the natural rate of unemployment in this economy?
+\end{enumerate}
+
+\textit{Suppose in period $t$, the unemployment rate is at the natural rate with an inflation rate of 5\%. }
+
+\begin{enumerate}[label=(\arabic*), resume]
+    \item (5 points) If the central bank keeps the unemployment rate at the natural rate in period $t+1$ and $t+2$, what should be the inflation in period $t+1$?
+    \item (5 points) If the central bank wants to achieve its inflation target 4\% in period $t+1$, what is the unemployment rate in period $t+1$?
+\end{enumerate}
+
+\newpage
+\noindent\textbf{Question 7: $IS$-$LM$-$PC$ Model (35 points)}
+
+\textit{Consider the $IS$-$LM$-$PC$ model with an \textbf{accelerationist} Phillips curve relation (i.e. $\pi_t^e = \pi_{t-1}$). Suppose that output in year $t$ equals the potential output and the norminal interest in year $t$ is at its \textbf{zero lower bound} 0\%. }
+
+\begin{enumerate}[label=(\arabic*)]
+    \item (5 points) Draw the $IS$-$LM$-$PC$ diagram. Label the equilibrium in year $t$ as point $A$.
+\end{enumerate}
+
+\textit{Suppose that an AI shock occurs in year $t+1$ and weakens workers' bargaining power.  }
+
+\begin{enumerate}[label=(\arabic*), resume]
+    \item (10 points) Show the effect of such an AI shock on natural rate of unemployment using a labor market equilibrium diagram.
+    \item (10 points) In the same $IS$-$LM$-$PC$ diagram you draw in part (1), show the effect of such an AI shock. If you shift any curve, label the new curve using an subindex 3. Label the new equilibrium $B$.
+    \item (10 points) Suppose that the government cannot response to the AI shock due the government budget constraint, what will happen to inflation and output in period $t+2$?
+\end{enumerate}
+
+\newpage
+\noindent\textbf{Question 8: Policy Mix in an Open Economy (30 points)}
+
+\textit{Assume that initially an economy is running a \textbf{trade surplus} and its equilibrium output is \textbf{below} the natural level of output $Y_n$. Suppose that the government would like to increase the equilibrium output to the natural level and at the same time remove the trade surplus to achieve a trade balance. Also assume that the Marshall-Lerner condition holds in this economy.}
+
+\begin{enumerate}[label=(\arabic*)]
+    \item (5 points) Now only consider the equilibrium in the domestic goods market. Draw graphs for the initial equilibrium in the goods market and the corresponding net export curve. Indicate the initial equilibrium output by $Y_0$ and the initial equilibrium net export by $NX_0$.
+    \item (10 points) Suppose that the natural level of output corresponds to a trade deficit in the initial net export curve. Indicate the position of the natural level of output in your graphs drawn in part (1) by $Y_{nA}$. Please propose a policy mix in terms of government spending and the real exchange rate to achieve the goal set by the government. Illustrate the policy mix in your graphs drawn in part (1).
+\end{enumerate}
+
+\textit{Suppose that the economy is under a \textbf{flexible} exchange rate regime and the nominal exchange rate needs to satifisfy uncovered interest rate parity. The domestic and foreign price levels are both fixed and set to 1. The interest rate in the foreign country is fixed at $i^*$. }
+
+\begin{enumerate}[label=(\arabic*), resume]
+    \item (15 points) Suppose that the expected nominal exchange rate $E^e$ does not change. What kind of monetary policy is needed to deliver the real exchange rate policy you proposed in part (b). Illustrate your proposed monetary policy together with the fiscal policy in part (b) using an $IS$-$LM$-$UIP$ diagram. How would the equilibrium consumption, investment and net export change after the proposed changes in the fiscal and monetary policy are implemented?
+\end{enumerate}
+
+\vspace{24pt}
+\begin{center}
+    \textbf{\Large ******** END OF THE EXAM ********}
+\end{center}
+
+\end{document}
