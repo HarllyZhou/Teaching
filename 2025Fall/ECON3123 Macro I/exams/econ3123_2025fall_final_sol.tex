@@ -1,0 +1,189 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+    THE HONG KONG UNIVERSITY OF SCIENCE AND TECHNOLOGY\\
+    {\large \textbf{ECON 3123 Final Exam}}\\
+    Solutions and Grading Rubrics
+\end{center}
+
+\paragraph{Multiple Choice Questions}
+Wrong answers ony earn 0 point.
+\begin{enumerate}[label=\arabic*.]
+    \item (4 points) C. Note that by log approximation,
+    \[\frac{\Delta \epsilon}{\epsilon} \approx \frac{\Delta E}{E} + \frac{\Delta P}{P} - \frac{\Delta P^*}{P^*}.\]
+    The changes in the 5 options are -12\%, 12\%, 0, 3\%, 4\%. So we choose $C$.
+    \item (4 points) A. Assume that
+    \begin{align*}
+        C &= c_0 + c_1 Y\\
+        I &= b_0 + b_1 Y\\
+        IM &= m_1 Y \epsilon \\
+        X &= m_2Y^*.
+    \end{align*}
+    Then
+    \[Y = \frac{1}{1-c_1-b_1+m_1}[c_0 + b_0 + G + m_2Y^*].\]
+    When $m_1 \downarrow$, the multiplier increases. $A$ is correct. $Y^*$ has no effect on the multiplier. $B$ is wrong. $MPS = 1-c_1$. Increase in $1-c_1$ will lower the multiplier. $C$ is wrong. 
+    \item (4 points) D. By the UIP condition and log approximation,
+    \[i = i^* - \pi_E^e,\]
+    where $\pi_E^e$ is the expected yearly rate of depreciation. If the foriegn bond is still attractive, then $\pi_E^e < 2\%$. Otherwise an "arbitrage" will cause a loss.
+    \item (4 points) C. Consider the equilibrium domestic output:
+    \[Y = \frac{1}{1-c_1-b_1+m_1}[c_0 + b_0 + G + m_2Y^*].\]
+    When $Y^*$ increases, $Y$ tend to increase. $A$ is possible. As $Y$ increases, $C = c_0 + c_1Y$ increases. $B$ is possible. Increase in $Y^*$ causes export to increase. This cannot make the domestic country's trade balance to worsen. $C$ is impossible.
+    \item (4 points) C. $g_Y = g_A + g_N = g_{AN}$. 
+\end{enumerate}
+
+\paragraph{Question 6 (15 points)}
+General grading rule: If the direction is flipped but the analysis makes sense on the opposite way, give roughly half grade.
+\begin{enumerate}[label=(\arabic*)]
+    \item (5 points) Substitute the first equation into the second. We get the Phillips curve:
+    \[\pi_t = 2.6\% + \pi_t^e - 0.5 u_t.\]
+    At equilibrium, $\pi_t = \pi_t^e$. Then $u_n = 5.2\%$.
+    
+    \textit{Grading: 3 points for writing out the correct Phillips curve. 1 point for the equilibrium condition. 1 point for the result.}
+    \item (5 points) Note that $\pi_{t+1} = 5\% + 0.4 \pi_t - 0.5 u_{t+1}$. Substitute $\pi_t = 5\%$ and $u_{t+1} = 5.2\%$ into the equation. We have $\pi_{t+1} = 4.4\%$.
+    
+    \textit{Grading: 3 points for writing out the correct equation. 2 point for the result. If steps are correct but the natural level of unemployment is wrong, 2 points.}
+    \item (5 points) Note that $\pi_{t+1} = 5\% + 0.4 \pi_t - 0.5 u_{t+1}$. Substitute $\pi_t = 5\%$ and $\pi_{t+1} = 4\%$ into the equation. We have $u_{t+1} = 6\%$.
+    
+    \textit{Grading: 3 points for writing out the correct equation. 2 point for the result. This part is irrelevant from the previous two parts.}
+\end{enumerate}
+
+\paragraph{Question 7 (35 points)}
+General grading rule: If the direction is flipped but the analysis makes sense on the opposite way, give roughly half grade.
+\begin{enumerate}[label=(\arabic*)]
+    \item (5 points) Key points for graph grading:
+    \begin{itemize}
+        \item Downward-sloping $IS$ curve. Flat $LM$ curve \textbf{on the axis} due to ZLB. Upward-sloping $PC$ curve.
+        \item Axes labels should be $(Y,i)$ and $(Y, \pi_t - \pi_{t-1})$.
+        \item Matching the two point $A$'s with the same $Y$.
+        \item Notations for the coordinates.
+    \end{itemize}
+
+    \textit{Grading: Correct curves gain 2 points where 1 point is for ZLB $LM$ curve. Correct labels and notations gain 2 points where using $r$ or $\pi-\bar{\pi}$ or both loses 1 point. Graph matching gains 1 point. If the graph is essentially wrong, that is, for example, upward-sloping $LM$ curve, 0 point.}
+    \item (10 points) Key points for graph grading:
+    \begin{itemize}
+        \item Downward-sloping $WS$ curve. Flat $PS$ curve.
+        \item Axes labels should be $(u, W/P)$.
+        \item The $WS$ curve should shift downward. 
+        \item Notations for the coordinates.
+    \end{itemize}
+    
+    \textbf{Effect}: The natural rate of unemployment \underline{$u_n$ decreases}. The real wage remains \underline{unchanged}.
+
+    \textit{Grading: Correct curves gain 1 points. Correct labels and notations gain 3 point. Correct shift gains 2 point. Effect on natural rate of unemployment 2 points, on real wage 2 points. }
+    \item (10 points) Key points for graph grading:
+    \begin{itemize}
+        \item $PC$ curve shifts to the right.
+        \item Output still stays at the original level.
+        \item The corresponding equilibirum point will have negative inflation change.
+    \end{itemize}
+    
+    \textbf{Effect}: Since $u_n$ decreases, \underline{$Y_n$ will increase}. There will be \underline{disinflation}.
+
+    \textit{Grading: Correct shift gain 2 points. Correct labels and notations gain 2 point. Correct matching gains 2 point. Effect on natural level of output 2 points, on inflation 2 points. }
+    \item (10 points) Inflation decreases. Output remains unchanged. No policy, no change in output. The equilibrium point does not change so that $\pi_{t+2}-\pi_{t+1}<0$ which causes continuous disinflation.
+    
+    \textit{Grading: Correct direction 2 points each. Correct explanation 3 points each. }
+\end{enumerate}
+
+\paragraph{Question 8 (30 points)}
+General grading rule: If the direction is flipped but the analysis makes sense on the opposite way, give roughly half grade.
+\begin{enumerate}[label=(\arabic*)]
+    \item (5 points) Key points for graph grading:
+    \begin{itemize}
+        \item 45-degree line, $ZZ_0$, $DD_0$, $NX_0$.
+        \item Correct slope comparison and intersection matching.
+        \item Correct label of quantitative relationship.
+        \item Labels. (Only deduction when great than or equal to 3 of them are missing/wrong.)
+    \end{itemize}
+
+    \textit{Grading: Correct curves with slopes earn 2 points. Correct correspondence earns 2 points. Labels earn 1 point.}
+
+    \item (10 points) Key points for graph grading:
+    \begin{itemize}
+        \item $ZZ_0 \uparrow$, $DD_0 \uparrow$, $NX_0 \uparrow$.
+        \item $ZZ_1, DD_1$, and the 45-degree line intersect at the same point. 
+        \item This point corresponds to $Y_{nA} = Y_{TB}'$.
+    \end{itemize}
+
+    \textbf{Policy mix}: Lower real exchange rate. Increase government spending. 
+
+    \textbf{Explanation}: A lower real exchange rate increases net export under the ML condition. A higher government spending increases domestic output.
+
+    \textit{Grading: Correct curves with shift earn 2 points. Correct intersection earn 1 points. Matching earns 1 point. Correct policy mix earns 1 point each. Correct explanation earns 2 points each, where the ML condition must be mentioned for 1 point.}
+
+    \item (15 points) Key points for graph grading:
+    \begin{itemize}
+        \item Downward-sloping $IS \rightarrow$, flat $LM \downarrow$, upward-sloping $UIP -$.
+        \item Axes $(Y,i)$, $(E, i)$. Point $(E^e, i^*)$.
+        \item Correct and complete notations and labels.
+    \end{itemize}
+
+    \textbf{Monetary policy}: Conduct expansionary monetary policy. \underline{Lower} the targeted interest rate. \underline{Increase} money supply. By UIP, the nominal interest rate will decrease, which leads to a decrease in the real exchange rate when the price levels are fixed.
+
+    \textbf{Consumption} increases since $Y$ increases.
+
+    \textbf{Investment} increases since both $Y$ increases and underline{$i$ decreases}.
+
+    \textbf{Net export} decreases since there are more import leakage.
+
+    \textit{Grading: Correct curves with shift earn 2 points. Correct intersection earns 1 points. Correct labels 2 points where 1 point is for $(E^e, i^*)$. Lower interest target / Expansionary monetary policy earns 2 points. Increase money supply earns 1 point. Correct direction 1 point each, correct explanation 1 point each with the decreasing $i$ earns 1 more point.}
+\end{enumerate}
+
+\end{document}
