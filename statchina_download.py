@@ -4,237 +4,196 @@ import time
 from pathlib import Path
 
 import requests
-
-try:
-    import pandas as pd
-except ImportError:
-    raise SystemExit("pandas not installed. Run: python3 -m pip install pandas requests")
-
+import pandas as pd
 
 BASE_API = "https://data.stats.gov.cn/easyquery.htm"
 BASE_EN  = "https://data.stats.gov.cn/english/easyquery.htm"
-
 
 UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
 )
 
-
-def ensure_dir(p: Path) -> None:
-    p.mkdir(parents=True, exist_ok=True)
-
-
-def preview_text(s: str, n: int = 400) -> str:
-    s = s.replace("\r", "")
+def preview(s: str, n: int = 300) -> str:
     return s[:n] + ("..." if len(s) > n else "")
 
-
-def boot_session(session: requests.Session, cn: str) -> None:
-    url = f"{BASE_EN}?cn={cn}"
-    r = session.get(url, headers={"User-Agent": UA}, timeout=30)
+def post_json(sess: requests.Session, data: dict, referer: str):
+    r = sess.post(
+        BASE_API,
+        data=data,
+        headers={
+            "User-Agent": UA,
+            "Referer": referer,
+            "Accept": "application/json, text/javascript, */*; q=0.01",
+            "X-Requested-With": "XMLHttpRequest",
+        },
+        timeout=60,
+    )
     r.raise_for_status()
-
-
-def post_json(session: requests.Session, data: dict, referer: str):
-    headers = {
-        "User-Agent": UA,
-        "Referer": referer,
-        "Accept": "application/json, text/javascript, */*; q=0.01",
-        "X-Requested-With": "XMLHttpRequest",
-    }
-    r = session.post(BASE_API, data=data, headers=headers, timeout=60)
-    r.raise_for_status()
-    txt = r.text
     try:
         return r.json()
     except Exception:
-        raise RuntimeError(
-            f"JSON parse failed. Content-Type={r.headers.get('Content-Type','')}\n"
-            f"Response begins:\n{preview_text(txt)}"
-        )
+        raise RuntimeError("Not JSON. First chars:\n" + preview(r.text))
 
-
-def normalize_tree_json(j):
-    """
-    getTree may return:
-    - dict with 'returndata'
-    - list of nodes directly
-    """
+def extract_tree_payload(j):
+    # getTree sometimes returns a list directly, or a dict with 'returndata'
     if isinstance(j, list):
         return j
-    if isinstance(j, dict):
-        if "returndata" in j:
-            return j["returndata"]
-        # sometimes the payload is under different key names
-        for k in ["data", "result", "datas"]:
-            if k in j:
-                return j[k]
-        raise RuntimeError(f"Dict JSON but no returndata-like field. Keys={list(j.keys())}")
-    raise RuntimeError(f"Unexpected JSON type: {type(j)}")
-
-
-def normalize_query_json(j):
-    """
-    QueryData usually returns dict with returndata/datanodes, but be defensive.
-    """
     if isinstance(j, dict) and "returndata" in j:
         return j["returndata"]
-    # sometimes it may return a list (rare); dump for debugging
-    raise RuntimeError(f"Unexpected QueryData JSON structure: {type(j)}")
+    if isinstance(j, dict):
+        raise RuntimeError("Unexpected dict keys: " + ",".join(j.keys()))
+    raise RuntimeError("Unexpected JSON type: " + str(type(j)))
 
+def boot(sess: requests.Session, cn: str):
+    url = f"{BASE_EN}?cn={cn}"
+    r = sess.get(url, headers={"User-Agent": UA}, timeout=30)
+    r.raise_for_status()
 
-def get_tree(session: requests.Session, dbcode: str, wdcode: str, cn: str, id_: str = "zb"):
+def get_zb_tree(sess: requests.Session, cn: str, dbcode: str):
     referer = f"{BASE_EN}?cn={cn}"
-    payload = {"m": "getTree", "dbcode": dbcode, "id": id_, "wdcode": wdcode, "cn": cn}
-    j = post_json(session, payload, referer=referer)
-    return normalize_tree_json(j)
-
-
-def find_in_tree(tree_df, pattern, n=30):
-    hits = tree_df[tree_df["name"].astype(str).str.contains(pattern, na=False)]
-    cols = [c for c in ["id", "name", "pid", "isParent"] if c in hits.columns]
-    return hits[cols].head(n)
-
+    j = post_json(sess, {"m":"getTree","dbcode":dbcode,"id":"zb","wdcode":"zb","cn":cn}, referer)
+    payload = extract_tree_payload(j)
+    df = pd.DataFrame(payload)
+    if df.empty:
+        raise RuntimeError("zb tree empty")
+    return df
 
 def mk_dfwds(wdcode: str, valuecode: str) -> str:
     return json.dumps([{"wdcode": wdcode, "valuecode": valuecode}], ensure_ascii=False)
 
-
-def query_data(session: requests.Session, dbcode: str, zb_code: str, cn: str):
+def querydata_raw(sess: requests.Session, cn: str, dbcode: str, zb_code: str):
     referer = f"{BASE_EN}?cn={cn}"
     k1 = str(int(time.time() * 1000))
-    payload = {
-        "m": "QueryData",
-        "dbcode": dbcode,
-        "rowcode": "reg",
-        "colcode": "sj",
+    j = post_json(sess, {
+        "m":"QueryData",
+        "dbcode":dbcode,
+        "rowcode":"reg",
+        "colcode":"sj",
         "dfwds": mk_dfwds("zb", zb_code),
         "k1": k1,
-        "cn": cn,
-    }
-    j = post_json(session, payload, referer=referer)
-    rd = normalize_query_json(j)
-    nodes = rd.get("datanodes", None)
+        "cn": cn
+    }, referer)
+    if not isinstance(j, dict) or "returndata" not in j:
+        raise RuntimeError("QueryData unexpected structure. Preview:\n" + preview(json.dumps(j, ensure_ascii=False)))
+    return j["returndata"]
+
+def extract_reg_map_from_querydata(returndata: dict) -> pd.DataFrame:
+    """
+    In many StatChina QueryData responses, province codes+names live in returndata['wdnodes']
+    """
+    wdnodes = returndata.get("wdnodes", None)
+    if wdnodes is None:
+        raise RuntimeError("No wdnodes in QueryData returndata (cannot infer reg mapping).")
+
+    # wdnodes is usually a list of dimensions; find the reg dimension
+    reg_dim = None
+    for dim in wdnodes:
+        if dim.get("wdcode") == "reg":
+            reg_dim = dim
+            break
+    if reg_dim is None:
+        raise RuntimeError("wdnodes present but no reg dimension found.")
+
+    nodes = reg_dim.get("nodes", None)
     if nodes is None:
-        raw = json.dumps(j, ensure_ascii=False, indent=2)
-        raise RuntimeError("No datanodes. Raw begins:\n" + preview_text(raw))
+        raise RuntimeError("reg dimension has no nodes.")
 
-    rows = []
-    for node in nodes:
-        wds = node.get("wds", "")
-        data_obj = node.get("data", {})
-        val = data_obj.get("data", None)
+    df = pd.DataFrame(nodes)
+    # typical columns: code, cname, name
+    # normalize to reg/prov
+    if "code" in df.columns:
+        df = df.rename(columns={"code":"reg"})
+    elif "id" in df.columns:
+        df = df.rename(columns={"id":"reg"})
+    else:
+        raise RuntimeError("reg nodes have no code/id column. Columns=" + ",".join(df.columns))
 
-        m_zb  = re.search(r"zb\.([^_]+)", wds)
-        m_reg = re.search(r"reg\.([^_]+)", wds)
-        m_sj  = re.search(r"sj\.(\d{4})", wds)
+    if "cname" in df.columns:
+        df["prov"] = df["cname"]
+    elif "name" in df.columns:
+        df["prov"] = df["name"]
+    else:
+        # fallback: keep whatever text col exists
+        text_cols = [c for c in df.columns if "name" in c.lower()]
+        if not text_cols:
+            raise RuntimeError("Cannot find province name column in reg nodes.")
+        df["prov"] = df[text_cols[0]]
 
-        rows.append({
-            "reg": m_reg.group(1) if m_reg else None,
-            "year": int(m_sj.group(1)) if m_sj else None,
-            "value": float(val) if val not in (None, "") else None,
-            "zb": m_zb.group(1) if m_zb else None
-        })
+    return df[["reg","prov"]].drop_duplicates().sort_values("reg")
 
-    import pandas as pd
-    df = pd.DataFrame(rows).dropna(subset=["reg", "year"])
-    return df
-
+def pick_sample_leaf_zb(tree_zb: pd.DataFrame) -> str:
+    """
+    Pick one indicator id with isParent==False to use as a sample QueryData pull.
+    """
+    if "isParent" in tree_zb.columns:
+        leaf = tree_zb[tree_zb["isParent"] == False]
+        if not leaf.empty:
+            return str(leaf.iloc[0]["id"])
+    # fallback: just take first id
+    return str(tree_zb.iloc[0]["id"])
 
 def main():
     out_dir = Path("data")
-    ensure_dir(out_dir)
-
-    cn_candidates = ["E0102", "E0101", "E0103"]
-    db_candidates = ["fsnd", "hgnd"]
+    out_dir.mkdir(exist_ok=True)
 
     sess = requests.Session()
 
+    cn_candidates = ["E0102", "E0101", "E0103", "C01"]
+    db_candidates = ["fsnd", "csyd"]  # hgnd in your logs gave 404; skip it
+
     chosen = None
-    tree_zb = tree_reg = None
+    tree_zb = None
 
     for cn in cn_candidates:
         try:
-            boot_session(sess, cn=cn)
-        except Exception as e:
-            print(f"[boot failed] cn={cn}: {e}")
+            boot(sess, cn)
+        except Exception:
             continue
 
         for db in db_candidates:
             try:
-                print(f"Trying getTree zb: cn={cn}, db={db}")
-                zb_raw = get_tree(sess, dbcode=db, wdcode="zb", cn=cn, id_="zb")
-                print(f"Trying getTree reg: cn={cn}, db={db}")
-                reg_raw = get_tree(sess, dbcode=db, wdcode="reg", cn=cn, id_="zb")
-
-                import pandas as pd
-                tree_zb = pd.DataFrame(zb_raw)
-                tree_reg = pd.DataFrame(reg_raw)
-
-                if tree_zb.empty or tree_reg.empty:
-                    raise RuntimeError("Tree returned but empty.")
-
+                print(f"Trying zb tree: cn={cn}, db={db}")
+                tree_zb = get_zb_tree(sess, cn, db)
                 chosen = (cn, db)
                 break
             except Exception as e:
-                print(f"[getTree failed] cn={cn}, db={db}: {e}")
+                print("  failed:", e)
 
         if chosen:
             break
 
     if not chosen:
-        raise RuntimeError("Could not retrieve trees under tried cn/db combinations.")
+        raise RuntimeError("Could not fetch zb tree in tried cn/db combinations.")
 
     cn, db = chosen
-    print(f"\nSUCCESS: cn={cn}, dbcode={db}\n")
-
+    print(f"\nSUCCESS zb tree: cn={cn}, db={db}")
     tree_zb_path = out_dir / f"tree_{db}_zb.csv"
-    tree_reg_path = out_dir / f"tree_{db}_reg.csv"
     tree_zb.to_csv(tree_zb_path, index=False, encoding="utf-8-sig")
-    tree_reg.to_csv(tree_reg_path, index=False, encoding="utf-8-sig")
-    print(f"Saved {tree_zb_path}")
-    print(f"Saved {tree_reg_path}")
+    print("Saved:", tree_zb_path)
 
-    print("\n--- Candidate matches (inspect 'id') ---")
-    for pat in ["一般公共预算收入", "税收收入", "非税收入", "政府性基金收入", "土地", "出让"]:
-        hits = find_in_tree(tree_zb, pat, n=15)
-        print(f"\nPattern: {pat}")
-        print(hits.to_string(index=False))
+    # Find a sample leaf indicator and use it to infer province mapping via QueryData metadata
+    sample_zb = pick_sample_leaf_zb(tree_zb)
+    print("Using sample leaf zb for region mapping:", sample_zb)
 
-    print("\nNext step:")
-    print("1) Open the saved tree CSV and copy the exact 'id' for the series you want.")
-    print("2) Paste those ids into zb_list below and re-run to download the panel.\n")
+    rd = querydata_raw(sess, cn, db, sample_zb)
+    reg_map = extract_reg_map_from_querydata(rd)
+    reg_map_path = out_dir / f"regmap_{db}.csv"
+    reg_map.to_csv(reg_map_path, index=False, encoding="utf-8-sig")
+    print("Saved:", reg_map_path)
 
-    # -------- SET THESE AFTER YOU FIND THE REAL CODES --------
-    zb_list = {
-        "gpb_rev_total": None,
-        "gpb_tax_rev": None,
-        "gpb_nontax_rev": None,
-        "govfund_rev": None,
-        "land_convey_rev": None
-    }
+    # Show quick keyword matches so you can find real zb codes fast
+    if all(c in tree_zb.columns for c in ["id","name"]):
+        def show(pat):
+            hits = tree_zb[tree_zb["name"].astype(str).str.contains(pat, na=False)][["id","name"]].head(20)
+            print(f"\nMatches for: {pat}\n{hits.to_string(index=False)}")
 
-    if any(v is None for v in zb_list.values()):
-        print("STOP: zb_list not set yet (all None).")
-        return
+        for pat in ["一般公共预算收入", "税收收入", "非税收入", "政府性基金收入", "土地", "出让"]:
+            show(pat)
 
-    # Download chosen series and merge
-    import pandas as pd
-    panel = None
-    for name, zb in zb_list.items():
-        print(f"Downloading {name} (zb={zb})...")
-        df = query_data(sess, dbcode=db, zb_code=zb, cn=cn)
-        df = df.rename(columns={"value": name}).drop(columns=["zb"])
-        panel = df if panel is None else panel.merge(df, on=["reg", "year"], how="outer")
-
-    reg_map = tree_reg.rename(columns={"id": "reg", "name": "prov"})[["reg", "prov"]]
-    panel = panel.merge(reg_map, on="reg", how="left")
-
-    out_panel = out_dir / "panel_province_year.csv"
-    panel.to_csv(out_panel, index=False, encoding="utf-8-sig")
-    print(f"Saved {out_panel}")
-
+    print("\nNext:")
+    print("1) Open data/tree_{}_zb.csv and copy the right 'id' as zb codes.".format(db))
+    print("2) Tell me (or upload the CSV) and I’ll give you the exact zb_list for fiscal variables.")
 
 if __name__ == "__main__":
     main()
