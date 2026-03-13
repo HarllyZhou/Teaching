@@ -1,0 +1,200 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\linespread{1.5}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{hidelinks, colorlinks=true, allcolors=black}
+
+\title{ECON 5260 Problem Set 1 Solution}
+\author{Harlly Zhou}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Full mark: 60 points for non-Ph.D. students, 100 points for Ph.D. students.
+\section*{Question 1 (14 points)}
+\begin{enumerate}[label=\arabic*.]
+    \item (8 points)\begin{enumerate}[label=\alph*.]
+        \item (4 points) Contemporaneous zero restriction: When $\theta = 0$, we assume that the MP shoch does not affect output contemporaneously but with a lag. Then we can regress $u_{x_t}$ on $u_{y_t}$ to get the estimator of $\phi$. When $\phi=0$, we assume that it takes time for MP to adjust the economic condition. Then we can regress $u_{y_t}$ on $u_{x_t}$ to get the estimator of $\theta$.
+        \item (2 points) Long-run neutrality restrictions: Assume that the impulse responses add up to 0 in the long run. 
+        \item (2 points) Sign restrictions: Assume that the impulse responses are positive or negative.
+    \end{enumerate}
+    \item (6 points) Price (liquidity) puzzle and output puzzle. (2 points) If shocks to FF are used as the measure of monetary policy actions, no output puzzle was detected, but price puzzle remains. (2 points) Commodity prices or other asset prices should be included in VAR. (2 points)
+\end{enumerate}
+
+\section*{Question 2 (12 points)}
+The representative household's problem is 
+\begin{align*}
+    \max \sum_{t=0}^{+\infty} \beta^t U(c_t, m_t)
+\end{align*}
+subject to the constraint:
+\begin{align*}
+    c_t + (1+\pi_{t+1}) m _{t+1} + b_t + k_t = f(k_{t-1}) + (1-\delta) k_{t-1} + \frac{1+i_{t-1}}{1+\pi_t} b_{t-1} + m_t.
+\end{align*}
+The Bellman equation with Lagrangian multiplier is then given by:
+\begin{align*}
+    V(k_{t-1}, b_{t-1}, m_t) = \max_{c_t, m_{t+1}, b_t, k_t} \Bigg\{ & U(c_t, m_t) + \beta V(k_t, b_t, m_{t+1})\\
+    & + \lambda_t \bigg[f(k_{t-1}) + (1-\delta) k_{t-1} + \frac{1+i_{t-1}}{1+\pi_t} b_{t-1} + m_t\\
+    & \qquad \qquad \qquad \qquad - c_t - (1+\pi_{t+1}) m_{t+1} - b_t - k_t\bigg] \Bigg\}.
+\end{align*}
+Taking first-order conditions with respect to $c_t, m_{t+1}, b_t, k_t$, we get:
+\begin{align*}
+    \frac{\partial V}{\partial c_t} &= U_c(c_t, m_t) - \lambda_t = 0\\
+    \frac{\partial V}{\partial m_{t+1}} &= \beta V_m(k_t, b_t, m_{t+1}) - \lambda_t (1+\pi_{t+1}) = 0\\
+    \frac{\partial V}{\partial b_t} &= \beta V_b(k_t, b_t, m_{t+1}) - \lambda_t = 0\\
+    \frac{\partial V}{\partial k_t} &= \beta V_k(k_t, b_t, m_{t+1}) - \lambda_t = 0.
+\end{align*}
+The Envelope theorem implies that
+\begin{align*}
+    V_m(k_{t-1}, b_{t-1}, m_t) &= U_m(c_t, m_t) + \lambda_t\\
+    V_k(k_{t-1}, b_{t-1}, m_t) &= \lambda_t\left[f'(k_{t-1}) + (1-\delta)\right]\\
+    V_b(k_{t-1}, b_{t-1}, m_t) &= \lambda_t\left[\frac{1+i_{t-1}}{1+\pi_t}\right].
+\end{align*}
+Hence, the FOCs can be rewritten as
+\begin{align*}
+    \beta\left[U_m(c_{t+1}, m_{t+1}) + U_c(c_{t+1}, m_{t+1})\right] &= (1+\pi_{t+1})U_c(c_t,m_t)\\
+    \beta U_c(c_{t+1}, m_{t+1})\left[f'(k_{t}) + (1-\delta)\right] &= U_c(c_t, m_t)\\
+    \beta U_c(c_{t+1}, m_{t+1}) \frac{1+i_t}{1+\pi_{t+1}} &= U_c(c_t, m_t).
+\end{align*}
+It follows that
+\begin{align*}
+    \frac{U_m(c_{t+1}, m_{t+1})}{U_c(c_{t+1}, m_{t+1})} = \beta^{-1}(1+\pi_{t+1})\left(\beta \frac{1+i_t}{1+\pi_{t+1}} \right) = 1 + i_t.
+\end{align*}
+\underline{Grading}: 2 points for the problem, 2 points for the Bellman equation. 1 points each for the FOCs. 4 points for the result.
+
+\section*{Question 3 (6 points)}
+Recall that in Question 2, the money demand is given by
+\begin{align*}
+    U_m(c_t, m_t) = i_{t-1} U_c(c_t, m_t).
+\end{align*}
+By the functional form of the utility, we have
+\begin{align*}
+    U_m(c_t, m_t) &= v'(m_t) = B - D - D\log m_t\\
+    U_c(c_t, m_t) &= w'(c_t).
+\end{align*}
+Therefore, the money demand function is
+\begin{align*}
+    m_t = B - D -D \log m_t = i_{t-1} w'(c_t),
+\end{align*}
+which implies that
+\begin{align*}
+    m_t = e^{\frac{B}{D}-1} e^{-\frac{w'(c_t)}{D} i_{t-1}}.
+\end{align*}
+This is equivalent to
+\begin{align*}
+    m_t = A e^{- \alpha_t i_{t-1}},
+\end{align*}
+where $A = e^{\frac{B}{D}-1}$ and $\alpha_t = \frac{w'(c_t)}{D}$.
+\underline{Grading}: 4 points for the money demand function. 2 points for the result.
+
+\section*{Question 4 (22 points)}
+\begin{enumerate}[label=\arabic*.]
+    \item (16 points) The representative household's problem is
+    \begin{align*}
+        \max \sum_{t=0}^{+\infty} \beta^t u(c_t, m_t)
+    \end{align*}
+    subject to the constraint
+    \begin{align*}
+        c_t + m_t + b_t + k_t = f(k_{t-1}) + (1-\delta) k _{t-1} + \frac{(1+i_{t-1})b_{t-1} + (1+i_m) m_{t-1}}{1+\pi_t} - \tau_t.
+    \end{align*}
+    The Bellman equation is then given by
+    \begin{align*}
+        V(k_{t-1}, b_{t-1}, m_{t-1}) = \max_{c_t, m_t, b_t, k_t} \Bigg\{ & u(c_t, m_t) + \beta V(k_t, b_t, m_t)\\
+        & + \lambda_t \bigg[f(k_{t-1}) + (1-\delta) k _{t-1} \\
+        & \qquad \qquad + \frac{(1+i_{t-1})b_{t-1} + (1+i_m) m_{t-1}}{1+\pi_t} - \tau_t\\
+        & \qquad \qquad - c_t - m_t - b_t - k_t \bigg] \Bigg\}.
+    \end{align*}
+    The FOCs w.r.t. $c_t, m_t, k_t, b_t$ are respectively
+    \begin{align*}
+        \frac{\partial V}{\partial c_t} &= u_c(c_t, m_t) - \lambda_t = 0\\
+        \frac{\partial V}{\partial m_t} &= \beta V_m(k_t, b_t, m_t)+ u_m(c_t, m_t) = \lambda_t= 0\\
+        \frac{\partial V}{\partial k_t} &= \beta V_k(k_t, b_t, m_t) - \lambda_t = 0\\
+        \frac{\partial V}{\partial b_t} &= \beta V_b(k_t, b_t, m_t) - \lambda_t = 0.
+    \end{align*}
+    The Envelope theorem implies that
+    \begin{align*}
+        V_m(k_{t-1}, b_{t-1}, m_{t-1}) & = \lambda_t \frac{1+i_m}{1+\pi_t}\\
+        V_k(k_{t-1}, b_{t-1}, m_{t-1}) & = \lambda_t \left[f'(k_{t-1}) + (1-\delta)\right]\\
+        V_b(k_{t-1}, b_{t-1}, m_{t-1}) & = \lambda_t \frac{1+i_{t-1}}{1+\pi_t}.
+    \end{align*}
+    Hence, the FOCs can be rewritten as
+    \begin{align*}
+        \beta u_c(c_{t+1}, m_{t+1})\frac{1+i_m}{1+\pi_{t+1}} + u_m(c_t, m_t) = u_c(c_t, m_t)\\
+        \beta u_c(c_{t+1}, m_{t+1})\frac{1+i_t}{1+\pi_{t+1}} = u_c(c_t, m_t)\\
+        \beta u_c(c_{t+1}, m_{t+1}) \left[f'(k_t) + (1-\delta)\right] = u_c(c_t, m_t).
+    \end{align*}
+    Define $1+r_t = f'(k_t) + (1-\delta)$, then using the above rewritten equations, we can derive the Fisher equation:
+    \begin{align*}
+        1+i_t = (1+\pi_{t+1})(1+r_t) \quad \text{ or } \quad i_t \approx r_t + \pi_{t+1}.
+    \end{align*}
+    Then, we get the ratio
+    \begin{align*}
+        \frac{u_m(c_t, m_t)}{u_c(c_t, m_t)} = 1 - \frac{1+i_m}{1+i_t} \approx i_t - i_m \approx r_t + \pi_{t+1} - i_m.
+    \end{align*}
+    In the steady state equilibrium, we have
+    \begin{align*}
+        \frac{u_m(c, m)}{u_c(c, m)} \approx i - i_m \approx r + \pi - i_m.
+    \end{align*}
+    In equilibrium, the marginal rate of substitution betwee nmoney and consumption is equal to the opportunity cost of money. The nominal interest payment on real money balances reduces the opportunity cost of holding money, and thus is subtracted from the nominal interest on bonds.
+
+    \underline{Grading}: 2 points for the problem, 2 points for the Bellman equation. 1 point each for the FOCs. 4 points for the result. 4 points for the interpretation.
+
+    \item (6 points) The government's budget identity $\tau_t + v_t = i_m m_t$ with $\tau_t = a i_m m_t$ and $v_t = \theta m_t$ implies that $\theta = (1-a) i_m$ (2 points). In the steady state equilibrium, the money growth provess $m_{t+1} = \frac{1+\theta}{1+\pi_{t+1}} m_t$ implies $\pi = \theta$. Hence, if $a$ increases, then $\theta$ will decrease and so will the steady-state inflation rate. $i-i_m$ will thus decrease due to smaller $\pi$ (2 points). Intuitively, if a larger fraction of interest payment on money is financed by lump-sum taxes, then less money is needed to be printed, which slows down the money growth (1 point) and results in a lower inflation and thus lower opportunity cost of holding money (1 point).
+\end{enumerate}
+
+\section*{Question 5 (6 points)}
+\begin{enumerate}[label=\arabic*.]
+    \item (3 points) When the money demand takes the form $\log m = \log A - \eta \log i$, which can be rewritten as $m = A i^{-\eta}$, the welfare cost of inflation, measured by the area under the money demand curve, is given by
+    \begin{align*}
+        \int_0^i A x^{-\eta} dx = \frac{A i^{1-\eta}}{1-\eta}.
+    \end{align*}
+    \item (3 points)When the money demand takes the form $\log m = \log B - \xi i$, which can be rewritten as $m = B e^{-\xi i}$, the welfare cost of inflation, measured by the area under the money demand curve, is given by
+    \begin{align*}
+        \int_0^i B e^{-\xi x} dx = \frac{B}{\xi} (1 - e^{-\xi i}).
+    \end{align*}
+\end{enumerate}
+
+\newpage
+
+\textbf{For Ph.D. students only:}
+\section*{Question 6 (23 points)}
+Given this utility, an equilibrium is characterized by the following system: (1 point each)
+\begin{align*}
+    1 &= \beta \mathbb{E}_t \frac{c_t}{c_{t+1}} \left[f_k(k_t, 1-\ell_{t+1}, z_{t+1}) + (1-\delta) \right]\\
+    \frac{\Psi c_t}{\ell_t^\eta} &= f_n(k_{t-1}, 1-\ell_t, z_t)\\
+    \frac{1-a}{a} \frac{c_t}{m_t} &= \frac{i_t}{1+i_t}\\
+    1 + i_t &= \left(1 + \mathbb{E}_t \pi_{t+1}\right) (1+r_t)\\
+    b_t &= 0\\
+    c_t + k_t &= f(k_{t+1}, 1 - \ell_t, z_t) + (1-\delta)k_{t-1}\\
+    \frac{m_t}{m_{t-1}} &= \frac{1+\theta_t}{1+\pi_t}\\
+    v_t&= \theta_t - \bar{\theta} = \gamma v_{t-1} + \varphi z_{t-1} + \xi_t, \, \xi_t \sim \mathcal{N}(0, \sigma_\xi^2)\\
+    z_t &= \rho z_{t-1} + \epsilon_t, \, \epsilon_t \sim \mathcal{N}(0, \sigma_\epsilon^2)
+\end{align*}
+At steady state, we have (1 point each)
+\begin{align}
+    1 + r^* &= \frac{1}{\beta} = f_k(k^*, 1-\ell^*, z^*) + (1-\delta) \label{eq:ss1} \\
+    \Psi c^* = (\ell^*)^{\eta} f_n(k^*, 1-\ell^*, z^*) \label{eq:ss2}\\
+    \frac{1-a}{a} \frac{c^*}{m^*} &= \frac{i^*}{1+i^*} \label{eq:ss3}\\
+    \beta (1+i^*) = 1 + \pi^* = 1 + \theta^* \label{eq:ss4}\\
+    c^* + \delta k^* &= f(k^*, 1-\ell^*, z^*) \label{eq:ss5}\\
+    n^* = 1-\ell^*. \label{eq:ss6}
+\end{align}
+By \ref{eq:ss1}, $\frac{k^*}{n^*}$ is independent of $\theta^*$ (1 point). Then by \eqref{eq:ss5}, $\frac{c^*}{n^*}$ is also independent of $\theta^*$ (1 point). Hence, by \eqref{eq:ss2} and \eqref{eq:ss6}, $n^*$ and $\ell^*$ are independent of $\theta^*$, thus $y^*$ (2 points).
+
+By \eqref{eq:ss4}, $i^*$ depends on $\theta^*$, and $\pi^*$ depends on $\theta^*$ (2 points). By the above argument, $c^*$ is itself independent of $\theta^*$ (1 point). Therefore, by \eqref{eq:ss3}, $m^*$ depends on $\theta^*$ (1 point).
+
+\section*{Question 7 (17 points)}
+The magnitude decreases with $a$. (2 points)
+
+Show the IRF using the program. (12 points)
+
+The intuition is that when $a$ becomes larger, $u_c$ is larger, which induces household to increase $n$, thus mitigating the decrease in $y$ due to the positive monetary shock. (3 points)
+
+\end{document}
