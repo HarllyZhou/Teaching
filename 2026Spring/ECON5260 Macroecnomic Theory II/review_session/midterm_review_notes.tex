@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subcaption} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 5260: Macroeconomic Theory II\\
+    {\large \textbf{Midterm Review Notes}}\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+\paragraph{Empirical Facts}
+\begin{enumerate}[label=\arabic*.]
+    \item What are the relationships between money growth and inflation in the long run and short run? Do they imply causality? Why does the relationship changes after 1984 according to Sargent and Surico (2011)?
+    \item What does Granger causality mean? Does money Granger causes output? Use literature to justify your answer.
+    \item This question is based on Bernanke and Mihov, QJE, 1998. Suppose that the reduced form regression provides observable residuals $e_x, e_y, e_z$ for federal funds rate, total reserves and the non-borrowed reserves, and the structural shocks are $v^b, v^d, v^s$ for disturbance to the borrowing function, demand disturbance, and monetary policy shock. Consider the following VAR design:
+    \begin{align*}
+        \begin{bmatrix}
+            \alpha + \beta & 0 & 0 \\
+            \alpha & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            e_x \\
+            e_y \\
+            e_z
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            -(\phi^b+1) & 1-\phi^d & -1 \\
+            0 & 1 & 0 \\
+            \phi^b & \phi^d & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            v^b \\
+            v^s \\
+            v^d
+        \end{bmatrix}.
+    \end{align*}
+    Is this model identifiable? If not, what is the minimum number of additional assumptions needed to make it identifiable? Propose one possible assumption.
+    \item What is the price puzzle? How did scholars rationalize it?
+    \item What are the expected effects of Quantitative Easing? Why might it be harder to measure the macroeconomic effects of unconventional monetary policy compared with conventional policy?
+\end{enumerate}
+
+\newpage
+\paragraph{MIU Model}
+\begin{enumerate}[label=\arabic*.]
+    \item Explain the intuition behind the intra-temporal constraint:
+    \begin{align*}
+        \frac{u_m(c_t, m_t)}{u_c(c_t, m_t)} = \frac{i_t}{1+i_t}.
+    \end{align*}
+    \item True or false: In equilibrium conditions, money supply only enters in the form of $m_t = \frac{M_t}{P_t N}$. This is called the superneutrality of money.
+    \item True or false: Suppose that $u_{cm} > 0$ and $b - \Phi > 0$. A more persistent growth in money has a larger impact on the real economy.
+\end{enumerate}
+
+\newpage
+\paragraph{CIA Model}
+\begin{enumerate}[label=\arabic*.]
+    \item Let $\lambda_t$ be the Lagrange multiplier attached to the budget constraint and $\mu_t$ be the Lagrange multiplier attached to the CIA constraint. Explain the asset pricing constraint:
+    \begin{align*}
+        \frac{\lambda_{t}}{P_t} = \sum_{i=1}^{+\infty} \beta^i \frac{\mu_{t+i}}{P_{t+i}}.
+    \end{align*}
+    \item True or false: Suppose that the monet growth process is given by $v_t = \gamma v_{t-1} + \varphi z_{t-1} + \xi_t$ where $z_t$ is the productivity shock and $\xi_t$ is a white noise. If $\gamma > 0$ and $\varphi > 0$, then a positive productivity shock will raise the real interest rate.
+    \item Explain what is the "lean against the wind" effect of a positive technology shock.
+\end{enumerate}
+
+
+
+
+
+\end{document}
