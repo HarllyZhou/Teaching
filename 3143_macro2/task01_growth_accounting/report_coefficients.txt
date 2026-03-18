@@ -1,0 +1,20 @@
+========================================
+Report 1: Regression Coefficients Summary
+========================================
+
+Country: United States 
+  Level regression (lnY ~ lnK + lnL):  lnK = 1.1373  lnL = -0.1872  sum = 0.9502 
+  Growth regression (gY ~ gK + gL):    gK  = 1.353  gL  = 1.5431  sum = 2.896 
+
+Country: Japan 
+  Level regression (lnY ~ lnK + lnL):  lnK = 0.2759  lnL = 3.6172  sum = 3.8931 
+  Growth regression (gY ~ gK + gL):    gK  = 0.2693  gL  = 2.149  sum = 2.4184 
+
+Country: India 
+  Level regression (lnY ~ lnK + lnL):  lnK = 0.7346  lnL = 0.0123  sum = 0.7469 
+  Growth regression (gY ~ gK + gL):    gK  = 0.5359  gL  = 0.5034  sum = 1.0393 
+
+Country: Nigeria 
+  Level regression (lnY ~ lnK + lnL):  lnK = 0.955  lnL = 1.4522  sum = 2.4072 
+  Growth regression (gY ~ gK + gL):    gK  = 0.686  gL  = -3.2776  sum = -2.5916 
+
