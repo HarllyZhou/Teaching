@@ -1,17 +1,58 @@
 \documentclass{book}
 
-\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
 \usepackage{geometry}
-\geometry{a4paper, margin=1in}
+\geometry{a4paper,scale=0.75}
 \linespread{1.5}
 
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subcaption} 
+\usepackage{enumerate}
+\usepackage{enumitem}
 \usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
 \usepackage{amsfonts}
-\usepackage{amssymb}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
 \usepackage{hyperref}
-\hypersetup{hidelinks, colorlinks=true, allcolors=black}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{task}{Task}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] 
 
 \title{Macroeconomics II Lecture Notes}
 \author{Harlly Zhou}
@@ -25,8 +66,349 @@
 \mainmatter
 
 \chapter{The Solow Model}
+This chapter discusses long-run economic growth using a fundamental growth model: the Solow model. We start this chapter by some motivating facts from data. Then we solve for the baseline version model and study the steady state of the model. The baseline model implies no long-run growth, which motivates the augmented Solow model. We introduce the concept of balanced growth path and conclude the chapter by the result that the only way for the economy to grow over the long run is from growth in productivity and population, while productivity growth is a must for per capital variables to grow. 
 
-% Content here
+\section{Facts about Growth}
+
+
+\section{Basic Solow Model}
+In ECON 3123, we know that the size of an economy is measured by GDP, which is the aggregate output of the economy. Therefore, to analyze the long-run growth of an economy, it is important to understand how output is produced. Using capital and labour as inputs, firms produce more output when capital and labour increase. While labour growth is exogenous, capital growth, or \textbf{capital accumulation}, is endogenous where agents' decisions about investment determine the rate of capital accumulation. From the capital accumulation process, we can solve for the model. We can then derive where the economy will converge to in the long run. As a result, we can backward induce how household should save to maximize their consumption in the long run.
+
+\subsection{Production Function}
+Consider an economy where capital, denoted by $K$, and labour, denoted by $N$, are the only inputs to production, and they are mapped to output via a \textbf{production function}:
+\begin{align} \label{eq:prod_func}
+    Y_t = A_t F(K_t, N_t),
+\end{align}
+where subscript $t$ denoted the period and $A_t$ is an \textbf{exogenous variable} which measure productivity. For simplicity, assume that $A_t \equiv A$ for all $t = 0, 1, \cdots$.
+
+The function $F(\cdot, \cdot)$ is assumed to have the following properties.
+\begin{assumption}\label{asp:prod_func}
+    Denote the first and second order partial derivatives of $F(K,N)$ by $F_K$, $F_N$, $F_{KK}$, $F_{NN}$, $F_{KN}$. The production function should satisfy the following conditions:
+    \begin{enumerate}[label=(\arabic*)]
+        \item Marginal products: $F_K > 0$ and $F_N > 0$;
+        \item \textbf{Inada conditions}: 
+        \begin{align*}
+            \lim_{K_t \to 0} F_K(K_t, N_t) = +\infty&, \quad 
+            \lim_{K_t \to +\infty} F_K(K_t, N_t) = 0,\\
+            \lim_{N_t \to 0} F_N(K_t, N_t) = +\infty&, \quad
+            \lim_{N_t \to +\infty} F_N(K_t, N_t) = 0;
+        \end{align*}
+        \item Diminishing marginal products: $F_{KK} < 0$ and $F_{NN} < 0$;
+        \item $F_{KN} > 0$;
+        \item Constant return to scale (CRTS): For $\forall \gamma > 0$, $F(\gamma K_t, \gamma N_t) = \gamma F(K_t, N_t)$;
+        \item If $K_t = 0$ or $N_t = 0$, then $F(K_t, N_t) = 0$.
+    \end{enumerate}
+\end{assumption}
+An example of such production function is the \textbf{Cobb-Douglas production function}, which we will make use of a lot.
+
+\begin{example}[Cobb-Douglas Production Function]\label{eg:cd_prod_func}
+    Consider the Cobb-Douglas production function:
+    \begin{align} \label{eq:cd_prod_func}
+        F(K_t, N_t) = K_t^{\alpha} N_t^{1-\alpha} \quad \text{ with } \quad 0 < \alpha < 1.
+    \end{align}
+    The first-order partial derivatives are:
+    \begin{align*}
+        F_K(K_t, N_t) &= \alpha K_t^{\alpha-1} N_t^{1-\alpha} = \alpha \left(\frac{K_t}{N_t}\right)^{\alpha-1} \\
+        F_N(K_t, N_t) &= (1-\alpha) K_t^{\alpha} N_t^{-\alpha} = (1-\alpha) \left(\frac{K_t}{N_t}\right)^{\alpha}.
+    \end{align*}
+    Since $0<\alpha<1$, both $K_t$ and $N_t$ should be positive. Therefore, the marginal products of capital and labour are both positive. It is also easy to verify that the Inada conditions hold.
+
+    The second-order partial derivatives are
+    \begin{align*}
+        F_{KK}(K_t, N_t) &= \alpha(\alpha-1) K_t^{\alpha-2} N_t^{1-\alpha}\\
+        F_{NN}(K_t, N_t) &= -\alpha(1-\alpha) K_t^{\alpha} N_t^{-\alpha-1}\\
+        F_{KN}(K_t, N_t) &= (1-\alpha)\alpha K_t^{\alpha-1} N_t^{-\alpha}.
+    \end{align*}
+    Since $0<\alpha<1$, $F_{KK}<0$, $F_{NN}<0$ and $F_{KN}>0$.
+
+    For any $\gamma > 0$, we have
+    \begin{align*}
+        F(\gamma K_t, \gamma N_t) &= (\gamma K_t)^{\alpha} (\gamma N_t)^{1-\alpha}\\
+        &= \gamma^{\alpha + (1-\alpha)} K_t^{\alpha} N_t^{\alpha}\\
+        &= \gamma F(K_t, N_t).
+    \end{align*}
+    By definition, it is of constant return to scale. Suppose that the powers to capital and labour sum up to a number larger (smaller) than 1, then the Cobb-Douglas production function will be of increasing (decreasing) return to scale.
+
+    It is clear that either $K_t = 0$ or $N_t = 0$ implies that $F(K_t, N_t) = 0$.
+\end{example}
+
+From the functional form, we know that different combinations of capital-labour input may produce the same amount of output. Therefore, it is natural to think about to what extent the two inputs are substitutes or complements. The concept capturing this property is called the \textbf{elasticity of substitution} (EoS), denoted by $\epsilon$. The EoS measures how responsive the capital-labour ratio $K_t/N_t$ is to changes in the \textbf{marginal rate of technical substitution} (MRTS), which equals the ratio of marginal products $F_N/F_K$ (the rate at which labour can be substituted for capital along an isoquant). Formally,
+\begin{align*}
+    \epsilon = \frac{d \log \frac{K_t}{N_t}}{d \log \frac{F_N}{F_K}}.
+\end{align*}
+For the Cobb-Douglas production function, we first compute the ratio of marginal products. From the derivatives above,
+\begin{align*}
+    \frac{F_N}{F_K} = \frac{1-\alpha}{\alpha} \cdot \frac{K_t}{N_t}.
+\end{align*}
+Taking logarithms: $\log \frac{F_N}{F_K} = \log \frac{1-\alpha}{\alpha} + \log \frac{K_t}{N_t}$. Therefore $d\log \frac{F_N}{F_K} = d\log \frac{K_t}{N_t}$, which implies
+\begin{align*}
+    \epsilon = \frac{d \log \frac{K_t}{N_t}}{d \log \frac{F_N}{F_K}} = 1.
+\end{align*}
+Economically, $\epsilon = 1$ means that along an isoquant, a 1\% change in the MRTS ($F_N/F_K$) is associated with a 1\% change in the capital-labour ratio: the two inputs are unit-elastic substitutes. In a competitive market where $w/R = F_N/F_K$, a 1\% increase in the wage-rental ratio leads to a 1\% increase in the capital-labour ratio chosen by cost-minimizing firms.
+
+Note that the EoS of a Cobb-Douglas production function is a constant. In fact, Cobb-Douglas production functions form a subset of a family of production functions called the \textbf{constant-elasticity-of-substitution (CES) production function}. In the following exercise, you will show that the CES production function also exhibits the required properties and has constant EoS and that the Cobb-Douglas production function is a special case of the CES production function.
+
+\begin{exercise}[CES production function]
+    A CES production function is of the following form:
+    \begin{align}\label{eq:ces_prod_func}
+        F(K_t, N_t) = \left[\alpha^{\frac{1}{\xi}} K_t^{1-\frac{1}{\xi}} + (1-\alpha)^{\frac{1}{\xi}} N_t^{1-\frac{1}{\xi}}\right]^{\frac{1}{1-\frac{1}{\xi}}} \quad \text{ with } \quad 0 < \alpha < 1 \, \text{ and } \, \xi > 0.
+    \end{align}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Show that the CES production function satisfies the properties in Assumption \ref{asp:prod_func}.
+        \item Show that under the CES production function, the elasticity of substitution is $\xi$.
+        \item Show that as $\xi \to 1$, $F(K_t, N_t) \to K_t^{\alpha} N_t^{1-\alpha}$.
+    \end{enumerate}
+\end{exercise}
+
+A representative firm faces a profit maximizing problem. Denote the marginal labour cost (\textit{i.e.}, the real wage paid to labour) as $w_t$ and the marginal capital cost (\textit{i.e.}, the real return to capital) as $R_t$. Normalizing the output price to be 1, we get the problem:
+\begin{align} \label{eq:firm_opt_problem}
+    \max_{K_t, N_t} \Pi_t = A F(K_t, N_t) - w_t N_t - R_t K_t.
+\end{align}
+The first-order condition for the representative firm is:
+\begin{align} 
+    w_t = A F_N(K_t, N_t) \label{eq:real_wage} \\
+    R_t = A F_K(K_t, N_t) \label{eq:capital_return}.
+\end{align}
+These conditions say that the firm ought to hire capital and labour up until the point where the marginal product of the factor equals the marginal cost. The next exercise asks you to show that in this competitive market, the profit of the firm should be zero.
+
+\begin{exercise}[Euler's Theorem] \label{ex:euler_theorem}
+    Assume that the production function $F(K_t, N_t)$ admits the properties in Assumption \ref{asp:prod_func}. 
+    \begin{enumerate}[label=(\arabic*)]
+        \item Show that the solution to the optimization problem \eqref{eq:firm_opt_problem} leads to zero profit. [Hint: Consider the CRTS property. Try some differentiation so that you can get a form of $F_N N_t$ and $F_K K_t$.]
+        \item Show that for any $\gamma > 0$, $F_K(\gamma K_t, \gamma N_t) = F_K(F_t, N_t)$ and $F_N(\gamma K_t, \gamma N_t) = F_N(F_t, N_t)$.
+    \end{enumerate}
+\end{exercise}
+
+\subsection{Consumption and Investment}
+From ECON 3123, we know that output in a closed economy without government spending will be either consumed or saved. The IS relationship implies that the saving is equal to investment. Mathematically, denote $s$ as the constant saving rate. We have
+\begin{align*}
+    Y_t &= C_t + I_t \\
+    I_t &= s Y_t.
+\end{align*}
+Where does the investment go? It is used for capital accumulation. Formally, the capital in period $t+1$ is equal to the investment in period $t$ plus the remaining value of the capital in period $t$:
+\begin{align*}
+    K_{t+1} = I_t + (1-\delta)K_t,
+\end{align*}
+where $\delta \in [0,1]$ is the depreciation rate of capital. This is called the \textbf{law of motion (LoM)} of capital.
+
+The Solow model is characterized by the following equations:
+\begin{align}
+    Y_t &= AF(K_t, N_t) \label{eq:solow_prod_func} \\
+    Y_t &= C_t + I_t \label{eq:solow_aggregate} \\
+    K_{t+1} &= I_t + (1-\delta) K_t \label{eq:solow_lom_agg_capital} \\
+    I_t &= s Y_t \label{eq:solow_is} \\
+    w_t &= A F_N(K_t, N_t) \label{eq:solow_real_wage} \\
+    R_t &= A F_K(K_t, N_t). \label{eq:solow_real_retrun_capital}
+\end{align}
+Having six equations with six endogenous variables ($Y_t$, $C_t$, $I_t$, {\color{red}$K_{t+1}$}, $w_t$, $R_t$), we can solve the model.
+
+Plugging \eqref{eq:solow_prod_func} into \eqref{eq:solow_is} and then into the LoM \eqref{eq:solow_lom_agg_capital}, we get
+\begin{align}\label{eq:lom_capital_subs}
+    K_{t+1} = s A F(K_t, N_t) + (1-\delta) K_t.
+\end{align}
+Dividing both sides by $N_t$, we get the LoM of capital per worker:
+\begin{align}\label{eq:lom_capital_pc_preliminary}
+    {\color{red}\frac{K_{t+1}}{N_t}} = s A \frac{F(K_t, N_t)}{N_t} + (1-\delta)\frac{K_t}{N_t}.
+\end{align}
+We are almost there for per capital LoM. Note that the LHS has a time mismatch. A commonly used trick is to do the following:
+\begin{align*}
+    \frac{K_{t+1}}{N_t} = \frac{K_{t+1}}{N_{t+1}} \frac{N_{t+1}}{N_t} = \frac{K_{t+1}}{N_{t+1}} (1+n),
+\end{align*}
+where $n$ is the population growth rate, which we for now assume to be zero. Define the per capita capital stock as $k_t = \frac{K_t}{N_t}$. We can then rewrite the production function in per capita terms:
+\begin{align}
+    y_t \equiv \frac{Y_t}{N_t} = A \frac{F(K_t, N_t)}{N_t} = {\color{red}A F\left(\frac{K_t}{N_t}, 1\right)} = A F(k_t, 1) := A f(k_t),
+\end{align}
+where the red step is by the CRTS property. Now we can write the LoM of capital per capita:
+\begin{align}\label{eq:lom_capital_pc}
+    k_{t+1} = s A f(k_t) + (1-\delta)k_t \iff \Delta k_{t+1} = s A f(k_t) - \delta k_t.
+\end{align}
+The last step is to express the real wage and real return to capital in terms of capital per capita. By Exercise \ref{ex:euler_theorem}, we have $F_K(K_t, N_t) = F_K(k_t, 1) = f'(k_t)$ and $F_N(K_t, N_t) = \frac{1}{N_t} [F(K_t, N_t) - F_K(K_t, N_t) K_t] = f(k_t) - f'(k_t) k_t$. Therefore,
+\begin{align}
+    w_t &= A F_N(K_t, N_t) = A [f(k_t) - f'(k_t) k _t] \label{eq:real_wage_pc} \\
+    R_t &= A f'(k_t). \label{eq:real_return_capital_pc}
+\end{align}
+
+\begin{example}[Solow model with Cobb-Douglas production function]
+    Consider the Cobb-Douglas production function:
+    \begin{align*}
+        F(K_t, N_t) = K_t^{\alpha} N_t^{1-\alpha} \quad \text{ with } \quad 0 < \alpha < 1.
+    \end{align*}
+    Then we have
+    \begin{align*}
+        f(k_t) = A k_t^{\alpha}.
+    \end{align*}
+    The model can be summarized by the following equations:
+    \begin{align*}
+        y_t &= A k_t^{\alpha} \\
+        y_t &= c_t + \iota_t \\
+        k_{t+1} & = s A k_t^{\alpha} + (1-\delta)k_t \\
+        \iota_t &= s y_t \\
+        w_t &= A (1-\alpha) k_t^{\alpha} \\
+        R_t &= A \alpha k_t^{\alpha-1}.
+    \end{align*}
+\end{example}
+
+\subsection{Graphical Analysis and Mathematical Analysis}
+We will start with the graphical analysis of the Solow model. As you may have already realized, lying in the centre of the model is the LoM of capital (per capita) \eqref{eq:lom_capital_pc}. We would like to investigate the following two questions:
+\begin{itemize}
+    \item How will $k_{t+1}$ vary as $k_t$ changes?
+    \item Will the economy converge to a state $k_t = k_{t+1}$?
+\end{itemize}
+
+To answer the first question, we can consider $k_{t+1}$ as a function of $k_t$ and compute the derivative:
+\begin{align}\label{eq:d_kt1_d_kt}
+    \frac{d k_{t+1}}{d k_t} = s A f'(k_t) + (1-\delta).
+\end{align}
+This provides the slope of $k_{t+1}$ given $k_t$. Recall that the Inada condition imposes that
+\begin{align*}
+    \lim_{k_t \to 0} f'(k_t) = +\infty, \quad \lim_{k_t \to +\infty} f'(k_t) = 0.
+\end{align*}
+They together implies that the slope of $k_{t+1}$ starts with positive infinity at the origin but decreases to $1-\delta$ as $k_t$ increases.
+
+Figure \ref{fig:basic_solow} plots $k_{t+1}$ as a function of $k_t$ together with the 45-degree line along which $k_t = k_{t+1}$. The LoM curve intersect the 45-degree line at $k_t = k_{t+1} = k^*$. We refer to this point $k^*$ as the \textbf{steady state} of the economy.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuretable/01_basic_solow.png}
+    \caption{Phase diagram of the Solow model}
+    \label{fig:basic_solow}
+\end{figure}
+A natural question to ask is whether this steady state always exsits and is unique. The following exercise asks you to show that the steady state always exists and is unique under Assumption \ref{asp:prod_func}.
+\begin{exercise}[Existence and uniqueness of steady state]
+    Suppose that Assumption \ref{asp:prod_func} holds. 
+    \begin{enumerate}[label=(\arabic*)]
+        \item Show that there exists a steady state $k^*$ such that $k_{t+1} = k_t = k^*$.[Hint: Consider the alternative representation of the LoM of capital per capital using $\Delta k_{t+1}$. Use intermediate value theorem. ]
+        \item Show that $F_{KK}(K_t, N_t) = \frac{f''(k_t)}{N_t}$. [Hin: Use Euler's theorem.]
+        \item Show that the steady state is unique.
+    \end{enumerate}
+\end{exercise}
+
+It is intuitive to conjecture that the answer to the second question is yes, and the economy will converge to the steady state. Figure \ref{fig:basic_solow_convergence} plots the convergence path of the economy from two different initial capital stocks.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_convergence.png}
+    \caption{Convergence path of the Solow model}
+    \label{fig:basic_solow_convergence}
+\end{figure}
+ Starting from an initial level $k_0$ on the horizontal axis, move vertically to the law-of-motion curve $k_{t+1} = sA f(k_t) + (1-\delta)k_t$ to obtain $k_1$, then move horizontally to the 45-degree line $k_{t+1} = k_t$. Repeating these vertical and horizontal steps generates the sequence $\{k_t\}$. When $k_t < k^*$, the law-of-motion curve lies above the 45-degree line, implying $k_{t+1} > k_t$ and convergence from below. When $k_t > k^*$, the curve lies below the 45-degree line, implying $k_{t+1} < k_t$ and convergence from above. We can also see the convergence pattern if we plot the time series of $k_t$ in Figure \ref{fig:basic_solow_k_dynamics}.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_k_dynamics.png}
+    \caption{Dynamics of capital in the Solow model}
+    \label{fig:basic_solow_k_dynamics}
+\end{figure}
+
+Recall that we also have an alternative representation of the LoM of capital per capita:
+\begin{align*}
+    \Delta k_{t+1} = s A f(k_t) - \delta k_t.
+\end{align*}
+This implies that depreciated capital is equal to the investment. Figure \ref{fig:basic_solow_alternative} plots the investment and depreciated capital as a function of capital per capita.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuretable/01_basic_solow_alternative.png}
+    \caption{Investment and depreciated capital in the Solow model}
+    \label{fig:basic_solow_alternative}
+\end{figure}
+
+Now we turn to the mathematical analysis of the Solow model. At the steady state, we have $k_{t+1} = k_t = k^*$. Plugging this into the LoM of capital per capita \eqref{eq:lom_capital_pc}, we get
+\begin{align*}
+    k^* = s A f(k^*) + (1- \delta) k^*.
+\end{align*}
+Rearranging the terms, we get
+\begin{align}\label{eq:k_ss_general}
+    k^* = \frac{s A f(k^*)}{\delta}.
+\end{align}
+Alternatively, we can let $\Delta k_{t+1} = 0$ to derive the steady-state $k^*$. Plugging \eqref{eq:k_ss_general} into the system of equations that characterizes the economy, we get the following:
+\begin{align*}
+    y^* &= A f(k^*) \\
+    c^* &= (1-s) y^* \\
+    \iota_t &= s y^* \\
+    w^* &= A [f(k^*) - f'(k^*)k^*] \\
+    R^* &= A f'(k^*).
+\end{align*}
+Try the Cobb-Douglas specification by yourself.
+
+\subsection{Comparative Statics}
+We will now investigate how the steady state changes when the parameters change. In particular, we are interested in the change of $s$ and $A$. 
+
+\medskip
+\noindent \textbf{Change of $s$}
+
+Note that when $s$ increases, \eqref{eq:k_ss_general} implies that $k^*$ increases and other variables follow. This can be seen from the figure \ref{fig:basic_solow_compstat_s}.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuretable/01_basic_solow_compstat_s.png}
+    \caption{Comparative statics of $s$}
+    \label{fig:basic_solow_compstat_s}
+\end{figure}
+With a positive shock to $s$, the LoM curve shifts upward. Given the fixed 45-degree line, the new steady state is at a higher level of capital per capita. 
+
+A more important question is how the economy transits from the old steady state to the new steady state. Figure \ref{fig:basic_solow_s_shock_irf} plots the \textbf{impulse response functions} of the economy to a positive permanent shock to $s$.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_s_shock_irf.png}
+    \caption{Impulse response functions to a positive permanent shock to $s$}
+    \label{fig:basic_solow_s_shock_irf}
+\end{figure}
+
+Before we discuss the impulse response functions, we need to clarify the concept of \textbf{stock variables} and \textbf{flow variables}. A stock variable is a variable that is measured at a point in time. It is accumulated over time. For example, capital stock $K_t$ is a stock variable. A flow variable is a variable that is measured over a period of time. It is measured from zero when a new period starts. For example, investment $I_t$ is a flow variable. Therefore, the value of a stock variable cannot jump because it has an accumulation process. On the other hand, the value of a flow variable can jump. 
+
+The top two panels of Figure \ref{fig:basic_solow_s_shock_irf} show the impulse response functions of $k_t$ and $y_t$. As expected, $k_t$ and $y_t$ increase without a jump when $s$ increases. The effect of the shock shrinks over time, and the the two variables converge to the new steady state.
+
+The middle to panels show the impulse response functions of $c_t$ and $\iota_t$. The new steady state consumption drops and the new steady state investment rises. Consider the dynamics of consumption first. Immediately after the shock, consumption drops to a level lower than the new steady state consumption. Consider the consumption equation $c_t = (1-s) y_t$. {\color{red} Since $y_t$ is a stock variable, it does not immediately change, while $1-s$ is already lower. Moreover, the current $y_t = y_0^* < y_1^*$. Therefore, the concumption $c_t = (1-s_1) y_0^* < (1-s_1) y_1^* = c_1^*$.} The same analysis applies to investment dynamics. 
+
+The last two panels show the impulse response functions of $w_t$ and $R_t$. The new steady state wage and return to capital both increase. The wage increases because the marginal product of capital increases. The return to capital increases because the marginal product of capital increases.
+
+\begin{exercise}[Decrease of $s$]
+    Consider an economy with a negative shock to $s$ at time $t$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Draw the equilibrium diagram (like Figure \ref{fig:basic_solow_compstat_s}). Will the new steady-state capital level increase or decrease?
+        \item How will the new steady-state output, consumption, investment, wage, and return to capital change? Use math equations to explain.
+        \item Draw the impulse response functions of the variables. 
+    \end{enumerate}
+\end{exercise}
+
+\medskip
+\noindent \textbf{Change of $A$}
+
+Note that when $A$ increases, \eqref{eq:k_ss_general} implies that $k^*$ increases. This can be seen from the figure \ref{fig:basic_solow_compstat_a}.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuretable/01_basic_solow_compstat_a.png}
+    \caption{Comparative statics of $A$}
+    \label{fig:basic_solow_compstat_a}
+\end{figure}
+While it is easy to see how the new steady-state output, consumption and investment change, it is not as straightforward to see how the new steady-state wage and return to capital change. Recall that $f''(k_t) < 0$. Therefore, an increase in $k^*$ will leads to a decrease in $f'(k^*)$, while $A$ increases, so the total effect is not clear, and same for $w^*$. 
+
+\begin{exercise}[Change of $w^*$ and $R^*$]
+    Consider an economy with a positive shock to productivity $A$ at time $t$. Suppose that the production function is $Y_t = A F(K_t, N_t) = A K_t^{\alpha} N_t^{1-\alpha}$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Show that $f(k_t) = k_t^{\alpha}$.
+        \item Find the expression of $k^*$ using the parameters.
+        \item Show that when $A$ increases from $A_0$ to $A_1$, $w^*$ increases and $R^*$ does not change.
+    \end{enumerate}
+\end{exercise}
+
+The impulse response functions to a positive permanent shock to $A$ are shown in Figure \ref{fig:basic_solow_a_shock_irf}.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_a_shock_irf.png}
+    \caption{Impulse response functions to a positive permanent shock to $A$}
+    \label{fig:basic_solow_a_shock_irf}
+\end{figure}
+
+The top two panels of Figure \ref{fig:basic_solow_a_shock_irf} show the impulse response functions of $k_t$ and $y_t$. As expected, $k_t$ and $y_t$ increase without a jump when $A$ increases. The effect of the shock shrinks over time, and the the two variables converge to the new steady state.
+
+The middle to panels show the impulse response functions of $c_t$ and $\iota_t$. The new steady state consumption and investment both increase. Again, the same reasoning applies for the jumps after the saving rate shock.
+
+The last two panels show the impulse response functions of $w_t$ and $R_t$. Different from the case of $s$, the two variables jumps. Note that the contemporaneous real wage is lower than the new steady state real wage while the contemporaneous return to capital is higher than the new steady state return to capital. How to understand this? Recall that the steady state real wage and return to capital are given by $w_t = A [f(k_t) - f'(k_t)k_t]$ and $R_t = A f'(k_t)$. Since $k^*$ does not change immediately, the two variables jumps to $w_t = A_1 [f(k_0^*) - f'(k_0^*)k_0^*] > A_0 [f(k_0^*) - f'(k_0^*)k_0^*] = w_0^*$ and $R_t = A_1 f'(k_0^*) > A_0 f'(k_0^*) = R_0^*$. Now consider the change of $w_t$ and $R_t$ after the shock. Note that
+\begin{align*}
+    \frac{\partial w_t}{\partial k_t} = -f''(k_t) k_t > 0, \qquad \text{ and } \qquad \frac{\partial R_t}{\partial k_t} = A f'(k_t) < 0.
+\end{align*}
+Therefore, as capital gradually increases, the real wage increases to the new steady state while the return to capital decreases to the new steady state.
+
+\begin{exercise}[Increase of $A$]
+
+\end{exercise}
 
 \chapter{}
 
