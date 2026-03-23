@@ -189,7 +189,35 @@ These conditions say that the firm ought to hire capital and labour up until the
 \end{exercise}
 
 \subsection{Growth Accounting}
+Given the production functions, we know that output growth can potentially come from the inputs. Specifically, with Cobb-Douglas production function
+\begin{align*}
+    Y = A K^{\alpha} N^{1-\alpha},
+\end{align*}
+we know that the output can grow due to productivity growth, capital growth, and labour growth. How to explicitly express the growth rate of output? 
 
+Note that the growth rate of output is given by
+\begin{align}\label{eq:growth_rate_output}
+    g_{Y} = \frac{Y_t - Y_{t-1}}{Y_{t-1}} = \frac{Y_t}{Y_{t-1}} - 1.
+\end{align}
+By the Cobb-Douglas production function, 
+\begin{align*}
+    \frac{Y_t}{Y_{t-1}} &= \frac{A_t K_t^{\alpha} N_t^{1-\alpha}}{A_{t-1} K_{t-1}^{\alpha} N_{t-1}^{1-\alpha}} \\
+    & = \frac{A_t}{A_{t-1}} \left(\frac{K_t}{K_{t-1}}\right)^{\alpha} \left(\frac{N_t}{N_{t-1}}\right)^{1-\alpha}\\
+    &= (1+g_A) (1+g_K)^{\alpha} (1+g_N)^{1-\alpha}.
+\end{align*}
+Multiplication seems not transparent enough as a decomposition and we would like to change them to additions. To do so, we {\color{red} take logarithms} on both sides of the equation:
+\begin{align*}
+    \log (1+g_Y) = \log (1+g_A) + \alpha \log (1+g_K) + (1-\alpha) \log (1+g_N).
+\end{align*}
+To get rid of the annoying ``$1+$'' term, we can use the following approximation by {\color{red}Taylor's theorem}:
+\begin{align*}
+    \log (1+x) \approx x \quad \text{for } x \text{ small}.
+\end{align*}
+Therefore, we get
+\begin{align*}
+    g_Y \approx g_A + \alpha g_K + (1-\alpha) g_N.
+\end{align*}
+This is the growth \textbf{accounting equation}. It says that the growth rate of output is the sum of the growth rates of productivity, capital, and labour.
 
 
 \begin{task}[Capital share and labour share (I)]
@@ -302,7 +330,7 @@ These conditions say that the firm ought to hire capital and labour up until the
     \end{enumerate}
 \end{task}
 
-
+\medskip
 
 \section{Basic Solow Model}
 Using capital and labour as inputs, firms produce more output when capital and labour increase. While labour growth is exogenous, capital growth, or \textbf{capital accumulation}, is endogenous where agents' decisions about investment determine the rate of capital accumulation. From the capital accumulation process, we can solve for the model. We can then derive where the economy will converge to in the long run. As a result, we can backward induce how household should save to maximize their consumption in the long run.
@@ -614,6 +642,19 @@ To maximize $c^*$, we need to set the derivative to zero. Since $\frac{\partial 
        \item Show that to maximize the steady state-output, $\eta^* = \theta$.
     \end{enumerate}
 \end{exercise}
+
+\medskip
+
+\section{Augmented Solow Model}
+In the basic Solow model, the economy will converge to a steady state where there is no growth. Although we show that we can increase $k^*$ by increasing $s$, this is not sustainable (why?). Therefore, we need to augment the model to allow for growth. We focus on the role of productivity.
+
+
+
+
+
+\medskip
+
+\section{Cross-Country Differences}
 
 \chapter{}
 
