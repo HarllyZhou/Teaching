@@ -44,15 +44,15 @@
 \usepackage{natbib}
 \bibliographystyle{apalike}
 \newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem*{remark}{Remark}
-\newtheorem{example}{Example}
-\newtheorem{task}{Task}
-\newtheorem{exercise}{Exercise}
-\newtheorem{assumption}{Assumption}[section] 
+\newtheorem{example}{Example}[chapter]
+\newtheorem{task}{Task}[chapter]
+\newtheorem{exercise}{Exercise}[chapter]
+\newtheorem{assumption}{Assumption}[chapter] 
 
 \title{Macroeconomics II Lecture Notes}
 \author{Harlly Zhou}
@@ -167,9 +167,20 @@ The first-order condition for the representative firm is:
     w_t = A F_N(K_t, N_t) \label{eq:real_wage} \\
     R_t = A F_K(K_t, N_t) \label{eq:capital_return}.
 \end{align}
-These conditions say that the firm ought to hire capital and labour up until the point where the marginal product of the factor equals the marginal cost. The next exercise asks you to show that in this competitive market, the profit of the firm should be zero.
+These conditions say that the firm ought to hire capital and labour up until the point where the marginal product of the factor equals the marginal cost. The next exercise asks you to show that in this competitive market, the profit of the firm should be zero. This is known as \textbf{Euler's Theorem}.
 
-\begin{exercise}[Euler's Theorem] \label{ex:euler_theorem}
+\begin{theorem}[Euler's Theorem]\label{thm:euler_theorem}
+    If $f: \mathbb{R}^n \to \mathbb{R}$ is a homogeneous function of degree $k\geq 0$, and continuously differentiable in some open subset of $\mathbb{R}^n$, then it satisfies the following differential equation:
+    \begin{align}\label{eq:euler_theorem}
+        k f(x_1, x_2, \cdots, x_n) = \sum_{i=1}^n x_i \frac{\partial f}{\partial x_i}(x_1, x_2, \cdots, x_n).
+    \end{align}
+\end{theorem}
+
+\begin{corollary}[Partial Derivative of a Homogeneous Function]\label{cor:par_deri_homo_func}
+    If $f: \mathbb{R}^n \to \mathbb{R}$ is a homogeneous function of degree $k\geq 0$, then the partial derivative of $f$ with respect to $x_i$ is a homogeneous function of degree $k-1$.
+\end{corollary}
+
+\begin{exercise}[Euler's Theorem with two variables] \label{ex:euler_theorem}
     Assume that the production function $F(K_t, N_t)$ admits the properties in Assumption \ref{asp:prod_func}. 
     \begin{enumerate}[label=(\arabic*)]
         \item Show that the solution to the optimization problem \eqref{eq:firm_opt_problem} leads to zero profit. [Hint: Consider the CRTS property. Try some differentiation so that you can get a form of $F_N N_t$ and $F_K K_t$.]
@@ -181,7 +192,7 @@ These conditions say that the firm ought to hire capital and labour up until the
 
 
 
-\begin{task}
+\begin{task}[Capital share and labour share (I)]
     In this question, we will use the \textbf{Penn World Table} (PWT) dataset \url{https://www.rug.nl/ggdc/productivity/pwt/?lang=en}. The PWT is a cross-country dataset designed for international comparisons of macroeconomic variables. It provides measures of output, capital, labor, and productivity that are comparable across countries and over time by using purchasing power parity (PPP) adjustments. You should read the tutorial note on this task before doing it.
         
     A key feature of the PWT is its focus on real variables, such as real GDP, capital stock, and total factor productivity. These features make it widely used in growth and development research.
@@ -508,6 +519,13 @@ While it is easy to see how the new steady-state output, consumption and investm
 
 The impulse response functions to a positive permanent shock to $A$ are shown in Figure \ref{fig:basic_solow_a_shock_irf}.
 
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_a_shock_irf.png}
+    \caption{Impulse response functions to a positive permanent shock to $A$}
+    \label{fig:basic_solow_a_shock_irf}
+\end{figure}
+
 The top two panels of Figure \ref{fig:basic_solow_a_shock_irf} show the impulse response functions of $k_t$ and $y_t$. As expected, $k_t$ and $y_t$ increase without a jump when $A$ increases. The effect of the shock shrinks over time, and the the two variables converge to the new steady state.
 
 The middle to panels show the impulse response functions of $c_t$ and $\iota_t$. The new steady state consumption and investment both increase. Again, the same reasoning applies for the jumps after the saving rate shock.
@@ -518,12 +536,6 @@ The last two panels show the impulse response functions of $w_t$ and $R_t$. Diff
 \end{align*}
 Therefore, as capital gradually increases, the real wage increases to the new steady state while the return to capital decreases to the new steady state.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_a_shock_irf.png}
-    \caption{Impulse response functions to a positive permanent shock to $A$}
-    \label{fig:basic_solow_a_shock_irf}
-\end{figure}
 
 \begin{exercise}[Increase of capital depreciation rate]
     Consider an economy with a positive shock to capital depreciation rate $\delta$ at time $t$.
@@ -573,6 +585,34 @@ To maximize $c^*$, we need to set the derivative to zero. Since $\frac{\partial 
 
 \begin{exercise}[Golden rule with Cobb-Douglas production function]
     Consider an economy with the Cobb-Douglas production function $Y_t = A K_t^{\alpha} N_t^{1-\alpha}$. Show that $s_{GR} = \alpha$.
+\end{exercise}
+
+\begin{exercise}[Population growth in Solow model]
+    Till now, we have assumed that the population is constant. Now we will relax this assumption. Suppose that the population grows at a rate $n$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Derive the law of motion for capital per labour.
+        \item Derive the steady-state capital per labour.
+        \item Derive the steady-state consumption per labour.
+        \item Derive the golden-rule saving rate.
+        \item Suppose that the economy is initially at the steady state. If $n$ decreases at time $t$, how will the new steady state change? What are the intuitions?
+        \item Draw the impulse response functions of capital per labour, output per labour, consumption per labour, and investment per labour. Also draw the impulse response functions of the real wage and the return to capital.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Two types of labour]
+    Suppose that there are two types of labour $N_1$ and $N_2$ in the economy. The production function is $Y_t = A K_t^{\alpha} \left(N_{1t}^{\theta} N_{2t}^{1-\theta}\right)^{1-\alpha}$ where $\alpha, \theta \in (0,1)$. Assume that there is no population growth.
+    \begin{enumerate}[label=(\arabic*)]
+       \item Show that the production function is homogeneous of degree 1.
+       \item Form the profit maximization problem for the firm choosing optimal $K_t$, $N_{1t}$, and $N_{2t}$. Assume that the real wage it $w_{1t}$ and $w_{2t}$ for the two types of labour respectively, and the real return to capital is $R_t$. Solve for the optimal labour demand for the two types of labour.
+       \item Instead of doing the above maximization, assume that $N_{1t} = \eta_t N_t$ and $N_{2t} = (1-\eta_t) N_t$. Form the profit maximization problem for the firm choosing optimal $K_t$, $N_t$, and $\eta_t$. Show that at optimum,
+       \begin{align*}
+           \frac{\eta_t}{1-\eta_t} = \frac{\theta}{1-\theta} \frac{w_{2t}}{w_{1t}}.
+       \end{align*}
+       \item Write out the per labour production function $y_t = A \Phi(\eta_t)f(k_t)$. 
+       \item Assume that at the steady state, $\eta_t = \eta^*$. Solve for the steady-state capital per labour $k^*$. 
+       \item Derive the steady-state output per labour $y^*$.
+       \item Show that to maximize the output, $\eta^* = \theta$.
+    \end{enumerate}
 \end{exercise}
 
 \chapter{}
