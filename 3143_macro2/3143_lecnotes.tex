@@ -182,81 +182,112 @@ These conditions say that the firm ought to hire capital and labour up until the
 
 
 \begin{task}
-    In this question, we will make use of the \textbf{Penn World Table} data \url{https://www.rug.nl/ggdc/productivity/pwt/?lang=en}. The Penn World Table (PWT) is a cross-country dataset designed for international comparisons of macroeconomic variables. It provides nationally comparable measures of output, capital, labor, and productivity by converting country-level data into a common price system using purchasing power parity (PPP) adjustments. A key feature of the PWT is its emphasis on real variables—such as real GDP, capital stock, and total factor productivity—constructed to be comparable across countries and over time. The dataset is widely used in growth and development research, as it allows researchers to study differences in income levels, factor accumulation, and productivity across economies in a consistent framework.
-    
-    From the growth accounting equations, we know that given a Cobb-Douglas production function $Y_t = A K_t^{\alpha} N_t^{1-\alpha}$, we can take logarithms to make it additive and compute the growth rate. Then $\alpha$ becomes the coefficient of $\log K_t$ or $g_K$. It seems that we can do the following regression:
-    \begin{align}\label{eq:log_reg}
-        \log Y_t = \beta_0 + \beta_1 \log K_t + \beta_2 \log N_t + u_t, 
+    In this question, we will use the \textbf{Penn World Table} (PWT) dataset \url{https://www.rug.nl/ggdc/productivity/pwt/?lang=en}. The PWT is a cross-country dataset designed for international comparisons of macroeconomic variables. It provides measures of output, capital, labor, and productivity that are comparable across countries and over time by using purchasing power parity (PPP) adjustments. You should read the tutorial note on this task before doing it.
+        
+    A key feature of the PWT is its focus on real variables, such as real GDP, capital stock, and total factor productivity. These features make it widely used in growth and development research.
+        
+    \vspace{0.5em}
+        
+    From the growth accounting equation, consider a Cobb--Douglas production function
+    \begin{align*}
+        Y_t = A_t K_t^{\alpha} N_t^{1-\alpha}.
+    \end{align*}
+    Taking logarithms or growth rates suggests that we may estimate $\alpha$ using regression. Specifically, we may consider the following specifications:
+    \begin{align}
+        \log Y_t &= \beta_0 + \beta_1 \log K_t + \beta_2 \log N_t + u_t, \label{eq:log_reg} \\
+        g_Y &= \gamma_0 + \gamma_1 g_K + \gamma_2 g_N + v_t, \label{eq:growth_reg}
     \end{align}
-    where $u_t$ is the error term. We can interpret the estimated coefficient $\hat{\beta}_1$ as the estimated value for $\alpha$. Or alternatively, 
-    \begin{align}\label{eq:growth_reg}
-        g_Y = \gamma_0 + \gamma_1 g_K + \gamma_2 g_N + v_t,
-    \end{align}
-    where $v_t$ is the error term. We can interpret the estimated coefficient $\hat{\gamma}_1$ as the estimated value for $\alpha$. This task asks you to check whether this method is feasible to estimate $\alpha$.
-    \begin{enumerate}[label=(\arabic*)]
-        \item Using data from the PWT, do the log regression \eqref{eq:log_reg} for the US, Japan, India, and Nigeria. Use \emph{cdgpo} for aggregate output, \emph{cn} for aggregate capital, and \emph{pop} for population. 
-        \begin{enumerate}[label=\roman*]
-            \item Assume that this regression model makes sense. How would you interpret the coefficient $\beta_0$?
-            \item Report the estimated coefficients $\hat{\beta}_1$ and $\hat{\beta}_2$ and for each country. Does the values always between 0 and 1?
-            \item Sum up $\hat{\beta}_1$ and $\hat{\beta}_2$ for each country. Does that sum look close to 1?
-            \item Now we would like to make a statistical test on the hypothesis:
-            \begin{align*}
-                H_0: \beta_1 + \beta_2 = 1 \quad \text{ vs } \quad H_1: \beta_1 + \beta_2 \neq 1.
-            \end{align*}
-            For testing this kind of \textbf{joint hypothesis}, we conduct an \textbf{$F$-test}. A small $p$-value leads to rejection of the null hypothesis $H_0$. The following is the report of the test for Japan. Can we conclude that the sum of the coefficients is significantly different from zero?
-
-            \fbox{
-            \begin{minipage}{0.95\linewidth}
-            \normalfont
-
-            \textbf{Level regression:} $H_0:\ \ln K + \ln L = 1$
-
-            \begin{center}
-            \begin{tabular}{lcccccc}
-            \hline
-            Model & Res.Df & RSS & Df & Sum of Sq & F & Pr($>$F) \\
-            \hline
-            Restricted & 29 & 0.019093 &  &  &  &  \\
-            Unrestricted & 28 & 0.013100 & 1 & 0.005993 & 12.808 & 0.001283$^{**}$ \\
-            \hline
-            \end{tabular}
-            \end{center}
-
-            \textit{Signif. codes:} $^{***}\,0.001 \quad ^{**}\,0.01 \quad ^{*}\,0.05 \quad ^{.}\,0.1$
-            \end{minipage}
-            }
+    where $u_t$ and $v_t$ are error terms. 
+        
+    This task asks you to examine whether these regressions can be used to estimate $\alpha$.
+        
+    \begin{enumerate}[label=\arabic*.]
+        
+    \item \textbf{Level regression.} Using PWT data, estimate the regression in \eqref{eq:log_reg} for the United States, Japan, India, and Nigeria. Use \texttt{cgdpo} for output, \texttt{cn} for capital, and \texttt{pop} for population.
+        
+        \begin{enumerate}[label=\roman*.]
+        
+        \item Suppose the regression model is correctly specified. How would you interpret the coefficient $\beta_0$?
+        
+        \item Report the estimated coefficients $\hat{\beta}_1$ and $\hat{\beta}_2$ for each country. Are these estimates always between 0 and 1?
+        
+        \item Compute $\hat{\beta}_1 + \hat{\beta}_2$ for each country. Is the sum close to 1?
+        
+        \item We now test the hypothesis
+        \[
+        H_0: \beta_1 + \beta_2 = 1 
+        \quad \text{vs} \quad 
+        H_1: \beta_1 + \beta_2 \neq 1.
+        \]
+        This is a \textbf{joint hypothesis}, which can be tested using an \textbf{$F$-test}. A small $p$-value leads to rejection of $H_0$.
+        
+        The following table reports the test results for Japan. Based on this output, can you conclude that the sum of the coefficients is significantly different from \textbf{one}?
+        
+        \fbox{
+        \begin{minipage}{0.95\linewidth}
+        \normalfont
+        
+        \textbf{Level regression:} $H_0:\ \ln K + \ln L = 1$
+        
+        \begin{center}
+        \begin{tabular}{lcccccc}
+        \hline
+        Model & Res.Df & RSS & Df & Sum of Sq & F & Pr($>$F) \\
+        \hline
+        Restricted & 29 & 0.019093 &  &  &  &  \\
+        Unrestricted & 28 & 0.013100 & 1 & 0.005993 & 12.808 & 0.001283$^{**}$ \\
+        \hline
+        \end{tabular}
+        \end{center}
+        
+        \textit{Signif. codes:} $^{***}\,0.001 \quad ^{**}\,0.01 \quad ^{*}\,0.05 \quad ^{.}\,0.1$
+        \end{minipage}
+        }
+        
         \end{enumerate}
-        \item Using data from the PWT, do the growth rate regression \eqref{eq:growth_reg} for the US, Japan, India, and Nigeria. Use \emph{cdgpo} for aggregate output, \emph{cn} for aggregate capital, and \emph{pop} for population.
-        \begin{enumerate}
-            \item Explain in words why it is possible to estimate $g_{Y, t+1}$ by $\log Y_{t+1} - \log Y_t$. You do not need to do the mathematics derivation.
-            \item Assume that this regression model makes sense. How would you interpret the coefficient $\gamma_0$?
-            \item Report the estimated coefficients $\hat{\gamma}_1$ and $\hat{\gamma}_2$ and for each country. Does the values always between 0 and 1?
-            \item Sum up $\hat{\gamma}_1$ and $\hat{\gamma}_2$ for each country. Does that sum look close to 1?
-            \item Now we would like to make a statistical test on the hypothesis:
-            \begin{align*}
-                H_0: \gamma_1 + \gamma_2 = 1 \quad \text{ vs } \quad H_1: \gamma_1 + \gamma_2 \neq 1.
-            \end{align*}
-            We still use the F-test. The following is the report of the test for Nigeria. Can we conclude that the sum of the coefficients is significantly different from zero?
-
-            \fbox{
-            \begin{minipage}{0.95\linewidth}
-            \normalfont
-            \textbf{Growth regression}: $H_0:\ g_K + g_L = 1$
-
-            \begin{center}
-                \begin{tabular}{lcccccc}
-                \hline
-                Model & Res.Df & RSS & Df & Sum of Sq & F & Pr($>$F) \\
-                \hline
-                Restricted & 28 & 0.57109 &  &  &  &  \\
-                Unrestricted & 27 & 0.56733 & 1 & 0.0037596 & 0.1789 & 0.6756 \\
-                \hline
-                \end{tabular}
-            \end{center}
-
-            \end{minipage}
-            }
+        
+    \item \textbf{Growth regression.} Using PWT data, estimate the regression in \eqref{eq:growth_reg} for the same four countries.
+        
+    \begin{enumerate}[label=\roman*.]
+        
+        \item Explain intuitively why the growth rate $g_{Y,t}$ can be approximated by $\log Y_{t} - \log Y_{t-1}$. A formal derivation is not required.
+        
+        \item Suppose the regression model is correctly specified. How would you interpret the coefficient $\gamma_0$?
+        
+        \item Report the estimated coefficients $\hat{\gamma}_1$ and $\hat{\gamma}_2$ for each country. Are these estimates always between 0 and 1?
+        
+        \item Compute $\hat{\gamma}_1 + \hat{\gamma}_2$ for each country. Is the sum close to 1?
+        
+        \item Consider the hypothesis
+        \[
+        H_0: \gamma_1 + \gamma_2 = 1 
+        \quad \text{vs} \quad 
+        H_1: \gamma_1 + \gamma_2 \neq 1.
+        \]
+        Again, use an $F$-test. The following table reports the test results for Nigeria. Based on this output, can you conclude that the sum of the coefficients is significantly different from \textbf{one}?
+        
+        \fbox{
+        \begin{minipage}{0.95\linewidth}
+        \normalfont
+        
+        \textbf{Growth regression:} $H_0:\ g_K + g_L = 1$
+        
+        \begin{center}
+        \begin{tabular}{lcccccc}
+        \hline
+        Model & Res.Df & RSS & Df & Sum of Sq & F & Pr($>$F) \\
+        \hline
+        Restricted & 28 & 0.57109 &  &  &  &  \\
+        Unrestricted & 27 & 0.56733 & 1 & 0.0037596 & 0.1789 & 0.6756 \\
+        \hline
+        \end{tabular}
+        \end{center}
+        
+        \end{minipage}
+        }
+        
         \end{enumerate}
+        
     \end{enumerate}
 \end{task}
 

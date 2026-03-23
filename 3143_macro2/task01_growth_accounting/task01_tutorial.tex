@@ -1,0 +1,320 @@
+\documentclass[12pt]{article}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% --------------------
+% Formatting
+% --------------------
+\onehalfspacing
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Code style
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    columns=fullflexible
+}
+
+% --------------------
+% Title
+% --------------------
+\title{Running Simple Regressions with Penn World Table Data in \texttt{R}}
+\author{Harlly Zhou}
+\date{\today}
+
+% --------------------
+% Document
+% --------------------
+\begin{document}
+
+\maketitle
+\footnote{This tutorial note is written with the help of AI.}
+
+\subsection*{1. Basic \texttt{R} operations}
+
+Before working with data, you should understand a few basic commands.
+
+\begin{itemize}
+    \item Check current working directory:
+\begin{verbatim}
+getwd()
+\end{verbatim}
+
+    \item Set working directory (modify the path to your folder):
+\begin{verbatim}
+setwd("YOUR/PATH/HERE")
+\end{verbatim}
+
+    \item List files in the folder:
+\begin{verbatim}
+list.files()
+\end{verbatim}
+
+    \item Install packages (run once):
+\begin{verbatim}
+install.packages("dplyr")
+install.packages("readr")
+install.packages("car")
+\end{verbatim}
+
+    \item Load packages (run every time):
+\begin{verbatim}
+library(dplyr)
+library(readr)
+library(car)
+\end{verbatim}
+\end{itemize}
+
+\textbf{Important:} Place your \texttt{pwt.csv} file in the working directory.
+
+---
+
+\subsection*{2. Load and inspect the data}
+
+\begin{verbatim}
+pwt <- read_csv("pwt.csv")
+
+# Check column names
+names(pwt)
+
+# Preview data
+head(pwt)
+
+# Check available countries
+unique(pwt$country)
+\end{verbatim}
+
+---
+
+\subsection*{3. Select countries and years}
+
+Fill in the countries (already given in the question):
+
+\begin{verbatim}
+countries <- c("United States", "Japan", "India", "Nigeria")
+
+pwt_sub <- pwt %>%
+  filter(country %in% countries,
+         year >= 1990,
+         year <= 2020)
+\end{verbatim}
+
+---
+
+\subsection*{4. Construct variables}
+
+Fill in the correct PWT variable names (from the question):
+
+\begin{verbatim}
+pwt_sub <- pwt_sub %>%
+  transmute(
+    country = country,
+    year = year,
+    Y = ______ * 1e6,   # output
+    K = ______ * 1e6,   # capital
+    N = ______ * 1e6    # labor
+  ) %>%
+  filter(Y > 0, K > 0, N > 0) %>%
+  arrange(country, year) %>%
+  group_by(country) %>%
+  mutate(
+    lnY = log(Y),
+    lnK = log(K),
+    lnN = log(N),
+    gY  = lnY - lag(lnY),
+    gK  = lnK - lag(lnK),
+    gN  = lnN - lag(lnN)
+  ) %>%
+  ungroup()
+\end{verbatim}
+
+\textbf{Check:} Why do we use \texttt{group\_by(country)} here?
+
+---
+
+\subsection*{5. Level regression (Task 1)}
+
+\paragraph{Step 1: Run regression for one country}
+
+Fill in the country name:
+
+\begin{verbatim}
+df <- pwt_sub %>%
+  filter(country == "________")
+
+reg_level <- lm(lnY ~ lnK + lnN, data = df)
+
+summary(reg_level)
+\end{verbatim}
+
+\paragraph{Step 2: Extract coefficients}
+
+\begin{verbatim}
+coef(reg_level)
+\end{verbatim}
+
+\textbf{Task:} Identify $\hat{\beta}_1$ and $\hat{\beta}_2$.
+
+---
+
+\paragraph{Step 3: Sum of coefficients}
+
+\begin{verbatim}
+b <- coef(reg_level)
+
+b["lnK"] + b["lnN"]
+\end{verbatim}
+
+\textbf{Task:} Is this close to 1?
+
+---
+
+\paragraph{Step 4: $F$-test}
+
+\begin{verbatim}
+linearHypothesis(reg_level, "lnK + lnN = 1")
+\end{verbatim}
+
+\textbf{Task:} Look at the $p$-value. Do you reject $H_0$?
+
+---
+
+\paragraph{Step 5: Repeat for all countries}
+
+Replace the country name each time:
+\begin{verbatim}
+"United States"
+"Japan"
+"India"
+"Nigeria"
+\end{verbatim}
+
+---
+
+\subsection*{6. Growth regression (Task 2)}
+
+\paragraph{Step 1: Prepare growth data}
+
+\begin{verbatim}
+df_g <- df %>%
+  filter(!is.na(gY), !is.na(gK), !is.na(gN))
+\end{verbatim}
+
+Why do we drop missing values here?
+
+---
+
+\paragraph{Step 2: Run regression}
+
+\begin{verbatim}
+reg_growth <- lm(gY ~ gK + gN, data = df_g)
+
+summary(reg_growth)
+\end{verbatim}
+
+---
+
+\paragraph{Step 3: Extract coefficients}
+
+\begin{verbatim}
+coef(reg_growth)
+\end{verbatim}
+
+\textbf{Task:} Identify $\hat{\gamma}_1$ and $\hat{\gamma}_2$.
+
+---
+
+\paragraph{Step 4: Sum of coefficients}
+
+\begin{verbatim}
+g <- coef(reg_growth)
+
+g["gK"] + g["gN"]
+\end{verbatim}
+
+---
+
+\paragraph{Step 5: $F$-test}
+
+\begin{verbatim}
+linearHypothesis(reg_growth, "gK + gN = 1")
+\end{verbatim}
+
+---
+
+\subsection*{7. Loop version (optional)}
+
+To avoid repeating code, you may use a loop:
+
+\begin{verbatim}
+for (cty in countries) {
+
+  df <- pwt_sub %>% filter(country == cty)
+
+  reg_level <- lm(lnY ~ lnK + lnN, data = df)
+
+  df_g <- df %>% filter(!is.na(gY))
+
+  reg_growth <- lm(gY ~ gK + gN, data = df_g)
+
+  print(cty)
+  print(coef(reg_level))
+  print(coef(reg_growth))
+}
+\end{verbatim}
+
+---
+
+\subsection*{8. Interpretation hints}
+
+When answering the questions:
+
+\begin{itemize}
+    \item Coefficients may not lie between 0 and 1.
+    \item The sum may differ from 1.
+    \item $F$-tests may reject the theoretical restriction.
+\end{itemize}
+
+These results suggest that the regression does not perfectly recover the theoretical parameter $\alpha$.
+
+Think about:
+\begin{itemize}
+    \item omitted variables,
+    \item endogeneity,
+    \item data limitations.
+\end{itemize}
+
+---
+
+\subsection*{9. Summary}
+
+This tutorial shows how to:
+\begin{itemize}
+    \item manage files and directories in \texttt{R},
+    \item load and inspect data,
+    \item construct variables,
+    \item run regressions,
+    \item test hypotheses.
+\end{itemize}
+
+More importantly, it shows that theoretical parameters are not always directly estimated from simple regressions.
+
+
+\end{document}
