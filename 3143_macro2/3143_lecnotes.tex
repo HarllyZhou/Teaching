@@ -68,11 +68,9 @@
 \chapter{The Solow Model}
 This chapter discusses long-run economic growth using a fundamental growth model: the Solow model. We start this chapter by some motivating facts from data. Then we solve for the baseline version model and study the steady state of the model. The baseline model implies no long-run growth, which motivates the augmented Solow model. We introduce the concept of balanced growth path and conclude the chapter by the result that the only way for the economy to grow over the long run is from growth in productivity and population, while productivity growth is a must for per capital variables to grow. 
 
-\section{Facts about Growth}
+\section{Production Function and Growth Accounting}
+In ECON 3123, we know that the size of an economy is measured by GDP, which is the aggregate output of the economy. Therefore, to analyze the long-run growth of an economy, it is important to understand how output is produced. 
 
-
-\section{Basic Solow Model}
-In ECON 3123, we know that the size of an economy is measured by GDP, which is the aggregate output of the economy. Therefore, to analyze the long-run growth of an economy, it is important to understand how output is produced. Using capital and labour as inputs, firms produce more output when capital and labour increase. While labour growth is exogenous, capital growth, or \textbf{capital accumulation}, is endogenous where agents' decisions about investment determine the rate of capital accumulation. From the capital accumulation process, we can solve for the model. We can then derive where the economy will converge to in the long run. As a result, we can backward induce how household should save to maximize their consumption in the long run.
 
 \subsection{Production Function}
 Consider an economy where capital, denoted by $K$, and labour, denoted by $N$, are the only inputs to production, and they are mapped to output via a \textbf{production function}:
@@ -178,6 +176,95 @@ These conditions say that the firm ought to hire capital and labour up until the
         \item Show that for any $\gamma > 0$, $F_K(\gamma K_t, \gamma N_t) = F_K(F_t, N_t)$ and $F_N(\gamma K_t, \gamma N_t) = F_N(F_t, N_t)$.
     \end{enumerate}
 \end{exercise}
+
+\subsection{Growth Accounting}
+
+
+
+\begin{task}
+    In this question, we will make use of the \textbf{Penn World Table} data \url{https://www.rug.nl/ggdc/productivity/pwt/?lang=en}. The Penn World Table (PWT) is a cross-country dataset designed for international comparisons of macroeconomic variables. It provides nationally comparable measures of output, capital, labor, and productivity by converting country-level data into a common price system using purchasing power parity (PPP) adjustments. A key feature of the PWT is its emphasis on real variables—such as real GDP, capital stock, and total factor productivity—constructed to be comparable across countries and over time. The dataset is widely used in growth and development research, as it allows researchers to study differences in income levels, factor accumulation, and productivity across economies in a consistent framework.
+    
+    From the growth accounting equations, we know that given a Cobb-Douglas production function $Y_t = A K_t^{\alpha} N_t^{1-\alpha}$, we can take logarithms to make it additive and compute the growth rate. Then $\alpha$ becomes the coefficient of $\log K_t$ or $g_K$. It seems that we can do the following regression:
+    \begin{align}\label{eq:log_reg}
+        \log Y_t = \beta_0 + \beta_1 \log K_t + \beta_2 \log N_t + u_t, 
+    \end{align}
+    where $u_t$ is the error term. We can interpret the estimated coefficient $\hat{\beta}_1$ as the estimated value for $\alpha$. Or alternatively, 
+    \begin{align}\label{eq:growth_reg}
+        g_Y = \gamma_0 + \gamma_1 g_K + \gamma_2 g_N + v_t,
+    \end{align}
+    where $v_t$ is the error term. We can interpret the estimated coefficient $\hat{\gamma}_1$ as the estimated value for $\alpha$. This task asks you to check whether this method is feasible to estimate $\alpha$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Using data from the PWT, do the log regression \eqref{eq:log_reg} for the US, Japan, India, and Nigeria. Use \emph{cdgpo} for aggregate output, \emph{cn} for aggregate capital, and \emph{pop} for population. 
+        \begin{enumerate}[label=\roman*]
+            \item Assume that this regression model makes sense. How would you interpret the coefficient $\beta_0$?
+            \item Report the estimated coefficients $\hat{\beta}_1$ and $\hat{\beta}_2$ and for each country. Does the values always between 0 and 1?
+            \item Sum up $\hat{\beta}_1$ and $\hat{\beta}_2$ for each country. Does that sum look close to 1?
+            \item Now we would like to make a statistical test on the hypothesis:
+            \begin{align*}
+                H_0: \beta_1 + \beta_2 = 1 \quad \text{ vs } \quad H_1: \beta_1 + \beta_2 \neq 1.
+            \end{align*}
+            For testing this kind of \textbf{joint hypothesis}, we conduct an \textbf{$F$-test}. A small $p$-value leads to rejection of the null hypothesis $H_0$. The following is the report of the test for Japan. Can we conclude that the sum of the coefficients is significantly different from zero?
+
+            \fbox{
+            \begin{minipage}{0.95\linewidth}
+            \normalfont
+
+            \textbf{Level regression:} $H_0:\ \ln K + \ln L = 1$
+
+            \begin{center}
+            \begin{tabular}{lcccccc}
+            \hline
+            Model & Res.Df & RSS & Df & Sum of Sq & F & Pr($>$F) \\
+            \hline
+            Restricted & 29 & 0.019093 &  &  &  &  \\
+            Unrestricted & 28 & 0.013100 & 1 & 0.005993 & 12.808 & 0.001283$^{**}$ \\
+            \hline
+            \end{tabular}
+            \end{center}
+
+            \textit{Signif. codes:} $^{***}\,0.001 \quad ^{**}\,0.01 \quad ^{*}\,0.05 \quad ^{.}\,0.1$
+            \end{minipage}
+            }
+        \end{enumerate}
+        \item Using data from the PWT, do the growth rate regression \eqref{eq:growth_reg} for the US, Japan, India, and Nigeria. Use \emph{cdgpo} for aggregate output, \emph{cn} for aggregate capital, and \emph{pop} for population.
+        \begin{enumerate}
+            \item Explain in words why it is possible to estimate $g_{Y, t+1}$ by $\log Y_{t+1} - \log Y_t$. You do not need to do the mathematics derivation.
+            \item Assume that this regression model makes sense. How would you interpret the coefficient $\gamma_0$?
+            \item Report the estimated coefficients $\hat{\gamma}_1$ and $\hat{\gamma}_2$ and for each country. Does the values always between 0 and 1?
+            \item Sum up $\hat{\gamma}_1$ and $\hat{\gamma}_2$ for each country. Does that sum look close to 1?
+            \item Now we would like to make a statistical test on the hypothesis:
+            \begin{align*}
+                H_0: \gamma_1 + \gamma_2 = 1 \quad \text{ vs } \quad H_1: \gamma_1 + \gamma_2 \neq 1.
+            \end{align*}
+            We still use the F-test. The following is the report of the test for Nigeria. Can we conclude that the sum of the coefficients is significantly different from zero?
+
+            \fbox{
+            \begin{minipage}{0.95\linewidth}
+            \normalfont
+            \textbf{Growth regression}: $H_0:\ g_K + g_L = 1$
+
+            \begin{center}
+                \begin{tabular}{lcccccc}
+                \hline
+                Model & Res.Df & RSS & Df & Sum of Sq & F & Pr($>$F) \\
+                \hline
+                Restricted & 28 & 0.57109 &  &  &  &  \\
+                Unrestricted & 27 & 0.56733 & 1 & 0.0037596 & 0.1789 & 0.6756 \\
+                \hline
+                \end{tabular}
+            \end{center}
+
+            \end{minipage}
+            }
+        \end{enumerate}
+    \end{enumerate}
+\end{task}
+
+
+
+\section{Basic Solow Model}
+Using capital and labour as inputs, firms produce more output when capital and labour increase. While labour growth is exogenous, capital growth, or \textbf{capital accumulation}, is endogenous where agents' decisions about investment determine the rate of capital accumulation. From the capital accumulation process, we can solve for the model. We can then derive where the economy will converge to in the long run. As a result, we can backward induce how household should save to maximize their consumption in the long run.
+
 
 \subsection{Consumption and Investment}
 From ECON 3123, we know that output in a closed economy without government spending will be either consumed or saved. The IS relationship implies that the saving is equal to investment. Mathematically, denote $s$ as the constant saving rate. We have
@@ -354,7 +441,7 @@ Before we discuss the impulse response functions, we need to clarify the concept
 
 The top two panels of Figure \ref{fig:basic_solow_s_shock_irf} show the impulse response functions of $k_t$ and $y_t$. As expected, $k_t$ and $y_t$ increase without a jump when $s$ increases. The effect of the shock shrinks over time, and the the two variables converge to the new steady state.
 
-The middle to panels show the impulse response functions of $c_t$ and $\iota_t$. The new steady state consumption drops and the new steady state investment rises. Consider the dynamics of consumption first. Immediately after the shock, consumption drops to a level lower than the new steady state consumption. Consider the consumption equation $c_t = (1-s) y_t$. {\color{red} Since $y_t$ is a stock variable, it does not immediately change, while $1-s$ is already lower. Moreover, the current $y_t = y_0^* < y_1^*$. Therefore, the concumption $c_t = (1-s_1) y_0^* < (1-s_1) y_1^* = c_1^*$.} The same analysis applies to investment dynamics. 
+The middle to panels show the impulse response functions of $c_t$ and $\iota_t$. The new steady state consumption drops and the new steady state investment rises. Consider the dynamics of consumption first. Immediately after the shock, consumption drops to a level lower than the new steady state consumption. Consider the consumption equation $c_t = (1-s) y_t$. {\color{red} Since $y_t$ is a stock variable, it does not immediately change, while $1-s$ is already lower. Moreover, the current $y_t = y_0^* < y_1^*$. Therefore, the concumption $c_t = (1-s_1) y_0^* < (1-s_1) y_1^* = c_1^*$.} The same analysis applies to investment dynamics. Though this figure plots a lower new steady state consumption, the total effect is actually ambiguous. Consider $c^* = (1-s)y^*$. When $s$ increases, $1-s$ decreases but $y^*$ increases. So the effect is ambiguous.
 
 The last two panels show the impulse response functions of $w_t$ and $R_t$. The new steady state wage and return to capital both increase. The wage increases because the marginal product of capital increases. The return to capital increases because the marginal product of capital increases.
 
@@ -389,12 +476,6 @@ While it is easy to see how the new steady-state output, consumption and investm
 \end{exercise}
 
 The impulse response functions to a positive permanent shock to $A$ are shown in Figure \ref{fig:basic_solow_a_shock_irf}.
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_a_shock_irf.png}
-    \caption{Impulse response functions to a positive permanent shock to $A$}
-    \label{fig:basic_solow_a_shock_irf}
-\end{figure}
 
 The top two panels of Figure \ref{fig:basic_solow_a_shock_irf} show the impulse response functions of $k_t$ and $y_t$. As expected, $k_t$ and $y_t$ increase without a jump when $A$ increases. The effect of the shock shrinks over time, and the the two variables converge to the new steady state.
 
@@ -406,8 +487,61 @@ The last two panels show the impulse response functions of $w_t$ and $R_t$. Diff
 \end{align*}
 Therefore, as capital gradually increases, the real wage increases to the new steady state while the return to capital decreases to the new steady state.
 
-\begin{exercise}[Increase of $A$]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_a_shock_irf.png}
+    \caption{Impulse response functions to a positive permanent shock to $A$}
+    \label{fig:basic_solow_a_shock_irf}
+\end{figure}
 
+\begin{exercise}[Increase of capital depreciation rate]
+    Consider an economy with a positive shock to capital depreciation rate $\delta$ at time $t$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Draw the equilibrium diagram (like Figure \ref{fig:basic_solow_compstat_a}). Will the new steady-state capital level increase or decrease?
+        \item How will the new steady-state output, consumption, investment, wage, and return to capital change? Use math equations to explain.
+        \item Draw the impulse response functions of the variables. 
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Decrease of capital income share]
+    Consider an economy with production function $Y_t = A K_t^{\alpha} N_t^{1-\alpha}$. Suppose that there is a negative shock to capital income share $\alpha$ at time $t$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Draw the equilibrium diagram (like Figure \ref{fig:basic_solow_compstat_a}). Will the new steady-state capital level increase or decrease?
+        \item How will the new steady-state output, consumption, investment, wage, and return to capital change? Use math equations to explain.
+        \item Draw the impulse response functions of the variables. 
+    \end{enumerate}
+\end{exercise}
+
+\subsection{Golden Rule}
+As we discussed in the effect of an increase in saving rate, the effect on consumption is indeterminate. However, it is just the two counterforces that make it possible to generate an optimality condition for the saving rate, that is, the saving rate that maximizes the steady state consumption, called the \textbf{golden rule} of saving rate, denoted by $s_{GR}$.
+
+Consider the steady-state consumption $c^* = (1-s) y^*$. Expanding the terms, we get
+\begin{align*}
+    c^* = (1-s) A f(k^*),
+\end{align*}
+where $k^*$ is also a function of $s$. Taking {\color{red} total derivative} with respect to $s$, we get
+\begin{align}\label{eq:dc_ds}
+    \frac{d c^*}{d s} = -A f(k^*) + (1-s) A f'(k^*) \frac{\partial k^*}{partial s}.
+\end{align}
+Recall that we have in \eqref{eq:k_ss_general} that
+\begin{align*}
+    k^* = \frac{s A f(k^*)}{\delta}.
+\end{align*}
+Taking total derivative with respect to $s$, we get
+\begin{align*}
+    \frac{d k^*}{d s} = \frac{A}{\delta} \left[f(k^*) + s f'(k^*)\frac{\partial k^*}{\partial s}\right].
+\end{align*}
+Substituting this into \eqref{eq:dc_ds}, we get
+\begin{align*}
+    \frac{dc^*}{ds} = (Af'(k^*) - \delta) \frac{\partial k^*}{\partial s}.
+\end{align*}
+To maximize $c^*$, we need to set the derivative to zero. Since $\frac{\partial k^*}{\partial s} > 0$, $s$ has to satisfy the following condition:
+\begin{align}\label{eq:golden_rule_s}
+    Af'(k^*) = \delta.
+\end{align}
+
+\begin{exercise}[Golden rule with Cobb-Douglas production function]
+    Consider an economy with the Cobb-Douglas production function $Y_t = A K_t^{\alpha} N_t^{1-\alpha}$. Show that $s_{GR} = \alpha$.
 \end{exercise}
 
 \chapter{}
