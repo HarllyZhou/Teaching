@@ -43,7 +43,7 @@
 \usepackage{csquotes}
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\newtheorem{definition}{Definition}
+\newtheorem{definition}{Definition}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -425,7 +425,7 @@ They together implies that the slope of $k_{t+1}$ starts with positive infinity 
 Figure \ref{fig:basic_solow} plots $k_{t+1}$ as a function of $k_t$ together with the 45-degree line along which $k_t = k_{t+1}$. The LoM curve intersect the 45-degree line at $k_t = k_{t+1} = k^*$. We refer to this point $k^*$ as the \textbf{steady state} of the economy.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figuretable/01_basic_solow.png}
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow.png}
     \caption{Phase diagram of the Solow model}
     \label{fig:basic_solow}
 \end{figure}
@@ -442,14 +442,14 @@ A natural question to ask is whether this steady state always exsits and is uniq
 It is intuitive to conjecture that the answer to the second question is yes, and the economy will converge to the steady state. Figure \ref{fig:basic_solow_convergence} plots the convergence path of the economy from two different initial capital stocks.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_convergence.png}
+    \includegraphics[width=0.9\textwidth]{figuretable/solow/basic_solow_convergence.png}
     \caption{Convergence path of the Solow model}
     \label{fig:basic_solow_convergence}
 \end{figure}
  Starting from an initial level $k_0$ on the horizontal axis, move vertically to the law-of-motion curve $k_{t+1} = sA f(k_t) + (1-\delta)k_t$ to obtain $k_1$, then move horizontally to the 45-degree line $k_{t+1} = k_t$. Repeating these vertical and horizontal steps generates the sequence $\{k_t\}$. When $k_t < k^*$, the law-of-motion curve lies above the 45-degree line, implying $k_{t+1} > k_t$ and convergence from below. When $k_t > k^*$, the curve lies below the 45-degree line, implying $k_{t+1} < k_t$ and convergence from above. We can also see the convergence pattern if we plot the time series of $k_t$ in Figure \ref{fig:basic_solow_k_dynamics}.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_k_dynamics.png}
+    \includegraphics[width=0.9\textwidth]{figuretable/solow/basic_solow_k_dynamics.png}
     \caption{Dynamics of capital in the Solow model}
     \label{fig:basic_solow_k_dynamics}
 \end{figure}
@@ -461,7 +461,7 @@ Recall that we also have an alternative representation of the LoM of capital per
 This implies that depreciated capital is equal to the investment. Figure \ref{fig:basic_solow_alternative} plots the investment and depreciated capital as a function of capital per capita.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figuretable/01_basic_solow_alternative.png}
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_alternative.png}
     \caption{Investment and depreciated capital in the Solow model}
     \label{fig:basic_solow_alternative}
 \end{figure}
@@ -493,7 +493,7 @@ We will now investigate how the steady state changes when the parameters change.
 Note that when $s$ increases, \eqref{eq:k_ss_general} implies that $k^*$ increases and other variables follow. This can be seen from the figure \ref{fig:basic_solow_compstat_s}.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figuretable/01_basic_solow_compstat_s.png}
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_compstat_s.png}
     \caption{Comparative statics of $s$}
     \label{fig:basic_solow_compstat_s}
 \end{figure}
@@ -502,7 +502,7 @@ With a positive shock to $s$, the LoM curve shifts upward. Given the fixed 45-de
 A more important question is how the economy transits from the old steady state to the new steady state. Figure \ref{fig:basic_solow_s_shock_irf} plots the \textbf{impulse response functions} of the economy to a positive permanent shock to $s$.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_s_shock_irf.png}
+    \includegraphics[width=0.9\textwidth]{figuretable/solow/basic_solow_s_shock_irf.png}
     \caption{Impulse response functions to a positive permanent shock to $s$}
     \label{fig:basic_solow_s_shock_irf}
 \end{figure}
@@ -530,7 +530,7 @@ The last two panels show the impulse response functions of $w_t$ and $R_t$. The 
 Note that when $A$ increases, \eqref{eq:k_ss_general} implies that $k^*$ increases. This can be seen from the figure \ref{fig:basic_solow_compstat_a}.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figuretable/01_basic_solow_compstat_a.png}
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_compstat_a.png}
     \caption{Comparative statics of $A$}
     \label{fig:basic_solow_compstat_a}
 \end{figure}
@@ -549,7 +549,7 @@ The impulse response functions to a positive permanent shock to $A$ are shown in
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/01_basic_solow_a_shock_irf.png}
+    \includegraphics[width=0.9\textwidth]{figuretable/solow/basic_solow_a_shock_irf.png}
     \caption{Impulse response functions to a positive permanent shock to $A$}
     \label{fig:basic_solow_a_shock_irf}
 \end{figure}
@@ -647,6 +647,163 @@ To maximize $c^*$, we need to set the derivative to zero. Since $\frac{\partial 
 
 \section{Augmented Solow Model}
 In the basic Solow model, the economy will converge to a steady state where there is no growth. Although we show that we can increase $k^*$ by increasing $s$, this is not sustainable (why?). Therefore, we need to augment the model to allow for growth. We focus on the role of productivity.
+
+\subsection{Labour Augmented Technology}
+Consider the following production function:
+\begin{align*}
+    Y_t = A F(K_t, Z_t N_t),
+\end{align*}
+where $Z_t$ is referred to as \textbf{labour augmenting productivity}.  Its product with labour is referred to as \textbf{effective labour}. To distinguish from $Z_t$, we refer to $A$ as the \textbf{neutral productivity} because it makes both factors more productive. We assume that $F(\cdot, \cdot)$ satisfies the properties in Assumption \ref{asp:prod_func}. We also have the following LoM of capital:
+\begin{align*}
+    K_{t+1} = (1-\delta) K_t + I_t,
+\end{align*}
+where $I_t = s Y_t$ is investment. The real rental rate of capital is given by
+\begin{align*}
+    R_t = A F_K(K_t, Z_t N_t).
+\end{align*}
+
+The real wage is given by
+\begin{align*}
+    w_t = A Z_t F_N(K_t, Z_t N_t).
+\end{align*}
+Why this $Z_t$ appears outside the derivative? It is important to understand what $F_N$ means. In particular,
+\begin{align*}
+    F_N(K_t, Z_t N_t) = \frac{\partial F}{\partial {\color{red}Z_t N_t}} \neq \frac{\partial F}{\partial N_t}.
+\end{align*}
+This is because $N$ in the subscript of the partial derivative is the {\color{red} second argument} of the function $F$, not the variable $N_t$ itself. Therefore, when you see $F_N$, it means to take the partial derivative with respect to the whole second argument of $F$. Then by chain rule, if you take partial derivative of $F$ with respect to $N_t$ to get the marginal product of labour, the $Z_t$ term appears outside.
+
+Now let's assume that labour growth is exogenous and given by $n \geq 0$. We normalize the initial level to be $N_0 = 1$. As a result, we have 
+\begin{align*}
+    N_t = (1+n)^t.
+\end{align*}
+
+We also allow the labour augemented producitivity to grow at a constant rate $z\geq0$. We normalize the initial level to be $Z_0 = 1$. As a result, we have 
+\begin{align*}
+    Z_t = (1+z)^t.
+\end{align*}
+
+Now the following equations characterize the economy:
+\begin{align}
+    K_{t+1} &= (1-\delta) K_t + I_t \label{eq:lom_k_labour_aug} \\
+    I_t &= s Y_t \label{eq:investment_labour_aug} \\
+    Y_t &= A F(K_t, Z_t N_t) \label{eq:prod_func_labour_aug} \\
+    Y_t &= C_t + I_t \label{eq:output_consumption_investment_labour_aug} \\
+    R_t &= A F_K(K_t, Z_t N_t) \label{eq:real_return_capital_labour_aug} \\
+    N_t &= (1+n)^t \label{eq:n_t} \\
+    Z_t &= (1+z)^t \label{eq:z_t} \\
+    w_t &= A Z_t F_N(K_t, Z_t N_t) \label{eq:real_wage_labour_aug}
+\end{align}
+We can then rewrite the LoM \eqref{eq:lom_k_labour_aug} as
+\begin{align}\label{eq:lom_k_labour_aug_rewrite}
+    K_{t+1} = s A F(K_t, Z_t N_t) + (1-\delta) K_t.
+\end{align}
+
+Instead of using the per labour variables, we use \textbf{per effective labour} variables. For an aggregate variable $X_t$, we define its per effective labour variable as 
+\begin{align*}
+    \hat{x_t} = \frac{X_t}{Z_t N_t}.
+\end{align*}
+Then it is easy to see that 
+\begin{align}\label{eq:lom_k_labour_aug_per_eff_lab}
+    \hat{k}_{t+1} = \frac{1}{(1+z)(1+n)} \left[s A f(\hat{k}_t) + (1-\delta) \hat{k}_t\right].
+\end{align}
+Other equations can be rewritten as
+\begin{align*}
+    \hat{\iota}_t &= s \hat{y}_t \\
+    \hat{y}_t &= A f(\hat{k}_t) \\
+    \hat{y}_t & = \hat{c}_t + \hat{\iota}_t \\
+    R_t &= A f(\hat{k}_t) \\
+    w_t &= Z_t A \left[f(\hat{k}_t) - f'(\hat{k}_t)\hat{k}_t\right]
+\end{align*}
+You are required to derive the above equations by yourself. Most importantly, you need to understand how to get $R_t$ and $w_t$.
+
+\begin{exercise}[Per effective labour variables]
+    Derive the real rental rate of capital and the real wage in terms of per effective labour variables.
+\end{exercise}
+
+Figure \ref{fig:augmented_solow} shows the equilibrium diagram of the labour augmented Solow model.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/augmented_solow.png}
+    \caption{Equilibrium diagram of the labour augmented Solow model}
+    \label{fig:augmented_solow}
+\end{figure}
+The only differences from the basic Solow model equilibrium \ref{fig:basic_solow} are that the capital is measured in per \textit{effective} labour term and that the LoM curve is scaled by the labour growth and labour augemnted productivity growth.
+
+It is worth noting that people are not particularly interested in the behavior of the hat variables. They are just convenient to use. What matters to the economy are the per worker and aggregate variables. Therefore, it is natural to ask the following question: what happens to the per worker and aggregate variables when the economy converges to per effective labour variables?
+
+At such steady state, we have $\hat{k}_{t+1} = \hat{k}_t = \hat{k}^*$. By definition, we have
+\begin{align*}
+    \frac{K_{t+1}}{Z_{t+1} N_{t+1}} = \frac{K_{t}}{Z_t N_t},
+\end{align*}
+which implies that
+\begin{align}\label{eq:bgp_k_growth}
+    \frac{K_{t+1}}{K_t} = 1+g_K = (1+z)(1+n).
+\end{align}
+Since $z$ and $n$ are typically small, we can use the log approximation to get:
+\begin{align*}
+    g_K \approx z + n.
+\end{align*}
+Similarly, we can get the growth rate of capital per worker:
+\begin{align*}
+    g_k \approx z.
+\end{align*}
+
+\begin{exercise}[Aggregate variables versus per worker variables]
+    Consider the labour augmented Solow model as described by \eqref{eq:lom_k_labour_aug} and \eqref{eq:real_wage_labour_aug}.
+    \begin{enumerate}[label=(\arabic*)]
+        \item Show that the growth rate of aggregate output is $g_Y \approx z + n$. 
+        \item Consider the following Cobb-Douglas production function:
+        \begin{align*}
+            Y_t = A K_t^{\alpha} (Z_t N_t)^{1-\alpha}.
+        \end{align*}
+        Does the result in part (1) satisfy the growth accounting equation?
+        \item Continue with part (1). Show that the growth rate of aggreagte consumption $g_C$ and the aggregate investment $I_t$ are equal to the growth rate of aggregate output.
+        \item Let $X$ denote any aggregate variable and $x$ be its corresponding per worker variable. Show that $g_x = g_X - n$.
+    \end{enumerate}
+\end{exercise}
+
+For the real rental rate of capital, since $\hat{k}_t = \hat{k}^*$, it will be constant in the long run:
+\begin{align*}
+    R^* = A f'(\hat{k}^*).
+\end{align*}
+For the real wage, consider when $\hat{k}_t \rightarrow \hat{k}^*$. We have
+\begin{align*}
+    w_t = Z_t A \left[f(\hat{k}^*) - f'(\hat{k}^*)\hat{k}^*\right].
+\end{align*}
+Therefore, we have $g_w \approx z$.
+
+It is worth noticing that in the long run, the growth rate the the aggregate variables are constants. This is called a \textbf{balanced growth path}.
+
+\begin{definition}[Balanced growth path]
+    A balanced growth path (BGP) is a path where the growth rate of all aggregate variables are constants. Mathematically, a path $\{X_t\}$ is a BGP if for each aggregate variable $X$, there exists a constant $G_X$ such that
+    \begin{align*}
+        \frac{X_{t+1}}{X_t} = G_X.
+    \end{align*}
+\end{definition}
+
+\begin{exercise}[Growth in neutral technology]
+    Consider the following production function:
+    \begin{align*}
+        Y_t = A_t K_t^{\alpha} (Z_t N_t)^{1-\alpha},
+    \end{align*}
+    where $A_t$ is the neutral productivity and $Z_t$ is the labour augmenting productivity. Suppose that $A_0 = 1$ and $A_t$ grows at a rate of $a>0$. 
+    \begin{enumerate}[label=(\arabic*)]
+        \item Write out the equations characterizing the economy.
+        \item Compute the growth rate of aggregate capital, output, consumption, and investment.
+        \item Compute the growth rate of per worker capital, output, consumption, and investment.
+        \item Compute the growth rate of the real wage and the real rental rate of capital.
+    \end{enumerate}
+\end{exercise}
+
+
+
+\subsection{}
+
+
+
+
+
+
 
 
 

@@ -7,9 +7,9 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Output to figuretable folder (sibling of code_for_figure)
+# Output to figuretable/solow (sibling of code_for_figure)
 script_dir = os.path.dirname(os.path.abspath(__file__))
-output_dir = os.path.join(os.path.dirname(script_dir), "figuretable")
+output_dir = os.path.join(os.path.dirname(script_dir), "figuretable", "solow")
 os.makedirs(output_dir, exist_ok=True)
 
 # Parameters
@@ -80,7 +80,7 @@ ax.spines["left"].set_linewidth(1.0)
 ax.spines["bottom"].set_linewidth(1.0)
 
 plt.tight_layout()
-outpath = os.path.join(output_dir, "01_basic_solow.png")
+outpath = os.path.join(output_dir, "basic_solow.png")
 plt.savefig(outpath, dpi=150, bbox_inches="tight")
 plt.close()
 print(f"Saved to {outpath} (k* = {k_star:.1f})")

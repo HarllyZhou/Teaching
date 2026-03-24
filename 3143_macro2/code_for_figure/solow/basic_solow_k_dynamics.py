@@ -8,7 +8,7 @@ Two panels:
 (b) k_0 > k^* converging from above
 
 Output:
-01_basic_solow_k_dynamics.png
+basic_solow_k_dynamics.png
 """
 
 import os
@@ -17,9 +17,9 @@ matplotlib.use("Agg")
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Output to figuretable folder (sibling of code_for_figure)
+# Output to figuretable/solow (sibling of code_for_figure)
 script_dir = os.path.dirname(os.path.abspath(__file__))
-output_dir = os.path.join(os.path.dirname(script_dir), "figuretable")
+output_dir = os.path.join(os.path.dirname(script_dir), "figuretable", "solow")
 os.makedirs(output_dir, exist_ok=True)
 
 # Parameters
@@ -128,7 +128,7 @@ fig.legend(
 
 plt.subplots_adjust(top=0.82, bottom=0.18, wspace=0.18)
 
-outpath = os.path.join(output_dir, "01_basic_solow_k_dynamics.png")
+outpath = os.path.join(output_dir, "basic_solow_k_dynamics.png")
 plt.savefig(outpath, dpi=150, bbox_inches="tight")
 plt.close()
 

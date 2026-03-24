@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-output_dir = os.path.join(os.path.dirname(script_dir), "figuretable")
+output_dir = os.path.join(os.path.dirname(script_dir), "figuretable", "solow")
 os.makedirs(output_dir, exist_ok=True)
 
 # Parameters
@@ -138,7 +138,7 @@ fig.legend(
 
 plt.subplots_adjust(top=0.82, wspace=0.28, bottom=0.17)
 
-outpath = os.path.join(output_dir, "01_basic_solow_convergence.png")
+outpath = os.path.join(output_dir, "basic_solow_convergence.png")
 plt.savefig(outpath, dpi=200, bbox_inches="tight")
 plt.close()
 print(f"Saved to {outpath}")

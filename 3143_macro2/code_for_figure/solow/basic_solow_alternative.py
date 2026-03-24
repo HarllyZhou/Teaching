@@ -6,7 +6,7 @@ Horizontal axis: k_t
 Vertical axis: value
 
 Output:
-01_basic_solow_alternative.png
+basic_solow_alternative.png
 """
 
 import os
@@ -15,9 +15,9 @@ matplotlib.use("Agg")
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Output to figuretable folder (sibling of code_for_figure)
+# Output to figuretable/solow (sibling of code_for_figure)
 script_dir = os.path.dirname(os.path.abspath(__file__))
-output_dir = os.path.join(os.path.dirname(script_dir), "figuretable")
+output_dir = os.path.join(os.path.dirname(script_dir), "figuretable", "solow")
 os.makedirs(output_dir, exist_ok=True)
 
 # Parameters
@@ -84,7 +84,7 @@ ax.spines["bottom"].set_linewidth(1.0)
 
 plt.tight_layout()
 
-outpath = os.path.join(output_dir, "01_basic_solow_alternative.png")
+outpath = os.path.join(output_dir, "basic_solow_alternative.png")
 plt.savefig(outpath, dpi=150, bbox_inches="tight")
 plt.close()
 

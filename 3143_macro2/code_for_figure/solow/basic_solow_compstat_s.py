@@ -1,11 +1,11 @@
 """
 Basic Solow model:
-1. Comparative statics of an increase in productivity A in the LoM diagram
-2. IRFs to a positive permanent shock to A
+1. Comparative statics of an increase in the saving rate s in the LoM diagram
+2. IRFs to a positive permanent shock to the saving rate s
 
 Outputs:
-    01_basic_solow_compstat_A.png
-    01_basic_solow_A_shock_irf.png
+    basic_solow_compstat_s.png
+    basic_solow_s_shock_irf.png
 """
 
 import os
@@ -18,18 +18,18 @@ import matplotlib.pyplot as plt
 # Paths
 # =========================================================
 script_dir = os.path.dirname(os.path.abspath(__file__))
-output_dir = os.path.join(os.path.dirname(script_dir), "figuretable")
+output_dir = os.path.join(os.path.dirname(script_dir), "figuretable", "solow")
 os.makedirs(output_dir, exist_ok=True)
 
 # =========================================================
 # Parameters
 # =========================================================
+A = 2.0
 alpha = 0.2
 delta = 0.8
-s = 0.30
 
-A0 = 2.0
-A1 = 2.8
+s0 = 0.30
+s1 = 0.42
 
 shock_time = 4
 T = 24
@@ -37,13 +37,13 @@ T = 24
 # =========================================================
 # Model objects
 # =========================================================
-def k_ss(A):
+def k_ss(s):
     return (s * A / delta) ** (1 / (1 - alpha))
 
-def lom(k, A):
+def lom(k, s):
     return s * A * (k ** alpha) + (1 - delta) * k
 
-def ss_vals(A, k):
+def ss_vals(s, k):
     y = A * (k ** alpha)
     iota = s * y
     c = y - iota
@@ -51,8 +51,8 @@ def ss_vals(A, k):
     R = A * alpha * (k ** (alpha - 1))
     return y, c, iota, w, R
 
-k0_ss = k_ss(A0)
-k1_ss = k_ss(A1)
+k0_ss = k_ss(s0)
+k1_ss = k_ss(s1)
 
 # =========================================================
 # Figure 1: Comparative statics in LoM diagram
@@ -60,8 +60,8 @@ k1_ss = k_ss(A1)
 k_max = 1.3 * k1_ss
 k_grid = np.linspace(1e-6, k_max, 600)
 
-lom0 = lom(k_grid, A0)
-lom1 = lom(k_grid, A1)
+lom0 = lom(k_grid, s0)
+lom1 = lom(k_grid, s1)
 
 fig, ax = plt.subplots(figsize=(6.4, 6.0))
 
@@ -72,12 +72,12 @@ ax.plot(k_grid, k_grid, color="black", lw=1.8, label=r"$k_{t+1}=k_t$")
 ax.plot(
     k_grid, lom0,
     color="#1f77b4", lw=2.2,
-    label=rf"$k_{{t+1}}=s A_0 k_t^\alpha + (1-\delta)k_t$"
+    label=rf"$k_{{t+1}}=s_0 A k_t^\alpha + (1-\delta)k_t$"
 )
 ax.plot(
     k_grid, lom1,
     color="#d62728", lw=2.2,
-    label=rf"$k_{{t+1}}=s A_1 k_t^\alpha + (1-\delta)k_t$"
+    label=rf"$k_{{t+1}}=s_1 A k_t^\alpha + (1-\delta)k_t$"
 )
 
 # Steady states
@@ -93,14 +93,14 @@ ax.plot(k1_ss, k1_ss, "o", color="#d62728", ms=6, zorder=5)
 k_arrow = 0.55 * k1_ss
 ax.annotate(
     "",
-    xy=(k_arrow, lom(k_arrow, A1)),
-    xytext=(k_arrow, lom(k_arrow, A0)),
+    xy=(k_arrow, lom(k_arrow, s1)),
+    xytext=(k_arrow, lom(k_arrow, s0)),
     arrowprops=dict(arrowstyle="->", lw=1.2, color="0.35")
 )
 ax.text(
     k_arrow + 0.04 * k1_ss,
-    0.5 * (lom(k_arrow, A0) + lom(k_arrow, A1)),
-    r"$A \uparrow$",
+    0.5 * (lom(k_arrow, s0) + lom(k_arrow, s1)),
+    r"$s \uparrow$",
     fontsize=10, color="0.25", va="center"
 )
 
@@ -148,31 +148,31 @@ ax.spines["left"].set_linewidth(1.0)
 ax.spines["bottom"].set_linewidth(1.0)
 
 plt.tight_layout()
-outpath1 = os.path.join(output_dir, "01_basic_solow_compstat_A.png")
+outpath1 = os.path.join(output_dir, "basic_solow_compstat_s.png")
 plt.savefig(outpath1, dpi=150, bbox_inches="tight")
 plt.close()
 
 # =========================================================
-# Figure 2: IRFs to a permanent increase in A
+# Figure 2: IRFs to a permanent increase in s
 # =========================================================
 k = np.zeros(T + 1)
 k[0] = k0_ss
 
 for t in range(T):
-    A_t = A0 if t < shock_time else A1
-    k[t + 1] = lom(k[t], A_t)
+    s_t = s0 if t < shock_time else s1
+    k[t + 1] = lom(k[t], s_t)
 
 t_grid = np.arange(T + 1)
-A_path = np.where(t_grid < shock_time, A0, A1)
+s_path = np.where(t_grid < shock_time, s0, s1)
 
-y = A_path * (k ** alpha)
-iota = s * y
+y = A * (k ** alpha)
+iota = s_path * y
 c = y - iota
-w = A_path * (1 - alpha) * (k ** alpha)
-R = A_path * alpha * (k ** (alpha - 1))
+w = A * (1 - alpha) * (k ** alpha)
+R = A * alpha * (k ** (alpha - 1))
 
-y0_ss, c0_ss, i0_ss, w0_ss, R0_ss = ss_vals(A0, k0_ss)
-y1_ss, c1_ss, i1_ss, w1_ss, R1_ss = ss_vals(A1, k1_ss)
+y0_ss, c0_ss, i0_ss, w0_ss, R0_ss = ss_vals(s0, k0_ss)
+y1_ss, c1_ss, i1_ss, w1_ss, R1_ss = ss_vals(s1, k1_ss)
 
 def draw_irf(ax, series, old_ss, new_ss, ylab):
     color_main = "#1f77b4"
@@ -236,7 +236,7 @@ for ax in axes[2, :]:
 
 plt.subplots_adjust(hspace=0.35, wspace=0.22, bottom=0.10)
 
-outpath2 = os.path.join(output_dir, "01_basic_solow_A_shock_irf.png")
+outpath2 = os.path.join(output_dir, "basic_solow_s_shock_irf.png")
 plt.savefig(outpath2, dpi=150, bbox_inches="tight")
 plt.close()
 
