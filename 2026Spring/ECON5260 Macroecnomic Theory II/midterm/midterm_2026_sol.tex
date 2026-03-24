@@ -1,0 +1,644 @@
+%2multibyte Version: 5.50.0.2890 CodePage: 936
+%\newcommand{\bdm}{\begin{displaymath}}
+%\newcommand{\edm}{\end{displaymath}}
+
+
+\documentclass[12pt,a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{latexsym}
+\usepackage[dvips]{graphicx,color}
+\usepackage{lscape}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{color}
+
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Econ 5260: Macroeconomic Theory}
+\lhead{Midterm Exam Answer Key}
+\rfoot{Page \thepage}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2890}
+%TCIDATA{Codepage=936}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{LastRevised=Tuesday, March 27, 2018 01:11:15}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+
+\oddsidemargin=0.3in \textwidth=5.9in
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\noi}{\noindent}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+ \renewcommand{\baselinestretch}{1.5}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\setcounter{equation}{0}
+
+\begin{document}
+
+
+\begin{center}
+{\normalsize Econ 5260: Macroeconomic Theory }
+
+{\large \textbf{Midterm Exam March 24th, 2026} }
+
+{\large The exam lasts 2 hours . Time will be a factor, so be careful. Read
+the exam questions carefully before you start. }
+\end{center}
+
+\vspace{1cm}
+
+\noindent \textbf{Part A:} \textbf{Discussion Question } Each question is
+worth 7.5 marks.
+
+
+
+\textbf{A1}:  Suppose there is a bivariate system in which $y_{t}$ is the
+natural log of real output at time $t$ and $x_{t}$ is the measure of
+monetary policy stance such as money policy stock,
+\begin{equation}
+\left(
+\begin{array}{c}
+y_{t} \\
+x_{t}%
+\end{array}%
+\right) =\left(
+\begin{array}{cc}
+\gamma _{11} & \gamma _{12} \\
+\gamma _{21} & \gamma _{22}%
+\end{array}%
+\right) \left(
+\begin{array}{c}
+y_{t-1} \\
+x_{t-1}%
+\end{array}%
+\right) +\left(
+\begin{array}{c}
+\mu _{y_{t}} \\
+\mu _{x_{t}}%
+\end{array}%
+\right)
+\end{equation}%
+the estimated $\mu _{yt}$ and $\mu _{x_{t}}$ innovations does not represent
+the \textquotedblleft true" independently distributed shocks to output and
+monetary policy and are rather linear combinations of them
+\begin{equation}
+\left(
+\begin{array}{c}
+\mu _{y_{t}} \\
+\mu _{x_{t}}%
+\end{array}%
+\right) =\left(
+\begin{array}{cc}
+1 & \theta  \\
+\phi  & 1%
+\end{array}%
+\right) \left(
+\begin{array}{c}
+e_{y_{t}} \\
+e_{x_{t}}%
+\end{array}%
+\right)
+\end{equation}%
+To solve the identification problem, some additional restrictions must be
+added. Please explain why these restrictions are needed and their economic
+implications.
+
+
+Answer: Contemporaneous zero restrictions or the LR neutrality restriction. Please see handwritten notes Lecture 1.
+
+\vspace{0.5cm}
+\textbf{A2}:Consider a shopping time technology model, suppose shopping
+consumption goods needs transaction service which is produced by both money
+and time, i.e., $c=\phi =\phi (m,n^{s})$ and $\phi _{m}\geq 0$ and $\phi
+_{n^{s}}\geq 0$. If households care about leisure, it can be shown that a
+money in utility preference can be derived. Discuss how we can  relate the sign of $U_{cm}$
+to the production function of $\phi $ and the utility function.
+
+Answer: Please see the attached answer key.
+
+%\vspace{0.5cm}
+%\textbf{A2}:Discuss the role of real rigidity in generating persistent
+%effect of monetary policy shock on output.
+
+
+%\textbf{A2}: The Lucas island model show that only surprises or unexpected monetary
+%shock will have effect on the real economy, but expected monetary shocks will not.
+%But in the CIA or MIU model with labor-leisure choice, both  unexpected
+%monetary shocks and expected monetary shocks  will affect the labor supply and output.
+
+%\textbf{For Ph.D students only:}
+\vspace{0.5cm}
+\textbf{For Ph.D students only:}
+
+%\textbf{A3}: What is the announcement effect of monetary policy? Is it useful in evaluating the effect of unconventional monetary policy? Discuss briefly.
+
+\textbf{A3}: What is the relative benefit of the Local Projection  over the standard VAR approach in studying questions like  effect of monetary policies? (Please discuss briefly) 
+
+%What is the announcement effect of monetary policy? Is it useful in evaluating the effect of unconventional monetary policy? Discuss briefly. %The factor-augmented VAR (FAVAR) approach is more general than the standard VAR approach since it allows us to use data on many more macroeconomic variables to study questions like effect of monetary policies.
+
+Answer: Local Projection (LP) methods, offer several advantages over standard VAR approaches for studying monetary policy effects:
+ 
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Robustness to Misspecification:}
+    \begin{itemize}
+        \item LP estimates impulse responses directly via separate regressions at each horizon
+        \item Does not require correct specification of the entire VAR system
+        \item So the LP  methods are more robust to model specification or when the true data generating process is complex or unknown
+    \end{itemize}
+    
+    \item \textbf{Flexibility:}
+    \begin{itemize}
+        \item Can easily accommodate nonlinearities and state-dependence
+        \item Allows different specifications at different horizons
+        \item So the LP  methods are more flexible for nonlinear/state-dependent analyses
+    \end{itemize}
+    
+    \item \textbf{Transparency:}
+    \begin{itemize}
+        \item Direct estimation of impulse responses
+        \item Easier to understand and implement
+    \end{itemize}
+    
+    \item \textbf{Choice}
+   \begin{itemize}
+        \item VAR is more efficient if correctly specified. It can also be used for forecasting. 
+        \item Choice involves trade-off: efficiency vs. robustness/flexibility
+    \end{itemize}
+\end{enumerate}
+
+\textbf{They might not be able to answer the "transparency" part, but they should know the first two relative benefits. }
+\bigskip
+
+
+\textbf{\noindent Part B: Short Answer Questions:}
+
+
+
+
+
+%\textbf{B1} (15 marks) Consider a MIU model with labor-leisure choice, the consumer's optimization problem is:
+% \be \max E_t\sum_{t=0}^{\infty}\beta^t u(c_t,m_t,l_t) \ee  Subject to  \bea  & c_t+k_t+m_t+b_t=f(k_{t-1},n_t,z_t)+\tau_t+\nonumber
+%\\  & (1-\delta)k_{t-1}+\frac{(1+i_{t-1})b_{t-1}+m_{t-1}}{1+\pi_t}
+%\nonumber  \eea And initial values fo $k$,$b$, and $m$, and the TVC
+%conditions;
+%where
+%\be
+% u(c_t,m_t,
+% l_t)=\frac{[ac_t^{1-b}+(1-a)m_t^{1-b}]^{\frac{1-\Phi}{1-b}}}{1-\Phi}+\Psi\frac{l_t^{1+\eta}}{1+\eta}\ee
+%\noi where $l_t$ denote leisure at period $t$. The production function is:\be
+% y_t=e^{z_t}k_{t-1}^{\alpha}n_t^{1-\alpha}
+% \ee
+%\noi where $0<\alpha<1$ and \be z_t=\rho z_{t-1}+e_t \ee  is the
+%stochastic process of the productivity shock. $|\rho|<1$ and $e_t$
+%is i.i.d normally distributed with zero mean and variance
+%$\sigma_e^2$.
+%
+%The money growth process is given by
+%\be \frac{M_t}{M_{t-1}}=1+\theta_t \ee
+% Assume that the average growth
+%rate is $\theta^*$ and let $u_t=\theta_t-\theta^*$ be the deviation
+%of $\theta$ from its mean and satisfy: \be u_t=\gamma u_{t-1}+\phi
+%z_{t-1}+\varphi_t, \hspace{1cm} 0<\gamma<1\ee \noi where $\varphi_t$
+%is i.i.d normally distributed with zero mean and variance
+%$\sigma_{\varphi}^2$. Read Figure 2.5 and assume $\gamma>0$,  explain
+%
+%(a) Why the introduction of  labor-leisure choice to the basic MIU model help to get money non-superneutrality and  non-neutrality? (\textit{Hint: You do not need to solve the model, please use intuition instead of equations to explain. })
+%
+%(b) Explain why when $b-\Phi$ is positive and larger, the effect of money growth rate shock on the real economy are larger.
+%
+%(c)  When when $\gamma>0$, will a positive money growth rate shock have the real effect on output and employment? Explain your answer.
+
+\bigskip
+
+%\textbf{B2} (15 marks) Consider a Ficsher model of nominal rigidity, where
+%two types of firms predetermine prices two periods ago. Type A firms set
+%prices in even period, at time t, they set prices for period $t+1$ and $t+2$%
+%. Type B firms set prices in odd periods, at time $t-1$, they set prices for
+%period $t$ and $t+1$. The desired price firm $i$ will set under fully
+%flexible is $p_{it}^{\ast }=p_{t}+\phi y_{t}$, where $p_{t}$ is the average
+%price level in the economy and $y_{t}$ is output. Finally assume that
+%aggregate demand curve is given by $y_{t}=m_{t}-p_{t}$. Assume that in each
+%period, fraction $f$ set their prices in odd periods and fraction $1-f$ set
+%their prices in even periods. Thus the price level is $%
+%fp_{t}^{1}+(1-f)p_{t}^{2}$ if $t$ is even and $(1-f)p_{t}^{1}+fp_{t}^{2}$ if
+%$t$ is odd. Derived the expression for $p_{t}$ and $y_{t}$ for even and off
+%periods. How different is the result of this model compared to the model we
+%learned in class (hint: explain the role of $f$).
+%%
+
+
+
+
+%\textbf{B2} (20 marks) Consider the limited participation model, suppose the representative household choose sequences of consumption
+%and leisure to maximizes his expected utility $E_{0}\sum_{t=0}^{\infty
+%}\beta ^{t}U(c_{t},l_{t})$ where
+%\begin{equation}
+%U=\frac{1}{1-\sigma }c^{1-\sigma }+\gamma\log (l)
+%\end{equation}%
+%The rest of the model is the same as the model we discuss in class. Specifically, households enter the period with currency holding $M_{t}$ and make deposits $%
+%D_{t}$ with financial intermediaries;
+%\begin{equation}
+%0\leq D_{t}\leq M_{t}
+%\end{equation}%
+%They also face the following CIA constraint on goods markets;
+%\begin{equation}
+%P_{t}c_{t}\leq W_{t}(1-l_{t})+M_{t}-D_{t}
+%\end{equation}%
+%and their end of period wealth is given by
+%\begin{equation}
+%M_{t+1}=W_{t}(1-l_{t})+M_{t}-D_{t}-P_{t}c_{t}+R_{t}(D_{t}+X_{t})+\Pi _{t}
+%\end{equation}%
+%where $\Pi _{t}$ are the profits of intermediate goods firms.
+%
+%Financial intermediaries behave competitively. They receive $%
+%D_{t}$ in deposit from household, and $X_{t}=M_{t+1}-M_{t}$ on the
+%household's behalf from the central bank, and then lend the loan out to
+%firms. In the end of the period, the intermediary pays $R_{t}D_{t}$ to
+%households for their deposits, and distribute $R_{t}X_{t}$ to the households
+%in the form of profits.  Intermediate firms will set prices such as $P_t(i)=\frac{1}{\lambda}R_tW_t$.
+%
+%Consider a stationary equilibrium where $d=D/M$, $p=P/M$, and $w=W/M$,
+%and $x=X/M$ and answer the following questions
+%
+%a) Define $\Gamma_t=\frac{W_t(1-l_t)}{P_tc_t}$ as the ratio of intermediated loan to total liquidity in the economy; Show that at the stationary equilibrium,  $\Gamma$ is a function of $d$ and $x$, and increase in $x$.
+%
+%b) Derive the expression for $c(d,x)$ and $R(d,x)$ and show that the nominal interest rate $R$ decreases in $x$ and
+%consumption/output is increasing in $x$. Explain the intuition.
+%
+%c) Explain why when $\Gamma=1$, the liquidity effect disappears.
+
+
+\textbf{B1} (15 marks) Consider the following model:
+
+Preferences: $E_t\sum_{i=0}^{\infty}\beta^i[\ln c_{t+i}+\theta \ln  d_{t+i}]$
+
+Budget Constraint:  $c_t+d_t+m_t+k_t=Ak_{t-1}^{\alpha}+\tau_t+\frac{m_{t-1}}{%
+1+\pi_t}$
+
+CIA Constraint: $c_t\leq \frac{m_{t-1}}{1+\pi_t}+\tau_t$
+
+where $m$ denotes real money balances and $\pi_t$ is the inflation rate from
+period $t-1$ to period $t$. The two consumption goods, $c$ and $d$,
+represent cash ($c$) and credit ($d$) goods. The net transfer $\tau$ is
+viewed as a lump-sum payment (or tax) by the household.
+
+(a) Derive the steady-state values of consumption, capital, and real money balances. Show how these depend on the steady state inflation rate $\pi$.  
+
+(b) Does this model exhibit superneutrality? Explain why.
+
+(b) What is the rate of inflation that maximizes steady-state utility?
+
+Answer:
+
+a) \textbf{FOCs for $c_t, d_t, k_t, m_t$ are:}
+
+\begin{align}
+1/c_t &= \lambda_t + \mu_t \\
+\theta/d_t &= \lambda_t \\
+\lambda_t &= \beta\lambda_{t+1}\alpha A k^{\alpha-1} \\
+\lambda_t &= \beta\frac{\lambda_{t+1} + \mu_{t+1}}{1 + \pi_{t+1}}
+\end{align}
+
+\textbf{In the steady state:}
+
+$$k = \left(\frac{1}{\alpha \beta A}\right)^{\frac{1}{\alpha-1}}$$
+
+and
+
+$$d = \theta\frac{1+\pi}{\beta}c$$
+
+\textbf{Budget constraint and CIA constraint imply:}
+
+$$\theta\frac{1+\pi}{\beta}c = Ak^\alpha - k - m$$
+
+$$c = \tau + m/(1+\pi)$$
+
+The above two equations determine consumption and real balance as functions of inflation rate.
+
+(b) Superneutrality 
+
+\textbf{Answer: Super-neutrality does NOT hold.}
+
+Since consumption and real balances depend on the inflation rate (as shown by the equations above), changes in the money growth rate affect real variables in the steady state. Why we will get non-superneutrality. This is because now we have cash good and credit goods. The 
+
+The key reason we get \textbf{non-superneutrality} in this model is the presence of the \textbf{cash-in-advance (CIA) constraint}, which creates a distinction between \textbf{cash goods} and \textbf{credit goods}.
+
+\begin{itemize}
+    \item \textbf{Cash goods} ($c_t$): Must be purchased with money held from the previous period, subject to the CIA constraint. These goods face an inflation tax.
+    
+    \item \textbf{Credit goods} ($d_t$): Can be purchased with current income/deposits, not subject to the CIA constraint. These goods do not face the inflation tax.
+\end{itemize}
+
+\textbf{Why non-superneutrality occurs:}
+
+\begin{enumerate}
+    \item The CIA constraint creates a \textbf{wedge} between the marginal utilities of cash and credit goods: $1/c_t = \lambda_t + \mu_t$ vs. $\theta/d_t = \lambda_t$, where $\mu_t > 0$ is the multiplier on the CIA constraint.
+    
+    \item Higher inflation $\pi$ increases the \textbf{opportunity cost of holding money}, making the CIA constraint more binding (higher $\mu_t$).
+    
+    \item From $c = \tau + m/(1+\pi)$, higher inflation \textbf{reduces real money balances} $m/(1+\pi)$, which directly reduces consumption of cash goods.
+    
+    \item This creates a \textbf{real distortion}: the relative price between cash and credit goods changes with inflation, affecting the consumption bundle and welfare.
+    
+    \item In contrast, if all goods were cash goods or all were credit goods, inflation would affect all prices proportionally, preserving superneutrality.
+\end{enumerate}
+
+\textbf{Economic intuition:} The CIA constraint acts like a \textbf{differential tax} on cash goods versus credit goods. When inflation rises, this tax becomes more distortionary, changing real allocations. This is why monetary policy is non-neutral in the long run.
+
+(c) Optimal Inflation Rate (4 marks)
+
+Equations for $c$ and $m$ imply consumption is decreasing in the inflation rate. The steady-state utility takes the form of $(1+\theta)\log c +$ constant, therefore the lower inflation the higher level of utility. 
+
+Note that the lower bound of inflation in this model is $\beta - 1$ due to the fact that $\mu \geq 0$.
+
+\textbf{Therefore, the optimal inflation rate is $\pi^* = \beta - 1$.}
+
+Note that this rate is also the optimal rate in first best case: social planner's problem without CIA constraint.
+
+\bigskip
+
+\textbf{Part C:} Long questions. (30 marks)
+
+
+
+Consider a Money-in-Utility (MIU) model where the representative household has preferences over consumption and real money balances. The instantaneous utility function is given by:
+
+\begin{equation}
+U(c, m) = \frac{1}{1-\sigma}\left[c^\alpha m^{1-\alpha}\right]^{1-\sigma}
+\end{equation}
+
+where $0 < \alpha < 1$, $\sigma > 0$, $\sigma \neq 1$, $c_t$ is consumption, and $m_t = \frac{M_t}{P_t}$ represents real money balances.
+
+The household's lifetime utility is:
+
+\begin{equation}
+\max \sum_{t=0}^{\infty} \beta^t U(c_t, m_t)
+\end{equation}
+
+The household faces a budget constraint:
+
+\begin{equation}
+c_t + k_t + m_t = f(k_{t-1}) + (1-\delta)k_{t-1} + \tau_t + \frac{m_{t-1}}{1+\pi_t}
+\end{equation}
+
+where $k_t$ is capital, $f(k)$ is the production function, $\delta$ is the depreciation rate, $\tau_t$ is a lump-sum transfer, and $\pi_t$ is the inflation rate. Assume the production function exhibits constant returns to scale and there is no labor-leisure choice. The money supply grows at rate $\theta$, so that $\frac{M_t}{M_{t-1}} = 1 + \theta$.
+
+\vspace{0.3cm}
+
+\noindent\textbf{(a) [8 marks]} Derive the household's optimal first-order conditions. Describe the equilibrium conditions. Show that in steady state, the optimal money demand condition can be written as:
+
+\begin{equation}
+\frac{U_m(c^*, m^*)}{U_c(c^*, m^*)} = \frac{i^*}{1+i^*}
+\end{equation}
+
+where $i^*$ is the steady-state nominal interest rate. Explain the economic intuition behind this condition.
+
+
+
+
+
+\vspace{0.3cm}
+
+\vspace{0.3cm}
+\noindent\textbf{(b) [7 marks]} Using the utility function specified above, show that the steady-state real money demand can be expressed as:
+
+\begin{equation}
+\frac{m^*}{c^*} = \left[\frac{1-\alpha}{\alpha} \cdot \frac{1+i^*}{i^*}\right]
+\end{equation}
+
+Discuss how the parameters $\alpha$ and $\sigma$ affect the interest elasticity of money demand.
+
+
+\noindent\textbf{(c) [7 marks]} The money growth process is given by
+\be \frac{M_t}{M_{t-1}}=1+\theta_t \ee
+ Assume that the average growth
+rate is $\theta^*$ and let $u_t=\theta_t-\theta^*$ be the deviation
+of $\theta$ from its mean and satisfy: \be u_t=\gamma u_{t-1}+\phi
+z_{t-1}+\varphi_t, \hspace{1cm} 0<\gamma<1\ee \noi where $\varphi_t$
+is i.i.d normally distributed with zero mean and variance
+$\sigma_{\varphi}^2$.  Does this model exhibit money neutrality in the dynamics? Please explain. 
+
+
+
+
+\vspace{0.3cm}
+
+\noindent\textbf{(d) [8 marks]} Following Lucas (2000), define the welfare cost of inflation as the percentage increase in steady-state consumption, $w(i^*)$, that would make the household indifferent between facing a nominal interest rate $i^*$ and facing a zero nominal interest rate (the Friedman rule). That is:
+
+\begin{equation}
+U\left((1+w(i^*))c^*, m(i^*)\right) = U(c^*, m^*)
+\end{equation}
+
+where $m(i^*)$ is the steady-state real money holding when the nominal interest rate is $i^*$, and $m^*$ is the optimal money holding under the Friedman rule ($i=0$).
+
+Show that $w(i^*)$ is a function of $i^*$ and $\alpha$.
+
+%\textbf{Hint:} Normalize steady-state consumption to $c^* = 1$ and use the money demand function from part (b). Note that under the Friedman rule, $\lim_{i \to 0} \frac{1+i}{i} = \infty$, so households are satiated with real money balances.
+
+
+\textbf{For Ph.D Students Only}
+%
+\vspace{0.3cm}
+
+\noindent\textbf{(e) [7.5 marks]} From your answer in \textbf{(b)} and \textbf{(d)}, you will find under the Friedman rule, $\lim_{i \to 0} \frac{1+i}{i} = \infty$, so households are satiated with real money balances. So instead of consider $i=0$, we assume the nominal interest rate is very small but positive, or, $i=0.01$. Based on your answer to  \textbf{(d)}, suppose $\alpha = 0.95$ and the annual nominal interest rate is 5\% (i.e., $i^* = 0.05$). Calculate the welfare cost $w(i^*)$ when the economy moves from $i=0.01$ to this positive nominal interest rate. Express your answer as a percentage of consumption. Discuss whether the welfare cost of inflation is economically significant and compare your result with the empirical findings discussed in the literature.
+
+
+\section*{Part C(a): First-Order Conditions and Equilibrium [8 marks]}
+
+\subsection*{Household's Problem}
+The household maximizes:
+\begin{equation}
+\max \sum_{t=0}^{\infty} \beta^t U(c_t, m_t) = \max \sum_{t=0}^{\infty} \beta^t \frac{1}{1-\sigma}[c_t^\alpha m_t^{1-\alpha}]^{1-\sigma}
+\end{equation}
+
+subject to the budget constraint:
+\begin{equation}
+c_t + k_t + m_t + b_t = f(k_{t-1}) + (1-\delta)k_{t-1} + \tau_t + \frac{m_{t-1}}{1+\pi_t} + \frac{b_{t-1}(1+i_{t-1})}{1+\pi_t}
+\end{equation}
+
+\subsection*{First-Order Conditions}
+Setting up the Lagrangian and taking derivatives with respect to $c_t$, $m_t$, $k_t$, and $b_t$:
+
+\textbf{FOC for consumption:}
+\begin{equation}
+U_c(c_t, m_t) = \lambda_t
+\end{equation}
+
+\textbf{FOC for money:}
+\begin{equation}
+U_m(c_t, m_t) + \beta E_t\left[\frac{\lambda_{t+1}}{1+\pi_{t+1}}\right] = \lambda_t
+\end{equation}
+
+\textbf{FOC for capital:}
+\begin{equation}
+\lambda_t = \beta E_t[\lambda_{t+1}(f'(k_t) + 1 - \delta)]
+\end{equation}
+
+\textbf{FOC for bonds:}
+\begin{equation}
+\lambda_t = \beta E_t\left[\lambda_{t+1}\frac{1+i_t}{1+\pi_{t+1}}\right]
+\end{equation}
+
+\subsection*{Steady-State Money Demand Condition}
+From the FOC for money, dividing by $\lambda_t = U_c(c_t, m_t)$:
+\begin{equation}
+\frac{U_m(c_t, m_t)}{U_c(c_t, m_t)} + \beta E_t\left[\frac{U_c(c_{t+1}, m_{t+1})}{U_c(c_t, m_t)} \cdot \frac{1}{1+\pi_{t+1}}\right] = 1
+\end{equation}
+
+In steady state, using the bond FOC with $1+r^* = \frac{1+i^*}{1+\pi^*}$ and $\beta(1+r^*) = 1$:
+\begin{equation}
+\frac{U_m(c^*, m^*)}{U_c(c^*, m^*)} = 1 - \beta \frac{1}{1+\pi^*} = 1 - \frac{1}{1+i^*} = \frac{i^*}{1+i^*}
+\end{equation}
+
+\textbf{Economic Intuition:} This condition equates the marginal rate of substitution between money and consumption to the opportunity cost of holding money. The nominal interest rate $i^*$ represents the forgone interest from holding non-interest-bearing money instead of bonds. When you give up 1 unit of consumption to hold money (worth $P_t$),
+you forgo $i_tP_t$. The real value of this opportunity cost in present value terms is $\frac{i_tP_t}{P_{t+1}}$. The present value of this real cost is $\frac{i_tP_t}{P_{t+1}(1+r_t)}=\frac{i_t}{1+i_t}$. At the optimum, the marginal utility gain from an additional unit of real money balances (relative to consumption) equals the opportunity cost of holding that money.
+
+
+\section*{Part C(b): Money Demand Function [7 marks]}
+
+\subsection*{Derivation}
+From the utility function $U(c,m) = \frac{1}{1-\sigma}[c^\alpha m^{1-\alpha}]^{1-\sigma}$, we compute:
+
+\begin{align}
+U_c(c,m) &= \alpha c^{\alpha(1-\sigma)-1} m^{(1-\alpha)(1-\sigma)} \\
+U_m(c,m) &= (1-\alpha) c^{\alpha(1-\sigma)} m^{(1-\alpha)(1-\sigma)-1}
+\end{align}
+
+The marginal rate of substitution is:
+\begin{equation}
+\frac{U_m(c,m)}{U_c(c,m)} = \frac{1-\alpha}{\alpha} \cdot \frac{c}{m}
+\end{equation}
+
+Using the steady-state condition from part (a):
+\begin{equation}
+\frac{1-\alpha}{\alpha} \cdot \frac{c^*}{m^*} = \frac{i^*}{1+i^*}
+\end{equation}
+
+Solving for the money-consumption ratio:
+\begin{equation}
+\boxed{\frac{m^*}{c^*} = \frac{1-\alpha}{\alpha} \cdot \frac{1+i^*}{i^*}}
+\end{equation}
+
+\subsection*{Interest Elasticity Discussion}
+The interest elasticity of money demand depends on how $\frac{m^*}{c^*}$ responds to changes in $i^*$. Taking the derivative, the elasticity is approximately $-1$ for small interest rates. The parameter $\alpha$ determines the steady-state ratio: a higher $\alpha$ (more weight on consumption) leads to lower money holdings relative to consumption. The parameter $\sigma$ (intertemporal elasticity of substitution) does not appear in the steady-state money demand ratio because it affects consumption and money holdings proportionally through the composite good $c^\alpha m^{1-\alpha}$, leaving their ratio unchanged in steady state.
+
+\section*{Part C(c): Money Neutrality in Dynamics [7 marks]}
+
+\subsection*{Marginal Utility of Consumption}
+From the utility function, the marginal utility of consumption is:
+\begin{equation}
+U_c(c_t, m_t) = \alpha c_t^{\alpha(1-\sigma)-1} m_t^{(1-\alpha)(1-\sigma)}
+\end{equation}
+
+This shows that $U_c(c_t, m_t)$ depends on \textbf{both} consumption $c_t$ and real money balances $m_t$.
+
+\begin{equation}
+U_{cm}(c_t, m_t) = \alpha (1-\alpha)(1-\sigma)c_t^{\alpha(1-\sigma)-1} m_t^{(1-\alpha)(1-\sigma)-1}
+\end{equation}
+
+If $\sigma\neq1$, $U_{cm}(c_t, m_t) \neq0$. 
+
+\subsection*{Money Non-Neutrality}
+No, this model does \textbf{not} exhibit money neutrality in the short-run dynamics. When an unexpected increase in $\theta_t$ occurs (a surprise money injection), and given that $\gamma > 0$, the shock has persistent effects on future money growth and inflation expectations. This raises the expected nominal interest rate $i_t$ via the Fisher equation. From the money demand condition in part (b), a higher nominal interest rate reduces real money holdings $m_t$. Since $U_c(c_t, m_t)$ explicitly depends on $m_t$, the change in money holdings directly affects the marginal utility of consumption, which alters the consumption-savings decision through the Euler equation $U_c(c_t, m_t) = \beta(1+r_{t+1})E_t[U_c(c_{t+1}, m_{t+1})]$. Therefore, monetary shocks have real effects during the transition to the new steady state, violating money neutrality in the short run.
+
+\textbf{Conclusion:} Money is \textbf{not neutral} in dynamics when $\gamma > 0$ because the non-separable utility function creates a channel through which changes in real money balances affect consumption decisions.
+
+\section*{Part C(d): Welfare Cost of Inflation [8 marks]}
+
+\subsection*{Definition}
+The welfare cost $w(i^*)$ is defined by:
+\begin{equation}
+U((1+w(i^*))c^*, m(i^*)) = U(c^*, m^*)
+\end{equation}
+
+where $m(i^*)$ is money holding at interest rate $i^*$, and $m^*$ is money holding under the Friedman rule ($i=0$).
+
+\subsection*{Derivation}
+Substituting the utility function:
+\begin{equation}
+\frac{1}{1-\sigma}[(1+w)c^*]^\alpha m(i^*)^{1-\alpha}]^{1-\sigma} = \frac{1}{1-\sigma}[(c^*)^\alpha (m^*)^{1-\alpha}]^{1-\sigma}
+\end{equation}
+
+Simplifying:
+\begin{equation}
+(1+w)^\alpha \left(\frac{m(i^*)}{m^*}\right)^{1-\alpha} = 1
+\end{equation}
+
+
+Solving for $(1+w)$:
+\[
+(1+w)^\alpha = \left(\frac{m^*}{m(i^*)}\right)^{1-\alpha}
+\]
+\[
+1+w = \left(\frac{m^*}{m(i^*)}\right)^{\frac{1-\alpha}{\alpha}}
+\]
+\[
+\boxed{w(i^*) = \left(\frac{m^*}{m(i^*)}\right)^{\frac{1-\alpha}{\alpha}} - 1}
+\]
+
+\textbf{I think it is ok to stop here. But if they continue and show that  it is infinity, it is also ok. }
+
+From part (b), we have:
+\begin{equation}
+\frac{m(i^*)}{c^*} = \frac{1-\alpha}{\alpha} \cdot \frac{1+i^*}{i^*}, \quad \frac{m^*}{c^*} = \frac{1-\alpha}{\alpha} \cdot \lim_{i\to 0}\frac{1+i}{i} = \infty
+\end{equation}
+
+Under the Friedman rule, households are satiated with money. But we can consider a small and positive nominal interest rate, $i_0$. See Part (e). 
+
+
+\textbf{Economic Interpretation:} The welfare cost measures how much additional consumption would compensate households for living in a high-inflation environment. It depends on $\alpha$ (the consumption weight) and the interest rate $i^*$. A higher $\alpha$ means consumption is more important relative to money services, so the welfare cost of inflation is smaller.
+
+\section*{Part C(e): Numerical Calculation [7.5 marks] (Ph.D. only)}
+
+Under the Friedman rule, households are satiated with money. That is, when $m^*=\infty$ when $i=0$.
+For practical comparison, we use a small positive rate $i_0 = 0.01$ as the baseline. Then:
+\begin{equation}
+\frac{m(i^*)}{m(i_0)} = \frac{(1+i^*)/i^*}{(1+i_0)/i_0} = \frac{i_0(1+i^*)}{i^*(1+i_0)}
+\end{equation}
+
+Therefore:
+\begin{equation}
+\boxed{w(i^*) = \left[\frac{i^*(1+i_0)}{i_0(1+i^*)}\right]^{\frac{1-\alpha}{\alpha}} - 1}
+\end{equation}
+
+
+\subsection*{Given Parameters}
+\begin{itemize}
+\item $\alpha = 0.95$
+\item $i^* = 0.05$ (5\% annual)
+\item $i_0 = 0.01$ (1\% baseline)
+\end{itemize}
+
+\subsection*{Calculation}
+Using the formula from part (d):
+\begin{equation}
+w(0.05) = \left[\frac{0.05 \times 1.01}{0.01 \times 1.05}\right]^{\frac{1-0.95}{0.95}} - 1 = \left[\frac{0.0505}{0.0105}\right]^{\frac{0.05}{0.95}} - 1
+\end{equation}
+
+\begin{equation}
+w(0.05) = [4.810]^{0.0526} - 1 = 1.0872 - 1 = 0.0872
+\end{equation}
+
+\textbf{Result:} $w(0.05) \approx 8.72\%$
+
+\subsection*{Discussion}
+The welfare cost of moving from a 1\% to a 5\% nominal interest rate is approximately 8.72\% of consumption. This is economically significant and higher than many empirical estimates. Lucas (2000) found welfare costs around 1\% of consumption for similar interest rate changes using U.S. data. The higher estimate here reflects the high value of $\alpha = 0.95$, which implies money services have relatively low weight in utility. If $\alpha$ were lower (money more important), the welfare cost would be even larger. The MIU framework tends to produce larger welfare costs than models with explicit transaction technologies, as it directly incorporates money in preferences without microfounding the transaction role.
+
+\end{document}
