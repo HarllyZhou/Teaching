@@ -1,0 +1,251 @@
+============================================================
+Task shares02 output
+Countries: United States, Japan, India, Nigeria
+Sample: 1990-2020
+============================================================
+
+PART 3. LEVEL REGRESSION WITH TIME TREND
+Model: lnY = beta0 + beta1 lnK + beta2 lnN + beta3 t + u
+
+------------------------------------------------------------
+Country: United States 
+------------------------------------------------------------
+
+Call:
+lm(formula = lnY ~ lnK + lnN + t, data = df_cty)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.050115 -0.014454  0.004511  0.012940  0.037567 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -1.303427  30.070907  -0.043    0.966    
+lnK          1.138820   0.165152   6.896 2.08e-07 ***
+lnN         -0.222346   1.700013  -0.131    0.897    
+t            0.000312   0.014747   0.021    0.983    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02183 on 27 degrees of freedom
+Multiple R-squared:  0.9914,	Adjusted R-squared:  0.9904 
+F-statistic:  1036 on 3 and 27 DF,  p-value: < 2.2e-16
+
+
+------------------------------------------------------------
+Country: Japan 
+------------------------------------------------------------
+
+Call:
+lm(formula = lnY ~ lnK + lnN + t, data = df_cty)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.047639 -0.014170  0.000317  0.014362  0.031421 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -5.671e+01  1.454e+01  -3.901 0.000574 ***
+lnK          1.736e-01  6.939e-02   2.501 0.018733 *  
+lnN          4.321e+00  8.759e-01   4.933 3.65e-05 ***
+t            1.553e-03  7.455e-04   2.083 0.046858 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02045 on 27 degrees of freedom
+Multiple R-squared:  0.9519,	Adjusted R-squared:  0.9466 
+F-statistic: 178.3 on 3 and 27 DF,  p-value: < 2.2e-16
+
+
+------------------------------------------------------------
+Country: India 
+------------------------------------------------------------
+
+Call:
+lm(formula = lnY ~ lnK + lnN + t, data = df_cty)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.07044 -0.01763  0.00019  0.01927  0.04539 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 27.474424   7.736112   3.551  0.00143 ** 
+lnK          0.628432   0.058048  10.826 2.52e-11 ***
+lnN         -0.852626   0.392821  -2.171  0.03893 *  
+t            0.024716   0.007157   3.454  0.00184 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.03073 on 27 degrees of freedom
+Multiple R-squared:  0.9981,	Adjusted R-squared:  0.9979 
+F-statistic:  4748 on 3 and 27 DF,  p-value: < 2.2e-16
+
+
+------------------------------------------------------------
+Country: Nigeria 
+------------------------------------------------------------
+
+Call:
+lm(formula = lnY ~ lnK + lnN + t, data = df_cty)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.29159 -0.14181  0.01116  0.07671  0.41664 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -501.54529  120.54931  -4.160 0.000289 ***
+lnK            0.89506    0.08306  10.777 2.79e-11 ***
+lnN           27.33720    6.59095   4.148 0.000299 ***
+t             -0.68967    0.17543  -3.931 0.000530 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.172 on 27 degrees of freedom
+Multiple R-squared:  0.9815,	Adjusted R-squared:  0.9795 
+F-statistic: 477.8 on 3 and 27 DF,  p-value: < 2.2e-16
+
+
+
+============================================================
+PART 4. GROWTH REGRESSION WITH LAGGED DEPENDENT VARIABLE
+Model: gY_t = gamma0 + gamma1 gK_t + gamma2 gN_t + gamma3 gY_{t-1} + v_t
+
+------------------------------------------------------------
+Country: United States 
+------------------------------------------------------------
+
+Call:
+lm(formula = gY ~ gK + gN + gY_lag, data = df_cty)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.034374 -0.005215  0.003910  0.007734  0.018478 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept) -0.02479    0.01467  -1.690   0.1034  
+gK           1.27875    0.53755   2.379   0.0253 *
+gN           2.08483    1.44610   1.442   0.1618  
+gY_lag       0.01147    0.25348   0.045   0.9643  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.01381 on 25 degrees of freedom
+Multiple R-squared:  0.4046,	Adjusted R-squared:  0.3332 
+F-statistic: 5.663 on 3 and 25 DF,  p-value: 0.00421
+
+
+------------------------------------------------------------
+Country: Japan 
+------------------------------------------------------------
+
+Call:
+lm(formula = gY ~ gK + gN + gY_lag, data = df_cty)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.053764 -0.010642 -0.001601  0.010815  0.040359 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  0.001609   0.004808   0.335   0.7407  
+gK           0.277822   0.154804   1.795   0.0848 .
+gN           1.814644   1.272004   1.427   0.1661  
+gY_lag      -0.105854   0.207121  -0.511   0.6138  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.02286 on 25 degrees of freedom
+Multiple R-squared:  0.2565,	Adjusted R-squared:  0.1673 
+F-statistic: 2.875 on 3 and 25 DF,  p-value: 0.05623
+
+
+------------------------------------------------------------
+Country: India 
+------------------------------------------------------------
+
+Call:
+lm(formula = gY ~ gK + gN + gY_lag, data = df_cty)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.094696 -0.015890  0.004954  0.014517  0.061289 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)
+(Intercept) -0.002187   0.033092  -0.066    0.948
+gK           0.380618   0.258818   1.471    0.154
+gN           1.274232   1.878706   0.678    0.504
+gY_lag       0.198807   0.266902   0.745    0.463
+
+Residual standard error: 0.03287 on 25 degrees of freedom
+Multiple R-squared:  0.2435,	Adjusted R-squared:  0.1528 
+F-statistic: 2.683 on 3 and 25 DF,  p-value: 0.06842
+
+
+------------------------------------------------------------
+Country: Nigeria 
+------------------------------------------------------------
+
+Call:
+lm(formula = gY ~ gK + gN + gY_lag, data = df_cty)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.25013 -0.09095 -0.00977  0.05760  0.33658 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept)   0.2386     0.2367   1.008   0.3231  
+gK            0.4382     0.2136   2.052   0.0508 .
+gN           -7.9967     9.0163  -0.887   0.3836  
+gY_lag        0.3335     0.1829   1.824   0.0801 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.14 on 25 degrees of freedom
+Multiple R-squared:  0.3876,	Adjusted R-squared:  0.3142 
+F-statistic: 5.275 on 3 and 25 DF,  p-value: 0.005874
+
+
+
+============================================================
+PART 5C. CAPITAL SHARE alpha_t = 1 - labsh
+============================================================
+
+Alpha time series (first several rows):
+# A tibble: 20 × 3
+   country  year alpha_t
+   <chr>   <dbl>   <dbl>
+ 1 India    1990       0
+ 2 India    1991       0
+ 3 India    1992       0
+ 4 India    1993       0
+ 5 India    1994       0
+ 6 India    1995       0
+ 7 India    1996       0
+ 8 India    1997       0
+ 9 India    1998       0
+10 India    1999       0
+11 India    2000       0
+12 India    2001       0
+13 India    2002       0
+14 India    2003       0
+15 India    2004       0
+16 India    2005       0
+17 India    2006       1
+18 India    2007       1
+19 India    2008       0
+20 India    2009       0
+
+Mean alpha by country:
+# A tibble: 4 × 5
+  country       mean_alpha min_alpha max_alpha n_obs
+  <chr>              <dbl>     <dbl>     <dbl> <int>
+1 India             0.0645         0         1    31
+2 Japan             0              0         0    31
+3 Nigeria           1              1         1    31
+4 United States     0              0         0    31
+

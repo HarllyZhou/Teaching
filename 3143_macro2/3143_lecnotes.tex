@@ -646,28 +646,48 @@ To maximize $c^*$, we need to set the derivative to zero. Since $\frac{\partial 
 \end{exercise}
 
 \begin{task}[Capital share and labour share (II)]\label{task:shares02}
-    Consider the task \ref{task:shares01}. We know that the simple regression does not make much sense either economically or statistically to estimate $\alpha$. This question helps you understand why and how economists actually calibrate the value of $\alpha$. Still use the PWT dataset.
+    Consider the task \ref{task:shares01}. We have seen that simple regressions do not provide a reliable estimate of $\alpha$, either economically or statistically. This question helps you understand why, and how economists instead calibrate $\alpha$ using data. We continue to use the Penn World Table (PWT).
     \begin{enumerate}[label=\arabic*.]
-        \item Consider the US economy. Plot the logarithm of real GDP, capital stock, and population. Do you see any similar trend?
-        \item Plot the real GDP growth rate, capital stock growth rate, and population growth rate. Do you see any similar comovement?
-        \item Instead of the level regression \eqref{eq:log_reg}, add a time trend regressor $t$ to the regression:
+        \item \textbf{Trends in levels.}  
+        Consider the US economy. Plot the logarithm of real GDP, capital stock, and population on the same figure. Use time (year) as the horizontal axis. To make the variables comparable in levels, you may normalize each series (for example, subtract the first observation or divide by the initial value before taking logs). Do you observe similar trends across the three series?
+        
+        \item \textbf{Comovement in growth rates.}  
+        Plot the growth rates of real GDP, capital stock, and population on the same figure, again using time as the horizontal axis. Do you observe similar comovement across the three growth rates?
+        
+        \item \textbf{Level regression with time trend.}  
+        Instead of \eqref{eq:log_reg}, estimate the following regression:
         \begin{align}\label{eq:log_reg_trend}
-            \log Y_t &= \beta_0 + \beta_1 \log K_t + \beta_2 \log N_t + \beta_3 t + u_t.
+        \log Y_t = \beta_0 + \beta_1 \log K_t + \beta_2 \log N_t + \beta_3 t + u_t,
         \end{align}
-        Report the estimated coefficients for the US, Japan, India, and Nigeria.
-        \item There are always persistence in the economy. Therefore, we always add lagged variables to the regression. Do the following regression:
+        where $t = 1,2,\dots$ is a time index. Report the estimated coefficients for the United States, Japan, India, and Nigeria.
+        
+        \item \textbf{Growth regression with lagged dependent variable.}  
+        Estimate the following regression:
         \begin{align}\label{eq:growth_reg_lag}
-            g_{Y,t} = \gamma_0 + \gamma_1 g_{K, t} + \gamma_2 g_{N, t} + \gamma_3 g_{Y,t-1} + v_t.
+        g_{Y,t} = \gamma_0 + \gamma_1 g_{K,t} + \gamma_2 g_{N,t} + \gamma_3 g_{Y,t-1} + v_t.
         \end{align}
-        Report the estimated coefficients for the US, Japan, India, and Nigeria.
-        \item However, in practice, economists do not use the above specifications.
+        Construct the lagged variable $g_{Y,t-1}$ from your data. Report the estimated coefficients for the United States, Japan, India, and Nigeria.
+
+        \item \textbf{Calibration using factor income shares.}
+        
         \begin{enumerate}[label=\alph*.]
-            \item Consider the production function $Y_t = A K_t^{\alpha} N_t^{1-\alpha}$. Let the real rental rate of capital be $R_t$. Show that
-            \begin{align*}
-                \alpha = \frac{R_t K_t}{Y_t}.
-            \end{align*}
-            \item How do you interpret $\alpha$ by the result?
-            \item Using your interpretation, find the value of $\alpha$ for the US, Japan, India, and Nigeria using the PWT dataset. Explain how you get the values.
+            \item Consider the production function
+            \[
+            Y_t = A_t K_t^{\alpha} N_t^{1-\alpha}.
+            \]
+            Let $R_t$ denote the real rental rate of capital. Show that
+            \[
+            \alpha = \frac{R_t K_t}{Y_t}.
+            \]
+            
+            \item Based on part (a), what is the economic interpretation of $\alpha$?
+            
+            \item In practice, PWT provides the \textbf{labor income share} variable \texttt{labsh}. Under the Cobb--Douglas assumption, the capital share is
+            \[
+            \alpha_t = 1 - \texttt{labsh}_t.
+            \]
+            
+            Compute the time series $\alpha_t = 1 - \texttt{labsh}_t$ for each country (United States, Japan, India, Nigeria). Plot $\alpha_t$ over time for each country, and report the sample mean of $\alpha_t$ for each country.
         \end{enumerate}
     \end{enumerate}
 \end{task}
