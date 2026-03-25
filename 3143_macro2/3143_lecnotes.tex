@@ -50,8 +50,10 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem*{remark}{Remark}
 \newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
 \newtheorem{task}{Task}[chapter]
 \newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{plain}
 \newtheorem{assumption}{Assumption}[chapter] 
 
 \title{Macroeconomics II Lecture Notes}
@@ -191,7 +193,7 @@ These conditions say that the firm ought to hire capital and labour up until the
 \subsection{Growth Accounting}
 Given the production functions, we know that output growth can potentially come from the inputs. Specifically, with Cobb-Douglas production function
 \begin{align*}
-    Y = A K^{\alpha} N^{1-\alpha},
+    Y_t = A_t K_t^{\alpha} N_t^{1-\alpha},
 \end{align*}
 we know that the output can grow due to productivity growth, capital growth, and labour growth. How to explicitly express the growth rate of output? 
 
@@ -220,7 +222,7 @@ Therefore, we get
 This is the growth \textbf{accounting equation}. It says that the growth rate of output is the sum of the growth rates of productivity, capital, and labour.
 
 
-\begin{task}[Capital share and labour share (I)]
+\begin{task}[Capital share and labour share (I)]\label{task:shares01}
     In this question, we will use the \textbf{Penn World Table} (PWT) dataset \url{https://www.rug.nl/ggdc/productivity/pwt/?lang=en}. The PWT is a cross-country dataset designed for international comparisons of macroeconomic variables. It provides measures of output, capital, labor, and productivity that are comparable across countries and over time by using purchasing power parity (PPP) adjustments. You should read the tutorial note on this task before doing it.
         
     A key feature of the PWT is its focus on real variables, such as real GDP, capital stock, and total factor productivity. These features make it widely used in growth and development research.
@@ -442,14 +444,14 @@ A natural question to ask is whether this steady state always exsits and is uniq
 It is intuitive to conjecture that the answer to the second question is yes, and the economy will converge to the steady state. Figure \ref{fig:basic_solow_convergence} plots the convergence path of the economy from two different initial capital stocks.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/solow/basic_solow_convergence.png}
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_convergence.png}
     \caption{Convergence path of the Solow model}
     \label{fig:basic_solow_convergence}
 \end{figure}
  Starting from an initial level $k_0$ on the horizontal axis, move vertically to the law-of-motion curve $k_{t+1} = sA f(k_t) + (1-\delta)k_t$ to obtain $k_1$, then move horizontally to the 45-degree line $k_{t+1} = k_t$. Repeating these vertical and horizontal steps generates the sequence $\{k_t\}$. When $k_t < k^*$, the law-of-motion curve lies above the 45-degree line, implying $k_{t+1} > k_t$ and convergence from below. When $k_t > k^*$, the curve lies below the 45-degree line, implying $k_{t+1} < k_t$ and convergence from above. We can also see the convergence pattern if we plot the time series of $k_t$ in Figure \ref{fig:basic_solow_k_dynamics}.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/solow/basic_solow_k_dynamics.png}
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_k_dynamics.png}
     \caption{Dynamics of capital in the Solow model}
     \label{fig:basic_solow_k_dynamics}
 \end{figure}
@@ -502,7 +504,7 @@ With a positive shock to $s$, the LoM curve shifts upward. Given the fixed 45-de
 A more important question is how the economy transits from the old steady state to the new steady state. Figure \ref{fig:basic_solow_s_shock_irf} plots the \textbf{impulse response functions} of the economy to a positive permanent shock to $s$.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/solow/basic_solow_s_shock_irf.png}
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_s_shock_irf.png}
     \caption{Impulse response functions to a positive permanent shock to $s$}
     \label{fig:basic_solow_s_shock_irf}
 \end{figure}
@@ -549,7 +551,7 @@ The impulse response functions to a positive permanent shock to $A$ are shown in
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figuretable/solow/basic_solow_a_shock_irf.png}
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_a_shock_irf.png}
     \caption{Impulse response functions to a positive permanent shock to $A$}
     \label{fig:basic_solow_a_shock_irf}
 \end{figure}
@@ -642,6 +644,33 @@ To maximize $c^*$, we need to set the derivative to zero. Since $\frac{\partial 
        \item Show that to maximize the steady state-output, $\eta^* = \theta$.
     \end{enumerate}
 \end{exercise}
+
+\begin{task}[Capital share and labour share (II)]\label{task:shares02}
+    Consider the task \ref{task:shares01}. We know that the simple regression does not make much sense either economically or statistically to estimate $\alpha$. This question helps you understand why and how economists actually calibrate the value of $\alpha$. Still use the PWT dataset.
+    \begin{enumerate}[label=\arabic*.]
+        \item Consider the US economy. Plot the logarithm of real GDP, capital stock, and population. Do you see any similar trend?
+        \item Plot the real GDP growth rate, capital stock growth rate, and population growth rate. Do you see any similar comovement?
+        \item Instead of the level regression \eqref{eq:log_reg}, add a time trend regressor $t$ to the regression:
+        \begin{align}\label{eq:log_reg_trend}
+            \log Y_t &= \beta_0 + \beta_1 \log K_t + \beta_2 \log N_t + \beta_3 t + u_t.
+        \end{align}
+        Report the estimated coefficients for the US, Japan, India, and Nigeria.
+        \item There are always persistence in the economy. Therefore, we always add lagged variables to the regression. Do the following regression:
+        \begin{align}\label{eq:growth_reg_lag}
+            g_{Y,t} = \gamma_0 + \gamma_1 g_{K, t} + \gamma_2 g_{N, t} + \gamma_3 g_{Y,t-1} + v_t.
+        \end{align}
+        Report the estimated coefficients for the US, Japan, India, and Nigeria.
+        \item However, in practice, economists do not use the above specifications.
+        \begin{enumerate}[label=\alph*.]
+            \item Consider the production function $Y_t = A K_t^{\alpha} N_t^{1-\alpha}$. Let the real rental rate of capital be $R_t$. Show that
+            \begin{align*}
+                \alpha = \frac{R_t K_t}{Y_t}.
+            \end{align*}
+            \item How do you interpret $\alpha$ by the result?
+            \item Using your interpretation, find the value of $\alpha$ for the US, Japan, India, and Nigeria using the PWT dataset. Explain how you get the values.
+        \end{enumerate}
+    \end{enumerate}
+\end{task}
 
 \medskip
 
@@ -781,39 +810,113 @@ It is worth noticing that in the long run, the growth rate the the aggregate var
     \end{align*}
 \end{definition}
 
-\begin{exercise}[Growth in neutral technology]
+\begin{exercise}[Twisting the production function]
     Consider the following production function:
     \begin{align*}
-        Y_t = A_t K_t^{\alpha} (Z_t N_t)^{1-\alpha},
+        Y_t = A_t K_t^{\alpha} N_t^{1-\alpha},
     \end{align*}
-    where $A_t$ is the neutral productivity and $Z_t$ is the labour augmenting productivity. Suppose that $A_0 = 1$ and $A_t$ grows at a rate of $a>0$. 
+    where $A_t$ is the neutral productivity. Suppose that $A_0 = 1$ and $A_t$ grows at a rate of $a>0$. 
     \begin{enumerate}[label=(\arabic*)]
-        \item Write out the equations characterizing the economy.
-        \item Compute the growth rate of aggregate capital, output, consumption, and investment.
-        \item Compute the growth rate of per worker capital, output, consumption, and investment.
-        \item Compute the growth rate of the real wage and the real rental rate of capital.
+        \item Show that the production function can be rewritten as
+        \begin{align*}
+            Y_t = \tilde{A} K_t^{\alpha} (Z_t N_t)^{1-\alpha}
+        \end{align*}
+        for some constant $\tilde{A}$ and labour augmenting productivity $Z_t$.
+        \item Suppose that the labour augmenting productivity grows at a rate of $z>0$. Show that $z = \frac{a}{1-\alpha}$ (approximately).
     \end{enumerate}
 \end{exercise}
 
-
-
-\subsection{}
-
-
-
-
-
-
-
-
-
-
+\subsection{Comparative Statics}
+We will now investigate how the steady state changes when the parameters change. In particular, we are interested in the change of $s$ and $A$. 
 
 \medskip
+\noindent \textbf{Change of $s$}
 
-\section{Cross-Country Differences}
+After a positive shock to $s$, the LoM curve shifts upward in the $(\hat{k}_t, \hat{k}_{t+1})$ diagram. Given the fixed 45-degree line, the new steady state is at a higher level of $\hat{k}^*$.
 
-\chapter{}
+What about the per labour variables? Figure \ref{fig:augmented_solow_irf_s} shows the impulse response functions of the economy to a positive permanent shock to $s$.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/augmented_solow_irf_s.png}
+    \caption{Impulse response functions to a positive permanent shock to $s$}
+    \label{fig:augmented_solow_irf_s}
+\end{figure}
+
+We notice that except the rental rate, all variables increase even before the shock. This is because the equilibrium is a balanced growth path with their growth rate of $Z_t$, $z>0$, while the rental rate does not depend on $Z_t$. There are also jumps and drops. the explanations are the same as in the basic Solow model.
+
+\medskip
+\noindent \textbf{Change of $A$}
+
+After a positive shock to $A$, the LoM curve shifts upward in the $(\hat{k}_t, \hat{k}_{t+1})$ diagram. Given the fixed 45-degree line, the new steady state is at a higher level of $\hat{k}^*$.
+
+What about the per labour variables? Figure \ref{fig:augmented_solow_irf_a} shows the impulse response functions of the economy to a positive permanent shock to $A$.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figuretable/solow/augmented_solow_irf_a.png}
+    \caption{Impulse response functions to a positive permanent shock to $A$}
+    \label{fig:augmented_solow_irf_a}
+\end{figure}
+Patterns are similar to the basic Solow model.
+
+\begin{exercise}[Change of $z$]
+    Consider a positive shock to $z$. 
+    \begin{enumerate}[label=(\arabic*)]
+        \item Explain intuitively how the BGP $k$ changes.
+        \item Show that the new steady state real rental rate of capital is higher.
+        \item Draw the impulse response functions of the variables.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Human capital]
+    Consider the following production function:
+    \begin{align*}
+        Y_t = A F(K_t, H_t, Z_tN_t) = A K_t^{\alpha} H_t^{\beta} (Z_tN_t)^{1-\alpha-\beta},
+    \end{align*}
+    where $H_t$ is human capital and $Z_t$ is the labour augmenting productivity. Suppose that $Z_0 = 1$ and $Z_t$ grows at a rate of $z>0$. Suppose that the LoMs of $K_t$ and $H_t$ are given by
+    \begin{align*}
+        K_{t+1} &= s_K Y_t + (1-\delta_K)K_t\\
+        H_{t+1} &= s_H Y_t + (1-\delta_H)H_t.
+    \end{align*}
+    \begin{enumerate}[label=(\arabic*)]
+        \item Show that the production function $F(K_t, H_t, Z_t N_t)$ exhibits constant returns to scale.
+        \item Derive for the LoMs of per effective labour capital and human capital.
+        \item Compute the steady state of per effective labour capital and human capital.
+        \item Compute the steady state of output per effective labour.
+        \item What is the growth rate of output per labour along the BGP?
+        \item Assume that $\delta_K = \delta_H = \delta$ for the remaining of the exercise. Compare this model with the augmented Solow model without human capital, that is, $F(K_t, Z_t N_t) = K_t^{\alpha} (Z_t N_t)^{1-\alpha}$. Consider an increase in $s_K$ by $\theta$, that is, $s'_K = s_K (1+\theta)$. Does the two model exhibit the same {\color{red}level} of output per labour? Explain why.
+    \end{enumerate}
+\end{exercise}
+
+\begin{task}[Growth with Human Capital]
+    The previous exercise is based on Mankiw, Romer \& Weil (1992) ``\textit{A Contribution to the Empirics of Economic Growth}", QJE, and this task asks you to read the first two sections of the paper and understand the model presented. To help you better understand hte paper, you need to know about the continuous-time version of the Solow model.
+
+    Recall that we have the following law of motion for capital:
+    \begin{align*}
+        \Delta K_{t+1} = s_K Y_t -\delta K_t.
+    \end{align*}
+    Note that we have the time indices $t, t+1, t+2, \cdots$. In continuous time, we cannot count the time indices since the length of the time interval is super small, \textit{i.e.}, going to zero. This matches the concept of differentiation. In your calculus class, you learned the definition of the derivative. In particular, a function $f:\mathbb{R} \to \mathbb{R}$ is differentiable at $x\in\mathbb{R}$ if
+    \begin{align*}
+        \frac{d f}{d x} := \lim_{h\to 0} \frac{f(x+h) - f(x)}{h}.
+    \end{align*}
+    exists. If we consider the aggregate capital stock as a function of time, $K(t)$, with an time increment $\Delta t$, the LHS of the LoM becomes $K(t+\Delta t) - K(t)$. By the definition of the derivative, we have
+    \begin{align*}
+        \frac{d K}{d t} := \lim_{\Delta t\to 0} \frac{K(t+\Delta t) - K(t)}{\Delta t}.
+    \end{align*}
+    For notation, we denote the time derivative of any variable $X$ as $\dot{X}$. Therefore, the LoM can be rewritten as
+    \begin{align}\label{eq:lom_cont}
+        \dot{K} = s Y - \delta K,
+    \end{align}
+    where the time argument can be omitted. 
+    \begin{enumerate}[label=\arabic*.]
+        \item By \eqref{eq:lom_cont}, how do you define the steady state mathematically?
+        \item What is the motivation for the paper to include human capital in the model?
+        \item How does the paper measure human capital investment? What are the potential difficulties?
+        \item Why the paper can conclude that human capital investment improves the model?
+    \end{enumerate}    
+    We will revisit this paper in the next chapter.
+\end{task}
+
+\chapter{Testing Solow Model and Endogenous Growth Models}
 
 % Content here
 
