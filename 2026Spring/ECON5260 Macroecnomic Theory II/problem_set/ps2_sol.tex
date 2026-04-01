@@ -1,0 +1,245 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\linespread{1.5}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{hidelinks, colorlinks=true, allcolors=black}
+
+\title{ECON 5260 Problem Set 2 Solution}
+\author{Harlly Zhou}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Full mark: 80 points for non-Ph.D. students, 100 points for Ph.D. students.
+\section*{Question 1 (28 points)}
+Consider the deterministic CIA model where the representative household solves the following lifetime utility maximization problem:
+\begin{align*}
+    \max_{c_t, n_t} \sum_{t=0}^{+\infty} \beta^t u(c_t, 1-n_t),
+\end{align*}
+subject to the budget constraint:
+\begin{align*}
+    c_t + m_t + b_t + x_t \leq y_t + \frac{m_{t-1} + (1+i_{t-1}) b_{t-1}}{1+\pi_t} + \tau_t,
+\end{align*}
+where the production function is given by:
+\begin{align*}
+    y_t = f(k_{t-1}, n_t) = e^{z_t} k_{t-1}^{\alpha} n_t^{1-\alpha},
+\end{align*}
+the CIA constraint:
+\begin{align*}
+    c_t + x_t \leq \frac{m_{t-1}}{1+\pi_t} + \tau_t,
+\end{align*}
+and the capital accumulation process:
+\begin{align*}
+    k_t = (1-\delta) k_{t-1} + x_t.
+\end{align*}
+
+The Bellman equation is given by:
+\begin{align*}
+    V(k_{t-1}, m_{t-1}, b_{t-1}) = \max_{c_t, n_t, x_t, m_t, b_t, k_t} \left\{ u(c_t, 1-n_t) + \beta V(k_t, m_t, b_t) \right\}. \qquad ........ \quad(2 \text{ points})
+\end{align*}
+Let $\lambda_t$, $\mu_t$, and $\rho_t$ be the Lagrangain multipliers for the budget constraint, CIA constraint, and capital accumulation process, respectively. Then the FOCs are given by:
+\begin{align*}
+    u_c(c_t, 1-n_t) &= \lambda_t + \mu_t, \\
+    u_{\ell}(c_t, 1-n_t) &= \lambda_t f_n(k_{t-1}, n_t), \\
+    \rho_t &= \lambda_t + \mu_t, \\
+    \beta V_m(k_t, m_t, b_t) &= \lambda_t, \\
+    \beta V_b(k_t, m_t, b_t) &= \lambda_t, \\
+    \beta V_k(k_t, m_t, b_t) &= \rho_t. \qquad ........ \quad(8 \text{ points})
+\end{align*}
+The Envelope theorem implies that
+\begin{align*}
+    V_k(k_{t-1}, m_{t-1}, b_{t-1}) &= \lambda_t f_k(k_{t-1}, n_t) + \rho_t(1-\delta) \\
+    V_m(k_{t-1}, m_{t-1}, b_{t-1}) &= \frac{\lambda_t + \mu_t}{1+\pi_t}\\
+    V_b(k_{t-1}, m_{t-1}, b_{t-1}) &= \frac{\lambda_t(1+i_{t-1})}{1+\pi_t}.
+\end{align*}
+Rewriting the FOCs $[V_m]$, $[V_b]$, and $[V_k]$ with the Envelope theorem, we get:
+\begin{align*}
+    \beta \frac{\lambda_{t+1}+\mu_{t+1}}{1+\pi_{t+1}} &= \lambda_t, \\
+    \beta \frac{\lambda_{t-1}(1+i_t)}{1+\pi_{t+1}} &= \lambda_t,\\
+    \beta [\lambda_{t+1} f_k(k_{t}, n_{t+1}) + \rho_{t+1}(1-\delta)] &= \rho_t.
+\end{align*}
+
+In the steady state, we have
+\begin{align*}
+    u_c(c, 1-n) &= \lambda + \mu, \\
+    u_{\ell}(c, 1-n) &= \lambda (1-\alpha) k^{\alpha} n^{1-\alpha}, \\
+    \rho &= \lambda + \mu, \\
+    \beta \frac{\lambda + \mu}{1+\pi} &= \lambda, \\
+    \beta \frac{\lambda(1+i)}{1+\pi} &= \lambda, \\
+    \beta [\lambda f_k(k, n) + \rho(1-\delta)] &= \rho. \qquad ........ \quad(20 \text{ points})
+\end{align*}
+
+By the third, fourth, and fifth equations, we have
+\begin{align*}
+    \rho = \lambda + \mu = \frac{\lambda(1+\pi)}{\beta}. \qquad ........ \quad(22 \text{ points})
+\end{align*}
+
+Then substituting $\rho$ into the last equation yields
+\begin{align*}
+    \beta \left[\lambda \alpha \left(\frac{k}{n}\right)^{\alpha-1} + \frac{\lambda(1+\pi)}{\beta}(1-\delta)\right] = \frac{\lambda(1+\pi)}{\beta},
+\end{align*}
+which implies
+\begin{align*}
+    \frac{k}{n} = \left\{\frac{\beta^2 \alpha}{[1-\beta(1-\delta)](1+\pi)}\right\}^{\frac{1}{1-\alpha}}. \qquad ........ \quad(24 \text{ points})
+\end{align*}
+Hence, the steady-state capital-labour ratio is decreasing in inflation, To understand this, note that the CIA constraint implies that investment goods have to be purchased by money carried from the last period. An increase in inflation raises the opportunity cost of money and thus the cost of investment. Hence, firms will adjust to ta lower capital-labour ratio in production. (28 points)
+
+\newpage
+\section*{Question 2 (16 points)}
+\begin{enumerate}[label=\arabic*.]
+    \item The household's decision problem is
+    \begin{align*}
+        \max \sum_{t=1}^{\infty} \beta^t u(c_t^m, c_t^c),
+    \end{align*}
+    subject to the constraints:
+    \begin{align*}
+        & c_t^m + c_t^c + k_t + b_t + m_t \leq f(k_{t-1}) + (1-\delta) k_{t-1} + \frac{b_{t-1}(1+i_{t-1})}{1+\pi_t} + \frac{m_{t-1}}{1+\pi_t} + \tau_t, \\
+        & c_t^m \leq \frac{m_{t-1}}{1+\pi_t} + \tau_t. \qquad ........ \quad(3 \text{ points})
+    \end{align*}
+    \item (8 points) The FOCs are:
+    \begin{align*}
+        u_1(c_t^m, c_t^c) &= \lambda_t + \mu_t, \\
+        u_2(c_t^m, c_t^c) = \lambda_t, \\
+        \lambda_t &= \beta \lambda_{t+1}[f'(k_t) + (1-\delta)], \\
+        \lambda_t &= \beta \lambda_{t+1}\left(\frac{1+i_t}{1+\pi_{t+1}}\right),\\
+        \lambda_t &= \beta \left(\frac{\lambda_{t+1} + \mu_{t+1}}{1+\pi_t+1}\right). \qquad ........ \quad(8 \text{ points})
+    \end{align*}
+    From the above equations, we have
+    \begin{align*}
+        \frac{u_1(c_t^m, c_t^c)}{u_2(c_t^m, c_t^c)} = 1+i_{t-1}. \qquad ........ \quad(10 \text{ points}) 
+    \end{align*}
+    When $i_{t-1} > 0$, CIA constraint is binding, that is $\mu_t > 0$. To reflect a higher marginal cost for $C^m$ relative to $C^c$, that is, $i+i_{t-1}$ vs 1, at optimum, marginal benefit for $C^m$ should be proportionally higher than that for $C^c$. (12 points)
+    \item Given that $\mu_{t+1} = \lambda_{t+1} i_t$, we have
+    \begin{align*}
+        u_1(c_t^m, c_t^c) = \lambda_t + \mu_t = \lambda_t (1+i_t) \geq \lambda_t. \qquad ........ \quad(14 \text{ points})
+    \end{align*}
+    Thus, a positive nominal interest rate acts as a tax on consumption $c^m$; it raises thep rice of consumtpion $c^m$ above its production cost. While consumption $c^c$ does not imply usch tax. (16 points)
+\end{enumerate}
+
+\newpage
+\section*{Question 3 (10 points)}
+Starting from the equation:
+\begin{align*}
+    1 = \lambda \beta \sum_{j = \ell, h} \pi_j \frac{1}{d+x_j},
+\end{align*}
+we can equivalently write it as
+\begin{align*}
+    \frac{d + \pi_\ell x_h + \pi_j x_\ell}{(d+x_\ell)(d+x_h)} = \frac{1}{\lambda \beta}.
+\end{align*}
+It can be rewritten as a quadratic equation in $d$:
+\begin{align*}
+    d^2 + (x_\ell + x_h - \beta \lambda)d + [x_\ell x_h - \beta \lambda(\pi_\ell x_h + \pi_h x_\ell)] = 0. \qquad ........ \quad(4 \text{ points})
+\end{align*}
+
+Now we need to show that the discriminant of the quadratic equation is positive.
+\begin{align*}
+    \Delta &= (x_\ell + x_h - \beta \lambda)^2 - 4[x_\ell x_h - \beta \lambda(\pi_\ell x_h + \pi_h x_\ell)]\\
+    &= (x_h - x_\ell)^2 - 2 \beta \lambda \pi_\ell (x_\ell - x_h) - 2 \beta \lambda \pi_h(x_h - x_\ell) + (\beta \lambda)^2\\
+    &= (x_h - x_\ell - \beta\lambda)^2 + 4 \beta \lambda \pi_\ell (x_h - x_\ell)\\
+    & > 0, \qquad ........ \quad(8 \text{ points})
+\end{align*}
+where the second last equation is due to the fact that $\pi_\ell + \pi_h = 1$.
+
+Therefore, 
+\begin{align*}
+    d = \frac{1}{2} [\sqrt{\Delta} - (x_\ell + x_h - \beta \lambda)]. \qquad ........ \quad(10 \text{ points})
+\end{align*}
+
+\newpage
+\section*{Question 4}
+\subsection*{MSc students only (12 points)}
+\begin{enumerate}[label=\arabic*.]
+    \item (3 points) Standard with only modification on the CIA constraint.
+    \item (6 points) Consumption FOC changes: $u_c(c_t) - \lambda_t - \psi \mu_t = 0$. 
+    
+    In the class model, $\psi = 1$ and the cost of consumption includes both the marginal value of income $\lambda_t$ and the cost of holding monet to purchase the consumption godds $\mu_t$. In this exercise, only a fraction $\psi$ of consumption need to purchase in advance. The cost of holding case, being a part of consumption, is $\psi \mu_t$.
+
+    \item (3 points) If $\psi$ is a choise variable, household will never choose $\psi > 0$ since holding cash, as purpose of consumption, is costly. The household should avoid any consumption needed to be purchased using cash.
+\end{enumerate}
+
+\newpage
+\subsection*{Ph.D. students only (32 points)}
+To bring out the nominal interest rate explicitly, we modify the budget constraint so that individuals can choose the amount of bond holding. This will not affect the results since in equilibrium each individual holds zero bonds by symmetry. Then the Bellman equation is given by
+\begin{align*}
+    V(k_{t-1}, m_{t-1}, b_{t-1}) = \max_{c_t, d_t, m_t, b_t, k_t} \left\{\log c_t + \log d_t + \beta V(k_t, m_t, b_t)\right\},
+\end{align*}
+subject to the budget constrain:
+\begin{align*}
+    c_t + d_t + m_t + k_t + b_t \leq A k_{t-1}^{\alpha} + \tau_t + \frac{m_{t-1} + (1 + i_{t-1})b_{t-1}}{1+\pi_t} + (1-\delta) k_{t-1},
+\end{align*}
+and the CIA constraint:
+\begin{align*}
+    c_t + \theta d_t \leq \frac{m_{t-1}}{1+\pi_t} + \tau_t,
+\end{align*}
+where $0 \leq \theta \leq 1$. (4 points)
+
+Let $\lambda_t$ and $\mu_t$ be the Lagrange multipliers for the budget constraint and CIA constraint respectively, and $\rho_1 \geq 0$, $\rho_2 \geq 0$ be the multiplier for the choise of $\theta$. Then the first-order conditions with respect to cash goods, credit goods, money, capital, bonds and $\theta$ are given by
+\begin{align*}
+    \frac{1}{c_t} & = \lambda_t + \mu_t, \\
+    \frac{1}{d_t} &= \lambda_t + \theta \mu_t, \\
+    \beta V_m(k_t, m_t, b_t) &= \lambda_t,\\
+    \beta V_k(k_t, m_t, b_t) &= \lambda_t,\\
+    \beta V_b(k_t, m_t, b_t) &= \lambda_t,\\
+    -\mu_t d_t + \rho_1 - \rho_2 &= 0,\\
+    \rho_1 \theta &= 0, \\
+    \rho_2 (1-\theta) &= 0. \qquad ........ \quad(12 \text{ points})
+\end{align*}
+The Envelope theorem implies that
+\begin{align*}
+    V_k(k_{t-1} , m_{t-1}, b_{t-1}) &= \lambda_t \left[\alpha A k_{t-1}^{\alpha-1} + (1-\delta)\right],\\
+    V_m(k_{t-1} , m_{t-1}, b_{t-1}) &= \frac{\lambda_t + \mu_t}{1+\pi_t},\\
+    V_b(k_{t-1} , m_{t-1}, b_{t-1}) &= \frac{\lambda_t(1+i_{t-1})}{1+\pi_t}.
+\end{align*}
+Hence, we can rewrite the FOCs and get the steady state:
+\begin{align*}
+    \frac{1}{c} = \lambda + \mu,\\
+    \frac{1}{d} = \lambda + \theta \mu,\\
+    \beta \frac{\lambda+ \mu}{1+\pi} = \lambda,\\
+    \beta \lambda \left[\alpha A k^{\alpha-1} + (1-\delta)\right] = \lambda,\\
+    \beta \frac{\lambda(1+i)}{1+\pi} = \lambda,\\
+    \rho_1 = \rho_2 = \mu d. \qquad ........ \quad(24 \text{ points})
+\end{align*}
+
+By the third and the fift equations, we obtain
+\begin{align*}
+    i = \frac{\mu}{\lambda}. \qquad ........ \quad(26 \text{ points})
+\end{align*}
+Hence, as long as $i > 0$, we have $\mu > 0$ and the CIA constraint is binding. Note that the nominal interest rate measures the opportunity cost of holding money. Therefore, as long as holding money is costly, the consumer will hold as less money as possible and hence the CIA constraint must be binding. (30 points)
+
+By the last equation, we have $\rho_1 > 0$ since one of $\rho_1$ and $\rho_2$ must be zero and $\rho_1 - \rho_2 = \mu d >0$. Therefore, the optimal is $\theta = 0$ (\textit{i.e.,} the consumer will never use cash to purchase $d$). This is understandable because holding cash is costly. (32 points)
+
+\newpage
+\section*{Question 5 (14 points)}
+Let $\lambda_1$, $\lambda_2$, and $\lambda_3$ be the Lagrange multipliers associated with CIA constraint, budfet constraint, adn wages-inn-advance constraint, respectively. Then FOCs are
+\begin{align*}
+    \mathbb{E}_{t-1}[\lambda_{1 t}] &= \mathbb{E}_{t-1} [ R_t \lambda_{2 t}],\\
+    u'(c_t) &= \lambda_{1 t} + \lambda_{2 t},\\
+    v'(n^s_t) &= \omega_t \lambda_{2 t},\\
+    \lambda_{2 t} Y'(n_t^d) &= \omega_t (\lambda_{2 t} + \lambda_{3 t}),\\
+    \lambda_{3 t} &= R_t \lambda_{2 t},\\
+    \lambda_{2 t} &= \beta \mathbb{E}_t \left[\frac{\lambda_{1 t} + \lambda_{2 t}}{1+\pi_{t+1}}\right]. \qquad ........ \quad(6 \text{ points})
+\end{align*}
+If ignoring uncertainty, we have
+\begin{align*}
+    \frac{v'(n_t^s)}{u'(c_t)} = \frac{\omega_t \lambda_{2 t}}{\lambda_{1 t} + \lambda_{2 t}} = \frac{\omega_t}{1+R_t}. \qquad ........ \quad(7 \text{ points})
+\end{align*}
+Also, from the FOC, we have
+\begin{align*}
+    Y'(n_t^d) = \omega_t(1+R_t). \qquad ........ \quad(8 \text{ points})
+\end{align*}
+Therefore, the MRS between leisure and consumption equals the MPL divided by $(1+R_t)^2$:
+\begin{align*}
+    \frac{v'(n_t^s)}{u'(c_t)} = \frac{Y'(n_t^d)}{(1+R_t)^2}. \qquad ........ \quad(10 \text{ points})
+\end{align*}
+The intuition is that: at the optimum, the marginal cost of increasing one unit of labour, $v'(n_t^s)$, equals to the marginal benefit from the following amount of consumptionL MPL $Y'(n_t^d)$ first discounted by $(1+R_t)$ due to firm paying interests from wages-in-advance constraint and then discounted vy another $(1+R_t)$ due to household facing opportunity cost from CIA constraint. (14 points)
+
+
+\end{document}
