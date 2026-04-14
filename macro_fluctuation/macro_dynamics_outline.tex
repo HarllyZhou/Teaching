@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfig} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    {\large \textbf{Macroeconomic Dynamics: Rigidities, Networks, and Expectations}\\
+    \vspace{1em}
+    Course Outline}
+\end{center}
+
+
+\vspace{1em}
+\noindent \textbf{Instructor}: Hongyi Harlly Zhou
+
+\vspace{2em}
+\noindent \textbf{Course Description}
+
+This course is an advanced undergraduate course in macroeconomic theory and serves as a bridge between intermediate macroeconomics and advanced macroeconomics. It covers models with nominal rigidities, production networks, and behavioral elements. The course integrates theory, data, and policy applications to provide a rigorous understanding of macroeconomic dynamics and business cycles.
+
+We begin with real business cycle models, where prices are flexible and there are no nominal rigidities. In this benchmark, fluctuations are driven by exogenous shocks, while dynamics arise from intertemporal optimization and capital accumulation. We then introduce New Keynesian models, where nominal rigidities allow shocks to affect real activity and generate amplification and persistence. Next, we study models with production networks, which provide a structure that shapes how shocks propagate across sectors. Finally, we consider models with information frictions and bounded rationality, where expectations formation becomes an additional source of dynamics.
+
+
+
+\vspace{2em}
+\noindent \textbf{Prerequisites}
+
+Students must have passed ECON 3123, ECON 3143 and ECON 3334. Students are expected to have a strong foundation in mathematics, including multivariate calculus (differentiation, integration, and Taylor expansions), linear algebra (inverse, eigenvalues), and optimization (dynamic programming not required). It is recommended to have some exposure to any programming language (Python, R, matlab, etc.).
+
+
+\newpage
+\noindent \textbf{References}
+
+There will be no single textbook for this course and the lecture notes will be provided. At the same time, the following textbooks and papers are main references for this course:
+\begin{itemize}
+    \item Romer, David. 2019. \textit{Advanced Macroeconomics.} 5th ed. New York: McGraw-Hill Education. [Romer]
+    \item Galí, Jordi. 2015. \textit{Monetary Policy, Inflation, and the Business Cycle: An Introduction to the New Keynesian Framework.} 2nd ed. Princeton, NJ: Princeton University Press. [Gali]
+    \item De Grauwe, Paul. 2012. \textit{Lectures on Behavioral Macroeconomics.} Princeton, NJ: Princeton University Press. [Grauwe]
+    \item Long, John B., Jr., and Charles I. Plosser. 1983. ``Real Business Cycles.'' \textit{Journal of Political Economy} 91 (1): 39–69. [LP]
+    \item Carvalho, Vasco M., and Alireza Tahbaz-Salehi. 2019. ``Production Networks: A Primer.'' \textit{Annual Review of Economics} 11: 635–663. [CT]
+    \item La’O, Jennifer, and Alireza Tahbaz-Salehi. 2022. ``Optimal Monetary Policy in Production Networks.'' \textit{Econometrica} 90 (5): 1913–1947. [LT]
+    \item Acemoglu, Daron, and Pablo D. Azar. 2020. ``Endogenous Production Networks.'' \textit{Econometrica} 88 (1): 33–82. [AA]
+    \item Hommes, Cars. 2021. ``Behavioral and Experimental Macroeconomics and Policy Analysis: A Complex Systems Approach.'' \textit{Journal of Economic Literature} 59 (1) 149–219. [Hommes]
+\end{itemize}
+Additional readings will be provided throughout the course.
+
+
+
+\newpage
+\noindent \textbf{Course Intended Learning Outcomes (CLOs)}
+
+Upon the completion of this course, students should be able to:
+\begin{enumerate}[label=CLO \arabic*:, leftmargin=*, widest=CLO 6:]
+    \item Gather and analyze macroeconomic information in a given context. 
+    \item Understand the role of nominal rigidities and production networks in macroeconomic dynamics.
+    \item Analyze the consequences of a shock in a given macroeconomic structure.
+    \item Compare and contrast different macroeconomic models and their implications.
+    \item Read and understand research papers in the field of macroeconomic dynamics.
+    \item Apply the theories and papers to analyze macroeconomic data and policy implications.
+\end{enumerate}
+
+
+\newpage
+\noindent \textbf{Content Outline}
+\begin{enumerate}[label=\arabic*.]
+    \item Review of Macroeconomic Dynamics in Intermediate Macroeconomics
+    \item Real Business Cycle Models (2 lectures) [Romer]
+    \item New Keynesian Models (3 lectures) [Romer, Gali]
+    \item Production Networks and Sectoral Interdependence (3 lectures) [LP, CT, LT, AA]
+    \item Information Frictions and Bounded Rationality (3 lectures) [Grauwe, Hommes]
+\end{enumerate}
+Lectures will be complemented by tutorials which will discuss some mathematical techniques and coding exercises.
+
+\vspace{2em}
+\noindent \textbf{Assessment}
+\begin{itemize}
+    \item Homework (40\%): There will be three types of homework: problem sets, data tasks, and literature reviews. Problem sets will be assigned after each module (4 in total). Data tasks will be assigned whenever appropriate. Literature reviews assessment is continuous, which requires students to read and summarize journal articles and submit several short summaries twice (in the middle and at the end of the course).
+    \item Midterm (20\%): There will be a written midterm exam.
+    \item Final (40\%): There will be a written final exam.
+\end{itemize}
+
+
+\newpage
+\noindent \textbf{Why I Teach This Course}
+
+I am currently turning from an early-stage Ph.D. student to a middle-stage Ph.D. student, and I have gradually formed my own understanding of macroeconomic dynamics and research interests in production networks and behavioral macroeconomics, especially learning theory. By designing this course, I can push myself to read more literature, think more deeply about the models, and develop more ideas, which I find to be one of the most difficult parts of my early research journey. In the process of teaching, I will also have a chance to refine my own understanding and listen to the voices of students, whose perspectives are often more creative than mine.
+
+From an early age, I have been very interested in teaching. I started teaching informally in middle school, and later became a TA for various economics and mathematics courses at HKU, the University of Chicago, and HKUST. I truly enjoy interacting with students, sharing knowledge, learning from them, and reflecting on my own understanding.
+
+From a practical perspective, I am also aware that the job market is becoming increasingly competitive, and teaching provides a valuable complement to my academic training. More importantly, my research interests and long-term goals are closely aligned with the purpose of offering this course. I would sincerely appreciate it if the department could provide me with this opportunity.
+
+
+\end{document}
