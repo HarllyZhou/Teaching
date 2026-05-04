@@ -1,0 +1,265 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\linespread{1.5}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{hidelinks, colorlinks=true, allcolors=black}
+
+\title{ECON 5260 Problem Set 3 Solution}
+\author{Harlly Zhou}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Full mark: 80 points for non-Ph.D. students, 100 for Ph.D. students.
+
+\subsection*{Question 1 (30 points)}
+\begin{enumerate}
+    \item (5 points) The contract price will be set according to
+    \begin{align*}
+        x_t = \frac{1}{2}\left(p_{it}^* + \mathbb{E}_t p ^*_{i, t+1}\right).
+    \end{align*}
+    Since $p^*_{it} = p_t + \phi y_t$ and $y_t = m_t - p_t$, we have $p^*_{it} = \phi m_t + (1-\phi)p_t$. Then we can calculate $x_t$ as follows:
+    \begin{align}\label{eq:contract_price_01}
+        x_t &= \frac{1}{2}\left[\phi m_t + (1-\phi) p_t + \mathbb{E}_t[\phi m_{t+1} + (1-\phi)p_{t+1}]\right]\\
+        &= \frac{1}{2} \left[\phi(m_t + \mathbb{E}_t m_{t+1}) + (1-\phi)(p_t + \mathbb{E}_t p_{t+1})\right]. 
+    \end{align}
+    In any period $t$, half of the prices are $x_t$ and the other half $x_{t-1}$ and the other half $x_{t-1}$. hence, the aggregate price level at $t$ is given by
+    \begin{align}\label{eq:average_price}
+        p_t = \frac{1}{2}(x_{t-1} + x_t).
+    \end{align}
+    Using \eqref{eq:average_price} to replace $p_t$ and $p_{t+1}$ in \eqref{eq:contract_price_01} yields:
+    \begin{align*}
+        x_t = A(x_{t-1} + \mathbb{E}_t x_{t+1}) + \frac{1-2A}{2}(m_t + \mathbb{E}_t m_{t+1}),
+    \end{align*}
+    where $A = \frac{1-\phi}{2(1+\phi)}$.
+
+    \underline{Grading criteria}: 3 points before substituting the average price. 2 points for the final expression.
+
+    \item (8 points) Using lag operator, the second-order difference equation can be rewritten as
+    \begin{align}
+        \left(1-AL - \frac{A}{L}\right) x_t &= \frac{1-2A}{2} (m_t + \mathbb{E}_t m_{t+1}) \notag \\
+        \left(1-\frac{\lambda}{L}\right)\left(\frac{1}{\lambda} - L\right) x_t &= \frac{1-2A}{2A}(m_t + \mathbb{E}_t m_{t+1}) \notag \\
+        \left(\frac{1}{\lambda} - L\right) x_t &= \frac{1}{1-\lambda/L} \frac{1-2A}{2A} (m_t + \mathbb{E}_t m_{t+1}) \notag \\
+        x_t &= \lambda x_{t-1} + \frac{1-2A}{2A} \lambda \sum_{i=0}^{+\infty} \lambda^i\left(\mathbb{E}_t m_{t+i} + \mathbb{E}_t m_{t+i+1}\right) \label{eq:contract_price_02},
+    \end{align}
+    where $\lambda + \frac{1}{\lambda} = \frac{1}{A}$, or $\lambda^2 - \frac{\lambda}{A} + 1 = 0$.
+
+    Note that the discriminante is $1-4A^2$. Since $A\leq\frac{1}{2}$, we have $1-4A^2 \geq 0$ with equality holding if and only if $\phi = 0$. Therefore, this quadratic equation has two distinct roots, $\lambda_1 = \frac{1-\sqrt{1-4A^2}}{2A} \in (-1,1)$ and $\lambda_2 = \frac{1+\sqrt{1-4A^2}}{2A} > 1$. The ensure stability, we choose the stable root $\lambda = \lambda_1$.
+
+    \underline{Grading criteria}: 4 points for \eqref{eq:contract_price_02}. 2 points for checking discriminant. 2 points for root choice.
+    
+    \item (8 points) Given that $m_t = m_{t-1} + \mu_t$ and $A = \frac{\lambda}{1+\lambda^2}$, we can simplify \eqref{eq:contract_price_02} as
+    \begin{align*}
+        x_t &= \lambda x_{t-1} + (1-\lambda) m_t.
+    \end{align*}
+    By \eqref{eq:average_price}, we have
+    \begin{align}\label{eq:average_price_rw}
+        p_t = \lambda (p_{t-1} - m_{t-1}) + m_{t-1} + \frac{1-\lambda}{2} \mu_t.
+    \end{align}
+    As a result, we have the following dynamics of output:
+    \begin{align}\label{eq:output_dynamics_rw}
+        y_t = m_t - p_t = \lambda y_{t-1} + \frac{1+\lambda}{2} \mu_t.
+    \end{align}
+    If the money supply process is given by $m_t = \mu_t$, then $x_t = \lambda x_{t-1} + \frac{(\lambda-1)^2}{2}\mu_t$. Therefore,
+    \begin{align*}
+        p_t = \lambda p_{t-1} + \frac{(\lambda-1)^2}{4}(\mu_t + \mu_{t-1}).
+    \end{align*}
+    Then the dynamics of output is given by
+    \begin{align*}
+        y_t = \lambda y_{t-1} + \frac{(\lambda-3)(\lambda+1)}{4}\mu_t - \frac{(\lambda+1)^2}{4}\mu_{t-1}.
+    \end{align*}
+
+    \underline{Grading criteria}: 2 points each for average prices and output.
+
+    \item (5 points) Suppose that the economy initially rests in an equilibrium with $y_{t-1} = 0$ and there is a temporary monetary shock at $t$ such that $\mu_t > 0$ nad $\mu_{t+i} = 0, \forall i > 0$. Then by \eqref{eq:output_dynamics_rw}, we have
+    \begin{align*}
+        y_{t+i} = \frac{\lambda^i (1-\lambda)}{2}\mu_t, \forall i\geq 0.
+    \end{align*}
+    Hence, a temporary monetary shock has a long lasting effect on output. This is because prices are rigid and cannot fully adjust according to the money supply. 
+
+    Since $\lambda$ is increasing in $A$ and $A$ is decreasing in $\phi$, $\lambda$ is decreasing in $\phi$. In other words, if $\phi$ is lower, then the monetary shock has more persistent effect on output. Intuitively, as $\phi$ measures the degree of price rigidity, a lower $\phi$ indicates a more sluggish price adjustment process, and hence the effect of a monetary shock will be more persistent.
+
+    \underline{Grading criteria}: 2 points for the IRF, 3 points for explanation.
+
+    \item (6 points) By \eqref{eq:average_price_rw} and the aggregate demand curve $y_t = m_t - p_t$, we have
+    \begin{align*}
+        \pi_t &= p_t - p_{t-1} = (1-\lambda) y_{t-1} + \frac{1-\lambda}{2} \mu_t,\\
+        \mathbb{E}_t \pi_{t+1} &= \mathbb{E}_t p_{t+1} - p_t = (1-\lambda) y_t.
+    \end{align*}
+    Hence,
+    \begin{align*}
+        \pi_t = \mathbb{E}_t \pi_{t+1} - (1-\lambda)(y_t - y_{t-1}) + \frac{1-\lambda}{2} \mu_t.
+    \end{align*}
+    Therefore, the inflation rate can be lowered by reducing the expected inflation through policy announcement. And this will leave the current output unaffected, that is, there will not be a recession and the inflation can be reduced costlessly.
+
+    \underline{Grading criteria}: 3 points for the Phillips curve, 3 points for policy.
+\end{enumerate}
+
+\newpage
+\subsection*{Question 2 (12 points)}
+Recall that 
+\begin{align*}
+    \bar{p}_t &= \frac{1}{2} \frac{1-\gamma}{1+\gamma} (\bar{p}_{t-1} + \mathbb{E}_t\bar{p}_{t+1}) + \frac{\gamma}{1+\gamma} (m_t + \mathbb{E}_t m_{t+1}),\\
+    \bar{p}_t &= a \bar{p}_{t-1} + (1-a) m_t.
+\end{align*}
+Given that $m_t$ follows random walk thus $\mathbb{E}_t m_{t+1} = m_t$, we have
+\begin{align*}
+    \bar{p}_t = \frac{1}{2} \frac{1-\gamma}{1+\gamma} (\bar{p}_{t-1} + \mathbb{E}_t \bar{p}_{t+1}) + \frac{2\gamma}{1+\gamma} m_t.
+\end{align*}
+Replace $\bar{p}_{t+1}$ by $\bar{p}_{t+1} = a\bar{p}_t + (1-a) m_{t+1}$, we have
+\begin{align*}
+    \bar{p}_t = \frac{\frac{1}{2} \frac{1-\gamma}{1+\gamma}}{1 + \frac{a}{2} \frac{1-\gamma}{1+\gamma}} \bar{p}_{t-1} + \left(\frac{1-a}{2} \frac{1-\gamma}{1+\gamma} + \frac{2\gamma}{1+\gamma}\right)m_t, \qquad \cdots\cdots\cdots \quad (6 \, \text{points})
+\end{align*}
+which implies that
+\begin{align*}
+    a = \frac{\frac{1}{2} \frac{1-\gamma}{1+\gamma}}{1 + \frac{a}{2} \frac{1-\gamma}{1+\gamma}}
+\end{align*}
+and that
+\begin{align*}
+    1-a = \frac{1-a}{2} \frac{1-\gamma}{1+\gamma} + \frac{2\gamma}{1+\gamma}.
+\end{align*}
+Therefore, $a$ is the solution to the following quadratic equation:
+\begin{align*}
+    a^2 - \frac{2(1+\gamma)}{1-\gamma} a + 1 = 0, \qquad \cdots\cdots\cdots \quad  (9 \, \text{points})
+\end{align*}
+with discriminant $\frac{16\gamma}{(1-\gamma)^2} > 0$. (10 points)
+
+Hence,
+\begin{align*}
+    a = \frac{(1 \pm \sqrt{\gamma})^2}{1-\gamma}.
+\end{align*}
+The only stable solution is
+\begin{align*}
+    a = \frac{1-\sqrt{\gamma}}{1+\sqrt{\gamma}}. \qquad \cdots\cdots\cdots \quad  (12\, \text{points})
+\end{align*}
+
+\newpage
+\subsection*{Question 3 (13 points)}
+The definitions of aggregate price level and the contract nominal wages imply that
+\begin{align}\label{eq:average_price_wage}
+    p_t = \kappa y_t + \mathbb{E}_{t-1}p_t + \kappa \mathbb{E}_{t-1} y_t.
+\end{align}
+Note that $p_{t-1}$ does not appear in \eqref{eq:average_price_wage} since $x_{t-1}^2$ is now set based on $\mathbb{E}_{t-1}p_t$ rather than $p_{t-1}$ and $\mathbb{E}_{t-1} p_t$. Substituting the asumed specification for aggregate demand into \eqref{eq:average_price_wage}, we have
+\begin{align*}
+    p_t = \frac{\kappa m_t + (1-\kappa) \mathbb{E}_{t-1} p_t + \kappa m_0}{1+\kappa}, \qquad \cdots\cdots\cdots \quad (4\, \text{points})
+\end{align*}
+where we used the fact that $\mathbb{E}_{t-1} m_t = m_0$ under the random walk process. We can write the solution to this as $p_t = \gamma_0 + \gamma_1 \omega_t$ for $\gamma_0$ and $\gamma_1$ such that
+\begin{align*}
+    \gamma_0 = m_0, \qquad \text{and} \qquad \gamma_1 = \frac{\kappa}{1+\kappa}.
+\end{align*}
+Aggregate output is then given by
+\begin{align*}
+    y_t  = m_t - p_t = m_0 + (1-\gamma_1)\omega_t - \gamma_0 = \frac{\omega_t}{1+\kappa}. \qquad \cdots\cdots\cdots \quad (8\, \text{points})
+\end{align*}
+Since output is equal to the white noise error $\omega$, it displays no persistence. (9 points) 
+
+In the standard formulationk some nominal wages in effect during period $t$ were set in earlier periods on the basis of the price level in those earlier periods. This imparts sluggishness to the adjustment of thep rice level; $p_t$ can nolong jump to fully offset anychange in the period $t$ prices and previous expectations about $p_t$. (11 points) Thus, output in period $t$ is only affected by movements in $m_t$ that were unpredictable when the oldest contract still in effect was set. (13 points)
+
+\newpage
+\subsection*{Question 4 (25 points)}
+Note: Solutions generated by AI. Only for your reference. Precision, structure and completeness of your answers will be considered together when grading. That is to say, not only what you write matters, \textbf{how you present them also matters}.
+
+\begin{enumerate}
+    \item The main stylized facts from the CPI micro data are:
+    \begin{itemize}
+        \item Flat hazard rates: the probability of a price change does not increase much with the time since the last adjustment.
+        \item Size of price changes is independent of duration: prices that have been fixed longer are not adjusted by larger amounts.
+        \item Presence of many small price changes: not all adjustments are large or ``lumpy''.
+        \item Heterogeneity in adjustment frequencies: some prices change frequently, others remain fixed for long periods.
+        \item Inflation variation is driven mainly by the intensive margin (size of changes), rather than the extensive margin (fraction of prices adjusting).
+    \end{itemize}
+    These facts jointly discipline models of price rigidity.
+    \item Implications for Time-Dependent Pricing Models
+    \begin{enumerate}
+        \item In the Taylor model, firms adjust prices at fixed intervals.
+        \begin{itemize}
+            \item Hazard rate: implies spikes at predetermined adjustment dates, not flat $\rightarrow$ inconsistent with fact (1).
+            \item Size–duration relationship: longer duration implies larger accumulated mispricing $\rightarrow$ predicts larger adjustments $\rightarrow$ inconsistent with fact (2).
+            \item Inflation decomposition: inflation driven mainly by which firms adjust $\rightarrow$ inconsistent with fact (5).
+        \end{itemize}
+        Conclusion: The Taylor model is strongly inconsistent with the micro data.
+        \item In the Calvo model, firms adjust with a constant probability each period.
+        \begin{itemize}
+            \item Hazard rate: constant by construction $\rightarrow$ broadly consistent with fact (1).
+            \item Size–duration relationship: firms that wait longer accumulate larger gaps $\rightarrow$ predicts size increasing with duration $\rightarrow$ inconsistent with fact (2).
+            \item Small price changes: baseline model implies adjustments when sufficiently far from optimum $\rightarrow$ tends to generate large changes $\rightarrow$ inconsistent with fact (3).
+            \item Inflation decomposition: inflation mainly driven by the fraction of adjusting firms $\rightarrow$ inconsistent with fact (5).
+        \end{itemize}
+        Thus, even though the Calvo model matches the hazard rate, it fails on several other key dimensions.
+    \end{enumerate}
+    \item Implications for State-Dependent Pricing Models
+
+    State-dependent pricing (SDP) models assume firms adjust when the deviation from the optimal price exceeds a threshold (e.g., menu cost models).
+
+    Successes: For standard SDP models (e.g., Golosov–Lucas):
+    \begin{itemize}
+        \item Hazard rate: approximately flat due to idiosyncratic shocks $\rightarrow$ consistent with fact (1).
+        \item Size–duration relationship: adjustment triggered by the state, not time $\rightarrow$ consistent with fact (2).
+        \item Inflation decomposition: large adjustments dominate $\rightarrow$ matches fact (5).
+    \end{itemize}
+
+    Thus, SDP models perform significantly better than TDP models on core empirical dimensions. However, standard SDP models also have shortcomings:
+    \begin{itemize}
+        \item Small price changes: basic menu cost models predict infrequent but large adjustments $\rightarrow$ inconsistent with fact (3).
+    \end{itemize}
+    Extensions such as Dotsey–King–Wolman introduce stochastic menu costs to allow small adjustments, but these extensions then struggle to match other facts (e.g., hazard rates, inflation decomposition).
+\end{enumerate}
+
+In conclusion, micro evidence favors state-dependent pricing mechanisms, particularly those incorporating idiosyncratic shocks and heterogeneity, though no single model fully matches all observed facts.
+
+\underline{Grading criteria}: $\geq20$ points for correctly stated, clearly structured and completely summarized answer. $\geq 15$ points for correctly stated, partly unclearly structured answer with some minor missing parts. $\geq 10$ points for partly wrongly stated, partly clearly structured answer with some missing parts. $\geq 5$ points for partly wrongly stated, poorly structured answer with some important parts missing. $\geq 0$ points for poor answers.  
+
+\newpage
+\subsection*{Question 5 (20 points)}
+\begin{enumerate}
+    \item (4 points) The quadratic objective function should be modified as
+    \begin{align*}
+        \frac{1}{2} \sum_{j=0}^{\infty} \omega^j \beta^j \mathbb{E}_t \left[\left(p_{i,t} + p_{t+j-1} - p_{t-1} - p^*_{t+j}\right)^2\right]
+    \end{align*}
+    where
+    \begin{align*}
+        p_{t+j-1} - p_{t-1} = \left\{\begin{array}{ll}
+            0, & j = 0, \\
+            \pi_t + \cdots + \pi_{t+j-1}, & j \geq 1.
+        \end{array}\right.
+    \end{align*}
+    \item (10 points) The FOC is
+    \begin{align*}
+        \sum_{j=0}^{\infty} \omega^j \beta^j \mathbb{E}_t \left[\hat{p}_t + p_{t+j-1} - p_{t-1} - p^*_{t+j}\right] = 0,
+    \end{align*}
+    which gives 
+    \begin{align*}
+        \hat{p}_t = p_{t-1} + (1-\omega\beta)\sum_{j=0}^{\infty} \omega^j \beta^j \mathbb{E}_t \left[p^*_{t+j} - p_{t+j-1}\right].
+    \end{align*}
+    Similarly, because 
+    \begin{align*}
+        \mathbb{E}_t \hat{p}_{t+1} = p_t + (1-\omega\beta) \sum_{j=1}^{\infty} \omega^{j-1} \beta^{j-1} \mathbb{E}_t[p^*_{t+j} - p_{t+j-1}],
+    \end{align*}
+    combining last two equations gives
+    \begin{align*}
+        \hat{p}_t &= p_{t-1} + (1-\omega \beta)(p^*_t - p_{t-1}) + \omega\beta\left(\mathbb{E}_t \hat{p}_{t+1} - p_t\right)\\
+        &= (1-\omega\beta)p^*_t + \omega\beta\left(\mathbb{E}\hat{p}_{t+1} - \pi_t\right).
+    \end{align*}
+    Evidenced by last equation, the optimal price $\hat{p}_t$ is a weighted avergae between target price $p^*_t$ and expected optimal price $\mathbb{E}_t\hat{p}_{t+1}$ adjusted by the inflation $\pi_t$.
+    \item (6 points) Assume that $p^*_t = p_t + \gamma y_t + \epsilon_t$. Then we have two equations describe the equation of $p_t$ and $\hat{p}_t$:
+    \begin{align*}
+        \hat{p}_t &= (1-\omega\beta)(p_t + \gamma y_t + \epsilon_t) + \omega\beta\left(\mathbb{E}\hat{p}_{t+1} - \pi_t\right),\\
+        p_t &= (1-\omega)\hat{p}_t + \omega (p_{t-1} + \pi_{t-1}),
+    \end{align*}
+    which gives
+    \begin{align*}
+        \pi_t = \frac{\beta}{1+\beta} \mathbb{E}_t \pi_{t+1} + \frac{1}{1+\beta}\pi_{t-1} + \frac{(1-\omega)(1-\omega\beta)}{\omega(1+\beta)}(\gamma y_t + \epsilon_t).
+    \end{align*}
+    Therefore, current inflation is positively affected by lagged inflation with a coefficient of $\frac{1}{1+\beta}$.
+\end{enumerate}
+
+
+\end{document}
