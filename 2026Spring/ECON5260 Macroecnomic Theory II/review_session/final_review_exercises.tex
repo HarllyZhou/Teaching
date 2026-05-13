@@ -1,0 +1,384 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subcaption} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 5260: Macroeconomic Theory II\\
+    {\large \textbf{Final Review Exercises}}\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+\textbf{Instruction}: This exercise question sheet mimics the format of the final exam, but have zero implication on what the questions will be like (since I do not know the exam questions either). Please finish the question sheet before the review class. If you can finish in 3 hours, then you should be fine with the final exam since I suppose that this question sheet should be harder than the final exam (but maybe easier with small probability). The solution to this question sheet will NOT be provided, so please come to the review class to gain better learning outcome.
+
+\paragraph{Discussion Questions (25 points)}
+\begin{enumerate}[label=\arabic*.]
+    \item (7 points) Explain what a hazard function is in the context of nominal rigidity models. Compare that of Calvo model with DKW model. Do they match the empirical facts from Nakamura and Steinsson's Five Facts paper?
+    \item (8 points) Discuss the relationship between real wage, marginal rate of substitution between consumption and leisure and marginal product of labour with/without nominal rigidities.
+    \item (10 points) Consider the policy rule: $\hat{\iota}_t = \rho \hat{\iota}_{t-1} + v_t$. Suppose that the NKPC is
+    \begin{align*}
+        \pi_t = \beta \mathbb{E}_t \pi_{t+1} + \kappa x_t,
+    \end{align*}
+    and the IS curve is
+    \begin{align*}
+        x_t = \mathbb{E}_t x_{t+1} - \frac{1}{\sigma} (\hat{\iota}_t - \mathbb{E}_t \pi_{t+1}) + \mu_t.
+    \end{align*}
+    Explain how this system may generate multiple equilibria. Explain a possible policy to avoid multiple equilibria. What is the condition for stability? You do not need to show that mathematics, but the logic should be clear.
+\end{enumerate}
+
+
+\paragraph{Long Questions (75 points)}
+\begin{enumerate}[label=\arabic*.]
+    \item (25 points) Consider a household with the following utility function:
+    \begin{align*}
+        U(C_{t}, M_{t}, N_{t}) = \frac{C_{t}^{(1-\sigma)}}{1-\sigma} + \frac{\gamma}{1-b} \left( \frac{M_{t}}{P_{t}} \right)^{1-b} + \chi \frac{N_{t}^{1+\eta}}{1+\eta},
+    \end{align*}
+    where $C_t = \left[\int_0^1 c_{j,t}^{\frac{\theta-1}{\theta}} dj\right]^{\frac{\theta}{\theta-1}}$, $\theta > 1$ is the consumption aggregator, $\frac{M_t}{P_t}$ is the real money balances, and $N_t$ is the labour. The budget constraint is given by
+    \begin{align*}
+        C_t + \frac{M_t}{P_t} + \frac{B_t}{P_t} = \frac{W_t}{P_t} N_t + \frac{M_{t-1}}{P_t} + (1-i_{t-1})\frac{B_{t-1}}{P_t} + \Pi_t,
+    \end{align*}
+    where $B_t$ is the bonds, $W_t$ is the wage rate, $\Pi_t$ is the transfers, and $i_{t-1}$ is the interest rate on bonds. The price index can be derived as
+    \begin{align*}
+        P_t = \left(\int_0^1 p_{j,t} ^{1-\theta} dj\right)^{\frac{1}{1-\theta}}.
+    \end{align*}
+    
+    The production function is given by
+    \begin{align*}
+        c_{j,t} = Z_t N_{j,t}
+    \end{align*}
+    where $\mathbb{E}_t Z_t = 1$ is productivity. The cost minimization problem has the following FOC:
+    \begin{align*}
+        \varphi_t = \frac{W_t}{P_t Z_t},
+    \end{align*}
+    where the Lagrange multiplier is denoted by $\varphi_t$
+    
+    \begin{enumerate}[label=(\alph*)]
+        \item (6 points) Solve for the household's problem. [Hint: One intertemporal Euler equation and two intratemporal substitution conditions.]
+        \item (10 points) Let $\omega$ denote the Calvo-type persistence. Derive the firm's optimal price in the form of $\frac{P^*_t}{P_t}$ where $P^*_t$ is the optimal price.
+        \item (9 points) Solve for the flexible-price equilibrium and sticky price equilibrium in log-linearized form. Explain the intuitions for both.
+    \end{enumerate}
+
+    \newpage
+    \item (22 points) Consider the New Keynesian Phillips curve
+    \begin{equation*}
+        \pi_t = \beta E_t \pi_{t+1} + \kappa x_t + e_t,
+    \end{equation*}
+    where $0<\beta<1$, $\kappa>0$, and $e_t$ is a cost-push shock.
+    
+    The central bank minimizes
+    \begin{equation*}
+        E_0 \sum_{t=0}^{\infty} \beta^t
+        \left( \pi_t^2 + \lambda x_t^2 \right),
+    \end{equation*}
+    where $\lambda>0$.
+    
+    Under timeless-perspective commitment, the optimal targeting rule is
+    \begin{equation*}
+        \pi_t = -\frac{\lambda}{\kappa}(x_t-x_{t-1}).
+    \end{equation*}
+    
+    Suppose the cost-push shock follows an AR(2) process:
+    \begin{equation*}
+        e_t = \rho_1 e_{t-1} + \rho_2 e_{t-2} + \varepsilon_t,
+    \end{equation*}
+    where $|\rho_1|<1$ and $|\rho_2|<1$.
+    
+    \begin{enumerate}[label=(\alph*)]
+        \item (6 points) Derive the second-order expectational difference equation for $x_t$.
+        
+        \item (8 points) Guess that the solution takes the form
+        \begin{equation*}
+            x_t = a x_{t-1} + b e_t + c e_{t-1}.
+        \end{equation*}
+        Use coefficient matching to solve for $a$, $b$, and $c$.
+        
+        \item (8 points) Derive the implied solution for inflation $\pi_t$.
+    \end{enumerate}
+
+    \newpage
+    \item (28 points) Inflation expectation anchoring is important for the central bank to achieve its inflation target and to conduct short-run stabilization policy. A central bank is said to have well-anchored inflation expectations when temporary movements in inflation do not cause large revisions in beliefs about long-run inflation. In contrast, expectations are poorly anchored when short-run inflation surprises lead firms and households to revise their beliefs about the long-run inflation target. In this question, the object of interest is firms' belief about the long-run mean of inflation, denoted by $\bar{\pi}_t$.
+    
+    This question studies how imperfect knowledge about long-run inflation affects the New Keynesian Phillips curve.
+    
+    Consider a model with Rotemberg price adjustment costs. There is a continuum of monopolistically competitive firms $j\in[0,1]$. Firm $j$ faces demand
+    \begin{align*}
+        Y_{j,t}
+        =
+        \left(\frac{P_{j,t}}{P_t}\right)^{-\psi_t}Y_t,
+    \end{align*}
+    where $P_{j,t}$ is firm $j$'s price, $P_t$ is the aggregate price level, $Y_t$ is aggregate output, and $\psi_t>1$ is the elasticity of substitution.
+    
+    The firm's real profit is
+    \begin{align*}
+        \Gamma_{j,t}
+        =
+        Y_{j,t}
+        \left(
+        \frac{P_{j,t}}{P_t}-S_t
+        \right)
+        -
+        \frac{\Phi}{2}
+        \left(
+        \frac{P_{j,t}}{P_{j,t-1}}
+        -
+        e^{\gamma\pi_{t-1}}
+        \right)^2,
+    \end{align*}
+    where $S_t$ is real marginal cost, $\Phi>0$ measures the price adjustment cost, and $0<\gamma<1$ governs indexation to lagged inflation.
+    
+    The firm maximizes expected future profits according to its subjective beliefs, denoted by $\hat{\mathbb{E}}_{j,t}$:
+    \begin{align*}
+        \max_{P_{j,t}}
+        \hat{\mathbb{E}}_{j,t}
+        \sum_{T=t}^{\infty}
+        \beta^{T-t}\Gamma_{j,T}.
+    \end{align*}
+    
+    Solving the firm's problem and log-linearizing around the zero-inflation steady state gives the optimal pricing equation
+    \begin{align*}
+    p^*_{j,t}
+    =
+    &\alpha p^*_{j,t-1}
+    -\alpha(\pi_t-\gamma\pi_{t-1})  \\
+    &+
+    \alpha\hat{\mathbb{E}}_{j,t}
+    \sum_{T=t}^{\infty}
+    (\alpha\beta)^{T-t}
+    \left[
+    \xi_P s_T
+    +
+    \beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+    \right]
+    +
+    \alpha\mu_t,
+    \end{align*}
+    where
+    \begin{align*}
+        p^*_{j,t}
+        =
+        \log\frac{P_{j,t}}{P_t},
+        \qquad
+        s_t
+        =
+        \log\frac{S_t}{\bar S},
+        \qquad
+        \pi_t
+        =
+        \log\frac{P_t}{P_{t-1}},
+    \end{align*}
+    and $\xi_P = \alpha^{-1}(1-\alpha)(1-\alpha\beta)$.
+    
+    The markup shock satisfies $\mu_t\overset{iid}{\sim}\mathcal N(0,\sigma_\mu^2)$
+    .
+    The central bank implements monetary policy according to
+    \begin{align*}
+        \pi_t-\gamma\pi_{t-1}+\lambda_x x_t=\varphi_t,
+    \end{align*}
+    where $x_t$ is the output gap and $\varphi_t=\rho\varphi_{t-1}+\epsilon_t$ is an exogenous monetary policy shock. Marginal cost is proportional to the output gap: $s_t=\phi x_t$. Normalize $\phi=1$.
+    
+    \textbf{Part I. Aggregate Supply under Rational Expectations}
+    
+    \begin{enumerate}[label=(\alph*)]
+    
+        \item (2 points)
+        Explain the meaning of the parameter $0<\alpha<1$ in the optimal pricing equation.
+        Why does the expression
+        \begin{align*}
+            \xi_P=\alpha^{-1}(1-\alpha)(1-\alpha\beta)
+        \end{align*}
+        look familiar from the standard Calvo New Keynesian Phillips curve?
+    
+        \item (4 points)
+        Derive the aggregate supply curve under symmetric equilibrium, that is,
+        \begin{align*}
+            P_{j,t}=P_t
+            \qquad\Rightarrow\qquad
+            p^*_{j,t}=0.
+        \end{align*}
+        Show that the aggregate supply curve is
+        \begin{align*}
+            \pi_t-\gamma\pi_{t-1}
+            =
+            \mu_t
+            +
+            \hat{\mathbb{E}}_{t}
+            \sum_{T=t}^{\infty}
+            (\alpha\beta)^{T-t}
+            \left[
+            \xi_P s_T
+            +
+            \beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+            \right].
+        \end{align*}
+    
+        \item (8 points)
+        Now suppose that firms' subjective expectations coincide with rational expectations:
+        \begin{align*}
+            \hat{\mathbb{E}}_{j,t}=\mathbb{E}_t.
+        \end{align*}
+        Starting from the aggregate supply curve derived in part (b), show that inflation satisfies the first-order difference equation
+        \begin{align*}
+            \pi_t-\gamma\pi_{t-1}
+            =
+            \xi_P s_t
+            +
+            \beta\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t)
+            +
+            \mu_t.
+        \end{align*}
+        Then use the monetary policy rule and $s_t=x_t$ to derive the rational-expectations equilibrium inflation process
+        \begin{align*}
+            \pi_t
+            =
+            \gamma\pi_{t-1}
+            +
+            \rho\bar{\omega}\varphi_{t-1}
+            +
+            \eta_t,
+        \end{align*}
+        where $\bar{\omega}$ is a constant and $\eta_t = \bar{\omega}\epsilon_t + (1+\xi_P\lambda_x^{-1})^{-1}\mu_t$.
+        If you cannot derive the first-order difference equation, you may take it as given and proceed to solve for equilibrium inflation.
+    
+        \textit{Hint: Use the same infinite-sum shifting trick used in the sticky-information model.}
+    \end{enumerate}
+
+    \textbf{Part II. Imperfect Knowledge and Inflation Anchoring}
+
+    The rational-expectations benchmark assumes that firms know the true inflation process. We now relax this assumption. Suppose firms do not know the long-run mean of inflation. Instead, they estimate it over time.
+
+    Let $\bar{\pi}_t$ denote firms' estimate of the long-run mean of inflation. This variable is also firms' long-run inflation expectation. Firms forecast inflation using the statistical model
+    \begin{align*}
+        \pi_t
+        =
+        \gamma\pi_{t-1}
+        +
+        (1-\gamma)\bar{\pi}_t
+        +
+        \rho\bar{\omega}\varphi_{t-1}
+        +
+        f_t,
+    \end{align*}
+    where $f_t$ is a forecast error with mean zero. Assume that, under firms' subjective expectations,
+    \begin{align*}
+        \hat{\mathbb{E}}_t\pi_T=\bar{\pi}_t
+        \qquad
+        \text{for all } T\geq t.
+    \end{align*}
+    
+    \begin{enumerate}[label=(\alph*), resume]
+    
+        \item (4 points) Explain why $\bar{\pi}_t$ can be interpreted as firms' long-run inflation expectation. Then explain why movements in $\bar{\pi}_t$ are informative about the anchoring of inflation expectations.
+
+        In your answer, discuss the difference between well-anchored expectations and poorly anchored expectations.
+    
+    \end{enumerate}
+
+    Firms are also endowed with the correct forecasting model for marginal costs. For $T\geq t$, their forecasts satisfy
+\begin{align*}
+    \hat{\mathbb{E}}_{j,t}s_{T+1}
+    =
+    \lambda_x^{-1}
+    \hat{\mathbb{E}}_t
+    \left[
+    \varphi_{T+1}
+    -
+    (\pi_{T+1}-\bar{\pi}_t)
+    +
+    \gamma(\pi_T-\bar{\pi}_t)
+    \right],
+\end{align*}
+and
+\begin{align*}
+    \hat{\mathbb{E}}_{j,t}\varphi_{T+1}
+    =
+    \rho^{T-t}\varphi_t.
+\end{align*}
+
+\begin{enumerate}[label=(\alph*), resume]
+
+    \item (6 points)
+    Using the forecasting model above, show that
+    \begin{align*}
+        \hat{\mathbb{E}}_t s_T
+        =
+        \lambda_x^{-1}
+        \left[
+        \rho^{T-t+1}(1-\bar{\omega})\varphi_{t-1}
+        -
+        (1-\gamma)\bar{\pi}_t
+        \right].
+    \end{align*}
+
+    \item (5 points)
+    Starting from the aggregate supply curve in part (b), use the expression for $\hat{\mathbb{E}}_t s_T$ derived in part (e) to show that the true inflation-generating process can be written as
+    \begin{align*}
+        \pi_t
+        =
+        \gamma\pi_{t-1}
+        +
+        (1-\gamma)A\bar{\pi}_t
+        +
+        \rho\bar{\omega}\varphi_{t-1}
+        +
+        \eta_t,
+    \end{align*}
+    for some constant $A>0$.
+
+    Interpret $A$. In particular, explain why $A$ measures the extent to which firms' beliefs about long-run inflation feed back into actual inflation.
+\end{enumerate}
+\end{enumerate}
+
+
+\end{document}
