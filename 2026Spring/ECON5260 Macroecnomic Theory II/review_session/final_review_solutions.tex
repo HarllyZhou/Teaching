@@ -1,0 +1,1846 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.75}
+\linespread{1.5}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subcaption} 
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{stfloats}
+\usepackage{lscape}
+\usepackage[figuresright]{rotating}
+\RequirePackage{pdflscape}
+\usepackage[toc,page]{appendix}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{comment}
+\usepackage{xcolor}
+
+% -------- enumerated sub-labels (a), (b), … --
+\usepackage{enumitem}
+\setlist[enumerate,1]{label=(\alph*),ref=\alph*}
+% ---------------------------------------------
+
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true}
+\usepackage{csquotes}
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{assumption}{Assumption}[section] % number within sections
+
+
+\begin{document}
+
+\begin{center}
+    ECON 5260: Macroeconomic Theory II\\
+    {\large \textbf{Final Review Solutions}}\\
+    Teaching Assistant: Harlly Zhou
+\end{center}
+
+
+\section*{Discussion Questions}
+
+\subsection*{1. Hazard functions in nominal rigidity models}
+
+A hazard function describes how likely a firm is to change its price, conditional on how long the price has already remained fixed.
+
+In the Calvo model, the hazard function is constant. A firm has the same probability of changing its price every period, regardless of whether the price was last changed recently or a long time ago. This assumption is analytically convenient but empirically restrictive.
+
+In the Dotsey--King--Wolman model, price adjustment is state-dependent. Firms adjust when the benefit of changing price is large enough relative to the menu cost. Therefore, firms with more misaligned prices are more likely to adjust, and the hazard function is generally not constant.
+
+Nakamura and Steinsson document substantial heterogeneity in price adjustment across goods and sectors, including temporary sales and different adjustment frequencies. This evidence is difficult to reconcile with a constant Calvo hazard, but it is more consistent with models that allow adjustment probabilities to vary across firms and states.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\newpage
+\subsection*{2. Real wage, MRS, and MPL under price and wage rigidity}
+
+The real wage is the wage measured in units of goods. The household's marginal rate of substitution, or MRS, determines the labor-supply side. The marginal product of labor divided by the markup determines the firm's labor-demand side.
+
+There are four cases.
+
+\textbf{Flexible prices and flexible wages.}  
+Both margins hold. The real wage equals the household MRS and also equals the marginal product of labor divided by the markup.
+
+\textbf{Sticky prices and flexible wages.}  
+Because wages are flexible, the household labor-supply condition still holds: the real wage equals the MRS. Firms still hire labor optimally, so the real wage equals marginal product divided by the realized markup. However, because prices are sticky, the realized markup is time-varying.
+
+\textbf{Flexible prices and sticky wages.}  
+Because prices are flexible, firms can maintain their desired markup, so the real wage equals marginal product divided by the desired markup. But because wages are sticky, the household labor-supply condition generally fails. The real wage need not equal the MRS.
+
+\textbf{Sticky prices and sticky wages.}  
+Both margins are distorted. Sticky wages imply that the real wage need not equal the MRS. Sticky prices imply that the realized markup is time-varying, so the price-setting margin is also distorted.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\newpage
+\subsection*{3. Multiple equilibria under an interest-rate peg}
+
+Under an interest-rate peg, the nominal interest rate does not respond to inflation. This can generate multiple equilibria because inflation expectations can become self-fulfilling.
+
+If agents expect higher future inflation, the expected real interest rate falls. A lower expected real interest rate raises current demand. Higher demand raises current inflation through the New Keynesian Phillips curve. Therefore, the initial expectation of higher inflation can validate itself.
+
+A Taylor rule can eliminate this indeterminacy if the central bank raises the nominal interest rate more than one-for-one with inflation. This is the Taylor principle. When it holds, higher inflation leads to a higher real interest rate, which stabilizes demand and prevents self-fulfilling inflation expectations.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\newpage
+\section*{Long Question 1}
+
+The household utility function is
+\[
+U(C_t,M_t,N_t)
+=
+\frac{C_t^{1-\sigma}}{1-\sigma}
++
+\frac{\gamma}{1-b}
+\left(
+\frac{M_t}{P_t}
+\right)^{1-b}
+-
+\chi
+\frac{N_t^{1+\eta}}{1+\eta}.
+\]
+
+The household budget constraint is
+\[
+C_t+\frac{M_t}{P_t}+\frac{B_t}{P_t}
+=
+\frac{W_t}{P_t}N_t
++
+\frac{M_{t-1}}{P_t}
++
+(1+i_{t-1})\frac{B_{t-1}}{P_t}
++
+\Pi_t.
+\]
+
+\subsection*{1(a). Household first-order conditions}
+
+Let $\Lambda_t$ denote the Lagrange multiplier on the household budget constraint.
+
+The first-order condition with respect to consumption is
+\[
+C_t^{-\sigma}=\Lambda_t.
+\]
+
+The first-order condition with respect to labor is
+\[
+\chi N_t^\eta
+=
+\Lambda_t\frac{W_t}{P_t}.
+\]
+
+Using $\Lambda_t=C_t^{-\sigma}$, we obtain
+\[
+\boxed{
+\frac{W_t}{P_t}
+=
+\chi N_t^\eta C_t^\sigma.
+}
+\]
+
+This is the household labor-supply condition. It says that the real wage equals the marginal rate of substitution between leisure and consumption.
+
+The first-order condition with respect to money is
+\[
+\gamma
+\left(
+\frac{M_t}{P_t}
+\right)^{-b}
++
+\beta\mathbb{E}_t
+\left[
+\Lambda_{t+1}
+\frac{P_t}{P_{t+1}}
+\right]
+=
+\Lambda_t.
+\]
+
+Using $\Lambda_t=C_t^{-\sigma}$, this becomes
+\[
+\boxed{
+\gamma
+\left(
+\frac{M_t}{P_t}
+\right)^{-b}
+=
+C_t^{-\sigma}
+-
+\beta\mathbb{E}_t
+\left[
+C_{t+1}^{-\sigma}
+\frac{P_t}{P_{t+1}}
+\right].
+}
+\]
+
+The first-order condition with respect to bonds is
+\[
+\Lambda_t
+=
+\beta\mathbb{E}_t
+\left[
+\Lambda_{t+1}
+(1+i_t)
+\frac{P_t}{P_{t+1}}
+\right].
+\]
+
+Using $\Lambda_t=C_t^{-\sigma}$, we obtain
+\[
+\boxed{
+C_t^{-\sigma}
+=
+\beta\mathbb{E}_t
+\left[
+C_{t+1}^{-\sigma}
+(1+i_t)
+\frac{P_t}{P_{t+1}}
+\right].
+}
+\]
+
+\subsection*{1(b). Firm optimal reset price under Calvo pricing}
+
+Firm $j$ faces demand
+\[
+Y_{j,t}
+=
+\left(
+\frac{P_{j,t}}{P_t}
+\right)^{-\theta}
+Y_t.
+\]
+
+Let $\omega$ denote the probability that a firm cannot adjust its price in a given period. A firm that can reset its price at time $t$ chooses $P_t^*$ to maximize expected discounted profits over the periods in which the price remains fixed.
+
+If the firm sets $P_t^*$ at time $t$, then in period $t+k$ its relative price is
+\[
+\frac{P_t^*}{P_{t+k}}.
+\]
+
+The firm's problem is
+\[
+\max_{P_t^*}
+\mathbb{E}_t
+\sum_{k=0}^{\infty}
+(\beta\omega)^k
+\Lambda_{t,t+k}
+\left[
+\frac{P_t^*}{P_{t+k}}Y_{j,t+k}
+-
+\varphi_{t+k}Y_{j,t+k}
+\right],
+\]
+subject to
+\[
+Y_{j,t+k}
+=
+\left(
+\frac{P_t^*}{P_{t+k}}
+\right)^{-\theta}
+Y_{t+k}.
+\]
+
+Here,
+\[
+\varphi_t
+\]
+denotes real marginal cost. It is the real cost of producing one additional unit of output.
+
+The optimal reset price satisfies
+\[
+\boxed{
+\frac{P_t^*}{P_t}
+=
+\frac{\theta}{\theta-1}
+\frac{
+\mathbb{E}_t
+\sum_{k=0}^{\infty}
+(\beta\omega)^k
+\Lambda_{t,t+k}
+Y_{t+k}
+\varphi_{t+k}
+\left(\frac{P_{t+k}}{P_t}\right)^\theta
+}{
+\mathbb{E}_t
+\sum_{k=0}^{\infty}
+(\beta\omega)^k
+\Lambda_{t,t+k}
+Y_{t+k}
+\left(\frac{P_{t+k}}{P_t}\right)^{\theta-1}
+}.
+}
+\]
+
+Thus, the reset price is a markup over a weighted average of expected future nominal marginal costs. Since $\varphi_t$ is real marginal cost, the terms involving $\left(P_{t+k}/P_t\right)$ convert future real marginal costs into the relevant nominal-price units for the reset-price decision.
+
+\subsection*{1(c). Equilibrium relationships among output, consumption, labor, and marginal cost}
+
+Goods market clearing implies
+\[
+Y_t=C_t.
+\]
+
+The production function is
+\[
+Y_t=Z_tN_t.
+\]
+
+Therefore,
+\[
+C_t=Y_t=Z_tN_t.
+\]
+
+Real marginal cost is the real wage divided by the marginal product of labor. Since the marginal product of labor is $Z_t$,
+\[
+\boxed{
+\varphi_t
+=
+\frac{W_t/P_t}{Z_t}.
+}
+\]
+
+Equivalently,
+\[
+\boxed{
+\frac{W_t}{P_t}
+=
+\varphi_t Z_t.
+}
+\]
+
+From the household labor-supply condition,
+\[
+\frac{W_t}{P_t}
+=
+\chi N_t^\eta C_t^\sigma.
+\]
+
+Combining the household labor-supply condition with the marginal-cost condition gives
+\[
+\boxed{
+\varphi_t Z_t
+=
+\chi N_t^\eta C_t^\sigma.
+}
+\]
+
+Using goods market clearing, $C_t=Y_t$, and production, $N_t=Y_t/Z_t$, we obtain
+\[
+\varphi_t Z_t
+=
+\chi
+\left(
+\frac{Y_t}{Z_t}
+\right)^\eta
+Y_t^\sigma.
+\]
+
+Therefore,
+\[
+\boxed{
+\varphi_t
+=
+\chi
+Y_t^{\sigma+\eta}
+Z_t^{-(1+\eta)}.
+}
+\]
+
+This equation links real marginal cost to output and technology. Higher output raises marginal cost because it requires more labor. Higher productivity lowers marginal cost because each unit of labor produces more output.
+
+Taking log deviations gives
+\[
+\boxed{
+\hat{\varphi}_t
+=
+(\sigma+\eta)\hat{y}_t
+-
+(1+\eta)\hat{z}_t.
+}
+\]
+
+Under flexible prices, firms set prices as a constant markup over marginal cost. Therefore real marginal cost is constant:
+\[
+\varphi_t=\frac{\theta-1}{\theta}.
+\]
+
+Hence,
+\[
+\hat{\varphi}_t=0.
+\]
+
+Using
+\[
+\hat{\varphi}_t
+=
+(\sigma+\eta)\hat{y}_t
+-
+(1+\eta)\hat{z}_t,
+\]
+we get
+\[
+0
+=
+(\sigma+\eta)\hat{y}_t
+-
+(1+\eta)\hat{z}_t.
+\]
+
+Thus, flexible-price output is
+\[
+\boxed{
+\hat{y}_t^f
+=
+\frac{1+\eta}{\sigma+\eta}\hat{z}_t.
+}
+\]
+
+Under sticky prices, real marginal cost is no longer constant. The same equilibrium relationship holds:
+\[
+\boxed{
+\hat{\varphi}_t
+=
+(\sigma+\eta)\hat{y}_t
+-
+(1+\eta)\hat{z}_t.
+}
+\]
+
+Since flexible-price output satisfies
+\[
+0
+=
+(\sigma+\eta)\hat{y}_t^f
+-
+(1+\eta)\hat{z}_t,
+\]
+subtracting the flexible-price relation from the sticky-price relation gives
+\[
+\hat{\varphi}_t
+=
+(\sigma+\eta)(\hat{y}_t-\hat{y}_t^f).
+\]
+
+Define the output gap as
+\[
+x_t=\hat{y}_t-\hat{y}_t^f.
+\]
+
+Then
+\[
+\boxed{
+\hat{\varphi}_t
+=
+(\sigma+\eta)x_t.
+}
+\]
+
+Thus, under sticky prices, real marginal cost is proportional to the output gap. When output is above its flexible-price level, labor input is high relative to productivity, and real marginal cost rises.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\newpage
+\section*{Long Question 2}
+
+The New Keynesian Phillips curve is
+\[
+\pi_t=\beta\mathbb{E}_t\pi_{t+1}+\kappa x_t+e_t.
+\]
+
+The timeless-perspective targeting rule is
+\[
+\pi_t=-\frac{\lambda}{\kappa}(x_t-x_{t-1}).
+\]
+
+\subsection*{2(a). Second-order expectational difference equation}
+
+Using
+\[
+\pi_t=-\frac{\lambda}{\kappa}(x_t-x_{t-1}),
+\]
+we have
+\[
+\mathbb{E}_t\pi_{t+1}
+=
+-\frac{\lambda}{\kappa}
+\left(
+\mathbb{E}_t x_{t+1}-x_t
+\right).
+\]
+
+Substitute into the NKPC:
+\[
+-\frac{\lambda}{\kappa}(x_t-x_{t-1})
+=
+\beta
+\left[
+-\frac{\lambda}{\kappa}
+\left(
+\mathbb{E}_t x_{t+1}-x_t
+\right)
+\right]
++
+\kappa x_t
++
+e_t.
+\]
+
+Multiply both sides by $-\kappa/\lambda$:
+\[
+x_t-x_{t-1}
+=
+\beta
+\left(
+\mathbb{E}_t x_{t+1}-x_t
+\right)
+-
+\frac{\kappa^2}{\lambda}x_t
+-
+\frac{\kappa}{\lambda}e_t.
+\]
+
+Expanding the right-hand side gives
+\[
+x_t-x_{t-1}
+=
+\beta\mathbb{E}_t x_{t+1}
+-
+\beta x_t
+-
+\frac{\kappa^2}{\lambda}x_t
+-
+\frac{\kappa}{\lambda}e_t.
+\]
+
+Move all current-$x_t$ terms to the left-hand side:
+\[
+x_t+\beta x_t+\frac{\kappa^2}{\lambda}x_t
+=
+\beta\mathbb{E}_t x_{t+1}
++
+x_{t-1}
+-
+\frac{\kappa}{\lambda}e_t.
+\]
+
+Therefore,
+\[
+\boxed{
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)x_t
+=
+\beta\mathbb{E}_t x_{t+1}
++
+x_{t-1}
+-
+\frac{\kappa}{\lambda}e_t.
+}
+\]
+
+\subsection*{2(b). Coefficient matching}
+
+Guess
+\[
+x_t=a x_{t-1}+b e_t+c e_{t-1}.
+\]
+
+Then
+\[
+x_{t+1}
+=
+a x_t+b e_{t+1}+c e_t.
+\]
+
+Taking expectations conditional on time $t$,
+\[
+\mathbb{E}_t x_{t+1}
+=
+a x_t+b\mathbb{E}_t e_{t+1}+c e_t.
+\]
+
+Since
+\[
+e_t=\rho_1 e_{t-1}+\rho_2 e_{t-2}+\varepsilon_t,
+\]
+we have
+\[
+\mathbb{E}_t e_{t+1}
+=
+\rho_1 e_t+\rho_2 e_{t-1}.
+\]
+
+Therefore,
+\[
+\mathbb{E}_t x_{t+1}
+=
+a x_t
++
+b(\rho_1 e_t+\rho_2 e_{t-1})
++
+c e_t.
+\]
+
+Using the guessed solution,
+\[
+x_t=a x_{t-1}+b e_t+c e_{t-1},
+\]
+we get
+\[
+\begin{aligned}
+\mathbb{E}_t x_{t+1}
+&=
+a(a x_{t-1}+b e_t+c e_{t-1})
++
+b(\rho_1 e_t+\rho_2 e_{t-1})
++
+c e_t \\
+&=
+a^2x_{t-1}
++
+(ab+b\rho_1+c)e_t
++
+(ac+b\rho_2)e_{t-1}.
+\end{aligned}
+\]
+
+Now substitute the guessed solution and the expression for $\mathbb{E}_t x_{t+1}$ into
+\[
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)x_t
+=
+\beta\mathbb{E}_t x_{t+1}
++
+x_{t-1}
+-
+\frac{\kappa}{\lambda}e_t.
+\]
+
+The left-hand side becomes
+\[
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)
+(a x_{t-1}+b e_t+c e_{t-1}).
+\]
+
+The right-hand side becomes
+\[
+\beta
+\left[
+a^2x_{t-1}
++
+(ab+b\rho_1+c)e_t
++
+(ac+b\rho_2)e_{t-1}
+\right]
++
+x_{t-1}
+-
+\frac{\kappa}{\lambda}e_t.
+\]
+
+Now match coefficients on $x_{t-1}$, $e_t$, and $e_{t-1}$.
+
+\subsubsection*{Coefficient on $x_{t-1}$}
+
+\[
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)a
+=
+\beta a^2+1.
+\]
+
+Rearrange:
+\[
+\beta a^2
+-
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)a
++
+1
+=
+0.
+\]
+
+Thus,
+\[
+a
+=
+\frac{
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)
+\pm
+\sqrt{
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)^2
+-
+4\beta
+}
+}
+{2\beta}.
+\]
+
+Using the stable root,
+\[
+\boxed{
+a
+=
+\frac{
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)
+-
+\sqrt{
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)^2
+-
+4\beta
+}
+}
+{2\beta}.
+}
+\]
+
+\subsubsection*{Coefficient on $e_t$}
+
+\[
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)b
+=
+\beta(ab+b\rho_1+c)
+-
+\frac{\kappa}{\lambda}.
+\]
+
+Rearrange:
+\[
+\left[
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a-\beta\rho_1
+\right]b
+-
+\beta c
+=
+-\frac{\kappa}{\lambda}.
+\]
+
+\subsubsection*{Coefficient on $e_{t-1}$}
+
+\[
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+\right)c
+=
+\beta(ac+b\rho_2).
+\]
+
+Rearrange:
+\[
+\left[
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+\right]c
+=
+\beta\rho_2 b.
+\]
+
+So
+\[
+c
+=
+\frac{\beta\rho_2}
+{
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+}
+b.
+\]
+
+Substitute this into the coefficient equation for $e_t$:
+\[
+\left[
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a-\beta\rho_1
+\right]b
+-
+\beta
+\left[
+\frac{\beta\rho_2}
+{
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+}
+b
+\right]
+=
+-\frac{\kappa}{\lambda}.
+\]
+
+Therefore,
+\[
+\left[
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a-\beta\rho_1
+-
+\frac{\beta^2\rho_2}
+{
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+}
+\right]b
+=
+-\frac{\kappa}{\lambda}.
+\]
+
+Thus,
+\[
+\boxed{
+b
+=
+-\frac{\frac{\kappa}{\lambda}}
+{
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a-\beta\rho_1
+-
+\frac{\beta^2\rho_2}
+{
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+}
+}.
+}
+\]
+
+Equivalently,
+\[
+\boxed{
+b
+=
+-\frac{
+\frac{\kappa}{\lambda}
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+\right)
+}
+{
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+\right)
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a-\beta\rho_1
+\right)
+-
+\beta^2\rho_2
+}.
+}
+\]
+
+Using
+\[
+c
+=
+\frac{\beta\rho_2}
+{
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+}
+b,
+\]
+we obtain
+\[
+\boxed{
+c
+=
+-\frac{
+\frac{\kappa}{\lambda}\beta\rho_2
+}
+{
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a
+\right)
+\left(
+1+\beta+\frac{\kappa^2}{\lambda}
+-\beta a-\beta\rho_1
+\right)
+-
+\beta^2\rho_2
+}.
+}
+\]
+
+Therefore,
+\[
+\boxed{
+x_t=a x_{t-1}+b e_t+c e_{t-1},
+}
+\]
+where $a$, $b$, and $c$ are given above.
+
+\subsection*{2(c). Inflation}
+
+The targeting rule is
+\[
+\pi_t
+=
+-\frac{\lambda}{\kappa}(x_t-x_{t-1}).
+\]
+
+Using
+\[
+x_t=a x_{t-1}+b e_t+c e_{t-1},
+\]
+we have
+\[
+x_t-x_{t-1}
+=
+a x_{t-1}+b e_t+c e_{t-1}-x_{t-1}.
+\]
+
+Therefore,
+\[
+x_t-x_{t-1}
+=
+(a-1)x_{t-1}+b e_t+c e_{t-1}.
+\]
+
+Substitute this into the targeting rule:
+\[
+\boxed{
+\pi_t
+=
+-\frac{\lambda}{\kappa}
+\left[
+(a-1)x_{t-1}
++
+b e_t
++
+c e_{t-1}
+\right].
+}
+\]
+
+Equivalently,
+\[
+\boxed{
+\pi_t
+=
+\frac{\lambda}{\kappa}(1-a)x_{t-1}
+-
+\frac{\lambda}{\kappa}b e_t
+-
+\frac{\lambda}{\kappa}c e_{t-1}.
+}
+\]
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\newpage
+\section*{Long Question 3}
+
+\subsection*{3(a). Meaning of $\alpha$}
+
+The parameter $0<\alpha<1$ is the stable eigenvalue of the firm's log-linearized dynamic pricing problem. It measures the persistence induced by nominal price rigidity.
+
+The expression
+\[
+\xi_P=\alpha^{-1}(1-\alpha)(1-\alpha\beta)
+\]
+looks familiar because it has the same form as the slope coefficient in the standard Calvo New Keynesian Phillips curve. In that setting, the slope is closely related to
+\[
+\frac{(1-\omega)(1-\beta\omega)}{\omega},
+\]
+where $\omega$ is the probability that a firm cannot adjust its price. Therefore, $\alpha$ plays a role similar to the Calvo price-stickiness parameter.
+
+A larger $\alpha$ means stickier prices and a smaller response of inflation to marginal cost.
+
+\subsection*{3(b). Aggregate supply curve}
+
+The optimal pricing equation is
+\[
+\begin{aligned}
+p^*_{j,t}
+=
+&\alpha p^*_{j,t-1}
+-\alpha(\pi_t-\gamma\pi_{t-1})  \\
+&+
+\alpha\hat{\mathbb{E}}_{j,t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right]
++
+\alpha\mu_t.
+\end{aligned}
+\]
+
+In symmetric equilibrium,
+\[
+P_{j,t}=P_t.
+\]
+Therefore,
+\[
+p^*_{j,t}=0,
+\qquad
+p^*_{j,t-1}=0.
+\]
+
+Substitute these into the optimal pricing equation:
+\[
+0
+=
+-\alpha(\pi_t-\gamma\pi_{t-1})
++
+\alpha\hat{\mathbb{E}}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right]
++
+\alpha\mu_t.
+\]
+
+Divide by $\alpha$:
+\[
+0
+=
+-(\pi_t-\gamma\pi_{t-1})
++
+\hat{\mathbb{E}}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right]
++
+\mu_t.
+\]
+
+Rearranging gives
+\[
+\boxed{
+\pi_t-\gamma\pi_{t-1}
+=
+\mu_t
++
+\hat{\mathbb{E}}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right].
+}
+\]
+
+\subsection*{3(c). Rational-expectations equilibrium inflation}
+
+Under rational expectations,
+\[
+\hat{\mathbb{E}}_{j,t}=\mathbb{E}_t.
+\]
+
+Starting from
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+\mu_t
++
+\mathbb{E}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right],
+\]
+separate the $T=t$ term:
+\[
+\begin{aligned}
+\pi_t-\gamma\pi_{t-1}
+=
+&\mu_t
++
+\xi_P s_t
++
+\beta(1-\alpha)\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t) \\
+&+
+\mathbb{E}_{t}
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-t}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right].
+\end{aligned}
+\]
+
+Factor out $\alpha\beta$ from the remaining infinite sum:
+\[
+\begin{aligned}
+&\mathbb{E}_{t}
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-t}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right] \\
+&=
+\alpha\beta
+\mathbb{E}_{t}
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-(t+1)}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right].
+\end{aligned}
+\]
+
+From the aggregate supply curve one period ahead,
+\[
+\pi_{t+1}-\gamma\pi_t
+=
+\mu_{t+1}
++
+\mathbb{E}_{t+1}
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-(t+1)}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right].
+\]
+
+Taking $\mathbb{E}_t$ of both sides gives
+\[
+\begin{aligned}
+\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t)
+=
+&\mathbb{E}_t\mu_{t+1} \\
+&+
+\mathbb{E}_t
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-(t+1)}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right].
+\end{aligned}
+\]
+
+Since $\mu_t$ is iid,
+\[
+\mathbb{E}_t\mu_{t+1}=0.
+\]
+
+Thus,
+\[
+\begin{aligned}
+&\mathbb{E}_t
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-(t+1)}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right] \\
+&=
+\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t).
+\end{aligned}
+\]
+
+Therefore, the continuation term is
+\[
+\alpha\beta\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t).
+\]
+
+Substitute this back:
+\[
+\begin{aligned}
+\pi_t-\gamma\pi_{t-1}
+=
+&\mu_t
++
+\xi_P s_t
++
+\beta(1-\alpha)\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t) \\
+&+
+\alpha\beta\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t).
+\end{aligned}
+\]
+
+Since
+\[
+\beta(1-\alpha)+\alpha\beta=\beta,
+\]
+we obtain
+\[
+\boxed{
+\pi_t-\gamma\pi_{t-1}
+=
+\xi_P s_t
++
+\beta\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t)
++
+\mu_t.
+}
+\]
+
+Now use the monetary policy rule:
+\[
+\pi_t-\gamma\pi_{t-1}+\lambda_x x_t=\varphi_t.
+\]
+
+Since $s_t=x_t$,
+\[
+s_t
+=
+\lambda_x^{-1}
+\left[
+\varphi_t-(\pi_t-\gamma\pi_{t-1})
+\right].
+\]
+
+Substitute into
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+\xi_P s_t
++
+\beta\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t)
++
+\mu_t:
+\]
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+\xi_P\lambda_x^{-1}
+\left[
+\varphi_t-(\pi_t-\gamma\pi_{t-1})
+\right]
++
+\beta\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t)
++
+\mu_t.
+\]
+
+Rearrange:
+\[
+(1+\xi_P\lambda_x^{-1})
+(\pi_t-\gamma\pi_{t-1})
+=
+\xi_P\lambda_x^{-1}\varphi_t
++
+\beta\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t)
++
+\mu_t.
+\]
+
+Guess
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+\bar{\omega}\varphi_t
++
+(1+\xi_P\lambda_x^{-1})^{-1}\mu_t.
+\]
+
+Since
+\[
+\varphi_t=\rho\varphi_{t-1}+\epsilon_t,
+\]
+we have
+\[
+\mathbb{E}_t\varphi_{t+1}=\rho\varphi_t.
+\]
+
+Since $\mu_t$ is iid,
+\[
+\mathbb{E}_t\mu_{t+1}=0.
+\]
+
+Therefore,
+\[
+\mathbb{E}_t(\pi_{t+1}-\gamma\pi_t)
+=
+\bar{\omega}\rho\varphi_t.
+\]
+
+Substitute the guess:
+\[
+(1+\xi_P\lambda_x^{-1})
+\left[
+\bar{\omega}\varphi_t
++
+(1+\xi_P\lambda_x^{-1})^{-1}\mu_t
+\right]
+=
+\xi_P\lambda_x^{-1}\varphi_t
++
+\beta\bar{\omega}\rho\varphi_t
++
+\mu_t.
+\]
+
+Cancel the $\mu_t$ terms and match coefficients on $\varphi_t$:
+\[
+(1+\xi_P\lambda_x^{-1})\bar{\omega}
+=
+\xi_P\lambda_x^{-1}
++
+\beta\rho\bar{\omega}.
+\]
+
+Therefore,
+\[
+\boxed{
+\bar{\omega}
+=
+\frac{\xi_P\lambda_x^{-1}}
+{
+1+\xi_P\lambda_x^{-1}-\beta\rho
+}.
+}
+\]
+
+Hence,
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+\bar{\omega}\varphi_t
++
+(1+\xi_P\lambda_x^{-1})^{-1}\mu_t.
+\]
+
+Using
+\[
+\varphi_t=\rho\varphi_{t-1}+\epsilon_t,
+\]
+we get
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+\rho\bar{\omega}\varphi_{t-1}
++
+\bar{\omega}\epsilon_t
++
+(1+\xi_P\lambda_x^{-1})^{-1}\mu_t.
+\]
+
+Since
+\[
+\eta_t
+=
+\bar{\omega}\epsilon_t
++
+(1+\xi_P\lambda_x^{-1})^{-1}\mu_t,
+\]
+we obtain
+\[
+\boxed{
+\pi_t
+=
+\gamma\pi_{t-1}
++
+\rho\bar{\omega}\varphi_{t-1}
++
+\eta_t.
+}
+\]
+
+\subsection*{3(d). Long-run inflation expectations and anchoring}
+
+The subjective forecasting model is
+\[
+\pi_t
+=
+\gamma\pi_{t-1}
++
+(1-\gamma)\bar{\pi}_t
++
+\rho\bar{\omega}\varphi_{t-1}
++
+f_t.
+\]
+
+The variable $\bar{\pi}_t$ is firms' estimate of the long-run mean of inflation.
+
+The assumption
+\[
+\hat{\mathbb{E}}_t\pi_T=\bar{\pi}_t
+\qquad
+\text{for all } T\geq t
+\]
+means that firms expect long-run inflation to equal $\bar{\pi}_t$. Therefore, $\bar{\pi}_t$ is firms' long-run inflation expectation.
+
+If expectations are well anchored, temporary inflation surprises have little effect on $\bar{\pi}_t$. Long-run beliefs remain stable.
+
+If expectations are poorly anchored, short-run inflation surprises cause firms to revise $\bar{\pi}_t$. Then long-run inflation expectations move around.
+
+Thus, movements in $\bar{\pi}_t$ are informative about the anchoring of inflation expectations.
+
+\subsection*{3(e). Imperfect-knowledge inflation-generating process}
+
+Start from the aggregate supply curve:
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+\mu_t
++
+\hat{\mathbb{E}}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\left[
+\xi_P s_T
++
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T)
+\right].
+\]
+
+Separate the current marginal-cost term:
+\[
+\begin{aligned}
+\pi_t-\gamma\pi_{t-1}
+=
+&\mu_t
++
+\xi_P s_t \\
+&+
+\hat{\mathbb{E}}_{t}
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-t}
+\xi_P s_T \\
+&+
+\hat{\mathbb{E}}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T).
+\end{aligned}
+\]
+
+The current policy rule is
+\[
+\pi_t-\gamma\pi_{t-1}+\lambda_x x_t=\varphi_t.
+\]
+
+Since $s_t=x_t$,
+\[
+s_t
+=
+\lambda_x^{-1}
+\left[
+\varphi_t-(\pi_t-\gamma\pi_{t-1})
+\right].
+\]
+
+Substitute this into the current marginal-cost term:
+\[
+\begin{aligned}
+\pi_t-\gamma\pi_{t-1}
+=
+&\mu_t
++
+\xi_P\lambda_x^{-1}
+\left[
+\varphi_t-(\pi_t-\gamma\pi_{t-1})
+\right] \\
+&+
+\hat{\mathbb{E}}_{t}
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-t}
+\xi_P s_T \\
+&+
+\hat{\mathbb{E}}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T).
+\end{aligned}
+\]
+
+Move the current inflation term to the left:
+\[
+\begin{aligned}
+(1+\xi_P\lambda_x^{-1})(\pi_t-\gamma\pi_{t-1})
+=
+&\mu_t
++
+\xi_P\lambda_x^{-1}\varphi_t \\
+&+
+\hat{\mathbb{E}}_{t}
+\sum_{T=t+1}^{\infty}
+(\alpha\beta)^{T-t}
+\xi_P s_T \\
+&+
+\hat{\mathbb{E}}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T).
+\end{aligned}
+\]
+
+Now use the subjective forecasting model:
+\[
+\pi_T
+=
+\gamma\pi_{T-1}
++
+(1-\gamma)\bar{\pi}_t
++
+\rho\bar{\omega}\varphi_{T-1}
++
+f_T.
+\]
+
+Therefore,
+\[
+\pi_T-\gamma\pi_{T-1}
+=
+(1-\gamma)\bar{\pi}_t
++
+\rho\bar{\omega}\varphi_{T-1}
++
+f_T.
+\]
+
+Taking subjective expectations,
+\[
+\hat{\mathbb{E}}_t(\pi_T-\gamma\pi_{T-1})
+=
+(1-\gamma)\bar{\pi}_t
++
+\rho\bar{\omega}\hat{\mathbb{E}}_t\varphi_{T-1}.
+\]
+
+Thus,
+\[
+\hat{\mathbb{E}}_t(\pi_{T+1}-\gamma\pi_T)
+=
+(1-\gamma)\bar{\pi}_t
++
+\rho\bar{\omega}\hat{\mathbb{E}}_t\varphi_T.
+\]
+
+For future marginal cost, use
+\[
+\hat{\mathbb{E}}_{j,t}s_{T+1}
+=
+\lambda_x^{-1}
+\hat{\mathbb{E}}_t
+\left[
+\varphi_{T+1}
+-
+(\pi_{T+1}-\bar{\pi}_t)
++
+\gamma(\pi_T-\bar{\pi}_t)
+\right].
+\]
+
+Equivalently, for $T>t$,
+\[
+\hat{\mathbb{E}}_{t}s_T
+=
+\lambda_x^{-1}
+\hat{\mathbb{E}}_t
+\left[
+\varphi_T
+-
+(\pi_T-\bar{\pi}_t)
++
+\gamma(\pi_{T-1}-\bar{\pi}_t)
+\right].
+\]
+
+Inside the bracket,
+\[
+-(\pi_T-\bar{\pi}_t)
++
+\gamma(\pi_{T-1}-\bar{\pi}_t)
+=
+-\pi_T+\gamma\pi_{T-1}
++
+(1-\gamma)\bar{\pi}_t.
+\]
+
+Therefore,
+\[
+\hat{\mathbb{E}}_{t}s_T
+=
+\lambda_x^{-1}
+\hat{\mathbb{E}}_t
+\left[
+\varphi_T
+-
+(\pi_T-\gamma\pi_{T-1})
++
+(1-\gamma)\bar{\pi}_t
+\right].
+\]
+
+Using
+\[
+\hat{\mathbb{E}}_t(\pi_T-\gamma\pi_{T-1})
+=
+(1-\gamma)\bar{\pi}_t
++
+\rho\bar{\omega}\hat{\mathbb{E}}_t\varphi_{T-1},
+\]
+we get
+\[
+\hat{\mathbb{E}}_{t}s_T
+=
+\lambda_x^{-1}
+\left[
+\hat{\mathbb{E}}_t\varphi_T
+-
+\rho\bar{\omega}\hat{\mathbb{E}}_t\varphi_{T-1}
+\right].
+\]
+
+Thus, for $T>t$, future marginal-cost forecasts contain no direct $\bar{\pi}_t$ term.
+
+Therefore, the direct $\bar{\pi}_t$ term comes from
+\[
+\hat{\mathbb{E}}_{t}
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\beta(1-\alpha)(\pi_{T+1}-\gamma\pi_T).
+\]
+
+Using
+\[
+\hat{\mathbb{E}}_t(\pi_{T+1}-\gamma\pi_T)
+=
+(1-\gamma)\bar{\pi}_t
++
+\rho\bar{\omega}\hat{\mathbb{E}}_t\varphi_T,
+\]
+the $\bar{\pi}_t$ part is
+\[
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+\beta(1-\alpha)(1-\gamma)\bar{\pi}_t.
+\]
+
+Since
+\[
+\sum_{T=t}^{\infty}
+(\alpha\beta)^{T-t}
+=
+\frac{1}{1-\alpha\beta},
+\]
+this equals
+\[
+(1-\gamma)\bar{\pi}_t
+\frac{\beta(1-\alpha)}{1-\alpha\beta}.
+\]
+
+Therefore,
+\[
+(1+\xi_P\lambda_x^{-1})(\pi_t-\gamma\pi_{t-1})
+=
+(1-\gamma)\bar{\pi}_t
+\frac{\beta(1-\alpha)}{1-\alpha\beta}
++
+\text{terms involving } \varphi_t
++
+\mu_t.
+\]
+
+Divide by $1+\xi_P\lambda_x^{-1}$:
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+(1-\gamma)
+\left[
+\frac{1}{1+\xi_P\lambda_x^{-1}}
+\frac{\beta(1-\alpha)}{1-\alpha\beta}
+\right]\bar{\pi}_t
++
+\text{terms involving } \varphi_t
++
+\eta_t.
+\]
+
+Therefore,
+\[
+\pi_t-\gamma\pi_{t-1}
+=
+(1-\gamma)A\bar{\pi}_t
++
+\rho\bar{\omega}\varphi_{t-1}
++
+\eta_t,
+\]
+where
+\[
+\boxed{
+A
+=
+\frac{1}{1+\xi_P\lambda_x^{-1}}
+\frac{(1-\alpha)\beta}{1-\alpha\beta}.
+}
+\]
+
+Finally,
+\[
+\boxed{
+\pi_t
+=
+\gamma\pi_{t-1}
++
+(1-\gamma)A\bar{\pi}_t
++
+\rho\bar{\omega}\varphi_{t-1}
++
+\eta_t.
+}
+\]
+
+The coefficient $A$ measures self-referentiality. It captures how strongly firms' beliefs about long-run inflation feed into actual inflation through current price-setting. A larger $A$ means long-run beliefs have a stronger effect on realized inflation; a smaller $A$ means monetary policy weakens this feedback and helps anchor expectations.
+
+\end{document}
