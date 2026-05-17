@@ -115,7 +115,10 @@
     \begin{equation*}
         \pi_t = \beta E_t \pi_{t+1} + \kappa x_t + e_t,
     \end{equation*}
-    where $0<\beta<1$, $\kappa>0$, and $e_t$ is a cost-push shock.
+    where $0<\beta<1$, $\kappa>0$, and $e_t$ is a cost-push shock. The IS curve is given by
+    \begin{align*}
+        x_t = \mathbb{E}_t x_{t+1} - \frac{1}{\sigma} (\hat{\iota}_t - \mathbb{E}_t \pi_{t+1}) + \mu_t,
+    \end{align*}
     
     The central bank minimizes
     \begin{equation*}
@@ -124,11 +127,6 @@
     \end{equation*}
     where $\lambda>0$.
     
-    Under timeless-perspective commitment, the optimal targeting rule is
-    \begin{equation*}
-        \pi_t = -\frac{\lambda}{\kappa}(x_t-x_{t-1}).
-    \end{equation*}
-    
     Suppose the cost-push shock follows an AR(2) process:
     \begin{equation*}
         e_t = \rho_1 e_{t-1} + \rho_2 e_{t-2} + \varepsilon_t,
@@ -136,15 +134,15 @@
     where $|\rho_1|<1$ and $|\rho_2|<1$.
     
     \begin{enumerate}[label=(\alph*)]
-        \item (6 points) Derive the second-order expectational difference equation for $x_t$.
+        \item (8 points) Derive the second-order expectational difference equation for $x_t$.
         
-        \item (8 points) Guess that the solution takes the form
+        \item (10 points) Guess that the solution takes the form
         \begin{equation*}
             x_t = a x_{t-1} + b e_t + c e_{t-1}.
         \end{equation*}
         Use coefficient matching to solve for $a$, $b$, and $c$.
         
-        \item (8 points) Derive the implied solution for inflation $\pi_t$.
+        \item (4 points) Derive the implied solution for inflation $\pi_t$.
     \end{enumerate}
 
     \newpage
@@ -312,7 +310,7 @@
     \end{align*}
     where $f_t$ is a forecast error with mean zero. Assume that, under firms' subjective expectations,
     \begin{align*}
-        \hat{\mathbb{E}}_t\pi_T=\bar{\pi}_t
+        \hat{\mathbb{E}}_{t-1}\bar{\pi}_T=\bar{\pi}_t
         \qquad
         \text{for all } T\geq t.
     \end{align*}
