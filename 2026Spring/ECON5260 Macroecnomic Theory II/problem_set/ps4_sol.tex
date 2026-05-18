@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\linespread{1.5}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{hidelinks, colorlinks=true, allcolors=black}
+
+\title{ECON 5260 Problem Set 4 Solution}
+\author{Harlly Zhou}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Full mark: 60 points.
+
+\subsection*{Question 1 (24 points)}
+\begin{enumerate}
+    \item (6 points)The labour supply curve can be derived fomr the household's FOC regarding $N_t$:
+    \begin{align*}
+        \chi_t N_t^{\eta} = \frac{W_t}{P_t} C_t^{-\sigma}. \qquad ........ \quad(2 \text{ points})
+    \end{align*}
+    In the equilibrium, $N_t = Y_t/Z_t$, $C_t = Y_t$. Thus, last equation implies that
+    \begin{align*}
+        \frac{W_t}{P_t} = Z_t^{\sigma} \chi_t N_t^{\eta + \sigma}, \qquad ........ \quad(4 \text{ points})
+    \end{align*}
+    which describes the labour supply curve. A positive taste shock $\chi_t$ will decrease the labour supply $N_t$ by shift the curve upwardly. (6 points)
+
+    \item (4 points) In the flexible-price equilibrium, $W_t/P_t = Z_t/\mu$ where $\mu>1$ is the markup. From the labour supply curve, we obtain
+    \begin{align*}
+        Y_t = \mu^{-\frac{1}{\eta+\sigma}} Z_t^{\frac{1+\eta}{\eta+\sigma}}\chi_t^{-\frac{1}{\eta+\sigma}}.
+    \end{align*}
+    Log-linearization yields
+    \begin{align*}
+        \hat{y}_t^f = \frac{1+\eta}{\eta+\sigma} \hat{z}_t - \frac{1}{\eta+\sigma} \hat{\chi}_t.
+    \end{align*}
+    
+    \item (4 points)The taste shock negatively affects labour and thus output (consumption) in the flexible-price equilibrium, since it reduces the incentives of households to provide labour.
+
+    \item (10 points)The optimal decision of purchasing bonds yields
+    \begin{align*}
+        Y_t^{-\sigma} = \beta (1+i_t) \mathbb{E}_t \frac{P_t}{P_{t+1}} Y_{t+1}^{-\sigma}.
+    \end{align*}
+    Log-linearization yields:
+    \begin{align*}
+        \hat{y}_t = \mathbb{E}_t \hat{y}_{t+1} + \frac{1}{\sigma} [\mathbb{E}_t \pi_{t+1} - i_t].
+    \end{align*}
+    Define $x_t = \hat{y}_t -\hat{y}_t^f$. Then we can rewrite the last equation as
+    \begin{align*}
+        x_t = \mathbb{E}_t x_{t+1} - \frac{1}{\sigma} [i_t = \mathbb{E}_t \pi_{t+1} - r_t^n],
+    \end{align*}
+    where $r_t^n = -\sigma(\hat{y}_t^f - \mathbb{E}_t \hat{y}_{t+1}^f)$. (4 points) Using the flexible-price equilibrium expression for $y_t^f$, we can further express $r_t^n$ as
+    \begin{align*}
+        r_t^n = \sigma \frac{1+\eta}{\eta+\sigma} (\mathbb{E}_t \hat{z}_{t+1} - \hat{z}_t) - \frac{\sigma}{\eta+\sigma} (\mathbb{E}_t \hat{\chi}_{t+1} - \hat{\chi}_t). \qquad ........ \quad(6 \text{ points})
+    \end{align*}
+    The flexible-price real interest rate $r_t^n$ negatively depends on the expected change of $\hat{\chi}_t$. The intuition is that expected increasing in $\hat{\chi}_{t+1}$ with respect to $\hat{\chi}_t$ implies that currect consumption or output is greater than the value in the next period, \text{i.e.}, marginal utility for one unit extra consumption is greater in the next period. This makes household become more patient (equivalently, the stochastic discounting factor increases), which implies a lower real interest rate. (10 points)
+\end{enumerate}
+
+\subsection*{Question 2 (14 points)}
+The FOC is now
+\begin{align*}
+    \chi_t N_t^{\eta} = \psi_t \frac{W_t}{P_t} C_t^{-\sigma},
+\end{align*}
+with $N_t = Y_t/Z_t$, $C_t = Y_t$. Thus, we have
+\begin{align*}
+    \frac{W_t}{P_t} = Z_t^{\sigma} \frac{\chi_t}{\psi_t} N_t^{\eta + \sigma}. \qquad ........ \quad(4 \text{ points})
+\end{align*}
+\begin{enumerate}
+    \item A positive $\psi_t$ is like a negative $\chi_t$. It increases the labour supply due to this separable preference. (6 points)
+    \item Similarly, 
+    \begin{align*}
+        \hat{y}_t^f = \frac{1+\eta}{\eta+\sigma} \hat{z}_t - \frac{1}{\eta+\sigma} (\hat{\chi}_t-\hat{\psi}_t).
+    \end{align*}
+    The intuition is similar. (9 points)
+    \item The real marginal cost is
+    \begin{align*}
+        \hat{\varphi}_t = \eta(\hat{y}_t - \hat{z}_t) + \sigma \hat{y}_t - \hat{z}_t + \hat{\chi}_t - \hat{\psi}_t. \qquad ........ \quad(11 \text{ points})
+    \end{align*}
+    The last two terms are taste shocks. Following the derivation of (8.26), we have
+    \begin{align*}
+        \pi_t = \beta \mathbb{E}_t \pi_{t+1} + \kappa x_t + \tilde{kappa} (\hat{\chi}_t - \hat{\psi}_t). \qquad ........ \quad(14 \text{ points})
+    \end{align*}
+\end{enumerate}
+
+\subsection*{Question 3 (10 points)}
+\begin{enumerate}
+    \item (6 points) A small $\phi_\pi \leq 1$ implies the nominal iterest rate does not respond to thei nflation sufficiently. If people expect the inflation will increase, the real interest rate $i_t - \mathbb{E}_t \pi_{t+1}$ may decrease. Consequetly, demand increases and output goes up. Acording to he AS curve, the increasing $x_t$ will in turn push up the inflation rate. Therefore, the expected increasing inflation can be fulfilled. (4 points)
+    
+    Technically, the eigenvalues of coefficient matrix of $\begin{bmatrix} x_t \\ \pi_t \end{bmatrix}$ are smaller than 1, indicating that the system has sink solution instead of saddle solution. (2 points)
+
+    \item (4 points) When $\phi_x > 0$, the interest rate responds more sufficiently than the case in (a). Thatis, themoneytary policy is more counter-cyclical. As a result, lower value of $\phi_\pi$ is required to ensure the local determinancy (uniqueness of solution).
+\end{enumerate}
+
+\subsection*{Question 4 (12 points)}
+\begin{enumerate}
+    \item (9 points) Substituting $\pi_t = \gamma e_t$ into the NKPC, we obtain
+    \begin{align*}
+        \gamma e_t = \beta \rho \gamma e_t + \kappa x_t + e_t.
+    \end{align*}
+    This implies that 
+    \begin{align*}
+        x_t = \underbrace{\frac{\gamma (1-\beta \rho) -1}{\kappa}}_{\delta} e_t. \qquad ........ \quad(4 \text{ points})
+    \end{align*}
+    The objective function can be rewritten as
+    \begin{align*}
+        \min_{\gamma} \frac{1}{2} \frac{\sigma_e^2}{1-\beta} (\gamma^2 + \lambda \delta^2). \qquad ........ \quad(6 \text{ points})
+    \end{align*}
+    The FOC gives
+    \begin{align*}
+        \gamma^* = \frac{\lambda(1-\beta\rho)}{\lambda(1-\beta\rho)^2 + \kappa^2}. \qquad ........ \quad(9 \text{ points})
+    \end{align*}
+
+    \item (3 points)Substituting $\gamma^*$ into $x_t = \delta e_t$, we have
+    \begin{align*}
+        x_t = -\frac{\kappa e_t}{\lambda(1-\beta\rho)^2 + \kappa^2}.
+    \end{align*}
+\end{enumerate}
+\end{document}
