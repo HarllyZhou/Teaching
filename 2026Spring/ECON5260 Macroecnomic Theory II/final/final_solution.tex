@@ -1,0 +1,628 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{titlesec}
+
+\setstretch{1.08}
+\setlist[itemize]{leftmargin=1.5em}
+\setlist[enumerate]{leftmargin=1.5em}
+
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection.}{0.5em}{}
+
+\title{Econ 5260: Macroeconomic Theory Final Exam\\Concise Solution Key}
+\author{}
+\date{May 22, 2026}
+
+\begin{document}
+
+\maketitle
+
+\section*{Part A: Discussion Questions}
+
+\subsection*{A1. Woodford Welfare Loss and Inflation Variability \hfill 10 pts}
+
+Inflation variability enters the welfare loss because, under sticky prices, not all firms adjust prices at the same time. Hence inflation creates relative price dispersion across differentiated goods. This distorts consumption and production: goods with relatively low prices are over-consumed and over-produced, while goods with relatively high prices are under-consumed and under-produced. Therefore inflation variability is directly welfare costly.
+
+Woodford's second-order welfare approximation takes the form
+\[
+\mathbb{E}_t\sum_{i=0}^{\infty}\beta^i V_{t+i}
+\simeq
+-\Omega \mathbb{E}_t\sum_{i=0}^{\infty}\beta^i
+\left[
+\pi_{t+i}^2+\lambda (x_{t+i}-x^*)^2
+\right].
+\]
+Thus inflation stabilization is welfare-relevant because inflation creates inefficient price dispersion, not simply because the central bank dislikes inflation.
+
+\subsection*{A2. Exogenous Policy Rule and Multiple Equilibria \hfill 10 pts}
+
+The statement is true. In the New Keynesian model, if the nominal interest rate rule does not respond to endogenous variables such as inflation or the output gap, then self-fulfilling equilibria may arise.
+
+If expected inflation rises and the central bank does not raise the nominal interest rate, then the expected real interest rate falls:
+\[
+r_t=i_t-\mathbb{E}_t\pi_{t+1}.
+\]
+A lower real rate raises demand and the output gap through the IS curve:
+\[
+x_t=\mathbb{E}_tx_{t+1}-\frac{1}{\sigma}(i_t-\mathbb{E}_t\pi_{t+1})+u_t.
+\]
+A higher output gap then raises actual inflation through the NK Phillips curve:
+\[
+\pi_t=\beta \mathbb{E}_t\pi_{t+1}+\kappa x_t+e_t.
+\]
+Hence the initial inflation expectation can be validated. A Taylor-type rule that raises \(i_t\) more than one-for-one with inflation helps restore determinacy.
+
+\section*{Part B: Short Answer Questions}
+
+\subsection*{B1. Hazard Function under TDP and SDP \hfill 15 pts}
+
+Let \(T\) denote the duration of a price spell. The discrete-time hazard rate is
+\[
+h(t)=\Pr(T=t\mid T\geq t)
+=
+\frac{f(t)}{1-F(t-1)}.
+\]
+
+Under Calvo time-dependent pricing,
+\[
+h(t)=1-\omega,
+\]
+so the hazard is constant.
+
+Under fixed-duration Taylor contracts,
+\[
+h(t)=
+\begin{cases}
+0, & t<T,\\
+1, & t=T.
+\end{cases}
+\]
+
+Under state-dependent pricing, firms are more likely to adjust when their current price is far from the desired price. Therefore the hazard is usually predicted to be upward-sloping with age.
+
+Nakamura and Steinsson find that the empirical hazard is not strongly upward-sloping. This is inconsistent with simple menu-cost SDP models, which predict rising hazards. It is closer to Calvo in the sense that the hazard is not strongly increasing, but pure Calvo is also too simple. The evidence suggests heterogeneity, seasonality, and idiosyncratic shocks are important.
+
+\subsection*{B2. Sticky-Price PC vs. Sticky-Information PC \hfill 15 pts}
+
+The sticky-price Phillips curve is
+\[
+\pi_t=\beta \mathbb{E}_t\pi_{t+1}+\kappa x_t.
+\]
+Prices are fixed for some firms, but firms that reset prices use current information. Thus inflation is forward-looking.
+
+The sticky-information Phillips curve is
+\[
+\pi_t
+=
+\frac{\lambda}{1-\lambda}\alpha x_t
++
+\lambda\sum_{i=1}^{\infty}(1-\lambda)^{i-1}
+\mathbb{E}_{t-i}\left(\pi_t+\alpha\Delta x_t\right).
+\]
+Here firms may change prices, but some firms use outdated information.
+
+Both models generate sluggish aggregate price adjustment and monetary nonneutrality. The difference is that sticky-price models delay price adjustment, while sticky-information models delay information updating. Sticky information can generate more inflation persistence and hump-shaped inflation responses because firms update expectations gradually. Thus it can improve over the purely forward-looking sticky-price Phillips curve, although in practice both models often need hybrid or additional persistence mechanisms.
+
+\section*{Part C: Long Questions}
+
+\subsection*{C1. Optimal Monetary Policy in the NK Model \hfill 25 pts}
+
+The central bank minimizes
+\[
+L=\mathbb{E}_t\sum_{i=0}^{\infty}\beta^i
+\left(\pi_{t+i}^2+\lambda x_{t+i}^2\right),
+\]
+subject to
+\[
+x_t=\mathbb{E}_tx_{t+1}-\frac{1}{\sigma}(i_t-\mathbb{E}_t\pi_{t+1})+u_t,
+\]
+and
+\[
+\pi_t=\beta \mathbb{E}_t\pi_{t+1}+\kappa x_t+e_t,
+\qquad
+ e_t=\rho e_{t-1}+\varepsilon_t.
+\]
+Since the central bank chooses \(i_t\), the IS equation determines the required interest rate. The key policy tradeoff comes from the NKPC.
+
+\subsubsection*{C1(a). Optimal Commitment Policy \hfill 4 pts}
+
+The Lagrangian FOCs imply
+\[
+\pi_t+\phi_t=0,
+\]
+\[
+\pi_{t+i}+\phi_{t+i}-\phi_{t+i-1}=0,
+\qquad i\geq 1,
+\]
+and
+\[
+\lambda x_{t+i}-\kappa\phi_{t+i}=0.
+\]
+Therefore, at the initial date,
+\[
+\pi_t=-\frac{\lambda}{\kappa}x_t,
+\]
+while for future periods,
+\[
+\pi_{t+i}
+=
+-\frac{\lambda}{\kappa}(x_{t+i}-x_{t+i-1}),
+\qquad i\geq 1.
+\]
+There is dynamic inconsistency because the initial-period FOC differs from the future-period FOCs. If the central bank reoptimizes later, it will not want to honor the previously promised future policy.
+
+\subsubsection*{C1(b). Timeless Perspective \hfill 7 pts}
+
+Under the timeless perspective,
+\[
+\pi_t=-\frac{\lambda}{\kappa}(x_t-x_{t-1}).
+\]
+Substitute into the NKPC:
+\[
+-\frac{\lambda}{\kappa}(x_t-x_{t-1})
+=
+\beta \mathbb{E}_t\left[-\frac{\lambda}{\kappa}(x_{t+1}-x_t)\right]
++\kappa x_t+e_t.
+\]
+Multiplying by \(-\kappa/\lambda\),
+\[
+x_t-x_{t-1}
+=
+\beta(\mathbb{E}_tx_{t+1}-x_t)
+-\frac{\kappa^2}{\lambda}x_t
+-\frac{\kappa}{\lambda}e_t.
+\]
+Guess
+\[
+x_t=a_xx_{t-1}+b_xe_t.
+\]
+Then
+\[
+\mathbb{E}_tx_{t+1}=a_xx_t+b_x\rho e_t
+=a_x(a_xx_{t-1}+b_xe_t)+b_x\rho e_t.
+\]
+Match the coefficient on \(x_{t-1}\):
+\[
+a_x-1
+=
+\beta(a_x^2-a_x)-\frac{\kappa^2}{\lambda}a_x.
+\]
+Hence
+\[
+\beta a_x^2-\bigg(1+\beta+\frac{\kappa^2}{\lambda}\bigg)a_x+1=0.
+\]
+Equivalently,
+\[
+\beta\lambda a_x^2-\big[\lambda(1+\beta)+\kappa^2\big]a_x+\lambda=0.
+\]
+Thus
+\[
+a_x
+=
+\frac{
+\lambda(1+\beta)+\kappa^2
+\pm
+\sqrt{\big[\lambda(1+\beta)+\kappa^2\big]^2-4\beta\lambda^2}
+}{2\beta\lambda}.
+\]
+The stable solution uses the smaller root:
+\[
+a_x
+=
+\frac{
+\lambda(1+\beta)+\kappa^2
+-
+\sqrt{\big[\lambda(1+\beta)+\kappa^2\big]^2-4\beta\lambda^2}
+}{2\beta\lambda}.
+\]
+Match the coefficient on \(e_t\):
+\[
+b_x
+=
+-\frac{\kappa}{
+\lambda[1+\beta(1-\rho-a_x)]+\kappa^2
+}.
+\]
+Hence equilibrium inflation is
+\[
+\pi_t
+=
+-\frac{\lambda}{\kappa}(x_t-x_{t-1}),
+\]
+or
+\[
+\pi_t
+=
+\frac{\lambda}{\kappa}(1-a_x)x_{t-1}
++
+\frac{\lambda}{
+\lambda[1+\beta(1-\rho-a_x)]+\kappa^2
+}e_t.
+\]
+If the cost-push shock is serially uncorrelated, \(\rho=0\), a positive cost shock raises inflation and lowers the output gap today. Under commitment, the central bank promises future deflation:
+\[
+\pi_{t+1}
+=
+-\frac{\lambda}{\kappa}(x_{t+1}-x_t)<0.
+\]
+This promise lowers expected inflation today and improves the current inflation-output tradeoff.
+
+\textbf{Grading reminder:} the explicit solution for \(a_x\) requires checking that the discriminant is nonnegative and choosing the stable root.
+
+\subsubsection*{C1(c). Discretion \hfill 4 pts}
+
+Under discretion, the central bank takes expectations as given. The FOC is
+\[
+\kappa \pi_t+\lambda x_t=0.
+\]
+Thus
+\[
+\pi_t=-\frac{\lambda}{\kappa}x_t.
+\]
+Guess
+\[
+x_t=\delta e_t.
+\]
+Then
+\[
+\pi_t=-\frac{\lambda}{\kappa}\delta e_t.
+\]
+Using the NKPC,
+\[
+-\frac{\lambda}{\kappa}\delta e_t
+=
+\beta \mathbb{E}_t\pi_{t+1}
++\kappa\delta e_t+e_t.
+\]
+Since
+\[
+\mathbb{E}_t\pi_{t+1}
+=
+-\frac{\lambda}{\kappa}\delta \rho e_t,
+\]
+we get
+\[
+\delta
+=
+-\frac{\kappa}{
+\lambda(1-\beta\rho)+\kappa^2
+}.
+\]
+Therefore
+\[
+x_t^{dis}
+=
+-\frac{\kappa}{
+\lambda(1-\beta\rho)+\kappa^2
+}e_t,
+\]
+and
+\[
+\pi_t^{dis}
+=
+\frac{\lambda}{
+\lambda(1-\beta\rho)+\kappa^2
+}e_t.
+\]
+
+\subsubsection*{C1(d). Commitment vs. Discretion \hfill 4 pts}
+
+Under discretion, inflation responds more strongly to a cost-push shock because the central bank cannot commit to future deflation. Under commitment, promised future deflation lowers expected inflation today. Thus discretion has a stabilization bias:
+\[
+\frac{\partial \pi_t^{dis}}{\partial e_t}
+>
+\frac{\partial \pi_t^{commit}}{\partial e_t}.
+\]
+There is no inflation bias in this setup because the target output gap is zero:
+\[
+x^*=0.
+\]
+So the central bank does not try to push output above the flexible-price level on average.
+
+\subsubsection*{C1(e). Commitment to a Simple Rule \hfill 6 pts}
+
+Suppose the central bank commits to
+\[
+x_t=b_xe_t.
+\]
+Guess
+\[
+\pi_t=Ae_t.
+\]
+Substitute into the NKPC:
+\[
+Ae_t=\beta A\rho e_t+\kappa b_xe_t+e_t.
+\]
+Therefore
+\[
+A(1-\beta\rho)=1+\kappa b_x,
+\]
+so
+\[
+\pi_t
+=
+\frac{1+\kappa b_x}{1-\beta\rho}e_t.
+\]
+The loss is proportional to
+\[
+\left[
+\left(\frac{1+\kappa b_x}{1-\beta\rho}\right)^2
++\lambda b_x^2
+\right]e_t^2.
+\]
+FOC with respect to \(b_x\):
+\[
+\frac{2\kappa(1+\kappa b_x)}{(1-\beta\rho)^2}
++2\lambda b_x=0.
+\]
+Thus
+\[
+b_x^*
+=
+-\frac{\kappa}{
+\kappa^2+\lambda(1-\beta\rho)^2
+}.
+\]
+Hence
+\[
+\pi_t^{rule}
+=
+\frac{\lambda(1-\beta\rho)}
+{\kappa^2+\lambda(1-\beta\rho)^2}e_t.
+\]
+This rule improves on discretion because it commits the central bank to a systematic response, but it is generally weaker than full optimal commitment.
+
+\subsection*{C2. Limited Participation Model \hfill 25 pts}
+
+\subsubsection*{C2(a). Final Goods Firm \hfill 5 pts}
+
+The final goods firm solves
+\[
+\max_{\{y,y(i)\}}
+Py-\int_0^1p(i)y(i)\,di
+\]
+subject to
+\[
+y=
+\left[
+\int_0^1y(i)^\lambda di
+\right]^{1/\lambda},
+\qquad 0<\lambda<1.
+\]
+FOC:
+\[
+p(i)=P y^{1-\lambda}y(i)^{\lambda-1}.
+\]
+Therefore the demand for intermediate good \(i\) is
+\[
+y(i)
+=
+y\left(\frac{P}{p(i)}\right)^{\frac{1}{1-\lambda}}.
+\]
+The price index is
+\[
+P
+=
+\left[
+\int_0^1p(i)^{\frac{\lambda}{\lambda-1}}di
+\right]^{\frac{\lambda-1}{\lambda}}.
+\]
+
+\subsubsection*{C2(b). Intermediate Goods Firm \hfill 5 pts}
+
+The intermediate firm produces with
+\[
+y(i)=n(i).
+\]
+It must borrow to pay the wage bill:
+\[
+Wn(i)\leq L(i).
+\]
+If \(R>1\), the borrowing constraint binds:
+\[
+L(i)=Wn(i).
+\]
+Profit is
+\[
+\Pi(i)
+=
+p(i)y(i)-RWn(i).
+\]
+Since \(y(i)=n(i)\),
+\[
+\Pi(i)
+=
+[p(i)-RW]y(i).
+\]
+Using demand
+\[
+y(i)=y\left(\frac{P}{p(i)}\right)^{\frac{1}{1-\lambda}},
+\]
+the optimal price is a markup over marginal cost:
+\[
+p(i)=\frac{RW}{\lambda}.
+\]
+Thus the loan rate raises effective marginal cost from \(W\) to \(RW\).
+
+\subsubsection*{C2(c). Financial Intermediary \hfill 3 pts}
+
+The intermediary receives household deposits \(D_t\) and monetary injection \(X_t\). It lends \(L_t\) to firms. Its profit is
+\[
+\Pi_t=(R_t-1)L_t-(R_t-1)(D_t+X_t).
+\]
+Equivalently,
+\[
+\Pi_t=(1-R_t)(D_t+X_t-L_t),
+\]
+subject to
+\[
+L_t\leq D_t+X_t.
+\]
+If \(R_t>1\), the intermediary lends all available funds:
+\[
+L_t=D_t+X_t.
+\]
+
+\subsubsection*{C2(d). Stationary Equilibrium and Liquidity Effect \hfill 7 pts}
+
+Define stationary real variables:
+\[
+d=\frac{D}{M},
+\qquad
+x=\frac{X}{M},
+\qquad
+p=\frac{P}{M},
+\qquad
+w=\frac{W}{M}.
+\]
+Goods market clearing implies
+\[
+c=y=n.
+\]
+Cash-in-advance implies
+\[
+Pc=M+X,
+\]
+so
+\[
+pc=1+x.
+\]
+Loan market clearing gives
+\[
+L=D+X.
+\]
+Since firms borrow the wage bill,
+\[
+L=Wn.
+\]
+Therefore
+\[
+Wn=D+X.
+\]
+Divide by \(Pc\). Since \(n=c\),
+\[
+\frac{W}{P}
+=
+\frac{d+x}{1+x}.
+\]
+Firm pricing implies
+\[
+P=\frac{RW}{\lambda},
+\]
+so
+\[
+\frac{W}{P}=\frac{\lambda}{R}.
+\]
+Therefore
+\[
+\frac{\lambda}{R}
+=
+\frac{d+x}{1+x}.
+\]
+Hence
+\[
+R
+=
+\lambda\frac{1+x}{d+x}.
+\]
+The liquidity effect is
+\[
+\frac{\partial R}{\partial x}
+=
+\lambda\frac{d-1}{(d+x)^2}.
+\]
+If \(d<1\), then
+\[
+\frac{\partial R}{\partial x}<0.
+\]
+Thus a monetary injection lowers the nominal interest rate.
+
+Household intratemporal optimality gives
+\[
+c^{\sigma+\psi}=\frac{W}{P}.
+\]
+Therefore
+\[
+c^{\sigma+\psi}
+=
+\frac{d+x}{1+x},
+\]
+and
+\[
+c=y=n
+=
+\left(\frac{d+x}{1+x}\right)^{\frac{1}{\sigma+\psi}}.
+\]
+If \(d<1\), then output rises with the monetary injection:
+\[
+\frac{\partial y}{\partial x}>0.
+\]
+Thus the model generates both a liquidity effect and a real expansion from a monetary injection because households cannot adjust deposits contemporaneously.
+
+\subsubsection*{C2(e). Solving for Deposits \hfill 5 pts}
+
+The household Euler equation in stationary equilibrium implies
+\[
+1
+=
+\beta\lambda \mathbb{E}_t\left(\frac{1}{d+x_{t+1}}\right).
+\]
+If
+\[
+x\in\{x_l,x_h\},
+\qquad
+\Pr(x_l)=\Pr(x_h)=\frac12,
+\]
+then
+\[
+1
+=
+\frac{\beta\lambda}{2}
+\left[
+\frac{1}{d+x_l}
++
+\frac{1}{d+x_h}
+\right].
+\]
+Multiply both sides:
+\[
+2(d+x_l)(d+x_h)
+=
+\beta\lambda(2d+x_l+x_h).
+\]
+This gives the quadratic equation
+\[
+d^2
++
+(x_l+x_h-\beta\lambda)d
++
+x_lx_h
+-\frac{\beta\lambda}{2}(x_l+x_h)
+=
+0.
+\]
+Thus
+\[
+d
+=
+\frac{
+\beta\lambda-(x_l+x_h)
+\pm
+\sqrt{
+(\beta\lambda)^2+(x_h-x_l)^2
+}
+}{2}.
+\]
+Choose the economically valid root satisfying
+\[
+0\leq d\leq 1.
+\]
+
+\textbf{Grading reminder:} this step requires checking that the discriminant is nonnegative and selecting the economically admissible root.
+
+\end{document}
