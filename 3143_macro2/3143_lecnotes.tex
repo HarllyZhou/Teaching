@@ -67,7 +67,7 @@
 
 \mainmatter
 
-\chapter{The Solow Model}
+\chapter{The Solow Model}\label{chap:solow}
 This chapter discusses long-run economic growth using a fundamental growth model: the Solow model. We start this chapter by some motivating facts from data. Then we solve for the baseline version model and study the steady state of the model. The baseline model implies no long-run growth, which motivates the augmented Solow model. We introduce the concept of balanced growth path and conclude the chapter by the result that the only way for the economy to grow over the long run is from growth in productivity and population, while productivity growth is a must for per capital variables to grow. 
 
 \section{Production Function and Growth Accounting}
@@ -444,14 +444,14 @@ A natural question to ask is whether this steady state always exsits and is uniq
 It is intuitive to conjecture that the answer to the second question is yes, and the economy will converge to the steady state. Figure \ref{fig:basic_solow_convergence} plots the convergence path of the economy from two different initial capital stocks.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_convergence.png}
+    \includegraphics[width=0.8\textwidth]{figuretable/solow/basic_solow_convergence.png}
     \caption{Convergence path of the Solow model}
     \label{fig:basic_solow_convergence}
 \end{figure}
  Starting from an initial level $k_0$ on the horizontal axis, move vertically to the law-of-motion curve $k_{t+1} = sA f(k_t) + (1-\delta)k_t$ to obtain $k_1$, then move horizontally to the 45-degree line $k_{t+1} = k_t$. Repeating these vertical and horizontal steps generates the sequence $\{k_t\}$. When $k_t < k^*$, the law-of-motion curve lies above the 45-degree line, implying $k_{t+1} > k_t$ and convergence from below. When $k_t > k^*$, the curve lies below the 45-degree line, implying $k_{t+1} < k_t$ and convergence from above. We can also see the convergence pattern if we plot the time series of $k_t$ in Figure \ref{fig:basic_solow_k_dynamics}.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figuretable/solow/basic_solow_k_dynamics.png}
+    \includegraphics[width=0.8\textwidth]{figuretable/solow/basic_solow_k_dynamics.png}
     \caption{Dynamics of capital in the Solow model}
     \label{fig:basic_solow_k_dynamics}
 \end{figure}
@@ -586,7 +586,7 @@ Therefore, as capital gradually increases, the real wage increases to the new st
 \end{exercise}
 
 \subsection{Golden Rule}
-As we discussed in the effect of an increase in saving rate, the effect on consumption is indeterminate. However, it is just the two counterforces that make it possible to generate an optimality condition for the saving rate, that is, the saving rate that maximizes the steady state consumption, called the \textbf{golden rule} of saving rate, denoted by $s_{GR}$.
+As we discussed in the effect of an increase in saving rate, the effect on consumption is indeterminate. However, it is just the two countervailing forces that make it possible to generate an optimality condition for the saving rate, that is, the saving rate that maximizes the steady state consumption, called the \textbf{golden rule} of saving rate, denoted by $s_{GR}$.
 
 Consider the steady-state consumption $c^* = (1-s) y^*$. Expanding the terms, we get
 \begin{align*}
@@ -594,7 +594,7 @@ Consider the steady-state consumption $c^* = (1-s) y^*$. Expanding the terms, we
 \end{align*}
 where $k^*$ is also a function of $s$. Taking {\color{red} total derivative} with respect to $s$, we get
 \begin{align}\label{eq:dc_ds}
-    \frac{d c^*}{d s} = -A f(k^*) + (1-s) A f'(k^*) \frac{\partial k^*}{partial s}.
+    \frac{d c^*}{d s} = -A f(k^*) + (1-s) A f'(k^*) \frac{\partial k^*}{\partial s}.
 \end{align}
 Recall that we have in \eqref{eq:k_ss_general} that
 \begin{align*}
@@ -936,7 +936,34 @@ Patterns are similar to the basic Solow model.
     We will revisit this paper in the next chapter.
 \end{task}
 
-\chapter{Testing Solow Model and Endogenous Growth Models}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Testing Solow Model and Endogenous Growth Models}\label{chap:testing_solow_and_endogenous_growth}
+
+In Chapter \ref{chap:solow}, we notice that there is convergence implied by the model. Does this implication hold in data? Also, countries around the world have different growth rates and levels of output. How do economists explain this heterogeneity? Moreover, are there any weaknesses in the Solow model? Is there any alternative model that can explain the data better? This chapter will answer these questions.
+
+\section{Testing the Solow Model}
+To simplify the discussion, we will assume that the production function is Cobb-Douglas: $y_t = A k_t^{\alpha}$ with population growth rate $n$. As a result, the steady state of output per labour is given by
+\begin{align*}
+    y^* = A \left(\frac{sA}{n+\delta}\right)^{\frac{\alpha}{1-\alpha}}.
+\end{align*}
+\subsection{Theoretical Foundations}
+Suppose that there are two countries, $i$ and $j$, with identical $s$, $A$, $n$, and $\delta$. Can we guarantee that $y_i^* = y_j^*$? The answer is no. In fact, we only have this property \textcolor{red}{at steady state}. In transitional dynamics, with different initial capital stocks per labour, the two countries will have different convergence paths. 
+
+% Figure showing the convergence paths of the two countries
+
+\subsection{Empirical Evidence}
+As the Solow model predicts that countries with similar initial conditions should have similar output growth, we would like to find a group of countires with similar initial conditions, that is, the \textit{OECD countries}. This convergence is called the \textbf{conditional convergence}, or the \textbf{club convergence}, where ``club'' refers to the fact that these countries are like a club with similar characteristics.
+
+% Figure OECD countries convergence
+
+What about non-OECD countries? 
+
+% Figure non-OECD countries convergence
+
+
+
 
 % Content here
 
