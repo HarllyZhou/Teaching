@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{setspace}
+\onehalfspacing
+
+\title{Fixed Effects Illustration:\\Minimum Wage and Unemployment}
+\author{ECON 4999B Course Material}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Data}
+
+We use a balanced panel of 26 regions (A--Z) and 27 years (2000--2026), for
+$26 \times 27 = 702$ observations. The outcome variable is
+\texttt{unemployment\_rate} (percent) and the regressor of interest is
+\texttt{min\_wage} (dollars).
+
+\section{Specifications}
+
+We estimate
+\begin{equation}
+    \text{unemployment\_rate}_{it} = \alpha + \beta\,\text{min\_wage}_{it}
+    + \mu_i + \lambda_t + \varepsilon_{it},
+\end{equation}
+where $\mu_i$ denotes region fixed effects and $\lambda_t$ denotes year fixed
+effects. The four columns differ by which fixed effects are included:
+\begin{enumerate}
+    \item[(1)] pooled OLS (no fixed effects);
+    \item[(2)] year fixed effects only;
+    \item[(3)] region fixed effects only;
+    \item[(4)] region and year fixed effects (two-way FE).
+\end{enumerate}
+All models use heteroskedasticity-robust standard errors (HC1).
+
+\section{Results}
+
+\begin{table}[htbp]
+\centering
+\caption{Effect of minimum wage on unemployment under alternative specifications}
+\label{tab:fe_results}
+\begin{tabular}{lcccc}
+\toprule
+ & (1) & (2) & (3) & (4) \\
+\midrule
+\multicolumn{5}{l}{\textit{Dependent variable: unemployment rate (\%)}} \\
+\addlinespace
+Min wage & -0.371*** & -0.530*** & 0.039 & 0.174** \\
+ & (0.023) & (0.017) & (0.030) & (0.081) \\
+\addlinespace
+Fixed effects & None & Year & Region & Region, Year \\
+Observations & \multicolumn{4}{c}{702} \\
+$R^2$ & 0.237 & 0.702 & 0.588 & 0.941 \\
+Adjusted $R^2$ & 0.236 & 0.690 & 0.572 & 0.936 \\
+\bottomrule
+\end{tabular}
+
+\medskip
+\footnotesize
+\textit{Notes:} HC1 robust standard errors in parentheses.
+$^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$.
+\end{table}
+
+\section{Discussion}
+
+Without fixed effects, the estimated minimum-wage coefficient reflects both
+within-region variation and persistent cross-region differences. Regions with
+historically higher minimum wages also differ in other ways (industry mix,
+demographics, labor-market institutions), so the pooled estimate can be
+misleading.
+
+Adding region fixed effects (column 3) uses only within-region changes in the
+minimum wage, removing time-invariant regional confounders. Adding year fixed
+effects (column 2) removes common macro shocks shared by all regions in a given
+year. Two-way fixed effects (column 4) combine both: identification comes from
+region-specific deviations from national trends.
+
+In this synthetic dataset, the pooled estimate is negative because high-wage
+regions have lower baseline unemployment for reasons unrelated to minimum-wage
+changes. Once region fixed effects are included, the coefficient turns positive,
+consistent with the within-region relationship built into the data-generating
+process.
+
+\end{document}
