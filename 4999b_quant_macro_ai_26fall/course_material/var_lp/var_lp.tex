@@ -451,7 +451,7 @@ where $y$ is the variable of interest, $x$ is the structural shock, and $\vec{W}
 \begin{align*}
     IRF = \{\beta_0^{(0)}, \beta_0^{(1)}, \ldots, \beta_0^{(H)}\}.
 \end{align*}
-You can also use Monte Carlo or Bootstrap to construct confidence bands for the IRF.
+You can also use Bootstrap to construct confidence bands for the IRF.
 
 \begin{figure}[H]
     \centering
@@ -460,6 +460,6 @@ You can also use Monte Carlo or Bootstrap to construct confidence bands for the 
     \label{fig:lp-var-gdp-mp}
 \end{figure}
 
-Figure \ref{fig:lp-var-gdp-mp} uses the Cholesky monetary policy shock recovered above as $x_t$. The local projection regression controls for three lags of GDP growth, inflation, and the federal funds rate. The blue shaded area is a pointwise $90\%$ Monte Carlo confidence band for the local projection estimate. The dashed red line is the VAR impulse response computed from the same Cholesky identification; no confidence band is shown for the VAR response in this figure.
+Figure \ref{fig:lp-var-gdp-mp} uses the Cholesky monetary policy shock recovered above as $x_t$. The blue shaded area is a pointwise $90\%$ residual-bootstrap confidence band for the local projection estimate. The dashed red line is the VAR impulse response computed from the same Cholesky identification; no confidence band is shown for the VAR response in this figure.
 
 \end{document}
